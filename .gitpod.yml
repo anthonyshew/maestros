@@ -1,6 +1,6 @@
 tasks:
-  - init: yarn install && yarn contentlayer build && gp open content/index.mdx
-    command: yarn dev
+  - init: yarn install && yarn contentlayer build
+    command: gp open content/index.mdx && yarn dev
 
 ports:
   - port: 3000
