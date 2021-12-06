@@ -1,4 +1,4 @@
-# MDX Example
+# Next.js Contentlayer Example (with MDX)
 
 ## Usage
 
@@ -6,13 +6,12 @@
 
 #### Either via Gitpod ...
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](http://gitpod.io/#GH_OWNER=contentlayerdev,GH_REPO=contentlayer,GH_SUBDIR=examples\mdx,GH_COMMAND=yarn/https://github.com/schickling-test/gitpod-open)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](http://gitpod.io/#https://github.com/contentlayerdev/next-contentlayer-example)
 
 #### ... or locally
 
 ```sh
-curl https://codeload.github.com/contentlayerdev/contentlayer/tar.gz/main | \
-  tar -xz --strip=2 contentlayer-main/examples/mdx
+git clone git@github.com:contentlayerdev/next-contentlayer-example.git
 ```
 
 ### 2. Install dependencies
