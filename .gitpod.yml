@@ -1,5 +1,11 @@
 tasks:
-  - init: yarn install
+  - init: yarn install && yarn contentlayer build
+    command: yarn dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+
 github:
   prebuilds:
     addCheck: true
