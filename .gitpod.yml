@@ -1,5 +1,5 @@
 tasks:
-  - init: yarn install && yarn contentlayer build
+  - init: yarn install && yarn contentlayer build && gp open content/index.mdx
     command: yarn dev
 
 ports:
