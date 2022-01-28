@@ -1,27 +1,23 @@
 # Next.js Contentlayer Example (with MDX)
 
-## Usage
+## Demo
 
-### 1. Setup example project
+View the deployed project: [next-contentlayer-example.netlify.app](https://next-contentlayer-example.netlify.app/)
 
-#### Either via Gitpod ...
+## Try it Now
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](http://gitpod.io/#https://github.com/contentlayerdev/next-contentlayer-example)
 
-#### ... or locally
+## Local Installation
 
-```sh
-git clone git@github.com:contentlayerdev/next-contentlayer-example.git
-```
+Clone the project:
 
-### 2. Install dependencies
+    git clone git@github.com:contentlayerdev/next-contentlayer-example.git
 
-```sh
-yarn
-```
+Install dependencies:
 
-### 3. Run dev server
+    yarn
 
-```sh
-yarn dev
-```
+Run dev server:
+
+    yarn dev
