@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 
@@ -28,24 +27,14 @@ const PostLayout = ({ post }: { post: Post }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article className="max-w-2xl mx-auto py-16">
-        <div className="text-center mb-6">
-          <Link href="/">
-            <a className="text-sm text-blue-700 uppercase font-bold text-center">
-              Home
-            </a>
-          </Link>
-        </div>
-        <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold mb-1">{post.title}</h1>
-          <time dateTime={post.date} className="text-sm text-gray-600">
+      <article className="max-w-xl mx-auto py-8">
+        <div className="text-center mb-8">
+          <time dateTime={post.date} className="text-xs text-gray-600 mb-1">
             {format(parseISO(post.date), "LLLL d, yyyy")}
           </time>
+          <h1>{post.title}</h1>
         </div>
-        <div
-          className="cl-post-body"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
     </>
   );
