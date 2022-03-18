@@ -3,3 +3,4 @@ dist
 .next
 .contentlayer
 yarn.lock
+.DS_Store
