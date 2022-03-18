@@ -1,4 +1,4 @@
-# Next.js Contentlayer Example (with MDX)
+# Next.js Contentlayer Example
 
 ## Demo
 

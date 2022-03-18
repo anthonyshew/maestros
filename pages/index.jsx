@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts } from ".contentlayer/data";
+import { allPosts } from "contentlayer/generated";
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
