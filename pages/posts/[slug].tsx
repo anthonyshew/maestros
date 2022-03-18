@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
+import { allPosts, Post } from "contentlayer/generated";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => post.url);
@@ -20,7 +20,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const PostLayout = ({ post }) => {
+const PostLayout = ({ post }: { post: Post }) => {
   return (
     <>
       <Head>
