@@ -26,7 +26,7 @@ function Logo() {
         <span className="mr-2">
           <Icon />
         </span>
-        <span class="font-bold">Contentlayer</span>
+        <span className="font-bold">Contentlayer</span>
       </a>
     </Link>
   );
