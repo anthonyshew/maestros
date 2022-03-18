@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
+import { allPosts, Post } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
+  const posts: Post[] = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
   return { props: { posts } };
 }
 
-function PostCard(post) {
+function PostCard(post: Post) {
   return (
     <div className="mb-6">
       <time dateTime={post.date} className="block text-sm text-gray-600">
@@ -25,7 +25,7 @@ function PostCard(post) {
   );
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts }: { posts: Post[] }) {
   return (
     <div className="max-w-2xl mx-auto py-16 text-center">
       <Head>
