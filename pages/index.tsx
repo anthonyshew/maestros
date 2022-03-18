@@ -27,12 +27,8 @@ function PostCard(post: Post) {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <div className="max-w-2xl mx-auto py-16 text-center">
-      <Head>
-        <title>Contentlayer Blog Example</title>
-      </Head>
-
-      <h1 className="text-3xl font-bold mb-8">Contentlayer Blog Example</h1>
+    <div className="max-w-2xl mx-auto py-8 text-center">
+      <h1 className="text-3xl font-bold mb-8">Next.js Example</h1>
 
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
