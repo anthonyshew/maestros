@@ -2,7 +2,7 @@
 
 ## Demo
 
-View the deployed project: [next-contentlayer-example.netlify.app](https://next-contentlayer-example.netlify.app/)
+View the deployed project: [Demo](https://next-contentlayer-example.vercel.app/)
 
 ## Try it Now
 
