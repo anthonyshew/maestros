@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "contentlayer": "latest",
+    "date-fns": "2.29.1",
     "next": "12.2.3",
     "next-contentlayer": "latest",
     "react": "18.2.0",
