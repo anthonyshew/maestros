@@ -14,6 +14,7 @@
     "clsx": "^1.2.1",
     "contentlayer": "latest",
     "date-fns": "^2.29.3",
+    "framer-motion": "^8.5.5",
     "lucide-react": "^0.108.0",
     "next": "latest",
     "next-contentlayer": "latest",
