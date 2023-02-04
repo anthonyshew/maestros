@@ -4,5 +4,9 @@ export default function Page({ params }: { params: { slide: string } }) {
 
   const slideContent = slides[Number(slide) - 1];
 
-  return <>{slideContent.items.map((item) => item)}</>;
+  return (
+    <div className="flex items-center justify-center w-full min-h-screen">
+      {slideContent.items.map((item) => item)}
+    </div>
+  );
 }

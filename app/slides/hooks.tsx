@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useCallback } from "react";
 
 export function useKeyPress(callback: () => void, keys: string[]): void {

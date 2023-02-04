@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex items-center content-center justify-center min-w-full min-h-screen bg-black">
+    <main className="flex items-center content-center justify-center min-w-full min-h-screen ">
       <div className="flex flex-col gap-4">
         <p>Welcome to my slides.</p>
         <p>
