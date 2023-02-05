@@ -3,17 +3,10 @@ import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
+import { getPost } from "./getPost";
 
 export const generateStaticParams = () =>
   allPosts.map((post) => ({ slug: post.slug }));
-
-const getPost = (slug: string) => {
-  const post = allPosts.find((post) => {
-    return post.slug === slug;
-  });
-
-  return post;
-};
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = getPost(params.slug);
