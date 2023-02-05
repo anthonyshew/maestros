@@ -20,7 +20,19 @@ const Slide = defineDocumentType(() => ({
       description: "Position of the slide in the deck. First, second, third, etc.",
       required: true
     }
-  }
+  },
+  computedFields: {
+    deck: {
+      type: 'string',
+      // The split is for handling the file structure
+      // e.g. /slides/abc drops the "/slides/" to become "abc"
+      resolve: (doc) => {
+        console.log(doc._raw)
+        return doc._raw.flattenedPath.split("/")[1]
+      }
+    },
+  },
+
 }))
 
 const Post = defineDocumentType(() => ({
