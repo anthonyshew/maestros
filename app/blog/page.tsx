@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
+import { allBlogPosts, BlogPost } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
 
-function PostCard(post: Post) {
+function PostCard(post: BlogPost) {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
@@ -27,7 +27,7 @@ function PostCard(post: Post) {
 }
 
 export default function Home() {
-  const posts: Post[] = allPosts.sort((a, b) => {
+  const posts: BlogPost[] = allBlogPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
 

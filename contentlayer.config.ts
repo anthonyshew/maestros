@@ -26,18 +26,15 @@ const Slide = defineDocumentType(() => ({
       type: 'string',
       // The split is for handling the file structure
       // e.g. /slides/abc drops the "/slides/" to become "abc"
-      resolve: (doc) => {
-        console.log(doc._raw)
-        return doc._raw.flattenedPath.split("/")[1]
-      }
+      resolve: (doc) => doc._raw.flattenedPath.split("/")[1]
     },
   },
 
 }))
 
-const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `posts/**/*.mdx`,
+const BlogPost = defineDocumentType(() => ({
+  name: 'BlogPost',
+  filePathPattern: `blog/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -63,5 +60,5 @@ const Post = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Slide],
+  documentTypes: [BlogPost, Slide],
 })
