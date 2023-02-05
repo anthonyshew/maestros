@@ -1,6 +1,6 @@
 "use client";
 
-import { allSlides } from "contentlayer/generated";
+import { useNextSlideKeyPress, usePrevSlideKeyPress } from "./hooks";
 import { useRouter, notFound } from "next/navigation";
 import { firaCode } from "../../../fonts";
 import { useKeyPress } from "../../hooks";
@@ -13,22 +13,9 @@ export default function RootLayout({
   params: { slideNumber: string; deck: string };
 }) {
   const { slideNumber, deck } = params;
-  const { push } = useRouter();
-  useKeyPress(
-    () =>
-      push(
-        `/slides/${deck}/${Math.min(
-          Number(params.slideNumber) + 1,
-          allSlides.filter((slide) => slide.deck === deck).length
-        )}`
-      ),
-    ["ArrowRight"]
-  );
-  useKeyPress(
-    () =>
-      push(`/slides/${deck}/${Math.max(Number(params.slideNumber) - 1, 1)}`),
-    ["ArrowLeft"]
-  );
+
+  useNextSlideKeyPress({ currentSlide: Number(slideNumber), deck });
+  usePrevSlideKeyPress({ currentSlide: Number(slideNumber), deck });
 
   if (isNaN(Number(slideNumber))) return notFound();
 
