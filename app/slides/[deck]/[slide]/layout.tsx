@@ -1,7 +1,7 @@
 "use client";
 
+import { allSlides } from "contentlayer/generated";
 import { useRouter, notFound } from "next/navigation";
-import slides from "../slides";
 import { firaCode } from "../../../fonts";
 import { useKeyPress } from "../../hooks";
 
@@ -19,7 +19,7 @@ export default function RootLayout({
       push(
         `/slides/react-miami-2023/${Math.min(
           Number(params.slide) + 1,
-          slides.length
+          allSlides.length
         )}`
       ),
     ["ArrowRight"]
@@ -31,9 +31,9 @@ export default function RootLayout({
   );
 
   if (isNaN(Number(slide))) return notFound();
-  if (!slides[Number(slide) - 1]) return notFound();
+  if (!allSlides[Number(slide) - 1]) return notFound();
 
-  const slideContent = slides[Number(slide) - 1];
+  const slideContent = allSlides[Number(slide) - 1];
 
   return (
     <>

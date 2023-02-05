@@ -24,14 +24,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           LALALALL
         </motion.div>
       </div>
-      <AnimatePresence
-        mode="wait"
-        initial={false}
-        onExitComplete={() => console.log("asdijfajf")}
-      >
+      <AnimatePresence mode="wait" initial={false}>
         {isVisible ? (
           <motion.div
-            key="lalal"
+            key="testing"
             initial={{ opacity: 0 }}
             transition={{ duration: 2 }}
             animate={{ opacity: 1 }}

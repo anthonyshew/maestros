@@ -11,7 +11,7 @@ function PostCard(post: Post) {
     <div className="mb-8">
       <h2 className="text-xl">
         <Link
-          href={post.route}
+          href={post._raw.flattenedPath}
           className="text-blue-700 hover:text-blue-900"
           legacyBehavior
         >
@@ -30,10 +30,10 @@ export default function Home() {
   const posts: Post[] = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
+
   return (
     <div className="max-w-xl py-8 mx-auto">
       <h1 className="mb-8 text-3xl font-bold text-center">Next.js Example</h1>
-
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}

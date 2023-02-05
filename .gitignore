@@ -4,3 +4,5 @@ dist
 .contentlayer
 yarn.lock
 .DS_Store
+
+tsconfig.tsbuildinfo
