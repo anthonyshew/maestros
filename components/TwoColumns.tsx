@@ -1,12 +1,12 @@
 import React from "react";
 
-export interface GridProps {
+export interface TwoColumnsProps {
   items: React.ReactNode[];
 }
 
-export const Grid = ({ items }: GridProps) => {
+export const TwoColumns = ({ items }: TwoColumnsProps) => {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
       {items.map((item, index) => (
         <React.Fragment key={index}>{item}</React.Fragment>
       ))}

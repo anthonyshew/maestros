@@ -1,9 +1,9 @@
 "use client";
 
+import { allSlides } from "contentlayer/generated";
 import { useNextSlideKeyPress, usePrevSlideKeyPress } from "./hooks";
-import { useRouter, notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import { firaCode } from "../../../fonts";
-import { useKeyPress } from "../../hooks";
 
 export default function RootLayout({
   children,
@@ -19,11 +19,15 @@ export default function RootLayout({
 
   if (isNaN(Number(slideNumber))) return notFound();
 
+  const slideContent = allSlides
+    .filter((slide) => slide.deck === deck)
+    .filter((slide) => slide.order === Number(slideNumber))[0];
+
   return (
     <>
       <p className={`${firaCode.className} absolute top-4 left-4`}>
         <span className="text-white">anthonyshew 👟</span>
-        {/* <span className="ml-2 text-gray-800">{slideContent.cliFlair}</span> */}
+        <span className="ml-2 text-gray-800">~/{slideContent.cliFlair}</span>
       </p>
       <div>{children}</div>
     </>
