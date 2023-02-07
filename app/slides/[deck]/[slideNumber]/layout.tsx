@@ -23,6 +23,8 @@ export default function RootLayout({
     .filter((slide) => slide.deck === deck)
     .filter((slide) => slide.order === Number(slideNumber))[0];
 
+  if (!slideContent) return notFound();
+
   return (
     <>
       <p className={`${firaCode.className} absolute top-4 left-4`}>

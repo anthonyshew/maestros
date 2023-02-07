@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
+import { allBlogPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
 import { getPost } from "./getPost";
 
 export const generateStaticParams = () =>
-  allPosts.map((post) => ({ slug: post.slug }));
+  allBlogPosts.map((post) => ({ slug: post.slug }));
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = getPost(params.slug);

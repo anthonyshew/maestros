@@ -19,11 +19,14 @@
     "lucide-react": "^0.108.0",
     "next": "latest",
     "next-contentlayer": "latest",
+    "encoding": "^0.1.13",
+    "octokit": "^2.0.14",
     "react": "latest",
     "react-dom": "latest",
     "react-wrap-balancer": "^0.4.0",
     "tailwind-merge": "^1.9.0",
-    "tailwindcss-animate": "^1.0.5"
+    "tailwindcss-animate": "^1.0.5",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
