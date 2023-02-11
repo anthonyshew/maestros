@@ -29,36 +29,15 @@ export default async function Home() {
         </Avatar>
         <div className="my-auto">
           <h1 className="m-0 text-4xl text-black">Anthony Shew</h1>
-          <p className={`${firaCode.className} m-0`}>
+          <p className={`m-0 mt-1 ${firaCode.className}`}>
             Engineer. Creator. Educator.
           </p>
         </div>
       </div>
-      <hr className="mt-8 mb-4" />
-      <div className="flex flex-row justify-center gap-8">
-        <a
-          className="flex flex-row gap-2 my-4"
-          href="https://twitter.com/anthonysheww"
-          target="_blank"
-          rel="nooopener noreferrer"
-        >
-          <Twitter /> Follow me on Twitter!
-        </a>
-
-        <a
-          className="flex flex-row gap-2 my-4"
-          href="https://github.com/anthonyshew"
-          target="_blank"
-          rel="nooopener noreferrer"
-        >
-          <Github /> Laugh at my bugs!
-        </a>
-      </div>
-      <hr className="mt-4 mb-8" />
-      <div className="max-w-2xl mx-auto prose md:prose-lg">
+      <div className="max-w-2xl mx-auto mt-8 prose ">
         <p>
           Hey, I'm Anthony. I played professional baseball for six years and now
-          I write software. Currently working at Vercel as a Content Engineer.
+          I write software. Currently at Vercel as a Content Engineer.
         </p>
 
         <p>
@@ -66,13 +45,32 @@ export default async function Home() {
           performance skills. I also love shipping.
         </p>
 
-        <p>
-          In my spare time, I like to make content, contribute to open source,
-          play guitar, and play hockey.
-        </p>
+        <hr className="mt-8 mb-4" />
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-8">
+          <a
+            className="flex flex-row gap-2 my-4 hover:underline"
+            href="https://twitter.com/anthonysheww"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Twitter /> Follow me on Twitter!
+          </a>
+
+          <a
+            className="flex flex-row gap-2 my-4 hover:underline"
+            href="https://github.com/anthonyshew"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Github /> Laugh at my bugs!
+          </a>
+        </div>
+        <hr className="mt-4 mb-8" />
       </div>
 
-      <h2 className="my-6 text-2xl text-black">Core team member of...</h2>
+      <h2 className="my-6 text-2xl font-semibold text-black">
+        Core team member of...
+      </h2>
 
       <div className="flex flex-row flex-wrap justify-center gap-8">
         {data.map((repo) => (

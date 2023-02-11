@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} min-h-screen antialiased `}>
+    <html lang="en" className={`min-h-screen ${inter.className} antialiased`}>
       <body className="container min-h-screen mx-auto text-slate-700">
         {children}
         <AnalyticsWrapper />

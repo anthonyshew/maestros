@@ -44,44 +44,44 @@ const IconLine = ({ icon, stat }: { icon: "Fork" | "Star"; stat: string }) => {
 export const RepoCard = (repo: PinnedRepos) => {
   return (
     <div className="flex flex-row justify-center w-full lg:w-60">
-      <div className="flex flex-col gap-8 p-6 border shadow-lg w-60 rounded-xl border-slate-300 bg-slate-50">
-        <div className="flex flex-row justify-between">
-          <Avatar key={repo.repo}>
+      <div className="flex flex-col justify-around w-full gap-8 p-6 border rounded shadow-lg lg:justify-between ">
+        <div className="flex flex-row justify-center gap-8 lg:justify-between">
+          <Avatar key={repo.repo} className="shadow-xl">
             <AvatarImage src={logos[repo.repo]} />
             <AvatarFallback></AvatarFallback>
           </Avatar>
-          <p
-            className={`my-auto font-bold text-slate-800 ${firaCode.className}`}
-          >
+          <p className={`my-auto  text-slate-800 tracking-wider`}>
             {repo.owner}/{repo.repo}
           </p>
         </div>
-        <div className="flex flex-row justify-around">
-          <IconLine icon="Fork" stat={repo.forks} />
-          <IconLine icon="Star" stat={repo.stars} />
-        </div>
-        <div className="flex flex-row justify-around gap-4">
-          <a href={repo.link} target="_blank" rel="noopener noreferrer">
-            <IconBox className="relative">
-              <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-              <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
-                <ExternalLink className="inline h-3 my-auto" />
-              </span>
-            </IconBox>
-          </a>
-
-          <div>
-            <a href={repo.website} target="_blank" rel="noopener noreferrer">
+        <div className="flex flex-col justify-around gap-8 lg:flex-col sm:flex-row">
+          <div className="flex flex-row justify-around w-full">
+            <IconLine icon="Fork" stat={repo.forks} />
+            <IconLine icon="Star" stat={repo.stars} />
+          </div>
+          <div className="flex flex-row justify-around w-full gap-4">
+            <a href={repo.link} target="_blank" rel="noreferrer">
               <IconBox className="relative">
-                <Globe
-                  className="inline w-5 h-5 text-white"
-                  strokeWidth="1.4"
-                />
+                <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
                 <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
                   <ExternalLink className="inline h-3 my-auto" />
                 </span>
               </IconBox>
             </a>
+
+            <div>
+              <a href={repo.website} target="_blank" rel="noreferrer">
+                <IconBox className="relative">
+                  <Globe
+                    className="inline w-5 h-5 text-white"
+                    strokeWidth="1.4"
+                  />
+                  <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
+                    <ExternalLink className="inline h-3 my-auto" />
+                  </span>
+                </IconBox>
+              </a>
+            </div>
           </div>
         </div>
       </div>

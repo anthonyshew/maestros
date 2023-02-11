@@ -29,7 +29,8 @@ module.exports = {
         reveal: "reveal 1s ease-in-out forwards",
       },
       fontFamily: {
-        sans: ["Inter", "Fira Code", ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-inter)"],
+        mono: ["var(--font-fira-code)"],
       },
     },
   },

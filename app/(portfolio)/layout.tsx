@@ -1,4 +1,4 @@
-import { Sidebar } from "../../components/Sidebar";
+import { Navbar } from "#/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -6,8 +6,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-row flex-auto max-w-5xl px-2 py-10 pt-8 mx-auto lg:py-20 md:px-0">
-      <Sidebar
+    <main className="flex flex-col flex-auto max-w-5xl px-2 mx-auto sm:py-8 lg:py-20 md:px-0 md:flex-row">
+      <Navbar
         links={[
           { label: "Home", href: "/" },
           { label: "Blog", href: "/blog" },
