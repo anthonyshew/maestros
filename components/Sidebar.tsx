@@ -1,8 +1,22 @@
-export const Sidebar = () => {
+import Link from "next/link";
+
+interface Props {
+  links: Array<{
+    label: string;
+    href: string;
+  }>;
+}
+
+export const Sidebar = ({ links }: Props) => {
   return (
-    <>
-      <p>here's a thing</p>
-      <p>here's a thing</p>
-    </>
+    <nav className="flex flex-col w-32">
+      {links.map((link) => {
+        return (
+          <Link key={link.label} href={link.href}>
+            {link.label}
+          </Link>
+        );
+      })}
+    </nav>
   );
 };

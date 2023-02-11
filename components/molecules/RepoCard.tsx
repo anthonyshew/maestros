@@ -24,6 +24,23 @@ export type PinnedRepos = {
   forks: string;
 };
 
+const IconLine = ({ icon, stat }: { icon: "Fork" | "Star"; stat: string }) => {
+  const StarIcon = () => (
+    <Star className="inline w-5 h-5 text-white" strokeWidth="1.4" />
+  );
+
+  const ForkIcon = () => (
+    <GitFork className="inline w-5 h-5 text-white" strokeWidth="1.4" />
+  );
+
+  return (
+    <div className="flex flex-row gap-2 align-center">
+      <IconBox>{icon === "Fork" ? <ForkIcon /> : <StarIcon />}</IconBox>
+      <p className="my-auto font-semibold text-slate-800">{stat}</p>
+    </div>
+  );
+};
+
 export const RepoCard = (repo: PinnedRepos) => {
   return (
     <div className="flex flex-col gap-8 p-6 shadow-lg w-60 rounded-xl border-slate-300 ">
@@ -37,22 +54,11 @@ export const RepoCard = (repo: PinnedRepos) => {
         </p>
       </div>
       <div className="flex flex-row justify-around">
-        <div className="flex flex-row gap-4 align-center">
-          <IconBox>
-            <GitFork className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-          </IconBox>
-          <p className="my-auto font-semibold text-slate-800">{repo.forks}</p>
-        </div>
-
-        <div className="flex flex-row gap-2 align-center">
-          <IconBox>
-            <Star className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-          </IconBox>
-          <p className="my-auto font-semibold text-slate-800">{repo.stars}</p>
-        </div>
+        <IconLine icon="Fork" stat={repo.forks} />
+        <IconLine icon="Star" stat={repo.stars} />
       </div>
       <div className="flex flex-row justify-around gap-4">
-        <a href={repo.repo} target="_blank" rel="noopener noreferrer">
+        <a href={repo.link} target="_blank" rel="noopener noreferrer">
           <IconBox className="relative">
             <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
             <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">

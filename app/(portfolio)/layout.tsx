@@ -6,10 +6,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row max-w-4xl mx-4 mt-8 mb-40 antialiased md:flex-row md:mt-20 lg:mt-32 lg:mx-auto">
-      <main className="flex flex-col flex-auto min-w-0 px-2 mt-6 md:mt-0 md:px-0">
-        {children}
-      </main>
-    </div>
+    <main className="flex flex-row flex-auto max-w-5xl px-2 pt-8 pb-40 md:pt-10 lg:pt-20 md:px-0">
+      <Sidebar
+        links={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: "Talks", href: "/talks" },
+        ]}
+      />
+      {children}
+    </main>
   );
 }
