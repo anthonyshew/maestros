@@ -21,7 +21,7 @@ export const useNextSlideKeyPress = ({
 
     if (nextSlide === currentSlide) return;
 
-    return push(`/slides/${deck}/${nextSlide}`);
+    return push(`/talks/${deck}/${nextSlide}`);
   }, ["ArrowRight"]);
 };
 
@@ -35,6 +35,6 @@ export const usePrevSlideKeyPress = ({
 
     if (prevSlide === currentSlide) return;
 
-    return push(`/slides/${deck}/${Math.max(currentSlide - 1, 1)}`);
+    return push(`/talks/${deck}/${Math.max(currentSlide - 1, 1)}`);
   }, ["ArrowLeft"]);
 };

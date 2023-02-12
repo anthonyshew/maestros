@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 const Slide = defineDocumentType(() => ({
   name: "Slide",
-  filePathPattern: `slides/**/*.mdx`,
+  filePathPattern: `talks/**/*.mdx`,
   contentType: "mdx",
   fields: {
     cliFlair: {
@@ -25,7 +25,7 @@ const Slide = defineDocumentType(() => ({
     deck: {
       type: 'string',
       // The split is for handling the file structure
-      // e.g. /slides/abc drops the "/slides/" to become "abc"
+      // e.g. /talks/abc drops the "/talks/" to become "abc"
       resolve: (doc) => doc._raw.flattenedPath.split("/")[1]
     },
   },
@@ -52,7 +52,7 @@ const BlogPost = defineDocumentType(() => ({
     slug: {
       type: 'string',
       // The split is for handling the file structure
-      // e.g. /slides/abc drops the "/slides/" to become "abc"
+      // e.g. /blog/abc drops the "/blog/" to become "abc"
       resolve: (doc) => doc._raw.flattenedPath.split("/")[1],
     },
   },

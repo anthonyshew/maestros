@@ -11,8 +11,8 @@ export default function Home({ params }: { params: { deck: string } }) {
         </p>
         <p>and there will be my speaking notes if you hit up.</p>
       </div>
-      <Link href={`/slides/${params.deck}/1`}>Start</Link>
-      <Link href="/slides">Back to slide deck library</Link>
+      <Link href={`/talks/${params.deck}/1`}>Start</Link>
+      <Link href="/talks">Back to slide deck library</Link>
     </main>
   );
 }
