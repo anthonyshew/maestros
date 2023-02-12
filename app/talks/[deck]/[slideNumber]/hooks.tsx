@@ -3,11 +3,14 @@ import { useRouter } from "next/navigation";
 import { useKeyPress } from "../../hooks";
 
 interface SlideHandlerParams {
+  // TODO: no any
+  childWindowReference: any;
   currentSlide: number;
   deck: string;
 }
 
 export const useNextSlideKeyPress = ({
+  childWindowReference,
   currentSlide,
   deck,
 }: SlideHandlerParams): void => {
@@ -21,13 +24,17 @@ export const useNextSlideKeyPress = ({
 
     if (nextSlide === currentSlide) return;
 
-    window.postMessage(nextSlide);
+    childWindowReference.postMessage({
+      source: "slide-controller",
+      payload: "howdyhowdy",
+    });
 
     return push(`/talks/${deck}/${nextSlide}`);
   }, ["ArrowRight"]);
 };
 
 export const usePrevSlideKeyPress = ({
+  childWindowReference,
   currentSlide,
   deck,
 }: SlideHandlerParams) => {
@@ -36,6 +43,11 @@ export const usePrevSlideKeyPress = ({
     const prevSlide = Math.max(currentSlide - 1, 1);
 
     if (prevSlide === currentSlide) return;
+
+    childWindowReference.postMessage({
+      source: "slide-controller",
+      payload: "howdyhowdy",
+    });
 
     return push(`/talks/${deck}/${Math.max(currentSlide - 1, 1)}`);
   }, ["ArrowLeft"]);

@@ -16,7 +16,16 @@ export default function Home({ params }: { params: { deck: string } }) {
         </p>
         <p>and there will be my speaking notes if you hit up.</p>
       </div>
-      <button onClick={() => child.postMessage("howdy")}>send thing</button>
+      <button
+        onClick={() =>
+          child.postMessage({
+            source: "slide-controller",
+            payload: "howdyhowdy",
+          })
+        }
+      >
+        send thing
+      </button>
       <button onClick={() => setChild(window.open(`/talks/${params.deck}/1`))}>
         Pop the presentation view
       </button>

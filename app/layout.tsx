@@ -18,7 +18,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="container min-h-screen mx-auto text-slate-700 dark:text-slate-100">
-        <Providers>{children}</Providers>
+        {/* <Providers>{children}</Providers> */}
+        {children}
         <AnalyticsWrapper />
       </body>
     </html>

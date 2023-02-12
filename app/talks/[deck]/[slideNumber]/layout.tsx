@@ -1,9 +1,12 @@
 "use client";
 
+"use client";
+
 import { allSlides } from "contentlayer/generated";
 import { useNextSlideKeyPress, usePrevSlideKeyPress } from "./hooks";
 import { notFound } from "next/navigation";
 import { firaCode } from "../../../fonts";
+import { useState } from "react";
 
 export default function RootLayout({
   children,
@@ -12,10 +15,20 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { slideNumber: string; deck: string };
 }) {
+  const [child, setChild] = useState<any>(null);
   const { slideNumber, deck } = params;
 
-  useNextSlideKeyPress({ currentSlide: Number(slideNumber), deck });
-  usePrevSlideKeyPress({ currentSlide: Number(slideNumber), deck });
+  useNextSlideKeyPress({
+    childWindowReference: child,
+    currentSlide: Number(slideNumber),
+    deck,
+  });
+
+  usePrevSlideKeyPress({
+    childWindowReference: child,
+    currentSlide: Number(slideNumber),
+    deck,
+  });
 
   if (isNaN(Number(slideNumber))) return notFound();
 
