@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <>
       <p className={`absolute ${firaCode.className} top-4 left-4`}>
-        <span className="text-white">anthonyshew 👟</span>
+        <span className="text-black">anthonyshew 👟</span>
         <span className="ml-2 text-sky-400">~/{slideContent.cliFlair}</span>
       </p>
       <div>{children}</div>

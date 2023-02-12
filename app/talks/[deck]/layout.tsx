@@ -1,6 +1,6 @@
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="grid h-screen text-white bg-black place-items-center">
+    <main className="grid h-screen text-black place-items-center">
       {children}
     </main>
   );

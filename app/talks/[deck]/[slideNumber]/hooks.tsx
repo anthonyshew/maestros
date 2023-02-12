@@ -21,6 +21,8 @@ export const useNextSlideKeyPress = ({
 
     if (nextSlide === currentSlide) return;
 
+    window.postMessage(nextSlide);
+
     return push(`/talks/${deck}/${nextSlide}`);
   }, ["ArrowRight"]);
 };
