@@ -1,9 +1,10 @@
-import { Inter, Fira_Code, Montserrat, Raleway } from "@next/font/google";
+import { Fira_Code, Rubik } from "@next/font/google";
 
-export const inter = Inter({
-  variable: "--font-inter",
+export const rubik = Rubik({
+  variable: "--font-rubik",
   display: "optional",
   subsets: ["latin"],
+
 });
 
 export const firaCode = Fira_Code({

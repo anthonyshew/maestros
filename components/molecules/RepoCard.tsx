@@ -50,7 +50,9 @@ export const RepoCard = (repo: PinnedRepos) => {
             <AvatarImage src={logos[repo.repo]} />
             <AvatarFallback></AvatarFallback>
           </Avatar>
-          <p className={`my-auto  text-slate-800 tracking-wider`}>
+          <p
+            className={`my-auto ${firaCode.className} text-slate-800 tracking-wider`}
+          >
             {repo.owner}/{repo.repo}
           </p>
         </div>

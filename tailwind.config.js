@@ -29,7 +29,7 @@ module.exports = {
         reveal: "reveal 1s ease-in-out forwards",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-rubik)"],
         mono: ["var(--font-fira-code)"],
       },
     },
