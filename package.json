@@ -21,6 +21,7 @@
     "lucide-react": "^0.108.0",
     "next": "latest",
     "next-contentlayer": "latest",
+    "next-themes": "^0.2.1",
     "react": "latest",
     "react-dom": "latest",
     "react-wrap-balancer": "^0.4.0",

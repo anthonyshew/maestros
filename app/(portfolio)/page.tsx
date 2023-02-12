@@ -28,13 +28,15 @@ export default async function Home() {
           <AvatarFallback></AvatarFallback>
         </Avatar>
         <div className="my-auto">
-          <h1 className="m-0 text-4xl text-black">Anthony Shew</h1>
+          <h1 className="m-0 text-4xl text-black dark:text-white">
+            Anthony Shew
+          </h1>
           <p className={`m-0 mt-1 ${firaCode.className}`}>
             Engineer. Creator. Educator.
           </p>
         </div>
       </div>
-      <div className="max-w-2xl mx-auto mt-8 prose ">
+      <div className="max-w-2xl mx-auto mt-8 prose dark:prose-invert">
         <p>
           Hey, I'm Anthony. I played professional baseball for six years and now
           I write software. Currently at Vercel as a Content Engineer.
@@ -68,7 +70,7 @@ export default async function Home() {
         <hr className="mt-4 mb-8" />
       </div>
 
-      <h2 className="my-6 text-2xl font-semibold text-black">
+      <h2 className="my-6 text-2xl font-semibold text-black dark:text-white">
         Core team member of...
       </h2>
 

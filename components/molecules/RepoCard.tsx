@@ -36,7 +36,9 @@ const IconLine = ({ icon, stat }: { icon: "Fork" | "Star"; stat: string }) => {
   return (
     <div className="flex flex-row gap-2 align-center">
       <IconBox>{icon === "Fork" ? <ForkIcon /> : <StarIcon />}</IconBox>
-      <p className="my-auto font-semibold text-slate-800">{stat}</p>
+      <p className="my-auto font-semibold text-slate-800 dark:text-slate-200">
+        {stat}
+      </p>
     </div>
   );
 };
@@ -51,7 +53,7 @@ export const RepoCard = (repo: PinnedRepos) => {
             <AvatarFallback></AvatarFallback>
           </Avatar>
           <p
-            className={`my-auto ${firaCode.className} text-slate-800 tracking-wider`}
+            className={`my-auto ${firaCode.className} text-slate-800 dark:text-slate-200 tracking-wider`}
           >
             {repo.owner}/{repo.repo}
           </p>

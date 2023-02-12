@@ -16,6 +16,7 @@ specifiers:
   lucide-react: ^0.108.0
   next: latest
   next-contentlayer: latest
+  next-themes: ^0.2.1
   postcss: ^8.4.21
   react: latest
   react-dom: latest
@@ -39,6 +40,7 @@ dependencies:
   lucide-react: 0.108.0_react@18.2.0
   next: 13.1.6_react-dom@18.2.0+react@18.2.0
   next-contentlayer: 0.3.0_dd638983f960452b723181780ba60633
+  next-themes: 0.2.1_dd638983f960452b723181780ba60633
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-wrap-balancer: 0.4.0_react@18.2.0
@@ -2396,6 +2398,18 @@ packages:
       - '@effect-ts/otel-node'
       - markdown-wasm
       - supports-color
+    dev: false
+
+  /next-themes/0.2.1_dd638983f960452b723181780ba60633:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 13.1.6_react-dom@18.2.0+react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next/13.1.6_react-dom@18.2.0+react@18.2.0:
