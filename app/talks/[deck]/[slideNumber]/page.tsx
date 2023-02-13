@@ -4,7 +4,7 @@ import { allSlides, Slide } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "components/mdxComponents";
-import { useEffect } from "react";
+import { useDeckListener } from "#/app/talks/[deck]/[slideNumber]/hooks";
 
 export const generateStaticParams = () =>
   allSlides.map((slide, index) => ({
@@ -24,17 +24,7 @@ export default function Page({
 }) {
   const { slideNumber, deck } = params;
 
-  useEffect(() => {
-    const handler = (event: any) => {
-      if (event.data.source === "slide-controller") {
-        console.log("wut", event.data);
-      }
-    };
-
-    if (typeof window === "undefined") return;
-    window.addEventListener("message", handler);
-    return () => window.removeEventListener("message", handler);
-  }, [window]);
+  useDeckListener(deck);
 
   const slideContent = allSlides
     .filter((slide) => slide.deck === deck)
