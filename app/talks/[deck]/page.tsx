@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePresentationCtx } from "./[slideNumber]/usePresentationContext";
 
 export default function Home({ params }: { params: { deck: string } }) {
-  const { setChildWindow } = usePresentationCtx();
+  const { childWindow, setChildWindow } = usePresentationCtx();
 
   return (
     <main className="flex flex-col items-center content-center justify-center min-w-full min-h-screen ">
@@ -18,7 +18,7 @@ export default function Home({ params }: { params: { deck: string } }) {
       </div>
       <button
         onClick={() =>
-          window.postMessage({
+          childWindow.postMessage({
             source: "slide-controller",
             payload: "howdyhowdy",
           })
@@ -27,10 +27,7 @@ export default function Home({ params }: { params: { deck: string } }) {
         send thing
       </button>
       <button
-        onClick={() => {
-          console.log(setChildWindow);
-          setChildWindow(window.open(`/talks/${params.deck}/1`));
-        }}
+        onClick={() => setChildWindow(window.open(`/talks/${params.deck}/1`))}
       >
         Pop the presentation view
       </button>
