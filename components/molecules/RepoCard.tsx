@@ -13,7 +13,7 @@ const logos = {
 
 export type PinnedRepos = {
   owner: string;
-  repo: string;
+  repo: keyof typeof logos;
   link: string;
   description: string;
   image: string;
