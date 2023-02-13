@@ -1,4 +1,3 @@
-import { firaCode } from "#/app/fonts";
 import Link from "next/link";
 
 interface Props {

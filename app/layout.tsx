@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import { rubik } from "./fonts";
-import AnalyticsWrapper from "../components/Analytics";
+import AnalyticsWrapper from "#/components/Analytics";
 import globalMetadata from "./metadata";
-import { Providers } from "./providers";
+// import { Providers } from "./providers";
 
 export const metadata = globalMetadata;
 

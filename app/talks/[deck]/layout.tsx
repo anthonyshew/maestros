@@ -1,13 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import {
+  defaultPresentationValue,
+  PresentationCtx,
+} from "./PresentationContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const [child, setChild] = useState<any>(null);
+  const [presentation, setPresentation] = useState(
+    defaultPresentationValue.childWindow
+  );
+
   return (
-    <main className="grid h-screen text-black place-items-center">
-      {children}
-    </main>
+    <PresentationCtx.Provider
+      value={{
+        childWindow: presentation,
+        setChildWindow: setPresentation,
+      }}
+    >
+      <main className="grid h-screen text-black place-items-center">
+        {children}
+      </main>
+    </PresentationCtx.Provider>
   );
 };
 

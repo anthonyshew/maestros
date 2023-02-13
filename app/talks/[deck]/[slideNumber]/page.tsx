@@ -25,7 +25,7 @@ export default function Page({
   const { slideNumber, deck } = params;
 
   useEffect(() => {
-    const handler = (event) => {
+    const handler = (event: any) => {
       if (event.data.source === "slide-controller") {
         console.log("wut", event.data);
       }
