@@ -4,6 +4,7 @@ import { allBlogPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
 import { getPost } from "./getPost";
+import Balancer from "react-wrap-balancer";
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
@@ -17,18 +18,23 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article className="max-w-xl py-8 mx-auto">
+      <header className="py-8">
         <div className="mb-8 text-center">
-          <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </time>
-          <h1>{post.title}</h1>
+          <h1 className="mb-4">
+            <Balancer>{post.title}</Balancer>
+          </h1>
+          <div className="flex flex-row gap-4 align-center">
+            <time dateTime={post.date} className="text-xs text-gray-600 ">
+              {format(parseISO(post.date), "LLLL d, yyyy")}
+            </time>
+            <hr className="flex-grow m-auto border-1 text-cyan-900" />
+          </div>
         </div>
 
-        <article className="prose lg:prose-xl">
+        <article className="prose lg:prose-lg">
           <MDXContent components={mdxComponents} />
         </article>
-      </article>
+      </header>
     </>
   );
 };

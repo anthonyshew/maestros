@@ -1,12 +1,8 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts, BlogPost } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import { mdxComponents } from "components/mdxComponents";
 
 function PostCard(post: BlogPost) {
-  const MDXContent = useMDXComponent(post.body.code);
-
   return (
     <div className="mb-8">
       <h2 className="text-xl">
@@ -21,7 +17,7 @@ function PostCard(post: BlogPost) {
       <time dateTime={post.date} className="block mb-2 text-xs text-gray-600">
         {format(parseISO(post.date), "LLLL d, yyyy")}
       </time>
-      <MDXContent components={mdxComponents} />
+      <p>{post.summary}</p>
     </div>
   );
 }
@@ -32,7 +28,7 @@ export default function Home() {
   });
 
   return (
-    <div className="max-w-xl py-8 mx-auto">
+    <div className="py-8">
       <h1 className="mb-8 text-3xl font-bold text-center">Next.js Example</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />

@@ -14,8 +14,8 @@ export const mdxComponents = {
   },
   Img: (props: ImageProps) => {
     return (
-      <div>
-        <NextImage {...props} />
+      <div className="relative block">
+        <NextImage {...props} className="rounded-md" />
       </div>
     );
   },

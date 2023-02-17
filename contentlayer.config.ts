@@ -47,6 +47,11 @@ const BlogPost = defineDocumentType(() => ({
       description: 'The date of the post',
       required: true,
     },
+    summary: {
+      type: "string",
+      description: "A summary of the post to show on OGs and other key spots.",
+      required: true
+    }
   },
   computedFields: {
     slug: {
