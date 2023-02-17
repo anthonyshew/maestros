@@ -7,7 +7,6 @@ specifiers:
   '@types/react': 18.0.26
   '@vercel/analytics': latest
   autoprefixer: ^10.4.13
-  class-variance-authority: ^0.4.0
   clsx: ^1.2.1
   contentlayer: latest
   date-fns: ^2.29.3
@@ -27,13 +26,11 @@ specifiers:
   tailwindcss: ^3.2.4
   tailwindcss-animate: ^1.0.5
   typescript: latest
-  zod: ^3.20.2
 
 dependencies:
   '@next/font': 13.1.6
   '@radix-ui/react-avatar': 1.0.1_react-dom@18.2.0+react@18.2.0
-  '@vercel/analytics': 0.1.8_react@18.2.0
-  class-variance-authority: 0.4.0_typescript@4.9.5
+  '@vercel/analytics': 0.1.9_react@18.2.0
   clsx: 1.2.1
   contentlayer: 0.3.0
   date-fns: 2.29.3
@@ -48,7 +45,6 @@ dependencies:
   react-wrap-balancer: 0.4.0_react@18.2.0
   tailwind-merge: 1.9.1
   tailwindcss-animate: 1.0.5_tailwindcss@3.2.6
-  zod: 3.20.6
 
 devDependencies:
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.6
@@ -1236,8 +1232,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vercel/analytics/0.1.8_react@18.2.0:
-    resolution: {integrity: sha512-PQrOI8BJ9qUiVJuQfnKiJd15eDjDJH9TBKsNeMrtelT4NAk7d9mBVz1CoZkvoFnHQ0OW7Xnqmr1F2nScfAnznQ==}
+  /@vercel/analytics/0.1.9_react@18.2.0:
+    resolution: {integrity: sha512-Lfus/6HAZXQBr4uv5eCtNKrEvthKWQFFcUNh5wC3fWn+4PbHxT8bqcm1TMQfYvGJ8O4TWzn0IfrQFNWh1DHDbQ==}
     peerDependencies:
       react: ^16.8||^17||^18
     dependencies:
@@ -1519,17 +1515,6 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
-
-  /class-variance-authority/0.4.0_typescript@4.9.5:
-    resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
-    peerDependencies:
-      typescript: '>= 4.5.5 < 5'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      typescript: 4.9.5
-    dev: false
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}

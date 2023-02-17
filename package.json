@@ -13,7 +13,6 @@
     "@next/font": "latest",
     "@radix-ui/react-avatar": "^1.0.1",
     "@vercel/analytics": "latest",
-    "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "contentlayer": "latest",
     "date-fns": "^2.29.3",
@@ -27,8 +26,7 @@
     "react-dom": "latest",
     "react-wrap-balancer": "^0.4.0",
     "tailwind-merge": "^1.9.0",
-    "tailwindcss-animate": "^1.0.5",
-    "zod": "^3.20.2"
+    "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
