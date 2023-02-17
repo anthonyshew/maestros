@@ -47,7 +47,7 @@ export const RepoCard = (repo: PinnedRepos) => {
   return (
     <div className="flex flex-row justify-center w-full lg:w-60">
       <div className="flex flex-col justify-around w-full gap-8 p-6 border rounded shadow-lg lg:justify-between ">
-        <div className="flex flex-row justify-center gap-8 lg:justify-between">
+        <div className="flex flex-row justify-center gap-4 lg:justify-between">
           <Avatar key={repo.repo} className="shadow-xl">
             <AvatarImage src={logos[repo.repo]} />
             <AvatarFallback></AvatarFallback>
