@@ -1,10 +1,10 @@
-import { Fira_Code, Rubik } from "@next/font/google";
+import { Fira_Code, } from "next/font/google";
+import localFont from 'next/font/local'
 
-export const rubik = Rubik({
+export const rubik = localFont({
+  src: "../public/fonts/Rubik/Rubik.ttf",
   variable: "--font-rubik",
   display: "optional",
-  subsets: ["latin"],
-
 });
 
 export const firaCode = Fira_Code({

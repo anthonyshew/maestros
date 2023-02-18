@@ -1,12 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@next/font': latest
   '@radix-ui/react-avatar': ^1.0.1
   '@tailwindcss/typography': ^0.5.9
   '@types/react': 18.0.26
   '@vercel/analytics': latest
-  '@vercel/og': ^0.1.0
+  '@vercel/og': ^0.0.27
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
   contentlayer: latest
@@ -16,7 +15,7 @@ specifiers:
   eslint-config-next: latest
   framer-motion: ^8.5.5
   lucide-react: ^0.108.0
-  next: ^13.1.7-canary.19
+  next: 13.1.7-canary.19
   next-contentlayer: latest
   next-themes: ^0.2.1
   postcss: ^8.4.21
@@ -29,10 +28,9 @@ specifiers:
   typescript: latest
 
 dependencies:
-  '@next/font': 13.1.6
   '@radix-ui/react-avatar': 1.0.1_react-dom@18.2.0+react@18.2.0
   '@vercel/analytics': 0.1.10_react@18.2.0
-  '@vercel/og': 0.1.0
+  '@vercel/og': 0.0.27
   clsx: 1.2.1
   contentlayer: 0.3.0
   date-fns: 2.29.3
@@ -639,10 +637,6 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /@next/font/13.1.6:
-    resolution: {integrity: sha512-AITjmeb1RgX1HKMCiA39ztx2mxeAyxl4ljv2UoSBUGAbFFMg8MO7YAvjHCgFhD39hL7YTbFjol04e/BPBH5RzQ==}
-    dev: false
-
   /@next/swc-android-arm-eabi/13.1.7-canary.19:
     resolution: {integrity: sha512-RYLlT5t9OUfxXinmtql7p6vDVUUApEmKo9M3PS+6E207i1CLqHwH0URywBxpMuhcCPgvcCk5cw0nch2MMB+hlQ==}
     engines: {node: '>= 10'}
@@ -1243,12 +1237,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vercel/og/0.1.0:
-    resolution: {integrity: sha512-0M7YT3TKd1bsJ/At46B5EMtxgZBixfTQV5VRnkdd8bTiKAGnzw/li+uORU4pvOyyPLoVQJpzuU0Xx+bbAKu2bQ==}
+  /@vercel/og/0.0.27:
+    resolution: {integrity: sha512-cUk6HmfLmBOISAA8gvPRNUx3eVOSyXblxiuv3uN9UTxLwdalQzPlHC/0byvTMR1eVi0y1trD5u6um/4xiTqgOQ==}
     engines: {node: '>=16'}
     dependencies:
       '@resvg/resvg-wasm': 2.0.0-alpha.4
-      satori: 0.2.2
+      satori: 0.0.46
       yoga-wasm-web: 0.3.0
     dev: false
 
@@ -4178,8 +4172,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
 
-  /satori/0.2.2:
-    resolution: {integrity: sha512-/9A9cMdrkSqFPavObgQAn9737hMnBeKSgf/L5zWm2a6UzwMR2jl5xjrH4LURlJLEXdx/ijOjH0/Q6PUn2Fgpdg==}
+  /satori/0.0.46:
+    resolution: {integrity: sha512-7RfTz38MB0n8tzmRHtUh1y0K7609CLBHpYuyZuh9rpf9FyhOd2in+6EHuqu6ul/Jebn1qD1HdYKtAMjb7uiNAQ==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0

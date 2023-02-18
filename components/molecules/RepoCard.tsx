@@ -67,7 +67,7 @@ export const RepoCard = (repo: PinnedRepos) => {
             <a href={repo.link} target="_blank" rel="noreferrer">
               <IconBox className="relative">
                 <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-                <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
+                <span className="absolute text-white bg-slate-500 rounded-full -top-3 -right-3">
                   <ExternalLink className="inline h-3 my-auto" />
                 </span>
               </IconBox>
@@ -80,7 +80,7 @@ export const RepoCard = (repo: PinnedRepos) => {
                     className="inline w-5 h-5 text-white"
                     strokeWidth="1.4"
                   />
-                  <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
+                  <span className="absolute text-white bg-slate-500 rounded-full -top-3 -right-3">
                     <ExternalLink className="inline h-3 my-auto" />
                   </span>
                 </IconBox>
