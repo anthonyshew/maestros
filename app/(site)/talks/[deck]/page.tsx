@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePresentationCtx } from "./[slideNumber]/usePresentationContext";
+import { usePresentationCtx } from "../../../(talkSlides)/usePresentationContext";
 import { useRouter } from "next/navigation";
 
 export default function Home({ params }: { params: { deck: string } }) {

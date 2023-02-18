@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   defaultPresentationValue,
   PresentationCtx,
-} from "./PresentationContext";
+} from "../../../(talkSlides)/PresentationContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [presentation, setPresentation] = useState(

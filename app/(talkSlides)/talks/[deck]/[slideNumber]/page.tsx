@@ -4,7 +4,7 @@ import { allSlides, Slide } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "components/mdxComponents";
-import { useDeckListener } from "#/app/talks/[deck]/[slideNumber]/hooks";
+import { useDeckListener } from "#/app/(talkSlides)/talks/[deck]/[slideNumber]/hooks";
 
 export const generateStaticParams = () =>
   allSlides.map((slide, index) => ({

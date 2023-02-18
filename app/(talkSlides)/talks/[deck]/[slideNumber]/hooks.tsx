@@ -1,8 +1,8 @@
 import { allSlides } from "contentlayer/generated";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useKeyPress } from "../../hooks";
-import { usePresentationCtx } from "./usePresentationContext";
+import { useKeyPress } from "../../../../(site)/talks/hooks";
+import { usePresentationCtx } from "../../../usePresentationContext";
 
 interface SlideHandlerParams {
   currentSlide: number;
