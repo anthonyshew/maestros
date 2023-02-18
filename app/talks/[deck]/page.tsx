@@ -21,7 +21,7 @@ export default function Home({ params }: { params: { deck: string } }) {
       <button
         onClick={() => {
           const target = `/talks/${params.deck}/1`;
-          setChildWindow(window.open(target));
+          setChildWindow ? setChildWindow(window.open(target)) : null;
           push(target);
         }}
       >

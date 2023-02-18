@@ -7,6 +7,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
 import { getPost } from "./getPost";
 import Balancer from "react-wrap-balancer";
+import { notFound } from "next/navigation";
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
@@ -16,7 +17,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata | undefined> {
-  const post = allBlogPosts.find((post) => post.slug === params.slug);
+  const post = getPost(params.slug);
   if (!post) {
     return;
   }
@@ -49,7 +50,9 @@ export async function generateMetadata({
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = getPost(params.slug);
-  const MDXContent = useMDXComponent(post.body.code);
+
+  const MDXContent = useMDXComponent(post?.body.code ?? "");
+  if (!post) return notFound();
 
   return (
     <>
@@ -59,11 +62,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       <header className="w-full py-8">
         <div className="mb-8 text-center">
           <h1 className="mb-4">
-            <Balancer>{post.title}</Balancer>
+            <Balancer>{post?.title}</Balancer>
           </h1>
           <div className="flex flex-row gap-4 align-center">
-            <time dateTime={post.date} className="text-xs text-gray-600 ">
-              {format(parseISO(post.date), "LLLL d, yyyy")}
+            <time dateTime={post?.date} className="text-xs text-gray-600 ">
+              {format(parseISO(post?.date), "LLLL d, yyyy")}
             </time>
             <hr className="flex-grow m-auto border-1 text-cyan-900" />
           </div>

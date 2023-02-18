@@ -2,7 +2,7 @@ import { createContext, SetStateAction, Dispatch } from "react";
 
 export interface Presentation {
   childWindow: Window | null;
-  setChildWindow: Dispatch<SetStateAction<Window | null>>;
+  setChildWindow: Dispatch<SetStateAction<Window | null>> | null;
 }
 
 export const defaultPresentationValue: Presentation = {

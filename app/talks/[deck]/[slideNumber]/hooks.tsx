@@ -25,7 +25,7 @@ export const useNextSlideKeyPress = ({
 
     if (nextSlide === currentSlide) return;
 
-    childWindow.postMessage({
+    childWindow?.postMessage({
       source: "slide-controller",
       payload: { newSlide: nextSlide },
     });
@@ -46,7 +46,7 @@ export const usePrevSlideKeyPress = ({
 
     if (prevSlide === currentSlide) return;
 
-    childWindow.postMessage({
+    childWindow?.postMessage({
       source: "slide-controller",
       payload: { newSlide: prevSlide },
     });
