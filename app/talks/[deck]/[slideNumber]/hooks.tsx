@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useKeyPress } from "../../hooks";
 import { usePresentationCtx } from "./usePresentationContext";
-import { useSelectedLayoutSegments } from "next/navigation";
 
 interface SlideHandlerParams {
   currentSlide: number;
