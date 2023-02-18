@@ -34,7 +34,7 @@ export async function generateMetadata({
       url: `https://shew.dev/blog/${slug}`,
       images: [
         {
-          url: `https://shew.dev/blog/${params.slug}/og?title=${title}`,
+          url: `https://shew.dev/blog/og?title=${title}`,
         },
       ],
     },
@@ -42,7 +42,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [`https://shew.dev/blog/${params.slug}/og?title=${title}`],
+      images: [`https://shew.dev/blog/og?title=${title}`],
     },
   };
 }
