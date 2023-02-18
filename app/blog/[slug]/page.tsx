@@ -37,7 +37,7 @@ export async function generateMetadata({
         {
           url: `https://${
             process.env.VERCEL_URL
-          }/api/og?title=${title.replaceAll(" ", "%20")}`,
+          }/blog/og?title=${title.replaceAll(" ", "%20")}`,
         },
       ],
     },
@@ -46,7 +46,7 @@ export async function generateMetadata({
       title,
       description,
       images: [
-        `https://${process.env.VERCEL_URL}/api/og?title=${title.replaceAll(
+        `https://${process.env.VERCEL_URL}/blog/og?title=${title.replaceAll(
           " ",
           "%20"
         )}`,
