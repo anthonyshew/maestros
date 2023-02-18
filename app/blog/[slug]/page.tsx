@@ -35,7 +35,9 @@ export async function generateMetadata({
       url: `https://shew.dev/blog/${slug}`,
       images: [
         {
-          url: `https://${process.env.VERCEL_URL}/api/og?title=${title}`,
+          url: `https://${
+            process.env.VERCEL_URL
+          }/api/og?title=${title.replaceAll(" ", "%20")}`,
         },
       ],
     },
@@ -43,7 +45,12 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [`https://${process.env.VERCEL_URL}/api/og?title=${title}`],
+      images: [
+        `https://${process.env.VERCEL_URL}/api/og?title=${title.replaceAll(
+          " ",
+          "%20"
+        )}`,
+      ],
     },
   };
 }
