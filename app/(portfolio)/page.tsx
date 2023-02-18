@@ -24,7 +24,7 @@ export default async function Home() {
     <div>
       <div className="flex flex-row gap-6">
         <Avatar className="w-20 h-20">
-          <AvatarImage src="https://pbs.twimg.com/profile_images/1610356747478368256/nQ6lE-av_400x400.jpg" />
+          <AvatarImage src="/images/me.png" />
           <AvatarFallback></AvatarFallback>
         </Avatar>
         <div className="my-auto">
@@ -38,8 +38,8 @@ export default async function Home() {
       </div>
       <div className="max-w-2xl mx-auto mt-8 prose dark:prose-invert">
         <p>
-          Hey, I'm Anthony. I played professional baseball for six years and now
-          I write software. Currently at Vercel as a Content Engineer.
+          Hey, I&apos;m Anthony. I played professional baseball for six years
+          and now I write software. Currently at Vercel as a Content Engineer.
         </p>
 
         <p>

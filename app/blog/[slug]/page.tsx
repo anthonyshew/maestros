@@ -1,4 +1,6 @@
 import Head from "next/head";
+import type { Metadata } from "next";
+
 import { format, parseISO } from "date-fns";
 import { allBlogPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -9,6 +11,42 @@ import Balancer from "react-wrap-balancer";
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> {
+  const post = allBlogPosts.find((post) => post.slug === params.slug);
+  if (!post) {
+    return;
+  }
+
+  const { title, date: publishedTime, summary: description, slug } = post;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url: `https://shew.dev/blog/${slug}`,
+      images: [
+        {
+          url: `https://shew.dev/blog/${params.slug}/og?title=${title}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`https://shew.dev/blog/${params.slug}/og?title=${title}`],
+    },
+  };
+}
+
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = getPost(params.slug);
   const MDXContent = useMDXComponent(post.body.code);
@@ -18,7 +56,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <header className="py-8">
+      <header className="w-full py-8">
         <div className="mb-8 text-center">
           <h1 className="mb-4">
             <Balancer>{post.title}</Balancer>

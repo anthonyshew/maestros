@@ -5,7 +5,13 @@ export default function Head({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <title>{title}</title>
+      <head>
+        <title>The post&apos;s title</title>
+        <meta
+          property="og:image:url"
+          content={`/blog/${params.slug}/og?title=${title}`}
+        />
+      </head>
     </>
   );
 }

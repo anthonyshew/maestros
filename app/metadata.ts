@@ -1,4 +1,5 @@
-export default {
+const metadata =
+{
   title: {
     default: 'Anthony Shew',
     template: '%s | Anthony Shew',
@@ -11,11 +12,11 @@ export default {
   openGraph: {
     title: 'Anthony Shew',
     description: 'Content creator. Builder. Educator.',
-    url: 'https://todo.com',
+    url: 'https://shew.dev/me.png',
     siteName: 'Anthony Shew',
     images: [
       {
-        url: 'https://todo.com',
+        url: 'https://shew.dev/me.png',
         width: 1920,
         height: 1080,
       },
@@ -31,3 +32,5 @@ export default {
     shortcut: '/favicon.ico',
   },
 };
+
+export default metadata
