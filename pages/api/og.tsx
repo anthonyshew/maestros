@@ -22,8 +22,8 @@ export default async function handler(req: NextRequest) {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "center",
+          alignItems: "center",
+          justifyContent: "space-around",
           backgroundImage: 'url("https://shew.dev/images/og-bg.png")',
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
@@ -34,16 +34,32 @@ export default async function handler(req: NextRequest) {
             marginLeft: 190,
             marginRight: 190,
             display: "flex",
-            fontSize: 130,
+            fontSize: 150,
             fontFamily: "Rubik",
-            letterSpacing: "-0.05em",
-            fontStyle: "normal",
             color: "white",
-            lineHeight: "120px",
             whiteSpace: "pre-wrap",
           }}
         >
           {postTitle}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src="https://shew.dev/images/me.png"
+            width={150}
+            height={150}
+            tw="rounded-full mb-10"
+          />
+          <div tw="text-8xl text-slate-300">Anthony Shew</div>
+          <div tw="text-6xl text-slate-300 mt-8">
+            Content creator. Builder. Educator.
+          </div>
         </div>
       </div>
     ),
