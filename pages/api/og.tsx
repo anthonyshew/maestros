@@ -24,8 +24,9 @@ export default async function handler(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundColor: "green",
           backgroundImage: 'url("https://shew.dev/images/og-bg.png")',
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
         }}
       >
         <div
