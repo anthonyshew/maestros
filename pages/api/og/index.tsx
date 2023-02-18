@@ -3,7 +3,7 @@ export const config = {
   runtime: "edge",
 };
 
-export async function handler(request: Request) {
+const handler = (request: Request) => {
   try {
     const { searchParams } = new URL(request.url);
 
@@ -60,4 +60,6 @@ export async function handler(request: Request) {
       status: 500,
     });
   }
-}
+};
+
+export default handler;
