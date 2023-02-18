@@ -24,13 +24,14 @@ export async function handler(request: Request) {
           }}
         >
           <div tw="flex justify-center items-center">
-            <img
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* <img
               alt="Anthony Shew"
               width="150"
               height="150"
               src="https://github.com/anthonyshew.png"
               tw="m-8 rounded-full"
-            />
+            /> */}
           </div>
           <div
             style={{
