@@ -22,16 +22,16 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="flex flex-row gap-6">
-        <Avatar className="w-20 h-20">
+      <div className="flex flex-row gap-4 sm:gap-8">
+        <Avatar className="w-12 h-12 sm:w-20 sm:h-20">
           <AvatarImage src="/images/me.png" />
           <AvatarFallback></AvatarFallback>
         </Avatar>
         <div className="my-auto">
-          <h1 className="m-0 text-4xl text-black dark:text-white">
+          <h1 className="m-0 text-xl text-black dark:text-white sm:text-4xl">
             Anthony Shew
           </h1>
-          <p className={`m-0 mt-1 ${firaCode.className}`}>
+          <p className={`m-0 mt-1 ${firaCode.className} text-xs sm:text-lg`}>
             Engineer. Creator. Educator.
           </p>
         </div>

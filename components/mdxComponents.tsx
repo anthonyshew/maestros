@@ -21,42 +21,42 @@ export const mdxComponents = {
   },
   h1: ({ children }: { children: string }) => {
     return (
-      <h1 className="text-6xl">
+      <h1>
         <Balancer>{children}</Balancer>
       </h1>
     );
   },
   h2: ({ children }: { children: string }) => {
     return (
-      <h2 className="text-5xl">
+      <h2>
         <Balancer>{children}</Balancer>
       </h2>
     );
   },
   h3: ({ children }: { children: string }) => {
     return (
-      <h3 className="text-4xl">
+      <h3>
         <Balancer>{children}</Balancer>
       </h3>
     );
   },
   h4: ({ children }: { children: string }) => {
     return (
-      <h4 className="text-3xl">
+      <h4>
         <Balancer>{children}</Balancer>
       </h4>
     );
   },
   h5: ({ children }: { children: string }) => {
     return (
-      <h5 className="text-2xl">
+      <h5>
         <Balancer>{children}</Balancer>
       </h5>
     );
   },
   h6: ({ children }: { children: string }) => {
     return (
-      <h6 className="text-xl">
+      <h6>
         <Balancer>{children}</Balancer>
       </h6>
     );

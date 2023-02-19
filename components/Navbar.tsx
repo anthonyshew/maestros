@@ -9,7 +9,7 @@ interface Props {
 
 export const Navbar = ({ links }: Props) => {
   return (
-    <nav className="flex flex-row w-16 gap-4 md:mx-10 md:mr-20 md:mt-24 md:flex-col">
+    <nav className="flex flex-row justify-center w-full gap-4 py-4 md:mx-10 md:mr-20 md:mt-24 md:flex-col md:w-16 md:justify-start">
       {links.map((link) => {
         return (
           <Link
