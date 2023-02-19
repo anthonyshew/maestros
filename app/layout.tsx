@@ -16,10 +16,8 @@ export default function RootLayout({
       className={`min-h-screen ${rubik.className} antialiased`}
       suppressHydrationWarning
     >
-      <body>
-        {children}
-        <AnalyticsWrapper />
-      </body>
+      {children}
+      <AnalyticsWrapper />
     </html>
   );
 }

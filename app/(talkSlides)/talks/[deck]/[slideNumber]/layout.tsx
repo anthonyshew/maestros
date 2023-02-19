@@ -1,7 +1,11 @@
 "use client";
 
 import { allSlides } from "contentlayer/generated";
-import { useNextSlideKeyPress, usePrevSlideKeyPress } from "./hooks";
+import {
+  useDeckTheme,
+  useNextSlideKeyPress,
+  usePrevSlideKeyPress,
+} from "../serverHooks";
 import { notFound } from "next/navigation";
 import { firaCode } from "#/app/fonts";
 
@@ -13,6 +17,7 @@ export default function RootLayout({
   params: { slideNumber: string; deck: string };
 }) {
   const { slideNumber, deck } = params;
+  const theme = useDeckTheme(deck);
 
   useNextSlideKeyPress({
     currentSlide: Number(slideNumber),
@@ -24,6 +29,7 @@ export default function RootLayout({
     deck,
   });
 
+  if (!theme) return notFound();
   if (isNaN(Number(slideNumber))) return notFound();
 
   const slideContent = allSlides
@@ -35,10 +41,10 @@ export default function RootLayout({
   return (
     <>
       <p className={`absolute ${firaCode.className} top-4 left-4`}>
-        <span className="text-black">anthonyshew 👟</span>
-        <span className="ml-2 text-sky-400">~/{slideContent.cliFlair}</span>
+        <span className={theme.cliPrefix}>anthonyshew 👟</span>
+        <span className={theme.cli}>~/{slideContent.cliFlair}</span>
       </p>
-      <div>{children}</div>
+      {children}
     </>
   );
 }

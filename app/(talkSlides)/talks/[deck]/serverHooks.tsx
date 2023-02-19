@@ -1,13 +1,17 @@
 import { allSlides } from "contentlayer/generated";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { useKeyPress } from "../../../../(site)/talks/hooks";
-import { usePresentationCtx } from "../../../usePresentationContext";
+import { useKeyPress } from "../../../(site)/talks/hooks";
+import { usePresentationCtx } from "../../usePresentationContext";
+import { themesStyles, DeckTheme } from "./themes";
 
 interface SlideHandlerParams {
   currentSlide: number;
   deck: string;
 }
+
+export const useDeckTheme = (deck: string): DeckTheme | undefined => {
+  return themesStyles[deck];
+};
 
 export const useNextSlideKeyPress = ({
   currentSlide,
@@ -52,27 +56,4 @@ export const usePrevSlideKeyPress = ({
 
     return push(`/talks/${deck}/${Math.max(currentSlide - 1, 1)}`);
   }, ["ArrowLeft"]);
-};
-
-/** Listen to the messages from the slide controller window. */
-export const useDeckListener = (deck: string) => {
-  const { push } = useRouter();
-
-  useEffect(() => {
-    const handleMessage = (message: {
-      data: {
-        source: string;
-        payload: { newSlide: string };
-      };
-    }) => {
-      if (message.data.source === "slide-controller") {
-        push(`/talks/${deck}/${message.data.payload.newSlide}`);
-      }
-    };
-
-    if (typeof window === "undefined") return;
-    window.addEventListener("message", handleMessage);
-
-    return () => window.removeEventListener("message", handleMessage);
-  }, [push, deck]);
 };
