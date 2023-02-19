@@ -1,7 +1,7 @@
-import Head from "next/head";
+import Link from "next/link";
 import type { Metadata } from "next";
 
-import { format, parseISO } from "date-fns";
+import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { mdxComponents } from "components/mdxComponents";
@@ -49,18 +49,33 @@ export async function generateMetadata({
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
+  const getAdjacentPosts = () => {
+    const foundIndex = allBlogPosts
+      .sort((a, b) => {
+        return compareDesc(new Date(a.date), new Date(b.date));
+      })
+      .findIndex((post) => post.slug === params.slug);
+
+    if (foundIndex < 0) return notFound();
+
+    return {
+      prevPost: allBlogPosts[foundIndex - 1],
+      nextPost: allBlogPosts[foundIndex + 1],
+    };
+  };
+
+  const prevPost = getAdjacentPosts().prevPost;
+  const nextPost = getAdjacentPosts().nextPost;
+
   const post = getPost(params.slug);
 
   const MDXContent = useMDXComponent(post?.body.code ?? "");
   if (!post) return notFound();
 
   return (
-    <>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+    <div className="flex flex-col w-full pr-2 md:pr-8">
       <header className="w-full py-8">
-        <div className="mb-8 text-center">
+        <div className="text-center">
           <h1 className="mb-4">
             <Balancer>{post?.title}</Balancer>
           </h1>
@@ -71,12 +86,37 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <hr className="flex-grow m-auto border-1 text-cyan-900" />
           </div>
         </div>
-
-        <article className="prose lg:prose-lg">
-          <MDXContent components={mdxComponents} />
-        </article>
       </header>
-    </>
+
+      <article className="prose lg:prose-lg">
+        <MDXContent components={mdxComponents} />
+      </article>
+
+      <footer className="pt-4 mt-4 border-t-2 border-t-slate-600">
+        <p className="text-xl font-bold">More Reading</p>
+
+        <div className="flex flex-col justify-center gap-4 sm:flex-row sm:justify-between">
+          {prevPost ? (
+            <Link
+              className="mx-auto font-semibold md:text-lg"
+              href={`/blog/${prevPost.slug}`}
+            >
+              <span className="mr-4">👈</span>
+              {prevPost.title}
+            </Link>
+          ) : null}
+          {nextPost ? (
+            <Link
+              className="mx-auto font-semibold md:text-lg"
+              href={`/blog/${nextPost.slug}`}
+            >
+              {nextPost.title}
+              <span className="ml-4">👉</span>
+            </Link>
+          ) : null}
+        </div>
+      </footer>
+    </div>
   );
 };
 
