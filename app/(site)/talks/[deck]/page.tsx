@@ -24,7 +24,7 @@ export default function Home({ params }: { params: { deck: string } }) {
           />
           <StartButton
             deck={params.deck}
-            description=" A new tab will open and your the slides will stay in sync across tabs.  "
+            description=" A new tab will open and your slides will stay in sync across tabs.  "
             mode="Presenter"
           />
           <Link
