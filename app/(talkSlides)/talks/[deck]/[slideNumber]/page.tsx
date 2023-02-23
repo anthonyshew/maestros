@@ -25,7 +25,7 @@ export default function Page({
     .filter((slide) => slide.deck === deck)
     .filter((slide) => slide.order === Number(slideNumber))[0];
 
-  const MDXContent = useMDXComponent(slideContent?.body.code);
+  const MDXContent = useMDXComponent(slideContent?.body.code ?? "");
 
   if (!slideContent) return notFound();
 

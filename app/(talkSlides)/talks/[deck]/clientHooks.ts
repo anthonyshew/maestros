@@ -1,6 +1,7 @@
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+'use client'
 
+import { useRouter } from "next/navigation";
+import { useEffect, useCallback } from "react";
 
 /** Listen to the messages from the slide controller window. */
 export const useDeckListener = (deck: string) => {
@@ -24,3 +25,22 @@ export const useDeckListener = (deck: string) => {
     return () => window.removeEventListener("message", handleMessage);
   }, [push, deck]);
 };
+
+
+export function useKeyPress(callback: () => void, keys: string[]): void {
+  const handler = useCallback(
+    ({ key }: KeyboardEvent) => {
+      if (keys.includes(key)) {
+        callback();
+      }
+    },
+    [callback, keys]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handler);
+    return () => {
+      window.removeEventListener("keydown", handler);
+    };
+  }, [handler]);
+}

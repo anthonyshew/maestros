@@ -1,6 +1,6 @@
 import { allSlides } from "contentlayer/generated";
 import { useRouter } from "next/navigation";
-import { useKeyPress } from "../../../(site)/talks/hooks";
+import { useKeyPress } from "./clientHooks";
 import { usePresentationCtx } from "../../usePresentationContext";
 import { themesStyles, DeckTheme } from "./themes";
 

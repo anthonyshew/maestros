@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   defaultPresentationValue,
   PresentationCtx,
-} from "../../../(talkSlides)/PresentationContext";
+} from "#/app/(talkSlides)/PresentationContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [presentation, setPresentation] = useState(
@@ -18,9 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         setChildWindow: setPresentation,
       }}
     >
-      <main className="grid h-screen text-black place-items-center">
-        {children}
-      </main>
+      {children}
     </PresentationCtx.Provider>
   );
 };
