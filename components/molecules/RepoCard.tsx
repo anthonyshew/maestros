@@ -36,7 +36,7 @@ const IconLine = ({ icon, stat }: { icon: "Fork" | "Star"; stat: string }) => {
   return (
     <div className="flex flex-row gap-2 align-center">
       <IconBox>{icon === "Fork" ? <ForkIcon /> : <StarIcon />}</IconBox>
-      <p className="my-auto font-semibold text-slate-800 dark:text-slate-200">
+      <p className="my-auto font-medium text-slate-800 dark:text-slate-200">
         {stat}
       </p>
     </div>

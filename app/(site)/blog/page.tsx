@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="py-8">
-      <h1 className="mb-8 text-3xl font-semibold text-center">Blog</h1>
+      <h1 className="mb-8 text-3xl font-medium text-center">Blog</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}

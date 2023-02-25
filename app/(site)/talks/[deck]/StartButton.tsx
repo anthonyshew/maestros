@@ -28,7 +28,7 @@ export const StartButton = ({ deck, mode, description }: Params) => {
         push(target);
       }}
     >
-      <span className="font-semibold">{mode} Mode</span>
+      <span className="font-medium">{mode} Mode</span>
       <span className="w-10/12">
         <Balancer>{description}</Balancer>
       </span>

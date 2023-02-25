@@ -16,14 +16,14 @@ in those cases you can use the static font files for Rubik:
   static/Rubik-Light.ttf
   static/Rubik-Regular.ttf
   static/Rubik-Medium.ttf
-  static/Rubik-SemiBold.ttf
+  static/Rubik-medium.ttf
   static/Rubik-Bold.ttf
   static/Rubik-ExtraBold.ttf
   static/Rubik-Black.ttf
   static/Rubik-LightItalic.ttf
   static/Rubik-Italic.ttf
   static/Rubik-MediumItalic.ttf
-  static/Rubik-SemiBoldItalic.ttf
+  static/Rubik-mediumItalic.ttf
   static/Rubik-BoldItalic.ttf
   static/Rubik-ExtraBoldItalic.ttf
   static/Rubik-BlackItalic.ttf

@@ -72,7 +72,7 @@ export default async function Home() {
         <hr className="mt-4 mb-8" />
       </div>
 
-      <h2 className="my-6 text-2xl font-semibold text-black dark:text-white">
+      <h2 className="my-6 text-2xl font-medium text-black dark:text-white">
         Core team member of...
       </h2>
 

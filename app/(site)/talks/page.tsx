@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="w-full py-8">
-      <h1 className="mb-8 text-3xl font-semibold text-center">Talks</h1>
+      <h1 className="mb-8 text-3xl font-medium text-center">Talks</h1>
       <p>
         Sometimes, I am lucky enough to do talks at conferences. I build my
         slides on my site and keep them here for you to visit if you&apos;d
