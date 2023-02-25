@@ -1,6 +1,7 @@
 "use client";
 
 import { usePresentationCtx } from "#/app/(talkSlides)/usePresentationContext";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import Balancer from "react-wrap-balancer";
 
@@ -12,13 +13,15 @@ interface Params {
 
 export const StartButton = ({ deck, mode, description }: Params) => {
   const { setChildWindow } = usePresentationCtx();
+  const { setTheme } = useTheme();
   const { push } = useRouter();
 
   return (
     <button
-      className="flex flex-col w-full p-4 text-left transition-all border-2 rounded border-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+      className="flex flex-col w-full p-4 text-left transition-all border-2 rounded-lg border-slate-500 dark:hover:bg-slate-800"
       onClick={() => {
         const target = `/talks/${deck}/1`;
+        setTheme("light");
         if (mode === "Presenter") {
           setChildWindow ? setChildWindow(window.open(target)) : null;
         }

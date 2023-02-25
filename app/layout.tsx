@@ -1,8 +1,5 @@
 import { rubik } from "./fonts";
 import AnalyticsWrapper from "#/components/Analytics";
-import globalMetadata from "./metadata";
-
-export const metadata = globalMetadata;
 
 export default function RootLayout({
   children,

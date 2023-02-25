@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts } from "contentlayer/generated";
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata | undefined> {
   const post = getPost(params.slug);
   if (!post) {
     return;

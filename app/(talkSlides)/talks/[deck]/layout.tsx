@@ -1,9 +1,7 @@
+"use client";
 import { useDeckTheme } from "./serverHooks";
 import "../../../globals.css";
-import globalMetadata from "../../../metadata";
 import { notFound } from "next/navigation";
-
-export const metadata = globalMetadata;
 
 export default function RootLayout({
   children,
@@ -15,7 +13,6 @@ export default function RootLayout({
   const theme = useDeckTheme(params.deck);
 
   if (!theme) {
-    console.error("No theme found!");
     notFound();
   }
 

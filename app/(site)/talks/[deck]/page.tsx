@@ -7,7 +7,7 @@ export default function Home({ params }: { params: { deck: string } }) {
   return (
     <div className="w-full">
       <div className="prose dark:prose-invert">
-        <h1>
+        <h1 className="mt-8">
           <Balancer>{talksData[params.deck]?.title}</Balancer>
         </h1>
         <ul>
@@ -24,12 +24,12 @@ export default function Home({ params }: { params: { deck: string } }) {
           />
           <StartButton
             deck={params.deck}
-            description=" A new tab will open and your slides will stay in sync across tabs.  "
+            description=" A new tab will open and your slides will stay in sync across tabs."
             mode="Presenter"
           />
           <Link
             href="/talks"
-            className="inline-block px-4 py-2 mx-auto no-underline rounded-lg bg-slate-300"
+            className="inline-block px-4 py-2 mx-auto no-underline rounded-lg bg-slate-300 text-slate-800"
           >
             Back to Talks
           </Link>

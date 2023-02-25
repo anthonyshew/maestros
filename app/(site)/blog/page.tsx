@@ -6,8 +6,8 @@ import { allBlogPosts, BlogPost } from "contentlayer/generated";
 
 function PostCard(post: BlogPost) {
   return (
-    <Link href={post._raw.flattenedPath as Route | URL} className="text-white">
-      <div className="p-4 mb-4 rounded-lg dark:hover:bg-slate-900 md:p-6">
+    <Link href={post._raw.flattenedPath as Route | URL}>
+      <div className="p-4 mb-4 transition-all rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 md:p-6">
         <h2 className="text-xl">{post.title}</h2>
         <time
           dateTime={post.date}
