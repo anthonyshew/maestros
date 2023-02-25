@@ -7,6 +7,33 @@ module.exports = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              "font-weight": "500",
+            },
+            h2: {
+              "font-weight": "500",
+            },
+            h3: {
+              "font-weight": "500",
+            },
+            h4: {
+              "font-weight": "500",
+            },
+            h5: {
+              "font-weight": "500",
+            },
+            h6: {
+              "font-weight": "500",
+            },
+            strong: {
+              "font-weight": "500",
+            },
+          },
+        },
+      },
       keyframes: {
         shimmer: {
           "100%": {
