@@ -1,4 +1,4 @@
-import { Fira_Code, } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import localFont from 'next/font/local'
 
 export const rubik = localFont({

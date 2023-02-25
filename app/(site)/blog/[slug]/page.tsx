@@ -96,7 +96,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </article>
 
       <footer className="pt-4 mt-4 border-t-2 border-t-slate-600">
-        <p className="text-xl font-bold">More Reading</p>
+        <p className="text-xl font-semibold">More Reading</p>
 
         <div className="flex flex-col justify-center gap-4 sm:flex-row sm:justify-between">
           {prevPost ? (
