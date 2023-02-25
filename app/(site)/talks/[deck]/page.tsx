@@ -6,7 +6,7 @@ import Balancer from "react-wrap-balancer";
 export default function Home({ params }: { params: { deck: string } }) {
   return (
     <div className="w-full">
-      <div className="prose">
+      <div className="prose dark:prose-invert">
         <h1>
           <Balancer>{talksData[params.deck]?.title}</Balancer>
         </h1>

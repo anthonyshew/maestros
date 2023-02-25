@@ -1,24 +1,23 @@
 import Link from "next/link";
+import type { Route } from "next";
+
 import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts, BlogPost } from "contentlayer/generated";
 
 function PostCard(post: BlogPost) {
   return (
-    <div className="mb-8">
-      <h2 className="text-xl">
-        <Link
-          href={post._raw.flattenedPath}
-          className="text-blue-700 hover:text-blue-900"
-          legacyBehavior
+    <Link href={post._raw.flattenedPath as Route | URL} className="text-white">
+      <div className="p-4 mb-4 rounded-lg dark:hover:bg-slate-900 md:p-6">
+        <h2 className="text-xl">{post.title}</h2>
+        <time
+          dateTime={post.date}
+          className="block mb-2 text-xs text-gray-600 dark:text-gray-500"
         >
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="block mb-2 text-xs text-gray-600">
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
-      <p>{post.summary}</p>
-    </div>
+          {format(parseISO(post.date), "LLLL d, yyyy")}
+        </time>
+        <p className="mb-0">{post.summary}</p>
+      </div>
+    </Link>
   );
 }
 

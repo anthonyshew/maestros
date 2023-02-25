@@ -16,7 +16,7 @@ export const StartButton = ({ deck, mode, description }: Params) => {
 
   return (
     <button
-      className="flex flex-col w-full p-4 text-left transition-all border-2 rounded border-slate-500 hover:bg-slate-100"
+      className="flex flex-col w-full p-4 text-left transition-all border-2 rounded border-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
       onClick={() => {
         const target = `/talks/${deck}/1`;
         if (mode === "Presenter") {

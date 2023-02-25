@@ -19,7 +19,7 @@
     "encoding": "^0.1.13",
     "framer-motion": "^8.5.5",
     "lucide-react": "^0.108.0",
-    "next": "13.1.7-canary.21",
+    "next": "^13.2.1",
     "next-contentlayer": "latest",
     "next-themes": "^0.2.1",
     "react": "latest",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "@types/react": "18.0.26",
+    "@types/react": "^18.0.28",
     "autoprefixer": "^10.4.13",
     "eslint": "latest",
     "eslint-config-next": "latest",

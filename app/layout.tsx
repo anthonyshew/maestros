@@ -1,7 +1,6 @@
 import { rubik } from "./fonts";
 import AnalyticsWrapper from "#/components/Analytics";
 import globalMetadata from "./metadata";
-// import { Providers } from "#/app/providers";
 
 export const metadata = globalMetadata;
 

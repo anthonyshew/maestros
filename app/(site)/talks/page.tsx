@@ -23,7 +23,7 @@ export default function Home() {
           <Link
             key={index}
             href={`/talks/${path}`}
-            className="flex flex-row justify-between p-4 text-white border rounded-lg bg-slate-800 "
+            className="flex flex-row justify-between p-4 text-white transition-all border rounded-lg bg-slate-800 dark:hover:bg-slate-900"
           >
             <span>{talksData[path]?.title}</span>
             <span>

@@ -5,6 +5,7 @@ import {
   defaultPresentationValue,
   PresentationCtx,
 } from "#/app/(talkSlides)/PresentationContext";
+import { Providers } from "#/app/providers";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [presentation, setPresentation] = useState(

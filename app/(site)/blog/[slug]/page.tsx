@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 
 import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts } from "contentlayer/generated";
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata | undefined> {
+}) {
   const post = getPost(params.slug);
   if (!post) {
     return;
@@ -80,15 +80,18 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <Balancer>{post?.title}</Balancer>
           </h1>
           <div className="flex flex-row gap-4 align-center">
-            <time dateTime={post?.date} className="text-xs text-gray-600 ">
+            <time
+              dateTime={post?.date}
+              className="text-xs text-gray-600 dark:text-gray-400"
+            >
               {format(parseISO(post?.date), "LLLL d, yyyy")}
             </time>
-            <hr className="flex-grow m-auto border-1 text-cyan-900" />
+            <hr className="flex-grow m-auto border-1 text-slate-900" />
           </div>
         </div>
       </header>
 
-      <article className="prose lg:prose-lg">
+      <article className="prose lg:prose-lg dark:prose-invert">
         <MDXContent components={mdxComponents} />
       </article>
 

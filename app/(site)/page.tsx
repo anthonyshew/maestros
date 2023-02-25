@@ -31,7 +31,9 @@ export default async function Home() {
           <h1 className="m-0 text-xl text-black dark:text-white sm:text-4xl">
             Anthony Shew
           </h1>
-          <p className={`m-0 mt-1 ${firaCode.className} text-xs sm:text-lg`}>
+          <p
+            className={`m-0 mt-1 ${firaCode.className} text-xs sm:text-lg dark:text-slate-400`}
+          >
             Engineer. Creator. Educator.
           </p>
         </div>
