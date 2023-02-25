@@ -73,8 +73,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) return notFound();
 
   return (
-    <div className="flex flex-col w-full pr-2 md:pr-8">
-      <header className="w-full py-8">
+    <div className="flex flex-col w-full md:pr-8">
+      <header className="w-full pb-4">
         <div className="text-center">
           <h1 className="mb-4">
             <Balancer>{post?.title}</Balancer>
