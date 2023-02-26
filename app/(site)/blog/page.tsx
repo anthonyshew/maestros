@@ -15,7 +15,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     },
   ];
 
-  return baseMetadata;
+  return { ...baseMetadata, title: "Blog" };
 }
 
 function PostCard(post: BlogPost) {

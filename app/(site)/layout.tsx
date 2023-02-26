@@ -16,7 +16,7 @@ export async function generateMetadata({}): Promise<Metadata> {
     },
   ];
 
-  return baseMetadata;
+  return { ...baseMetadata, title: "Home" };
 }
 
 export default function RootLayout({
