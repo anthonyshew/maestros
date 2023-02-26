@@ -5,6 +5,7 @@ import { RepoCard, PinnedRepos } from "#/components/molecules/RepoCard";
 import { tagline } from "#/app/constants";
 import { buildMeta } from "#/app/metadata";
 import { Metadata } from "next";
+import Balancer from "react-wrap-balancer";
 
 export const revalidate = 3600; // hourly
 
@@ -43,7 +44,7 @@ export default async function Home() {
           <p
             className={`m-0 mt-1 ${firaCode.className} text-xs sm:text-lg dark:text-slate-400`}
           >
-            {tagline}
+            <Balancer>{tagline}</Balancer>
           </p>
         </div>
       </div>
