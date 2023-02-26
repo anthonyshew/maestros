@@ -1,8 +1,22 @@
 import Link from "next/link";
-import type { Route } from "next";
-
+import type { Route, Metadata } from "next";
+import baseMetadata from "#/app/metadata";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allBlogPosts, BlogPost } from "contentlayer/generated";
+
+export async function generateMetadata({}): Promise<Metadata> {
+  const pageMetadata = baseMetadata;
+
+  pageMetadata.openGraph.images = [
+    {
+      url: `https://${process.env.VERCEL_URL}/api/og?title=Blog`,
+      width: 1920,
+      height: 1080,
+    },
+  ];
+
+  return baseMetadata;
+}
 
 function PostCard(post: BlogPost) {
   return (

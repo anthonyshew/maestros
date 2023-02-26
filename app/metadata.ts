@@ -1,4 +1,4 @@
-const metadata =
+const baseMetadata =
 {
   title: {
     default: 'Anthony Shew',
@@ -33,4 +33,4 @@ const metadata =
   },
 };
 
-export default metadata
+export default baseMetadata

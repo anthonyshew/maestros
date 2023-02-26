@@ -34,7 +34,7 @@ export default async function handler(req: NextRequest) {
             marginLeft: 190,
             marginRight: 190,
             display: "flex",
-            fontSize: 150,
+            fontSize: 140,
             fontFamily: "Rubik",
             color: "white",
             whiteSpace: "pre-wrap",

@@ -2,6 +2,22 @@ import { Navbar } from "#/components/Navbar";
 import "../globals.css";
 import { Providers } from "#/app/providers";
 import { ThemeController } from "#/components/ThemeController";
+import { Metadata } from "next";
+import baseMetadata from "#/app/metadata";
+
+export async function generateMetadata({}): Promise<Metadata> {
+  const pageMetadata = baseMetadata;
+
+  pageMetadata.openGraph.images = [
+    {
+      url: `https://${process.env.VERCEL_URL}/api/og?title=Welcome%20to%my%20site`,
+      width: 1920,
+      height: 1080,
+    },
+  ];
+
+  return baseMetadata;
+}
 
 export default function RootLayout({
   children,
