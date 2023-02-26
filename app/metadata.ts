@@ -15,11 +15,11 @@ const baseMetadata =
   openGraph: {
     title: 'Anthony Shew',
     description: tagline,
-    url: 'https://shew.dev/images/me.png',
+    url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
     siteName: 'Anthony Shew',
     images: [
       {
-        url: 'https://shew.dev/images/me.png',
+        url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
         width: 1920,
         height: 1080,
       },
