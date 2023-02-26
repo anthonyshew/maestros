@@ -12,11 +12,11 @@ const metadata =
   openGraph: {
     title: 'Anthony Shew',
     description: 'Engineer. Educator. Full stack comedian.',
-    url: 'https://shew.dev/me.png',
+    url: 'https://shew.dev/images/me.png',
     siteName: 'Anthony Shew',
     images: [
       {
-        url: 'https://shew.dev/me.png',
+        url: 'https://shew.dev/images/me.png',
         width: 1920,
         height: 1080,
       },
