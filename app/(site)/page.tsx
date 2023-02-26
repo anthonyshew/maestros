@@ -2,6 +2,7 @@ import { firaCode } from "#/app/fonts";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/Avatar";
 import { Github, Twitter } from "lucide-react";
 import { RepoCard, PinnedRepos } from "#/components/molecules/RepoCard";
+import { tagline } from "#/app/constants";
 
 export const revalidate = 3600; // hourly
 
@@ -34,7 +35,7 @@ export default async function Home() {
           <p
             className={`m-0 mt-1 ${firaCode.className} text-xs sm:text-lg dark:text-slate-400`}
           >
-            Engineer. Educator. Full stack comedian.
+            {tagline}
           </p>
         </div>
       </div>

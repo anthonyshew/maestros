@@ -1,3 +1,6 @@
+import { Metadata } from "next";
+import { tagline } from "#/app/constants";
+
 const baseMetadata =
 {
   title: {
@@ -8,10 +11,10 @@ const baseMetadata =
     index: true,
     follow: true,
   },
-  description: 'Engineer. Educator. Full stack comedian.',
+  description: tagline,
   openGraph: {
     title: 'Anthony Shew',
-    description: 'Engineer. Educator. Full stack comedian.',
+    description: tagline,
     url: 'https://shew.dev/images/me.png',
     siteName: 'Anthony Shew',
     images: [
@@ -32,5 +35,28 @@ const baseMetadata =
     shortcut: '/favicon.ico',
   },
 };
+
+interface BuildMetaParams {
+  title: string,
+  description?: string
+}
+
+export const buildMeta = async ({ title, description }: BuildMetaParams): Promise<Metadata> => {
+  const customMeta = baseMetadata
+
+  customMeta.openGraph.images = [
+    {
+      url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=${title ?? "Anthony Shew"}`),
+      width: 1920,
+      height: 1080,
+    }
+  ]
+
+  if (description) {
+    customMeta.description = description
+  }
+
+  return { ...customMeta, title }
+}
 
 export default baseMetadata

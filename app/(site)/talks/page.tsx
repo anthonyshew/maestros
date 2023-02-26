@@ -3,20 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { allSlides } from "contentlayer/generated";
 import { talksData } from "../../../content/talks/talksData";
 import { Metadata } from "next";
-import baseMetadata from "#/app/metadata";
+import { buildMeta } from "#/app/metadata";
 
 export async function generateMetadata({}): Promise<Metadata> {
-  const pageMetadata = baseMetadata;
-
-  pageMetadata.openGraph.images = [
-    {
-      url: `https://${process.env.VERCEL_URL}/api/og?title=Talks`,
-      width: 1920,
-      height: 1080,
-    },
-  ];
-
-  return { ...baseMetadata, title: "Talks" };
+  return await buildMeta({ title: "Talks" });
 }
 
 export default function Home() {

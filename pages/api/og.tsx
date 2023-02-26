@@ -1,3 +1,4 @@
+import { tagline } from "#/app/constants";
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
@@ -11,8 +12,10 @@ const font = fetch(
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const postTitle = searchParams.get("title");
+  const title = searchParams.get("title") ?? "Anthony Shew";
   const fontData = await font;
+
+  const titleIsMyName = title === "Anthony Shew";
 
   return new ImageResponse(
     (
@@ -23,7 +26,7 @@ export default async function handler(req: NextRequest) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-around",
+          justifyContent: "center",
           backgroundImage: 'url("https://shew.dev/images/og-bg.png")',
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
@@ -33,6 +36,7 @@ export default async function handler(req: NextRequest) {
           style={{
             marginLeft: 190,
             marginRight: 190,
+            marginBottom: 120,
             display: "flex",
             fontSize: 140,
             fontFamily: "Rubik",
@@ -40,7 +44,7 @@ export default async function handler(req: NextRequest) {
             whiteSpace: "pre-wrap",
           }}
         >
-          {postTitle ?? "Welcome to my site!"}
+          {title}
         </div>
         <div
           style={{
@@ -57,10 +61,10 @@ export default async function handler(req: NextRequest) {
             height={150}
             tw="rounded-full mb-10"
           />
-          <div tw="text-8xl text-slate-300">Anthony Shew</div>
-          <div tw="text-6xl text-slate-300 mt-8">
-            Engineer. Educator. Full stack comedian.
+          <div tw="text-8xl text-slate-300">
+            {titleIsMyName ? "" : "Anthony Shew"}
           </div>
+          <div tw="text-6xl text-slate-300 mt-8">{tagline}</div>
         </div>
       </div>
     ),

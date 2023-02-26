@@ -3,7 +3,7 @@ import { talksData } from "#/content/talks/talksData";
 import { StartButton } from "./StartButton";
 import Balancer from "react-wrap-balancer";
 import { Metadata } from "next";
-import baseMetadata from "#/app/metadata";
+import { buildMeta } from "#/app/metadata";
 
 interface PageParams {
   deck: string;
@@ -14,19 +14,9 @@ export async function generateMetadata({
 }: {
   params: PageParams;
 }): Promise<Metadata> {
-  const pageMetadata = baseMetadata;
-
-  pageMetadata.openGraph.images = [
-    {
-      url: `https://${process.env.VERCEL_URL}/api/og?title=My%20${talksData[
-        params.deck
-      ]?.title.replaceAll(" ", "%20")}%20Talk`,
-      width: 1920,
-      height: 1080,
-    },
-  ];
-
-  return { ...baseMetadata, title: talksData[params.deck]?.title };
+  return await buildMeta({
+    title: talksData[params.deck]?.title ?? "Welcome to my talk.",
+  });
 }
 
 export default function Home({ params }: { params: PageParams }) {
