@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { allSlides } from "contentlayer/generated";
-import { talksData } from "../../../content/talks/talksData";
+import { talksData } from "#/content/talks/talksData";
 import { Metadata } from "next";
 import { buildMeta } from "#/app/metadata";
 

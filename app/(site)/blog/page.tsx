@@ -13,7 +13,7 @@ export async function generateMetadata({}): Promise<Metadata> {
 
 function PostCard(post: BlogPost) {
   return (
-    <Link href={post._raw.flattenedPath}>
+    <Link href={`/blog/${post.slug}`}>
       <div className="p-4 mb-4 transition-all rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 md:p-6">
         <h2 className="text-xl">{post.title}</h2>
         <time

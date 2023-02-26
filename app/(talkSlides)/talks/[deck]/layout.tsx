@@ -1,6 +1,7 @@
 "use client";
+
 import { useDeckTheme } from "./serverHooks";
-import "../../../globals.css";
+import "#/app/globals.css";
 import { notFound } from "next/navigation";
 
 export default function RootLayout({

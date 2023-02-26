@@ -1,13 +1,27 @@
-"use client";
-
 import { allSlides } from "contentlayer/generated";
-import {
-  useDeckTheme,
-  useNextSlideKeyPress,
-  usePrevSlideKeyPress,
-} from "../serverHooks";
+import { useDeckTheme } from "../serverHooks";
 import { notFound } from "next/navigation";
 import { firaCode } from "#/app/fonts";
+import { Metadata } from "next";
+import { buildMeta } from "#/app/metadata";
+import { talksData } from "#/content/talks/talksData";
+
+export interface PageParams {
+  params: {
+    deck: string;
+    slideNumber: string;
+  };
+}
+export const generateMetadata = async ({
+  params,
+}: PageParams): Promise<Metadata> => {
+  return await buildMeta({
+    title: "Talks",
+    description: `Slide ${params.slideNumber} of my ${
+      talksData[params.deck]?.title ?? "talk"
+    }`,
+  });
+};
 
 export default function RootLayout({
   children,
@@ -18,16 +32,6 @@ export default function RootLayout({
 }) {
   const { slideNumber, deck } = params;
   const theme = useDeckTheme(deck);
-
-  useNextSlideKeyPress({
-    currentSlide: Number(slideNumber),
-    deck,
-  });
-
-  usePrevSlideKeyPress({
-    currentSlide: Number(slideNumber),
-    deck,
-  });
 
   if (!theme) return notFound();
   if (isNaN(Number(slideNumber))) return notFound();

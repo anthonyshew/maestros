@@ -1,7 +1,7 @@
 import { allSlides } from "contentlayer/generated";
 import { useRouter } from "next/navigation";
 import { useKeyPress } from "./clientHooks";
-import { usePresentationCtx } from "../../usePresentationContext";
+import { usePresentationCtx } from "#/app/(talkSlides)/usePresentationContext";
 import { themesStyles, DeckTheme } from "./themes";
 
 interface SlideHandlerParams {
