@@ -40,7 +40,7 @@ export default async function handler(req: NextRequest) {
             whiteSpace: "pre-wrap",
           }}
         >
-          {postTitle}
+          {postTitle ?? "Welcome to my site!"}
         </div>
         <div
           style={{
@@ -50,6 +50,7 @@ export default async function handler(req: NextRequest) {
             alignItems: "center",
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
             src="https://shew.dev/images/me.png"
             width={150}
@@ -58,7 +59,7 @@ export default async function handler(req: NextRequest) {
           />
           <div tw="text-8xl text-slate-300">Anthony Shew</div>
           <div tw="text-6xl text-slate-300 mt-8">
-            Content creator. Builder. Educator.
+            Engineer. Educator. Full stack comedian.
           </div>
         </div>
       </div>

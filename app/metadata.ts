@@ -8,10 +8,10 @@ const metadata =
     index: true,
     follow: true,
   },
-  description: 'Content creator. Builder. Educator.',
+  description: 'Engineer. Educator. Full stack comedian.',
   openGraph: {
     title: 'Anthony Shew',
-    description: 'Content creator. Builder. Educator.',
+    description: 'Engineer. Educator. Full stack comedian.',
     url: 'https://shew.dev/me.png',
     siteName: 'Anthony Shew',
     images: [
