@@ -6,7 +6,10 @@ import { Metadata } from "next";
 import { buildMeta } from "#/app/metadata";
 
 export async function generateMetadata({}): Promise<Metadata> {
-  return await buildMeta({ title: "Talks" });
+  return await buildMeta({
+    title: "Talks",
+    description: "Conference and other talks that I've done.",
+  });
 }
 
 export default function Home() {

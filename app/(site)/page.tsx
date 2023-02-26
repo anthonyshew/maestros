@@ -3,9 +3,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "#/components/Avatar";
 import { Github, Twitter } from "lucide-react";
 import { RepoCard, PinnedRepos } from "#/components/molecules/RepoCard";
 import { tagline } from "#/app/constants";
+import { buildMeta } from "#/app/metadata";
+import { Metadata } from "next";
 
 export const revalidate = 3600; // hourly
 
+export const generateMetadata = async (): Promise<Metadata> => {
+  return await buildMeta({
+    title: "Anthony Shew",
+    description: "Hi! Welcome to my site.",
+  });
+};
 const getData = async () => {
   const pins = await fetch(
     "https://gh-pinned-repos.egoist.dev/?username=anthonyshew"
