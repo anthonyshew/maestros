@@ -60,14 +60,14 @@ export const RepoCard = (repo: PinnedRepos) => {
         </div>
         <div className="flex flex-col justify-around gap-8 lg:flex-col sm:flex-row">
           <div className="flex flex-row justify-around w-full">
-            <IconLine icon="Fork" stat={repo.forks} />
             <IconLine icon="Star" stat={repo.stars} />
+            <IconLine icon="Fork" stat={repo.forks} />
           </div>
           <div className="flex flex-row justify-around w-full gap-4">
             <a href={repo.link} target="_blank" rel="noreferrer">
               <IconBox className="relative">
                 <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-                <span className="absolute text-white bg-slate-500 rounded-full -top-3 -right-3">
+                <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
                   <ExternalLink className="inline h-3 my-auto" />
                 </span>
               </IconBox>
@@ -80,7 +80,7 @@ export const RepoCard = (repo: PinnedRepos) => {
                     className="inline w-5 h-5 text-white"
                     strokeWidth="1.4"
                   />
-                  <span className="absolute text-white bg-slate-500 rounded-full -top-3 -right-3">
+                  <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
                     <ExternalLink className="inline h-3 my-auto" />
                   </span>
                 </IconBox>
