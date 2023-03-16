@@ -4,6 +4,10 @@ import Balancer from "react-wrap-balancer";
 import type { ImageProps } from "next/image";
 import { TwoColumns, TwoColumnsProps } from "components/TwoColumns";
 
+interface CustomImageProps extends ImageProps {
+  containerClassName: string;
+}
+
 export const mdxComponents = {
   TwoColumns: (props: TwoColumnsProps) => {
     return (
@@ -12,10 +16,12 @@ export const mdxComponents = {
       </>
     );
   },
-  Img: (props: ImageProps) => {
+  Img: (props: CustomImageProps) => {
+    const { containerClassName, ...rest } = props;
+
     return (
-      <div className="relative block">
-        <NextImage {...props} className="rounded-md" />
+      <div className={`relative block ${containerClassName}`}>
+        <NextImage {...rest} className="object-contain rounded-md" />
       </div>
     );
   },

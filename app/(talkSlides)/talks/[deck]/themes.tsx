@@ -8,7 +8,7 @@ export type DeckTheme = {
 export const themesStyles = {
   "react-miami-2023": {
     body: "",
-    main: "flex flex-col min-h-screen min-w-full justify-center items-center",
+    main: "flex flex-col min-h-screen min-w-full justify-center items-center gap-8",
     cliPrefix: "text-black",
     cli: "ml-2 text-cyan-400",
   },

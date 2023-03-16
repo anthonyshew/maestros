@@ -2,5 +2,10 @@
   "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.5/node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "tailwindCSS.suggestions": true,
-  "tailwindCSS.classAttributes": ["class", "className", "themesStyles"]
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "themesStyles",
+    "containerClassName"
+  ]
 }
