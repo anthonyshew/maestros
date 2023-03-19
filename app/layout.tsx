@@ -2,6 +2,7 @@ import { rubik } from "./fonts";
 import type { Metadata } from "next";
 import AnalyticsWrapper from "#/components/Analytics";
 import { buildMeta } from "#/app/metadata";
+import { PresentationWrapper } from "#/app/providers";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
@@ -20,7 +21,7 @@ export default function RootLayout({
       className={`min-h-screen ${rubik.className} antialiased`}
       suppressHydrationWarning
     >
-      {children}
+      <PresentationWrapper>{children}</PresentationWrapper>
       <AnalyticsWrapper />
     </html>
   );

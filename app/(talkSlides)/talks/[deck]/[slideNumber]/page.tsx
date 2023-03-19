@@ -1,10 +1,11 @@
 "use client";
 
 import { allSlides } from "contentlayer/generated";
+import { usePresentationCtx } from "#/app/(talkSlides)/usePresentationContext";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "components/mdxComponents";
-import { useDeckListener } from "../clientHooks";
+import { useDeckListener, useToggleNotes } from "../clientHooks";
 import { useNextSlideKeyPress, usePrevSlideKeyPress } from "../serverHooks";
 
 export const generateStaticParams = () =>
@@ -21,10 +22,8 @@ export default function Page({
   const { slideNumber, deck } = params;
 
   useDeckListener(deck);
-
-  const slideContent = allSlides
-    .filter((slide) => slide.deck === deck)
-    .filter((slide) => slide.order === Number(slideNumber))[0];
+  useToggleNotes();
+  const { areNotesOpen } = usePresentationCtx();
 
   useNextSlideKeyPress({
     currentSlide: Number(slideNumber),
@@ -35,9 +34,18 @@ export default function Page({
     currentSlide: Number(slideNumber),
     deck,
   });
+
+  const slideContent = allSlides
+    .filter((slide) => slide.deck === deck)
+    .filter((slide) => slide.order === Number(slideNumber))[0];
   const MDXContent = useMDXComponent(slideContent?.body.code ?? "");
 
   if (!slideContent) return notFound();
 
-  return <MDXContent components={mdxComponents} />;
+  return (
+    <>
+      {areNotesOpen ? <p>jaklsdlkjfajkfdsjkldsaljkf</p> : null}
+      <MDXContent components={mdxComponents} />
+    </>
+  );
 }

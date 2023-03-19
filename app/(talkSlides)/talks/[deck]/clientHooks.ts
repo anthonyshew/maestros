@@ -1,7 +1,9 @@
 'use client'
 
 import { useRouter } from "next/navigation";
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useCallback } from "react";
+import { usePresentationCtx } from '#/app/(talkSlides)/usePresentationContext';
 
 /** Listen to the messages from the slide controller window. */
 export const useDeckListener = (deck: string) => {
@@ -15,7 +17,7 @@ export const useDeckListener = (deck: string) => {
       };
     }) => {
       if (message.data.source === "slide-controller") {
-        push(`/talks/${deck}/${message.data.payload.newSlide}`);
+        push(`/talks/${deck}/${message.data.payload.newSlide}?blockSpeakerNotes=true`);
       }
     };
 
@@ -44,3 +46,14 @@ export function useKeyPress(callback: () => void, keys: string[]): void {
     };
   }, [handler]);
 }
+
+export const useToggleNotes = () => {
+  const { areNotesOpen, setAreNotesOpen } = usePresentationCtx()
+  const searchParams = useSearchParams()
+  const isViewerWindow = searchParams?.get("blockSpeakerNotes")
+
+  useKeyPress(() => {
+    if (isViewerWindow) return
+    setAreNotesOpen ? setAreNotesOpen(!areNotesOpen) : null
+  }, ["ArrowUp"]);
+};

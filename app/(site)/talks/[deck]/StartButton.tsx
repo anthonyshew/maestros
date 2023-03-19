@@ -23,7 +23,9 @@ export const StartButton = ({ deck, mode, description }: Params) => {
         const target = `/talks/${deck}/1`;
         setTheme("light");
         if (mode === "Presenter") {
-          setChildWindow ? setChildWindow(window.open(target)) : null;
+          setChildWindow
+            ? setChildWindow(window.open(`${target}?blockSpeakerNotes=true`))
+            : null;
         }
         push(target);
       }}

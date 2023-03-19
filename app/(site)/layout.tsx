@@ -1,6 +1,6 @@
 import { Navbar } from "#/components/Navbar";
 import "../globals.css";
-import { Providers } from "#/app/providers";
+import { ThemeWrapper } from "#/app/providers";
 import { ThemeController } from "#/components/ThemeController";
 
 export default function RootLayout({
@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <body>
-      <Providers>
+      <ThemeWrapper>
         <main className="flex flex-col flex-auto max-w-5xl min-h-screen px-4 pb-4 mx-auto sm:py-8 lg:py-20 md:flex-row">
           <ThemeController />
           <Navbar
@@ -22,7 +22,7 @@ export default function RootLayout({
           />
           {children}
         </main>
-      </Providers>
+      </ThemeWrapper>
     </body>
   );
 }
