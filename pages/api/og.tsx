@@ -56,7 +56,7 @@ export default async function handler(req: NextRequest) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
-            src="https://shew.dev/images/me.png"
+            src="https://shew.dev/images/me.jpg"
             width={150}
             height={150}
             tw="rounded-full mb-10"
