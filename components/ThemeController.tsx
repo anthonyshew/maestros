@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Laptop } from "lucide-react";
 
-export const ThemeController = () => {
+export const ThemeController = ({ position }: { position?: "absolute" }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   useEffect(() => setMounted(true), []);
@@ -26,7 +26,12 @@ export const ThemeController = () => {
   if (mounted) {
     return (
       <>
-        <button onClick={() => switcher()} className="absolute top-2 right-2">
+        <button
+          onClick={() => switcher()}
+          className={
+            position === "absolute" ? "absolute top-4 right-2" : undefined
+          }
+        >
           {theme === "dark" ? (
             <Moon />
           ) : theme === "light" ? (

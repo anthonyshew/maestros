@@ -25,7 +25,7 @@ export default function Home() {
         Sometimes, I am lucky enough to do talks at conferences. You can find
         recordings here.
       </p>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mt-8">
         {talks.map((conference) => (
           <a
             key={conference.confName}

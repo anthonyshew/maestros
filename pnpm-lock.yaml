@@ -14,6 +14,9 @@ dependencies:
   '@vercel/og':
     specifier: ^0.0.27
     version: 0.0.27
+  class-variance-authority:
+    specifier: ^0.6.1
+    version: 0.6.1
   clsx:
     specifier: ^1.2.1
     version: 1.2.1
@@ -1675,6 +1678,12 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /class-variance-authority@0.6.1:
+    resolution: {integrity: sha512-eurOEGc7YVx3majOrOb099PNKgO3KnKSApOprXI4BTq6bcfbqbQXPN2u+rPPmIJ2di23bMwhk0SxCCthBmszEQ==}
+    dependencies:
+      clsx: 1.2.1
+    dev: false
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}

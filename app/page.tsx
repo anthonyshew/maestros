@@ -84,7 +84,7 @@ export default async function Home() {
       </div>
 
       <h2 className="my-6 text-2xl font-medium text-black dark:text-white">
-        Core team member of...
+        Projects I&apos;m proud to be involved in
       </h2>
 
       <div className="flex flex-row flex-wrap justify-center gap-8">

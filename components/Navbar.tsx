@@ -1,3 +1,4 @@
+import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
 
 interface Props {
@@ -22,6 +23,9 @@ export const Navbar = ({ links }: Props) => {
           </Link>
         );
       })}
+      <div className="hidden md:inline">
+        <ThemeController />
+      </div>
     </nav>
   );
 };

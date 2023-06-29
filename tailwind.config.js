@@ -1,64 +1,76 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            h1: {
-              "font-weight": "500",
-            },
-            h2: {
-              "font-weight": "500",
-            },
-            h3: {
-              "font-weight": "500",
-            },
-            h4: {
-              "font-weight": "500",
-            },
-            h5: {
-              "font-weight": "500",
-            },
-            h6: {
-              "font-weight": "500",
-            },
-            strong: {
-              "font-weight": "500",
-            },
-          },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       keyframes: {
-        shimmer: {
-          "100%": {
-            transform: "translateX(100%)",
-          },
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        reveal: {
-          "0%": {
-            mask: "linear-gradient(90deg, #000 25%, #000000e6 50%, #00000000) 150% 0 / 400% no-repeat)",
-            opacity: 0,
-          },
-          "100%": {
-            mask: "linear-gradient(90deg, #000 25%, #000000e6 50%, #00000000) 0 / 400% no-repeat)",
-            opacity: 1,
-          },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
         },
       },
       animation: {
-        reveal: "reveal 1s ease-in-out forwards",
-      },
-      fontFamily: {
-        sans: ["var(--font-rubik)"],
-        mono: ["var(--font-fira-code)"],
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

@@ -73,7 +73,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) return notFound();
 
   return (
-    <div className="flex flex-col w-full md:pr-8">
+    <div className="flex flex-col w-full prose md:pr-8 lg:prose-lg dark:prose-invert">
       <header className="w-full pb-4">
         <div className="text-center">
           <h1 className="mb-4">
@@ -86,12 +86,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             >
               {format(parseISO(post?.date), "LLLL d, yyyy")}
             </time>
-            <hr className="flex-grow m-auto border-1 text-slate-900" />
+            <hr className="flex-grow my-auto border-1 text-slate-900" />
           </div>
         </div>
       </header>
 
-      <article className="prose lg:prose-lg dark:prose-invert">
+      <article>
         <MDXContent components={mdxComponents} />
       </article>
 

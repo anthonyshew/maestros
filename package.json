@@ -13,6 +13,7 @@
     "@radix-ui/react-avatar": "^1.0.3",
     "@vercel/analytics": "latest",
     "@vercel/og": "^0.0.27",
+    "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "contentlayer": "latest",
     "date-fns": "^2.30.0",
