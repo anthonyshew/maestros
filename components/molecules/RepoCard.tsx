@@ -1,4 +1,4 @@
-import { GitFork, Star, Box, Globe, ExternalLink } from "lucide-react";
+import { Box, Globe, ExternalLink } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/Avatar";
 import { IconBox } from "#/components/IconBox";
 import { firaCode } from "#/app/fonts";
@@ -24,25 +24,6 @@ export type PinnedRepos = {
   forks: string;
 };
 
-const IconLine = ({ icon, stat }: { icon: "Fork" | "Star"; stat: string }) => {
-  const StarIcon = () => (
-    <Star className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-  );
-
-  const ForkIcon = () => (
-    <GitFork className="inline w-5 h-5 text-white" strokeWidth="1.4" />
-  );
-
-  return (
-    <div className="flex flex-row gap-2 align-center">
-      <IconBox>{icon === "Fork" ? <ForkIcon /> : <StarIcon />}</IconBox>
-      <p className="my-auto font-medium text-slate-800 dark:text-slate-200">
-        {stat}
-      </p>
-    </div>
-  );
-};
-
 export const RepoCard = (repo: PinnedRepos) => {
   return (
     <div className="flex flex-row justify-center w-full lg:w-60">
@@ -59,10 +40,6 @@ export const RepoCard = (repo: PinnedRepos) => {
           </p>
         </div>
         <div className="flex flex-col justify-around gap-8 lg:flex-col sm:flex-row">
-          <div className="flex flex-row justify-around w-full">
-            <IconLine icon="Star" stat={repo.stars} />
-            <IconLine icon="Fork" stat={repo.forks} />
-          </div>
           <div className="flex flex-row justify-around w-full gap-4">
             <a href={repo.link} target="_blank" rel="noreferrer">
               <IconBox className="relative">

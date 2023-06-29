@@ -29,7 +29,7 @@ export const ThemeController = ({ position }: { position?: "absolute" }) => {
         <button
           onClick={() => switcher()}
           className={
-            position === "absolute" ? "absolute top-4 right-2" : undefined
+            position === "absolute" ? "absolute top-2 right-2" : undefined
           }
         >
           {theme === "dark" ? (

@@ -1,9 +1,9 @@
-import { rubik } from "./fonts";
+import { rubik } from "#/app/fonts";
 import type { Metadata } from "next";
 import AnalyticsWrapper from "#/components/Analytics";
 import { buildMeta } from "#/app/metadata";
 import { Navbar } from "#/components/Navbar";
-import "./globals.css";
+import "#/app/globals.css";
 import { ThemeWrapper } from "#/app/providers";
 import { ThemeController } from "#/components/ThemeController";
 
@@ -30,13 +30,6 @@ export default function RootLayout({
             <div className="absolute right-4 top-4 md:hidden">
               <ThemeController />
             </div>
-            <Navbar
-              links={[
-                { label: "Home", href: "/" },
-                { label: "Blog", href: "/blog" },
-                { label: "Talks", href: "/talks" },
-              ]}
-            />
             {children}
           </main>
         </ThemeWrapper>
