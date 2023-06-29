@@ -1,20 +1,22 @@
 import { tagline } from "#/app/constants";
-import { ImageResponse } from "@vercel/og";
-import { NextRequest } from "next/server";
+import { ImageResponse } from "next/server";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
-const font = fetch(
-  new URL("../../public/fonts/Rubik/static/Rubik-Medium.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
+const baseURL = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : `http://localhost:${process.env.PORT || 3000}`;
 
-export default async function handler(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
+export async function GET(req: Request) {
+  const font = await fetch(
+    new URL(
+      "../../../public/fonts/Rubik/static/Rubik-Medium.ttf",
+      import.meta.url
+    )
+  ).then((res) => res.arrayBuffer());
+
+  const searchParams = new URL(req.url).searchParams;
   const title = searchParams.get("title") ?? "Anthony Shew";
-  const fontData = await font;
-
   const titleIsMyName = title === "Anthony Shew";
 
   return new ImageResponse(
@@ -57,8 +59,8 @@ export default async function handler(req: NextRequest) {
           {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
             src="https://shew.dev/images/me.jpg"
-            width={150}
-            height={150}
+            width={250}
+            height={250}
             tw="rounded-full mb-10"
           />
           <div tw="text-8xl text-slate-300">
@@ -74,7 +76,7 @@ export default async function handler(req: NextRequest) {
       fonts: [
         {
           name: "Rubik",
-          data: fontData,
+          data: font,
           style: "normal",
         },
       ],
