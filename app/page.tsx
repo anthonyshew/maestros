@@ -15,6 +15,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
     description: "Hi! Welcome to my site.",
   });
 };
+
 const getData = async () => {
   const pins = await fetch(
     "https://gh-pinned-repos.egoist.dev/?username=anthonyshew"

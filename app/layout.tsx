@@ -2,7 +2,10 @@ import { rubik } from "./fonts";
 import type { Metadata } from "next";
 import AnalyticsWrapper from "#/components/Analytics";
 import { buildMeta } from "#/app/metadata";
-import { PresentationWrapper } from "#/app/providers";
+import { Navbar } from "#/components/Navbar";
+import "./globals.css";
+import { ThemeWrapper } from "#/app/providers";
+import { ThemeController } from "#/components/ThemeController";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
@@ -21,8 +24,22 @@ export default function RootLayout({
       className={`min-h-screen ${rubik.className} antialiased`}
       suppressHydrationWarning
     >
-      <PresentationWrapper>{children}</PresentationWrapper>
-      <AnalyticsWrapper />
+      <body>
+        <ThemeWrapper>
+          <main className="relative flex flex-col flex-auto max-w-5xl min-h-screen px-4 pb-4 mx-auto sm:py-8 lg:py-20 md:flex-row">
+            <ThemeController />
+            <Navbar
+              links={[
+                { label: "Home", href: "/" },
+                { label: "Blog", href: "/blog" },
+                { label: "Talks", href: "/talks" },
+              ]}
+            />
+            {children}
+          </main>
+        </ThemeWrapper>
+        <AnalyticsWrapper />
+      </body>
     </html>
   );
 }

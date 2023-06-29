@@ -25,9 +25,17 @@ export const ThemeController = () => {
 
   if (mounted) {
     return (
-      <button onClick={() => switcher()} className="absolute top-2 right-2">
-        {theme === "dark" ? <Moon /> : theme === "light" ? <Sun /> : <Laptop />}
-      </button>
+      <>
+        <button onClick={() => switcher()} className="absolute top-2 right-2">
+          {theme === "dark" ? (
+            <Moon />
+          ) : theme === "light" ? (
+            <Sun />
+          ) : (
+            <Laptop />
+          )}
+        </button>
+      </>
     );
   }
 
