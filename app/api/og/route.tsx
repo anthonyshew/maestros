@@ -3,10 +3,6 @@ import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
 
-const baseURL = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : `http://localhost:${process.env.PORT || 3000}`;
-
 export async function GET(req: Request) {
   const font = await fetch(
     new URL(

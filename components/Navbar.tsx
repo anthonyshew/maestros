@@ -1,14 +1,13 @@
 import Link from "next/link";
-import type { Route } from "next";
 
-interface Props<T extends string> {
+interface Props {
   links: Array<{
     label: string;
-    href: Route<T> | URL;
+    href: string;
   }>;
 }
 
-export const Navbar = <T extends string>({ links }: Props<T>) => {
+export const Navbar = ({ links }: Props) => {
   return (
     <nav className="flex flex-row justify-center w-full gap-4 py-4 md:mx-10 md:mr-20 md:mt-24 md:flex-col md:w-16 md:justify-start">
       {links.map((link) => {

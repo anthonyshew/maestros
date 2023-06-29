@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { tagline } from "#/app/constants";
 
-const baseMetadata =
+const baseMetadata: Metadata =
 {
+  metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL(`http://localhost:${process.env.PORT ?? 3000}`),
   title: {
     default: 'Anthony Shew',
     template: '%s | Anthony Shew',
@@ -44,13 +45,13 @@ interface BuildMetaParams {
 export const buildMeta = async ({ title, description }: BuildMetaParams): Promise<Metadata> => {
   const customMeta = baseMetadata
 
-  customMeta.openGraph.images = [
+  customMeta.openGraph ? customMeta.openGraph.images = [
     {
       url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=${title ?? "Anthony Shew"}`),
       width: 1920,
       height: 1080,
     }
-  ]
+  ] : () => { }
 
   if (description) {
     customMeta.description = description

@@ -4,7 +4,6 @@ const { withContentlayer } = require("next-contentlayer");
 const moduleExports = {
   experimental: {
     appDir: true,
-    typedRoutes: true,
   },
 };
 
