@@ -20,7 +20,7 @@ export async function generateMetadata({}): Promise<Metadata> {
 export default function Home() {
   return (
     <div className="w-full py-8">
-      <h1 className="mb-8 text-3xl font-medium text-center">Talks</h1>
+      <h1 className="mb-8 text-3xl font-bold text-center">Talks</h1>
       <p>
         Sometimes, I am lucky enough to do talks at conferences. You can find
         recordings here.
@@ -35,7 +35,7 @@ export default function Home() {
             className="flex flex-row justify-between p-4 text-white transition-all rounded-lg bg-slate-800 dark:hover:bg-slate-900"
           >
             <span className="flex flex-col gap-4">
-              <span className="font-medium">{conference.title}</span>
+              <span className="font-bold">{conference.title}</span>
               <span>{conference.confName}</span>
             </span>
             <span className="flex flex-col items-center justify-center">

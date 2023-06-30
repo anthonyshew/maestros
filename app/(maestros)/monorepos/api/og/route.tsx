@@ -5,12 +5,12 @@ export const runtime = "edge";
 
 export async function GET(req: Request) {
   const font = await fetch(
-    new URL("../../../public/fonts/Inter.ttf", import.meta.url)
+    new URL("../../../../../public/fonts/Inter.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const searchParams = new URL(req.url).searchParams;
-  const title = searchParams.get("title") ?? "Anthony Shew";
-  const titleIsMyName = title === "Anthony Shew";
+  const title = searchParams.get("title") ?? "Monorepo Maestros";
+  const titleIsMyName = title === "Monorepo Maestros";
 
   return new ImageResponse(
     (
@@ -22,9 +22,6 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: 'url("https://shew.dev/images/og-bg.png")',
-          backgroundSize: "100% 100%",
-          backgroundPosition: "center",
         }}
       >
         <div
@@ -57,7 +54,7 @@ export async function GET(req: Request) {
             tw="rounded-full mb-10"
           />
           <div tw="text-8xl text-slate-300">
-            {titleIsMyName ? "" : "Anthony Shew"}
+            {titleIsMyName ? "" : "Monorepo Maestros"}
           </div>
           <div tw="text-6xl text-slate-300 mt-8">{tagline}</div>
         </div>

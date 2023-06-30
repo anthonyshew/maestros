@@ -37,12 +37,12 @@ const baseMetadata: Metadata =
   },
 };
 
-interface BuildMetaParams {
+interface BuildMetaParams extends Metadata {
   title: string,
   description?: string
 }
 
-export const buildMeta = async ({ title, description }: BuildMetaParams): Promise<Metadata> => {
+export const buildMeta = async ({ title, description, ...metadata }: BuildMetaParams): Promise<Metadata> => {
   const customMeta = baseMetadata
 
   customMeta.openGraph ? customMeta.openGraph.images = [
@@ -57,7 +57,7 @@ export const buildMeta = async ({ title, description }: BuildMetaParams): Promis
     customMeta.description = description
   }
 
-  return { ...customMeta, title }
+  return { ...customMeta, title, ...metadata }
 }
 
 export default baseMetadata

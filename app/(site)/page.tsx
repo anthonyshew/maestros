@@ -42,7 +42,7 @@ export default async function Home() {
           <AvatarFallback></AvatarFallback>
         </Avatar>
         <div className="my-auto">
-          <h1 className="m-0 text-xl text-black dark:text-white sm:text-4xl">
+          <h1 className="m-0 text-xl font-bold text-black dark:text-white sm:text-4xl">
             Anthony Shew
           </h1>
           <p
@@ -74,7 +74,7 @@ export default async function Home() {
           <Button variant="default" asChild size="lg">
             <Link
               href="/monorepos"
-              className="flex flex-col py-10 text-xl text-center no-underline md:w-full md:py-8 md:flex-row"
+              className="flex flex-col py-10 text-xl font-bold text-center no-underline md:w-full md:py-8 md:flex-row"
             >
               <span className="md:m-1.5">Welcome to</span>
               <span>Monorepo Maestros</span>

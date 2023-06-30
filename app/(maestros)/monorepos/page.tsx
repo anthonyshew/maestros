@@ -5,6 +5,13 @@ export const generateMetadata = () => {
   buildMeta({
     title: "Monorepo Maestros",
     description: "Are you ready to conduct the symphony?",
+    openGraph: {
+      images: {
+        url: encodeURI(`https://${process.env.VERCEL_URL}/monorepos/api/og`),
+        width: 1920,
+        height: 1080,
+      },
+    },
   });
 };
 
@@ -14,16 +21,17 @@ const Page = () => {
       <div className="absolute top-0 left-0 right-0 z-0 aspect-square">
         <Image
           src="/images/maestros/cover.jpeg"
-          className="object-cover !m-0 opacity-10 object-top h-50"
+          className="object-cover !m-0 opacity-40 object-top h-50 dark:opacity-30"
           alt="Cover art for Monorepo Maestros"
           fill
+          priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-b to-95% from-transparent to-white dark:to-zinc-950" />
       </div>
-      <div className="z-10 w-full prose lg:prose-lg dark:prose-invert">
+      <div className="z-10 w-full mt-10 prose lg:prose-lg dark:prose-invert">
         <h1 className="text-center ">
-          <span className="inline-block mb-4 text-2xl">Welcome to</span>
+          Welcome to
           <br /> Monorepo Maestros.
         </h1>
         <p>
@@ -46,7 +54,7 @@ const Page = () => {
           hard to find. Good news: we've rolled up everything you need into one
           course.
         </p>
-        <h2>For monorepo adventurers</h2>
+        <h2>For monorepo haters</h2>
         <p>
           You also may have what I like to lovingly call a{" "}
           <strong>"yolorepo”</strong>, a monorepo where things are hanging on by

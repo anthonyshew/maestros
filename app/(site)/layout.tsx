@@ -1,4 +1,4 @@
-import { rubik } from "#/app/fonts";
+import { inter } from "#/app/fonts";
 import type { Metadata } from "next";
 import AnalyticsWrapper from "#/components/Analytics";
 import { buildMeta } from "#/app/metadata";
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`min-h-screen ${rubik.className} antialiased`}
+      className={`min-h-screen ${inter.className} antialiased`}
       suppressHydrationWarning
     >
       <body>
