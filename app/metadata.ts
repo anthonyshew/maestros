@@ -51,7 +51,6 @@ interface BuildMetaParams {
 }
 
 export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams): Promise<Metadata> => {
-
   if (ogImage) {
     baseMetadata.openGraph!.images = ogImage
     baseMetadata.twitter!.images = ogImage
@@ -63,7 +62,13 @@ export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams
     baseMetadata.openGraph!.description = description
   }
 
-  return { ...baseMetadata, title }
+  if (title) {
+    baseMetadata.title = title
+    baseMetadata.twitter!.title = title
+    baseMetadata.openGraph!.title = title
+  }
+
+  return baseMetadata
 }
 
 export default baseMetadata

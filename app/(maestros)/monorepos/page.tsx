@@ -4,7 +4,7 @@ import Image from "next/image";
 export const generateMetadata = () => {
   buildMeta({
     title: "Monorepo Maestros",
-    description: "Are you ready to conduct the symphony?",
+    description: "Are you ready to lead the symphony?",
     ogImage: {
       url: encodeURI(
         `https://${process.env.VERCEL_URL}/monorepos/api/og?title=Monorepo Maestros`
