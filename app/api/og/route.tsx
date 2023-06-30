@@ -1,4 +1,3 @@
-import { tagline } from "#/app/constants";
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
@@ -59,7 +58,9 @@ export async function GET(req: Request) {
           <div tw="text-8xl text-slate-300">
             {titleIsMyName ? "" : "Anthony Shew"}
           </div>
-          <div tw="text-6xl text-slate-300 mt-8">{tagline}</div>
+          <div tw="text-6xl text-slate-300 mt-8">
+            Make beautiful monorepo music.
+          </div>
         </div>
       </div>
     ),
