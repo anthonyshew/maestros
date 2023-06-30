@@ -2,7 +2,7 @@ import { Fira_Code } from "next/font/google";
 import localFont from 'next/font/local'
 
 export const inter = localFont({
-  src: "../public/fonts/inter.ttf",
+  src: "../public/fonts/Inter.ttf",
   variable: "--font-inter",
 });
 
