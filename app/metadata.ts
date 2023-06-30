@@ -44,25 +44,26 @@ const baseMetadata: Metadata =
   },
 };
 
-interface BuildMetaParams extends Metadata {
+interface BuildMetaParams {
   title: string,
   description?: string
   ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>
 }
 
-export const buildMeta = async ({ title, description, ogImage, ...metadata }: BuildMetaParams): Promise<Metadata> => {
+export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams): Promise<Metadata> => {
 
   if (ogImage) {
     baseMetadata.openGraph!.images = ogImage
     baseMetadata.twitter!.images = ogImage
   }
 
-
   if (description) {
     baseMetadata.description = description
+    baseMetadata.twitter!.description = description
+    baseMetadata.openGraph!.description = description
   }
 
-  return { ...baseMetadata, title, ...metadata }
+  return { ...baseMetadata, title }
 }
 
 export default baseMetadata
