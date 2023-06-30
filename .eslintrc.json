@@ -3,5 +3,14 @@
   "rules": {
     "no-unused-vars": "warn",
     "react/no-unescaped-entities": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": "route.tsx",
+      "rules": {
+        "@next/next/no-img-element": "off",
+        "jsx-a11y/alt-text": "off"
+      }
+    }
+  ]
 }

@@ -5,12 +5,12 @@ export const generateMetadata = () => {
   buildMeta({
     title: "Monorepo Maestros",
     description: "Are you ready to conduct the symphony?",
-    openGraph: {
-      images: {
-        url: encodeURI(`https://${process.env.VERCEL_URL}/monorepos/api/og`),
-        width: 1920,
-        height: 1080,
-      },
+    ogImage: {
+      url: encodeURI(
+        `https://${process.env.VERCEL_URL}/monorepos/og?title=Monorepo Maestros`
+      ),
+      width: 1920,
+      height: 1080,
     },
   });
 };

@@ -1,16 +1,19 @@
-import { tagline } from "#/app/constants";
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const font = await fetch(
-    new URL("../../../../../public/fonts/Inter.ttf", import.meta.url)
+  const fontMedium = await fetch(
+    new URL("../../../../../public/fonts/Inter-Medium.ttf", import.meta.url)
+  ).then((res) => res.arrayBuffer());
+
+  const fontBold = await fetch(
+    new URL("../../../../../public/fonts/Inter-Bold.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const searchParams = new URL(req.url).searchParams;
   const title = searchParams.get("title") ?? "Monorepo Maestros";
-  const titleIsMyName = title === "Monorepo Maestros";
+  const titleIsDefault = title === "Monorepo Maestros";
 
   return new ImageResponse(
     (
@@ -22,6 +25,7 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          backgroundColor: "black",
         }}
       >
         <div
@@ -46,17 +50,9 @@ export async function GET(req: Request) {
             alignItems: "center",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
-          <img
-            src="https://shew.dev/images/me.jpg"
-            width={250}
-            height={250}
-            tw="rounded-full mb-10"
-          />
-          <div tw="text-8xl text-slate-300">
-            {titleIsMyName ? "" : "Monorepo Maestros"}
+          <div tw="text-8xl text-slate-300" style={{ fontFamily: "Inter" }}>
+            {titleIsDefault ? "" : "Monorepo Maestros"}
           </div>
-          <div tw="text-6xl text-slate-300 mt-8">{tagline}</div>
         </div>
       </div>
     ),
@@ -65,9 +61,16 @@ export async function GET(req: Request) {
       height: 1080,
       fonts: [
         {
-          name: "Inter",
-          data: font,
+          name: "Inter Bold",
+          data: fontMedium,
           style: "normal",
+          weight: 400,
+        },
+        {
+          name: "Inter",
+          data: fontBold,
+          style: "normal",
+          weight: 700,
         },
       ],
     }

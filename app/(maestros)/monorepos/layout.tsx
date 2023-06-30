@@ -7,7 +7,8 @@ import { ThemeWrapper } from "#/app/providers";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
-    title: "Anthony Shew",
+    title: "Monorepo Maestros",
+    description: "Make beautiful monorepo music.",
   });
 };
 

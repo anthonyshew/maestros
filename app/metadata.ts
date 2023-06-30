@@ -40,12 +40,12 @@ const baseMetadata: Metadata =
 interface BuildMetaParams extends Metadata {
   title: string,
   description?: string
+  ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>
 }
 
-export const buildMeta = async ({ title, description, ...metadata }: BuildMetaParams): Promise<Metadata> => {
-  const customMeta = baseMetadata
+export const buildMeta = async ({ title, description, ogImage, ...metadata }: BuildMetaParams): Promise<Metadata> => {
 
-  customMeta.openGraph ? customMeta.openGraph.images = [
+  baseMetadata.openGraph ? baseMetadata.openGraph.images = ogImage ?? [
     {
       url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=${title ?? "Anthony Shew"}`),
       width: 1920,
@@ -54,10 +54,10 @@ export const buildMeta = async ({ title, description, ...metadata }: BuildMetaPa
   ] : () => { }
 
   if (description) {
-    customMeta.description = description
+    baseMetadata.description = description
   }
 
-  return { ...customMeta, title, ...metadata }
+  return { ...baseMetadata, title, ...metadata }
 }
 
 export default baseMetadata

@@ -1,10 +1,15 @@
+import { tagline } from "#/app/constants";
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const font = await fetch(
-    new URL("../../../public/fonts/Inter.ttf", import.meta.url)
+  const fontBold = await fetch(
+    new URL("../../../public/fonts/Inter-Bold.ttf", import.meta.url)
+  ).then((res) => res.arrayBuffer());
+
+  const fontMedium = await fetch(
+    new URL("../../../public/fonts/Inter-Medium.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const searchParams = new URL(req.url).searchParams;
@@ -33,7 +38,6 @@ export async function GET(req: Request) {
             marginBottom: 120,
             display: "flex",
             fontSize: 140,
-            fontFamily: "Inter",
             color: "white",
             whiteSpace: "pre-wrap",
           }}
@@ -48,19 +52,19 @@ export async function GET(req: Request) {
             alignItems: "center",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img
             src="https://shew.dev/images/me.jpg"
             width={250}
             height={250}
             tw="rounded-full mb-10"
           />
-          <div tw="text-8xl text-slate-300">
+          <div
+            tw="text-8xl text-slate-300"
+            style={{ fontFamily: "Inter Bold" }}
+          >
             {titleIsMyName ? "" : "Anthony Shew"}
           </div>
-          <div tw="text-6xl text-slate-300 mt-8">
-            Make beautiful monorepo music.
-          </div>
+          <div tw="text-6xl text-slate-300 mt-8">{tagline}</div>
         </div>
       </div>
     ),
@@ -69,9 +73,16 @@ export async function GET(req: Request) {
       height: 1080,
       fonts: [
         {
-          name: "Inter",
-          data: font,
+          name: "Inter Bold",
+          data: fontMedium,
           style: "normal",
+          weight: 400,
+        },
+        {
+          name: "Inter",
+          data: fontBold,
+          style: "normal",
+          weight: 700,
         },
       ],
     }
