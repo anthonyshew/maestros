@@ -31,6 +31,13 @@ const baseMetadata: Metadata =
   twitter: {
     title: 'Anthony Shew',
     card: 'summary_large_image',
+    images: [
+      {
+        url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
   icons: {
     shortcut: '/favicon.ico',
@@ -45,13 +52,11 @@ interface BuildMetaParams extends Metadata {
 
 export const buildMeta = async ({ title, description, ogImage, ...metadata }: BuildMetaParams): Promise<Metadata> => {
 
-  baseMetadata.openGraph ? baseMetadata.openGraph.images = ogImage ?? [
-    {
-      url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=${title ?? "Anthony Shew"}`),
-      width: 1920,
-      height: 1080,
-    }
-  ] : () => { }
+  if (ogImage) {
+    baseMetadata.openGraph!.images = ogImage
+    baseMetadata.twitter!.images = ogImage
+  }
+
 
   if (description) {
     baseMetadata.description = description

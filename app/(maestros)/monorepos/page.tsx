@@ -7,7 +7,7 @@ export const generateMetadata = () => {
     description: "Are you ready to conduct the symphony?",
     ogImage: {
       url: encodeURI(
-        `https://${process.env.VERCEL_URL}/monorepos/og?title=Monorepo Maestros`
+        `https://${process.env.VERCEL_URL}/monorepos/api/og?title=Monorepo Maestros`
       ),
       width: 1920,
       height: 1080,
