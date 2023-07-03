@@ -1,8 +1,8 @@
 import NextImage from "next/image";
-
 import Balancer from "react-wrap-balancer";
+import { LinkHeading } from "#/components/LinkHeading";
 import type { ImageProps } from "next/image";
-import { TwoColumns, TwoColumnsProps } from "components/TwoColumns";
+import { TwoColumns, TwoColumnsProps } from "#/components/TwoColumns";
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
@@ -33,38 +33,25 @@ export const mdxComponents = {
     );
   },
   h2: ({ children }: { children: string }) => {
-    return (
-      <h2>
-        <Balancer>{children}</Balancer>
-      </h2>
-    );
+    return <LinkHeading component="h2">{children}</LinkHeading>;
   },
   h3: ({ children }: { children: string }) => {
-    return (
-      <h3>
-        <Balancer>{children}</Balancer>
-      </h3>
-    );
+    return <LinkHeading component="h3">{children}</LinkHeading>;
   },
   h4: ({ children }: { children: string }) => {
-    return (
-      <h4>
-        <Balancer>{children}</Balancer>
-      </h4>
-    );
+    return <LinkHeading component="h4">{children}</LinkHeading>;
   },
   h5: ({ children }: { children: string }) => {
-    return (
-      <h5>
-        <Balancer>{children}</Balancer>
-      </h5>
-    );
+    return <LinkHeading component="h5">{children}</LinkHeading>;
   },
   h6: ({ children }: { children: string }) => {
+    return <LinkHeading component="h6">{children}</LinkHeading>;
+  },
+  a: ({ children, ...props }: { children: string }) => {
     return (
-      <h6>
-        <Balancer>{children}</Balancer>
-      </h6>
+      <a {...props} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
     );
   },
 };

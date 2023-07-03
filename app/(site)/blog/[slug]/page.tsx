@@ -22,28 +22,32 @@ export async function generateMetadata({
     return;
   }
 
-  const { title, date: publishedTime, summary: description, slug } = post;
+  const { title, date: publishedTime, summary, slug } = post;
+
+  const ogUrl = new URL("/api/og", `https://${process.env.VERCEL_URL}`);
+  ogUrl.searchParams.set("title", title);
+  ogUrl.searchParams.set("subtitle", summary);
 
   return {
     title,
-    description,
+    description: summary,
     openGraph: {
       title,
-      description,
+      description: summary,
       type: "article",
       publishedTime,
       url: `https://shew.dev/blog/${slug}`,
       images: [
         {
-          url: `https://${process.env.VERCEL_URL}/api/og?title=${title}`,
+          url: ogUrl,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description,
-      images: [`https://${process.env.VERCEL_URL}/api/og?title=${title}`],
+      description: summary,
+      images: [ogUrl],
     },
   };
 }
@@ -86,7 +90,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             >
               {format(parseISO(post?.date), "LLLL d, yyyy")}
             </time>
-            <hr className="flex-grow my-auto border-1 text-slate-900" />
+            <hr className="flex-grow border-1 !my-auto text-slate-900" />
           </div>
         </div>
       </header>
