@@ -50,9 +50,9 @@ const Page = () => {
         <p>
           If you've been trying to put a monorepo together and you're finding
           that the necessary pieces aren't fitting together well, you're also in
-          the right place. It's frustrating and the documentation you need is
-          hard to find. Good news: we've rolled up everything you need into one
-          course.
+          the right place. It's frustrating - and the documentation you need is
+          not helpful, too dense, or really hard to find. Good news: we've
+          rolled up everything you need into one course.
         </p>
         <h2>For monorepo haters</h2>
         <p>
