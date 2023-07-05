@@ -41,10 +41,14 @@ const MaestrosLanding = defineDocumentType(() => ({
       description: 'The title of the lesson',
       required: true,
     },
-    slug: {
+    path: {
       type: 'string',
-      description: 'Slug for the lesson (automatically prefixed with `/monorepos`',
+      description: 'URL path for the lesson (automatically prefixed with `/monorepos`',
       required: true,
+    },
+    ogTitle: {
+      type: 'string',
+      description: 'Optional title for OpenGraph images',
     },
     ogDescription: {
       type: 'string',
@@ -64,9 +68,9 @@ const MaestrosLesson = defineDocumentType(() => ({
       description: 'The title of the lesson',
       required: true,
     },
-    slug: {
+    path: {
       type: 'string',
-      description: 'Slug for the lesson (automatically prefixed with `/monorepos`',
+      description: 'URL path for the lesson (automatically prefixed with `/monorepos`',
       required: true,
     },
     ogDescription: {

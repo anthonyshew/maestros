@@ -6,7 +6,6 @@ import {
   SheetTrigger,
   SheetContent,
   SheetDescription,
-  SheetLink,
   SheetHeader,
   SheetTitle,
 } from "#/components/Sheet";
