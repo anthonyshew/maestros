@@ -14,10 +14,11 @@ import { buildMeta } from "#/app/metadata";
 import "#/app/globals.css";
 import { ThemeWrapper } from "#/app/providers";
 import { GitHub } from "#/components/Icons";
-import { Twitter, SidebarOpen } from "lucide-react";
+import { Twitter, SidebarOpen, Music } from "lucide-react";
 import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
 import { links } from "#/app/(maestros)/navLinks";
+import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
@@ -37,11 +38,13 @@ export default function RootLayout({
       className={`min-h-screen ${inter.className} antialiased dark`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="relative flex flex-row max-h-screen min-h-screen">
         <ThemeWrapper>
           <Sheet>
-            <nav className="flex flex-row items-center gap-8 px-6 h-14">
-              <p>Logo</p>
+            <nav className="absolute flex flex-row items-center w-full gap-8 px-6 border-b h-14 border-yellow-400/80">
+              <Link className="flex flex-row gap-4 font-bold" href="/monorepos">
+                <Music /> Maestros
+              </Link>
               <SheetTrigger>
                 <SidebarOpen className="md:hidden" />
               </SheetTrigger>
@@ -70,6 +73,13 @@ export default function RootLayout({
                 <ThemeController />
               </div>
             </nav>
+            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-60 md:flex md:flex-col md:gap-6">
+              {links.sidebarLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.text}
+                </Link>
+              ))}
+            </aside>
             <SheetContent side="left">
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
@@ -77,16 +87,11 @@ export default function RootLayout({
                   This course is meant to work linearly but feel free to explore
                   as you wish.
                 </SheetDescription>
-
-                {links.sidebarLinks.map((link) => (
-                  <SheetLink key={link.href} href={link.href}>
-                    {link.text}
-                  </SheetLink>
-                ))}
+                <SideBarContent />
               </SheetHeader>
             </SheetContent>
           </Sheet>
-          <main className="relative flex flex-col justify-center flex-auto min-h-screen px-4 pb-4 mx-auto sm:py-8 lg:py-20 md:flex-row">
+          <main className="relative flex flex-col justify-center flex-auto h-[calc(100vh-3.5rem)] px-4 mx-auto overflow-auto mt-14 sm:py-8 lg:py-20 md:flex-row">
             {children}
           </main>
         </ThemeWrapper>

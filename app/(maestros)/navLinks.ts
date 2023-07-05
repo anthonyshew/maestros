@@ -2,7 +2,7 @@ interface Link { href: string, text: string }
 
 export const links: {
   mainLinks: Link[]
-  sidebarLinks: Link[]
+  sidebarLinks: Array<Link & { items?: { hashlink: string, href: string }[] }>
 } = {
   mainLinks: [
     {
@@ -28,8 +28,8 @@ export const links: {
       text: "Home",
     },
     {
-      href: "/monorepos/examples",
-      text: "Examples",
+      href: "/monorepos/understanding-monorepos",
+      text: "Understanding monorepos",
     },
     {
       href: "/monorepos/glossary",

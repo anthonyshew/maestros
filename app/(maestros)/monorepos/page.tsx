@@ -29,8 +29,8 @@ const Page = () => {
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-b to-95% from-transparent to-white dark:to-zinc-950" />
       </div>
-      <div className="z-10 w-full mt-10 prose lg:prose-lg dark:prose-invert">
-        <h1 className="text-center ">
+      <div className="z-10 w-full h-full prose lg:prose-lg dark:prose-invert">
+        <h1 className="text-center">
           Welcome to
           <br /> Monorepo Maestros.
         </h1>
@@ -51,7 +51,7 @@ const Page = () => {
           If you've been trying to put a monorepo together and you're finding
           that the necessary pieces aren't fitting together well, you're also in
           the right place. It's frustrating - and the documentation you need is
-          not helpful, too dense, or really hard to find. Good news: we've
+          often not helpful, too dense, or really hard to find. Good news: we've
           rolled up everything you need into one course.
         </p>
         <h2>For monorepo haters</h2>
