@@ -18,6 +18,7 @@ import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
 import { links } from "#/app/(maestros)/navLinks";
 import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
+import { sideBarItems } from "#/app/(maestros)/monorepos/[...slug]/contentFetchers";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
@@ -72,12 +73,19 @@ export default function RootLayout({
                 <ThemeController />
               </div>
             </nav>
-            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-60 md:flex md:flex-col md:gap-6">
-              {links.sidebarLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.text}
-                </Link>
-              ))}
+            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-60 md:flex md:flex-col md:gap-4">
+              {sideBarItems.map((link) => {
+                return (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    className={link.isNestedPage ? "ml-4" : ""}
+                  >
+                    {link.isNestedPage ? "- " : ""}
+                    {link.title}
+                  </Link>
+                );
+              })}
             </aside>
             <SheetContent side="left">
               <SheetHeader>
