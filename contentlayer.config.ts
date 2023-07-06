@@ -54,6 +54,10 @@ const MaestrosLanding = defineDocumentType(() => ({
       type: 'string',
       description: 'Description for OpenGraph images',
       required: true,
+    },
+    disabled: {
+      type: "boolean",
+      description: "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
     }
   }
 }))
@@ -68,10 +72,9 @@ const MaestrosLesson = defineDocumentType(() => ({
       description: 'The title of the lesson',
       required: true,
     },
-    path: {
+    ogTitle: {
       type: 'string',
-      description: 'URL path for the lesson (automatically prefixed with `/monorepos`',
-      required: true,
+      description: 'Optional title for OpenGraph images',
     },
     ogDescription: {
       type: 'string',
