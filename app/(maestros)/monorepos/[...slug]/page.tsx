@@ -1,7 +1,7 @@
 import { mdxComponents } from "#/components/mdxComponents";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
-import { allDocuments } from "contentlayer/generated";
+import { MaestrosLesson, allDocuments } from "contentlayer/generated";
 
 export async function generateStaticParams() {
   return [
@@ -21,10 +21,10 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
         .slice(2)
         .join("/") === params.slug.join("/")
     );
-  })[0];
+  })[0] as MaestrosLesson;
 
   const MDXContent = useMDXComponent(content?.body.code ?? "");
-  if (!content) return notFound();
+  if (!content ?? content.unpublished) return notFound();
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
       <h1>{content.title}</h1>

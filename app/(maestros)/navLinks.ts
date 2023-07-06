@@ -1,8 +1,11 @@
+import { cva } from "class-variance-authority"
+
 interface Link { href: string, text: string }
+
 
 export const links: {
   mainLinks: Link[]
-  sidebarLinks: Array<Link & { items?: { hashlink: string, href: string }[] }>
+  // sidebarLinks: Array<Link & { items?: { hashlink: string, href: string }[] }>
 } = {
   mainLinks: [
     {
@@ -22,18 +25,15 @@ export const links: {
       text: "Credits"
     },
   ],
-  sidebarLinks: [
-    {
-      href: "/monorepos",
-      text: "Home",
-    },
-    {
-      href: "/monorepos/understanding-monorepos",
-      text: "Understanding monorepos",
-    },
-    {
-      href: "/monorepos/glossary",
-      text: "Glossary",
-    },
-  ]
 }
+
+export const linkStyles = cva("", {
+  variants: {
+    position: {
+      isNested: 'ml-4'
+    },
+    status: {
+      unpublished: "pointer-events-none text-foreground/70"
+    }
+  }
+})

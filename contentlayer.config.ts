@@ -68,9 +68,14 @@ const MaestrosLesson = defineDocumentType(() => ({
       description: 'The title of the lesson',
       required: true,
     },
-    disabled: {
+    unpublished: {
       type: "boolean",
       description: "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
+    },
+    sidebarOrderPosition: {
+      type: "number",
+      description: "Which entry into the list does this item occupy? (0-indexed)",
+      required: true
     },
     ogTitle: {
       type: 'string',

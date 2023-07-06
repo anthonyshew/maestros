@@ -18,7 +18,8 @@ import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
 import { links } from "#/app/(maestros)/navLinks";
 import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
-import { sideBarItems } from "#/app/(maestros)/monorepos/[...slug]/contentFetchers";
+import { sideBarItems } from "#/app/(maestros)/contentHandlers";
+import { linkStyles } from "../navLinks";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
@@ -78,8 +79,12 @@ export default function RootLayout({
                 return (
                   <Link
                     key={link.path}
-                    href={link.path}
-                    className={link.isNestedPage ? "ml-4" : ""}
+                    href={link.unpublished ? "" : link.path}
+                    className={linkStyles({
+                      position: link.isNestedPage ? "isNested" : undefined,
+                      status: link.unpublished ? "unpublished" : undefined,
+                    })}
+                    aria-disabled={link.unpublished}
                   >
                     {link.isNestedPage ? "- " : ""}
                     {link.title}

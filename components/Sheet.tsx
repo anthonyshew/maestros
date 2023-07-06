@@ -87,10 +87,7 @@ const SheetHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      "flex flex-col space-y-2 text-center sm:text-left",
-      className
-    )}
+    className={cn("flex flex-col space-y-2 sm:text-left", className)}
     {...props}
   />
 );
@@ -136,13 +133,15 @@ SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
 const SheetLink = ({
   children,
+  className,
   href,
 }: {
   children: ReactNode;
   href: string;
+  className?: string;
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} className={className}>
       <SheetClose>{children}</SheetClose>
     </Link>
   );
