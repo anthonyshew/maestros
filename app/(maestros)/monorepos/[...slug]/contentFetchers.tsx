@@ -1,7 +1,4 @@
-import {
-  allMaestrosLessons,
-  allMaestrosLandings,
-} from "contentlayer/generated";
+import { allMaestrosLandings } from "contentlayer/generated";
 
 export const getLanding = (path?: string) => {
   const landing = allMaestrosLandings.find((page) => {
@@ -9,12 +6,4 @@ export const getLanding = (path?: string) => {
   });
 
   return landing;
-};
-
-export const getLesson = (path?: string) => {
-  const lesson = allMaestrosLessons.find((page) => {
-    return page.path === path;
-  });
-
-  return lesson;
 };
