@@ -1,4 +1,3 @@
-import { getLanding } from "#/app/(maestros)/monorepos/[...slug]/contentFetchers";
 import { mdxComponents } from "#/components/mdxComponents";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";

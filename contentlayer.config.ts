@@ -55,10 +55,6 @@ const MaestrosLanding = defineDocumentType(() => ({
       description: 'Description for OpenGraph images',
       required: true,
     },
-    disabled: {
-      type: "boolean",
-      description: "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
-    }
   }
 }))
 
@@ -71,6 +67,10 @@ const MaestrosLesson = defineDocumentType(() => ({
       type: 'string',
       description: 'The title of the lesson',
       required: true,
+    },
+    disabled: {
+      type: "boolean",
+      description: "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
     },
     ogTitle: {
       type: 'string',
