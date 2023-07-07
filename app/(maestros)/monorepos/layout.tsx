@@ -5,7 +5,7 @@ import {
   Sheet,
   SheetTrigger,
   SheetContent,
-  SheetDescription,
+  // SheetDescription,
   SheetHeader,
   SheetTitle,
 } from "#/components/Sheet";
@@ -44,14 +44,19 @@ export default function RootLayout({
           <Sheet>
             <nav className="absolute flex flex-row items-center w-full gap-8 px-6 border-b h-14 border-yellow-400/80">
               <Link className="flex flex-row gap-4 font-bold" href="/monorepos">
-                <Music /> Maestros
+                <Music />{" "}
+                <span className="hidden sm:inline-block">Maestros</span>
               </Link>
               <SheetTrigger>
                 <SidebarOpen className="md:hidden" />
               </SheetTrigger>
               <div className="flex-row hidden gap-8 md:flex">
                 {links.mainLinks.map((link) => (
-                  <Link key={link.href} href={link.href}>
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="underline-offset-4 hover:underline"
+                  >
                     {link.text}
                   </Link>
                 ))}
@@ -74,7 +79,7 @@ export default function RootLayout({
                 <ThemeController />
               </div>
             </nav>
-            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-60 md:flex md:flex-col md:gap-4">
+            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-80 md:flex md:flex-col md:gap-4">
               {buildNavigationGroups().map((link) => {
                 return (
                   <>
@@ -113,11 +118,19 @@ export default function RootLayout({
             </aside>
             <SheetContent side="left">
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>
+                <SheetTitle>
+                  <Link
+                    className="flex flex-row gap-4 font-bold"
+                    href="/monorepos"
+                  >
+                    <Music /> Monorepo Maestros
+                  </Link>
+                </SheetTitle>
+                <hr className="!my-4 border-yellow-400" />
+                {/* <SheetDescription>
                   This course is meant to work linearly but feel free to explore
                   as you wish.
-                </SheetDescription>
+                </SheetDescription> */}
                 <SideBarContent />
               </SheetHeader>
             </SheetContent>

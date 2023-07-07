@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 const replaceNonAlphanumericsWithDash = (str: string) =>
-  str.replace(/[^a-z0-9]/gi, "-");
+  str.toLowerCase().replace(/[^a-z0-9]/gi, "-");
 
 interface Props {
   component: React.ElementType;

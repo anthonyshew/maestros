@@ -27,7 +27,7 @@ export const links: {
   ],
 }
 
-export const linkStyles = cva("", {
+export const linkStyles = cva("underline-offset-4 hover:underline", {
   variants: {
     position: {
       isNested: 'ml-4'

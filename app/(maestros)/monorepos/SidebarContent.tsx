@@ -7,19 +7,37 @@ export const SideBarContent = () => {
     <>
       {buildNavigationGroups().map((link) => {
         return (
-          <SheetLink
-            key={link.path}
-            // href={link.unpublished ? "" : link.path}
-            href={link.unpublished ? "" : link.path}
-            className={linkStyles({
-              position: link.isNestedPage ? "isNested" : undefined,
-              status: link.unpublished ? "unpublished" : undefined,
+          <>
+            <SheetLink
+              key={link.path}
+              // href={link.unpublished ? "" : link.path}
+              href={link.unpublished ? "" : link.path}
+              className={linkStyles({
+                position: link.isNestedPage ? "isNested" : undefined,
+                status: link.unpublished ? "unpublished" : undefined,
+              })}
+              aria-disabled={link.unpublished}
+            >
+              {link.isNestedPage ? "- " : ""}
+              {link.title}
+            </SheetLink>
+            {link.children.map((childLink) => {
+              return (
+                <SheetLink
+                  key={childLink.path}
+                  href={childLink.unpublished ? "" : childLink.path}
+                  className={linkStyles({
+                    position: "isNested",
+                    status: childLink.unpublished ? "unpublished" : undefined,
+                  })}
+                  aria-disabled={childLink.unpublished}
+                >
+                  {"- "}
+                  {childLink.title}
+                </SheetLink>
+              );
             })}
-            aria-disabled={link.unpublished}
-          >
-            {link.isNestedPage ? "- " : ""}
-            {link.title}
-          </SheetLink>
+          </>
         );
       })}
     </>
