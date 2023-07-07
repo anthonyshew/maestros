@@ -29,11 +29,14 @@ const Page = () => {
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-b to-95% from-transparent to-white dark:to-zinc-950" />
       </div>
-      <div className="z-10 w-full h-full prose lg:prose-lg dark:prose-invert">
-        <h1 className="text-center">
-          Welcome to
-          <br /> Monorepo Maestros.
-        </h1>
+      <h1 className="z-10 text-4xl mb-8 font-black text-foreground leading-[3.5rem] md:leading-[5rem] lg:leading-[5.5rem] text-center sm:text-5xl lg:text-6xl">
+        Welcome to
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-800">
+          Monorepo Maestros
+        </span>
+      </h1>
+      <div className="z-10 w-full h-full p-2 prose lg:prose-lg sm:p-6 dark:prose-invert">
         <p>
           Some of the largest software engineering organizations in the world
           deliver using monorepos and you can, too. With the right knowledge and

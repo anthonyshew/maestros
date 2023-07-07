@@ -8,6 +8,7 @@ import {
   // SheetDescription,
   SheetHeader,
   SheetTitle,
+  SheetLink,
 } from "#/components/Sheet";
 import { buildMeta } from "#/app/metadata";
 import "#/app/globals.css";
@@ -79,7 +80,7 @@ export default function RootLayout({
                 <ThemeController />
               </div>
             </nav>
-            <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-80 md:flex md:flex-col md:gap-4">
+            <aside className="hidden w-0 overflow-auto h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-80 md:flex md:flex-col md:gap-4">
               {buildNavigationGroups().map((link) => {
                 return (
                   <>
@@ -126,7 +127,14 @@ export default function RootLayout({
                     <Music /> Monorepo Maestros
                   </Link>
                 </SheetTitle>
+
                 <hr className="!my-4 border-yellow-400" />
+                {links.mainLinks.map((link) => (
+                  <SheetLink key={link.href} href={link.href}>
+                    {link.text}
+                  </SheetLink>
+                ))}
+                <hr className="!my-4 !mt-5 border-yellow-400" />
                 {/* <SheetDescription>
                   This course is meant to work linearly but feel free to explore
                   as you wish.
@@ -135,7 +143,7 @@ export default function RootLayout({
               </SheetHeader>
             </SheetContent>
           </Sheet>
-          <main className="relative flex flex-col justify-center flex-auto h-[calc(100vh-3.5rem)] px-4 mx-auto overflow-auto mt-14 sm:py-8 lg:py-20 md:flex-row">
+          <main className="relative flex flex-col justify-start flex-auto h-[calc(100vh-3.5rem)] px-8 pt-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
             {children}
           </main>
         </ThemeWrapper>
