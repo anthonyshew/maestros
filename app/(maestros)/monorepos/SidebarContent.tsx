@@ -1,14 +1,15 @@
 import { SheetLink } from "#/components/Sheet";
-import { sideBarItems } from "#/app/(maestros)/contentHandlers";
+import { buildNavigationGroups } from "#/app/(maestros)/contentHandlers";
 import { linkStyles } from "#/app/(maestros)/navLinks";
 
 export const SideBarContent = () => {
   return (
     <>
-      {sideBarItems.map((link) => {
+      {buildNavigationGroups().map((link) => {
         return (
           <SheetLink
             key={link.path}
+            // href={link.unpublished ? "" : link.path}
             href={link.unpublished ? "" : link.path}
             className={linkStyles({
               position: link.isNestedPage ? "isNested" : undefined,

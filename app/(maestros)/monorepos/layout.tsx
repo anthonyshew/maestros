@@ -18,7 +18,7 @@ import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
 import { links } from "#/app/(maestros)/navLinks";
 import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
-import { sideBarItems } from "#/app/(maestros)/contentHandlers";
+import { buildNavigationGroups } from "#/app/(maestros)/contentHandlers";
 import { linkStyles } from "../navLinks";
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -75,20 +75,39 @@ export default function RootLayout({
               </div>
             </nav>
             <aside className="hidden w-0 h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-60 md:flex md:flex-col md:gap-4">
-              {sideBarItems.map((link) => {
+              {buildNavigationGroups().map((link) => {
                 return (
-                  <Link
-                    key={link.path}
-                    href={link.unpublished ? "" : link.path}
-                    className={linkStyles({
-                      position: link.isNestedPage ? "isNested" : undefined,
-                      status: link.unpublished ? "unpublished" : undefined,
+                  <>
+                    <Link
+                      key={link.path}
+                      href={link.unpublished ? "" : link.path}
+                      className={linkStyles({
+                        status: link.unpublished ? "unpublished" : undefined,
+                      })}
+                      aria-disabled={link.unpublished}
+                    >
+                      {link.isNestedPage ? "- " : ""}
+                      {link.title}
+                    </Link>
+                    {link.children.map((childLink) => {
+                      return (
+                        <Link
+                          key={childLink.path}
+                          href={childLink.unpublished ? "" : childLink.path}
+                          className={linkStyles({
+                            position: "isNested",
+                            status: childLink.unpublished
+                              ? "unpublished"
+                              : undefined,
+                          })}
+                          aria-disabled={childLink.unpublished}
+                        >
+                          {"- "}
+                          {childLink.title}
+                        </Link>
+                      );
                     })}
-                    aria-disabled={link.unpublished}
-                  >
-                    {link.isNestedPage ? "- " : ""}
-                    {link.title}
-                  </Link>
+                  </>
                 );
               })}
             </aside>
