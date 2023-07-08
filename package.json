@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "spellcheck": "spellchecker --files '**/*.mdx' --dictionaries 'dictionary.txt' --no-suggestions --quiet",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-wrap-balancer": "^0.4.1",
+    "spellchecker-cli": "^6.1.1",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6"
   },
