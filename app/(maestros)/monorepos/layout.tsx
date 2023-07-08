@@ -92,7 +92,7 @@ export default function RootLayout({
                       })}
                       aria-disabled={link.unpublished}
                     >
-                      {link.isNestedPage ? "- " : ""}
+                      {link.isNestedPage ? "↳ " : ""}
                       {link.title}
                     </Link>
                     {link.children.map((childLink) => {
@@ -108,7 +108,7 @@ export default function RootLayout({
                           })}
                           aria-disabled={childLink.unpublished}
                         >
-                          {"- "}
+                          {"↳ "}
                           {childLink.title}
                         </Link>
                       );

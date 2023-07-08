@@ -18,7 +18,7 @@ export const SideBarContent = () => {
               })}
               aria-disabled={link.unpublished}
             >
-              {link.isNestedPage ? "- " : ""}
+              {link.isNestedPage ? "↳ " : ""}
               {link.title}
             </SheetLink>
             {link.children.map((childLink) => {
@@ -32,7 +32,7 @@ export const SideBarContent = () => {
                   })}
                   aria-disabled={childLink.unpublished}
                 >
-                  {"- "}
+                  {"↳ "}
                   {childLink.title}
                 </SheetLink>
               );
