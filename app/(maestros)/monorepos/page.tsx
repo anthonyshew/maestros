@@ -74,7 +74,7 @@ const Page = () => {
         <h2>Hi, I'm Anthony and I'm here to help you conduct your symphony.</h2>
 
         <div className="flex flex-row items-center justify-center w-full">
-          <div className="relative w-4/5 overflow-hidden aspect-square rounded-xl">
+          <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
               src="/images/me.jpg"
               className="object-cover rounded-xl"
@@ -132,10 +132,10 @@ const Page = () => {
           .
         </p>
         <div className="flex flex-row items-center justify-center w-full">
-          <div className="relative w-4/5 overflow-hidden aspect-square rounded-xl">
+          <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
               src="/images/maestros/maestro.jpg"
-              className="object-cover rounded-xl grayscale"
+              className="object-cover mb-2 rounded-xl grayscale"
               alt="Cover art for Monorepo Maestros"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

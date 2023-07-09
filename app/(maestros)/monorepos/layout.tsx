@@ -13,7 +13,7 @@ import {
 import { buildMeta } from "#/app/metadata";
 import "#/app/globals.css";
 import { ThemeWrapper } from "#/app/providers";
-import { GitHub } from "#/components/Icons";
+import { GitHub, ThreadsApp } from "#/components/Icons";
 import { Twitter, SidebarOpen, Music } from "lucide-react";
 import { ThemeController } from "#/components/ThemeController";
 import Link from "next/link";
@@ -63,6 +63,7 @@ export default function RootLayout({
                 ))}
               </div>
               <div className="flex flex-row gap-4 ml-auto">
+                <ThemeController />
                 <a
                   href="https://github.com/anthonyshew/maestros"
                   target="_blank"
@@ -77,7 +78,14 @@ export default function RootLayout({
                 >
                   <Twitter className="w-6 h-6 fill-white" />
                 </a>
-                <ThemeController />
+
+                <a
+                  href="https://www.threads.net/@anthonyshew"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ThreadsApp className="w-6 h-6 fill-white" />
+                </a>
               </div>
             </nav>
             <aside className="hidden w-0 overflow-auto h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-80 md:flex md:flex-col md:gap-4">
