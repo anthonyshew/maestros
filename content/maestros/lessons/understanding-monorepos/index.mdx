@@ -5,10 +5,29 @@ ogDescription: The basics of a monorepo
 ---
 
 import { ExternalMdxLink } from "../../../components/ExternalMdxLink";
+import { FileTree } from "../../../components/FileTree";
 
 ## What is a monorepo?
 
 A monorepo is a code repository that contains the source code for multiple applications and packages.
+
+<FileTree>
+  <FileTree.File name=".gitignore" />
+  <FileTree.File name="package.json" />
+  <FileTree.File name="pnpm-lock.yaml" />
+  <FileTree.File name="README.md" />
+  <FileTree.Folder name="apps" open>
+    <FileTree.Folder name="docs" />
+    <FileTree.Folder name="mobile" />
+    <FileTree.Folder name="web" />
+  </FileTree.Folder>
+  <FileTree.Folder name="packages" open>
+    <FileTree.Folder name="eslint-config" />
+    <FileTree.Folder name="logger" />
+    <FileTree.Folder name="ui" />
+    <FileTree.Folder name="utils" />
+  </FileTree.Folder>
+</FileTree>
 
 There are more complex definitions that you can find out there but we're going to keep it simple. In a monorepo, you'll create organizational structures for your code where you can share "packages" to many applications.
 
