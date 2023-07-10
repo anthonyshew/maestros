@@ -4,6 +4,8 @@ sidebarOrderPosition: 0
 ogDescription: The basics of a monorepo.
 ---
 
+import { ExternalMdxLink } from "../../../components/ExternalMdxLink";
+
 ## What is a monorepo?
 
 A monorepo is a code repository that contains the source code for multiple applications and packages.
@@ -32,7 +34,11 @@ NOPE! Today's monorepo tools are built for making your workflow **fast** by **ne
 
 ### A monorepo is not a monolith
 
-A quick mental note to make: The various parts of your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
+A quick mental note to make: The various applications in your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
+
+In fact, **one** of your applications may be a monolith. In the case of [Next.js](https://nextjs.org), you can create a frontend and backend in the same application (a monolith!)
+
+This application would deploy itself monolithically - but that doesn't make your monorepo into a monolith! You could just as easily create a Node.js backend to use with a Vite frontend. These two decoupled apps can work together when deployed but be independently deployable to make it to production.
 
 Maestros know how to build monorepos that do the least work possible on every commit to the repository. We'll learn how to isolate the pieces of our repository so that the workflows required to create deployments are fast as lasers, even at scale.
 

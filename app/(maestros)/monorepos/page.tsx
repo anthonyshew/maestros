@@ -107,9 +107,8 @@ const Page = () => {
         </p>
         <h2>Stay tuned</h2>
         <p>
-          The first movement is currently being written. We're excited for what
-          we'll unlock together to make the best music (erm, applications)
-          possible.{" "}
+          We're writing more music as we speak! We're excited for what we'll
+          unlock together to write the best music (erm, applications) possible.{" "}
         </p>
 
         <p>
