@@ -1,14 +1,41 @@
 ---
 title: Understanding monorepos
 sidebarOrderPosition: 0
-unpublished: true
 ogDescription: The basics of a monorepo.
 ---
 
 ## What is a monorepo?
 
-A monorepo is...
+A monorepo is a code repository that contains the source code for multiple applications and packages.
 
-### A monorepo is not a monolithic app
+There are more complex definitions that you can find out there but we're going to keep it simple. In a monorepo, you'll create organizational structures for your code where you can share "packages" to many applications.
 
-There's a difference.
+By bringing all of our code together, we give ourselves many opportunities for improved developer experience (DX), shipping velocity, and better UX.
+
+[graphic]
+
+### Improved discoverability
+
+References to source code will always be a quick Search or Go To Definition away rather than spread across various repositories. This lets you work faster, ship sooner, and have better clarity about what you're shipping.
+
+### One "state of the world"
+
+When you're working in a [polyrepo](/monorepos/glossary#polyrepo), you may have many different versions of the source code that make up your applications. Your CI/CD process becomes more complicated as you have to manage the orchestration of packages against each other, creating edge cases and other unexpected difficulties.
+
+But, in a monorepo, we can guarantee that changes are [atomic](/monorepos/glossary#atomic) and that we know _exactly_ what source code we are deploying. This simplicity lets us ship faster as we iterate over our applications and allows teams to work together much more quickly.
+
+### Faster than speed metal
+
+Building your applications takes time as your source code is compiled and/or bundled for delivery to users. As you continue iterating on your application, you'll end up compiling the same packages over and over again every time you need to redeploy.
+
+NOPE! Today's monorepo tools are built for making your workflow **fast** by **never doing the same work twice**. We'll create repositories that can get tasks done in **milliseconds** if the task has been done before.
+
+### A monorepo is not a monolith
+
+A quick mental note to make: The various parts of your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
+
+Maestros know how to build monorepos that do the least work possible on every commit to the repository. We'll learn how to isolate the pieces of our repository so that the workflows required to create deployments are fast as lasers, even at scale.
+
+## Interested in building a monorepo?
+
+Awesome! You're in the right place. To find out more about the use cases for monorepos, visit ["When to use a monorepo"](/monorepos/understanding-monorepos/when-to-use) or ["When NOT to use a monorepo"](/monorepos/understanding-monorepos/when-not-to-use). If you're ready to start learning, [head to "The basics"](/monorepos/basics).

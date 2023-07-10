@@ -47,11 +47,4 @@ export const mdxComponents = {
   h6: ({ children }: { children: string }) => {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
-  a: ({ children, ...props }: { children: string }) => {
-    return (
-      <a {...props} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    );
-  },
 };

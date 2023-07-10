@@ -5,6 +5,26 @@ ogTitle: Monorepo Glossary
 ogDescription: A collection of great monorepos to check out.
 ---
 
-import { UnderConstruction } from "../UnderConstruction";
+## Application
 
-<UnderConstruction />
+The [Workspaces](#workspace) of our monorepo that we will deploy. Applications are likely to consume other packages within our monorepo to take advantage of code reuse.
+
+## Atomic
+
+A characteristic of a system where changes are "all or nothing". An "atomic" system can never end up in a "halfway" state. If a change to the system is started, it either fully completes or returns to the starting state.
+
+## Monorepo
+
+[Visit the Understanding Monorepos page.](/monorepos/understanding-monorepos) This is the opposite of a [polyrepo](#polyrepo).
+
+## Package
+
+A self-contained code module in a monorepo to be used in other packages and applications. We use [Workspaces](#workspace) to define where packages exist in our monorepo.
+
+## Polyrepo
+
+Creating many different code repositories for your code. This is the opposite of a [monorepo](#monorepo).
+
+## Workspace
+
+A section of the repository that is meant to be its own self-contained module or application. A Workspace may depend on other Workspaces as dependencies but can be thought of as its own mini "project" in your repo.
