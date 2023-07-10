@@ -36,6 +36,7 @@ const Page = () => {
           Monorepo Maestros
         </span>
       </h1>
+
       <div className="z-10 w-full h-full p-2 prose lg:prose-lg sm:p-6 dark:prose-invert">
         <p>
           Some of the largest software engineering organizations in the world

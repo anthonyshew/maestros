@@ -13,7 +13,7 @@ export async function GET(req: Request) {
 
   const searchParams = new URL(req.url).searchParams;
   const title = searchParams.get("title") ?? "Monorepo Maestros";
-  const titleIsDefault = title === "Monorepo Maestros";
+  const subtitle = searchParams.get("subtitle");
 
   return new ImageResponse(
     (
@@ -25,14 +25,15 @@ export async function GET(req: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "black",
+          backgroundImage: 'url("https://shew.dev/images/maestros/og-bg.png")',
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
         }}
       >
         <div
           style={{
             marginLeft: 190,
             marginRight: 190,
-            marginBottom: 120,
             display: "flex",
             fontSize: 140,
             fontFamily: "Inter",
@@ -40,7 +41,7 @@ export async function GET(req: Request) {
             whiteSpace: "pre-wrap",
           }}
         >
-          {title}
+          {title ?? "Monorepo Maestros"}
         </div>
         <div
           style={{
@@ -50,9 +51,11 @@ export async function GET(req: Request) {
             alignItems: "center",
           }}
         >
-          <div tw="text-8xl text-slate-300" style={{ fontFamily: "Inter" }}>
-            {titleIsDefault ? "" : "Monorepo Maestros"}
-          </div>
+          {subtitle ? (
+            <div tw="text-8xl text-slate-300" style={{ fontFamily: "Inter" }}>
+              {subtitle}
+            </div>
+          ) : null}
         </div>
       </div>
     ),
