@@ -31,7 +31,7 @@ function Tree({ children }: { children: ReactNode }): ReactElement {
 const Folder = ({ label, name, children, open }: FolderProps) => {
   return (
     <li className="flex flex-col list-none">
-      <button title={name} className="inline-flex items-center">
+      <span title={name} className="inline-flex items-center cursor-default">
         <svg width="1em" height="1em" viewBox="0 0 24 24">
           <path
             fill="none"
@@ -47,7 +47,7 @@ const Folder = ({ label, name, children, open }: FolderProps) => {
           />
         </svg>
         <span className="ml-1">{label ?? name}</span>
-      </button>
+      </span>
       {open && <ul className="!my-0">{children}</ul>}
     </li>
   );
