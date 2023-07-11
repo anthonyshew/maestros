@@ -4,7 +4,29 @@ sidebarOrderPosition: 2
 ogDescription: Setting up TypeScript in your monorepo.
 ---
 
-- Create a common TSConfig
+import { FileTree } from "../../../../components/FileTree";
+
+Handling TypeScript in a monorepo can be daunting at first. If you set it up wrong, you can end up frustrated with errors that don't make sense, and slow type checking scripts.
+
+But, once you've learned to hold the TypeScript violin just right, your repo will be fast and you can iterate safely. Let's build a [Just-in-time Package](/monorepos/packaging/jit) for a React UI library to find out how this works.
+
+## Create a workspace for a common `tsconfig.json`
+
+First, we'll build a base TSConfig that will be the base for all the TypeScript code in our repository. We'll always extend off of this base to reduce duplication and know we're working with the right set of defaults every time.
+
+Create a workspace in your `tooling` directory (or `packages`, whatever you prefer).
+
+<FileTree>
+  <FileTree.Folder name="tooling" open>
+    <FileTree.Folder name="tsconfig" open>
+      <FileTree.File name="package.json" />
+      <FileTree.File name="base.json" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+We'l
+
 - incremental: "true"
 - Put `"tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"` into `compilerOptions`
   - Now you have tsc and per-task caching

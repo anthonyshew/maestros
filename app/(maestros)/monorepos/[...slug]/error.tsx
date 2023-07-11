@@ -7,7 +7,11 @@ export default function Error() {
       <h2>404</h2>
       <p>It doesn't look like there is anything here.</p>
       <p>
-        If there should be, please{" "}
+        If you've made it here through navigating around the site, this music is
+        probably still being written.
+      </p>
+      <p>
+        If you think there's an issue, please{" "}
         <a
           href="https://github.com/anthonyshew/maestros"
           target="_blank"

@@ -4,7 +4,6 @@ import { LinkHeading } from "#/components/LinkHeading";
 import type { ImageProps } from "next/image";
 import { TwoColumns, TwoColumnsProps } from "#/components/TwoColumns";
 import { getHighlighter } from "shiki";
-import { ReactNode } from "react";
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
@@ -50,12 +49,13 @@ export const mdxComponents = {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
   // Not in love with this but it works. ✨
-  pre: async (props: {
-    // I'm sorry, excuse me, what?...I don't care right now.
-    children: { props: { children: string; className: string } };
-  }) => {
-    const code = props.children.props.children;
-    const lang = props.children.props.className.replace("language-", "");
+  // @ts-expect-error
+  pre: async (props): JSX.Element => {
+    const { children } = props as {
+      children: { props: { children: string; className: string } };
+    };
+    const code = children.props.children;
+    const lang = children.props.className.replace("language-", "");
 
     return (
       <div
