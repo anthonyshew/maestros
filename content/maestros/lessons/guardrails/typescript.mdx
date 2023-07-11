@@ -1,10 +1,38 @@
 ---
 title: TypeScript
 sidebarOrderPosition: 2
-unpublished: true
 ogDescription: Setting up TypeScript in your monorepo.
 ---
 
-import { UnderConstruction } from "../../UnderConstruction";
+- Create a common TSConfig
+- incremental: "true"
+- Put `"tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"` into `compilerOptions`
+  - Now you have tsc and per-task caching
+- Build turbo pipeline
 
-<UnderConstruction />
+## Handling path aliases
+
+TypeScript allows you to create absolute path aliases using the `paths` property in your `tsconfig.json`.
+
+In apps, it's easy.
+
+In internal packages, it's easy.
+
+In JIT packages...still trying to figure this one out...
+
+```ts
+const thing = "hi";
+const halp = (str?: string) => console.log(thing ?? 32);
+halp();
+```
+
+```json filename="hello.json"
+{
+  "hello": "i am json",
+  "key": 42,
+  "arr": ["hello", 32, { "key": "value" }],
+  "bool": false,
+  "bool2": true,
+  "null": null
+}
+```

@@ -31,7 +31,7 @@ A monorepo is a code repository that contains the source code for multiple appli
 
 There are more complex definitions that you can find out there but we're going to keep it simple. In a monorepo, you'll create organizational structures for your code where you can share "packages" to many applications.
 
-By bringing all of our code together, we give ourselves many opportunities for improved developer experience (DX), shipping velocity, and better UX.
+By bringing all of our code together, we give ourselves many opportunities for improved developer experience (DX), shipping velocity, and, because of that, better UX.
 
 ### Improved discoverability
 
@@ -39,7 +39,7 @@ References to source code will always be a quick Search or Go To Definition away
 
 ### One "state of the world"
 
-When you're working in a [polyrepo](/monorepos/glossary#polyrepo), you may have many different versions of the source code that make up your applications. Your CI/CD process becomes more complicated as you have to manage the orchestration of packages against each other, creating edge cases and other unexpected difficulties.
+When you're working in a [polyrepo](/monorepos/glossary#polyrepo), you may have many different versions of the source code that make up your applications. Your CI/CD process becomes more complicated as you have to manage the orchestration of packages against each other, creating potential for edge cases and other unexpected difficulties.
 
 But, in a monorepo, we can guarantee that changes are [atomic](/monorepos/glossary#atomic) and that we know _exactly_ what source code we are deploying. This simplicity lets us ship faster as we iterate over our applications and allows teams to work together much more quickly.
 
@@ -51,7 +51,7 @@ NOPE! Today's monorepo tools are built for making your workflow **fast** by **ne
 
 ### A monorepo is not a monolith
 
-A quick mental note to make: The various applications in your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
+A quick mental note: The various applications in your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
 
 In fact, **one** of your applications may be a monolith. In the case of [Next.js](https://nextjs.org), you can create a frontend and backend in the same application (a monolith!)
 
@@ -65,13 +65,13 @@ In fact, **one** of your applications may be a monolith. In the case of [Next.js
   </FileTree.Folder>
 </FileTree>
 
-This application would deploy itself monolithically - but that doesn't make your monorepo into a monolith! You could just as easily create a Node.js backend to use with a Vite frontend. These two decoupled apps can work together when deployed. You could easily make edits to any one of your three apps without redeploying another.
+This application would deploy itself monolithically - but that doesn't make your whole monorepo into a monolith! You could just as easily create a Node.js backend to use with a Vite frontend. These two decoupled apps can work together when deployed. You could easily make edits to any one of your three apps without redeploying another.
 
 Maestros know how to build monorepos that do the least work possible on every commit to the repository. We'll learn how to isolate the pieces of our repository so that the workflows required to create deployments are high tempo, even at scale.
 
 ## When to use a monorepo
 
-As mentioned on [the Motivation page](/monorepos/motivation) for this resource, we're seeing monorepos are consistently proving their worth at all scales in today's software landscape. For that reason, a monorepo makes sense in many cases
+As mentioned on [the Motivation page](/monorepos/motivation) for this resource, we're seeing monorepos are consistently proving their worth at all scales in today's software landscape. For that reason, you should think of a monorepo as your default and move away from a monorepo when it doesn't make sense.
 
 ## Ready to make some music?
 
