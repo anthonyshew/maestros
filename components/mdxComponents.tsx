@@ -62,7 +62,8 @@ export const mdxComponents = {
         dangerouslySetInnerHTML={{
           __html: await getHighlighter({
             theme: "github-dark-dimmed",
-            langs: ["json", "ts", "tsx"],
+            langs: ["json", "ts", "tsx", "sh"],
+            themes: [],
           }).then((highlighter) => {
             return highlighter.codeToHtml(code, { lang });
           }),
