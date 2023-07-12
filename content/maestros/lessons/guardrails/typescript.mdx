@@ -76,7 +76,7 @@ The TSConfig above has the usual defaults for most projects so feel free to copy
 - `"skipLibCheck": true` so only the source code in your workspace is checked by the task
 - `"incremental": true` for faster type checking (which we will discuss in a moment)
 
-## Making the TypeScript compiler fast in a monorepo
+## Make the TypeScript compiler fast in a monorepo
 
 There are two strategies that we will use to make `tsc` fast:
 
@@ -85,7 +85,7 @@ There are two strategies that we will use to make `tsc` fast:
 
 Putting these two techniques together, we'll be caching the typecheck task for entire workspaces so we don't do the same work twice **and** be as fast as possible when we miss the cache to check types.
 
-### Setting up a TypeScript workspace
+### Set up a TypeScript workspace
 
 Let's start by handling the `package.json` for our workspace. We'll need to install:
 
@@ -146,7 +146,7 @@ pnpm typecheck
 
 If all goes according to plan, you'll see your task ran by Turborepo in your terminal and a `tsbuildinfo.json` file in the `node_modules/.cache` directory of your workspace. You can repeat this process in as many workspaces as you'd like.
 
-### Building our Turborepo pipeline
+### Build a Turborepo pipeline
 
 Now, we'll build our Turborepo pipeline with two important characteristics.
 
