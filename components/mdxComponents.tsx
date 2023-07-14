@@ -3,6 +3,7 @@ import Balancer from "react-wrap-balancer";
 import { LinkHeading } from "#/components/LinkHeading";
 import type { ImageProps } from "next/image";
 import { TwoColumns, TwoColumnsProps } from "#/components/TwoColumns";
+import { getHighlighter } from "shiki";
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
@@ -47,11 +48,27 @@ export const mdxComponents = {
   h6: ({ children }: { children: string }) => {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
-  a: ({ children, ...props }: { children: string }) => {
+  // Not in love with this but it works. ✨
+  // @ts-expect-error
+  pre: async (props): JSX.Element => {
+    const { children } = props as {
+      children: { props: { children: string; className: string } };
+    };
+    const code = children.props.children;
+    const lang = children.props.className.replace("language-", "");
+
     return (
-      <a {...props} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: await getHighlighter({
+            theme: "github-dark-dimmed",
+            langs: ["json", "ts", "tsx", "sh"],
+            themes: [],
+          }).then((highlighter) => {
+            return highlighter.codeToHtml(code, { lang });
+          }),
+        }}
+      />
     );
   },
 };

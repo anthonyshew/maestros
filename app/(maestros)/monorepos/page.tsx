@@ -29,11 +29,15 @@ const Page = () => {
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-b to-95% from-transparent to-white dark:to-zinc-950" />
       </div>
-      <div className="z-10 w-full mt-10 prose lg:prose-lg dark:prose-invert">
-        <h1 className="text-center ">
-          Welcome to
-          <br /> Monorepo Maestros.
-        </h1>
+      <h1 className="z-10 text-4xl mb-8 font-black text-foreground leading-[3.5rem] md:leading-[5rem] lg:leading-[5.5rem] text-center sm:text-5xl lg:text-6xl">
+        Welcome to
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-800">
+          Monorepo Maestros
+        </span>
+      </h1>
+
+      <div className="z-10 w-full h-full p-2 prose lg:prose-lg sm:p-6 dark:prose-invert">
         <p>
           Some of the largest software engineering organizations in the world
           deliver using monorepos and you can, too. With the right knowledge and
@@ -50,9 +54,9 @@ const Page = () => {
         <p>
           If you've been trying to put a monorepo together and you're finding
           that the necessary pieces aren't fitting together well, you're also in
-          the right place. It's frustrating and the documentation you need is
-          hard to find. Good news: we've rolled up everything you need into one
-          course.
+          the right place. It's frustrating - and the documentation you need is
+          often not helpful, too dense, or really hard to find. Good news: we've
+          rolled up everything you need into one course.
         </p>
         <h2>For monorepo haters</h2>
         <p>
@@ -71,7 +75,7 @@ const Page = () => {
         <h2>Hi, I'm Anthony and I'm here to help you conduct your symphony.</h2>
 
         <div className="flex flex-row items-center justify-center w-full">
-          <div className="relative w-4/5 overflow-hidden aspect-square rounded-xl">
+          <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
               src="/images/me.jpg"
               className="object-cover rounded-xl"
@@ -104,9 +108,8 @@ const Page = () => {
         </p>
         <h2>Stay tuned</h2>
         <p>
-          Our first movement is currently being written. We're excited for what
-          we'll unlock together to make the best music (erm, applications)
-          possible.{" "}
+          We're writing more music as we speak! We're excited for what we'll
+          unlock together to write the best music (erm, applications) possible.{" "}
         </p>
 
         <p>
@@ -129,10 +132,10 @@ const Page = () => {
           .
         </p>
         <div className="flex flex-row items-center justify-center w-full">
-          <div className="relative w-4/5 overflow-hidden aspect-square rounded-xl">
+          <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
               src="/images/maestros/maestro.jpg"
-              className="object-cover rounded-xl grayscale"
+              className="object-cover mb-2 rounded-xl grayscale"
               alt="Cover art for Monorepo Maestros"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
