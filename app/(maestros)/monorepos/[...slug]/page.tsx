@@ -3,6 +3,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 import { allDocuments } from "contentlayer/generated";
 import { getPageDocument } from "#/app/(maestros)/contentHandlers";
+import { Callout } from "#/components/Callout";
 
 export async function generateStaticParams() {
   return [
@@ -22,6 +23,12 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
       <h1>{content.title}</h1>
+
+      <Callout type="warning" bold>
+        This is an early sneak peek of Monorepo Maestros. Your feedback is
+        welcome!
+      </Callout>
+
       <MDXContent components={mdxComponents} />
     </div>
   );

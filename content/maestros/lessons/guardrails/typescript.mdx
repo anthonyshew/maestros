@@ -7,15 +7,11 @@ ogDescription: Setting up TypeScript in your monorepo.
 import { FileTree } from "../../../../components/FileTree";
 import { Callout } from "../../../../components/Callout";
 
-<Callout type="warning">
-  This is an early sneak peek of Monorepo Maestros. Your feedback is welcome!
-</Callout>
-
 Handling TypeScript in a monorepo can be daunting at first. If you set it up wrong, you can end up frustrated with errors that don't make sense and slow type checking scripts.
 
-But, once you've learned to hold the TypeScript violin just right, the typechecking in your repo will be fast and you can iterate safely.
+But, once you've learned to hold the TypeScript violin just right, the type checking in your repo will be fast and you can iterate safely.
 
-Let's build a package for a TypeScript/React UI library to find out how this works.
+Let's build a simple TypeScript package to find out how this works.
 
 ## Create a workspace for a common `tsconfig.json`
 
@@ -83,7 +79,7 @@ There are two strategies that we will use to make `tsc` fast:
 1.  `incremental` saves information about your project compilation into a file. The first time you run `tsc`, the compiler will create this file to make subsequent runs faster.
 2.  Caching workspace tasks with our package manager so that we can ensure we never do the same work twice.
 
-Putting these two techniques together, we'll be caching the typecheck task for entire workspaces so we don't do the same work twice **and** be as fast as possible when we miss the cache to check types.
+Putting these two techniques together, we'll be caching the type check task for entire workspaces so we hit cache for work we've already done **and** be as fast as possible when we miss the cache to check types.
 
 ### Set up a TypeScript workspace
 
@@ -112,7 +108,7 @@ Next, we'll create a `tsconfig.json` in our workspace.
 
 <FileTree>
   <FileTree.Folder name="packages" open>
-    <FileTree.Folder name="ui" open>
+    <FileTree.Folder name="logger" open>
       <FileTree.File name="package.json" />
       <FileTree.File name="tsconfig.json" />
     </FileTree.Folder>
@@ -133,18 +129,18 @@ In the `tsconfig.json`, we'll extend from our base configuration:
 }
 ```
 
-Most of this file probably looks familiar - but what's this `tsBuildInfoFile` property?
+Most of this file probably looks familiar. We're extending from our base TSConfig and we're including/excluding the files we care about. But what's this `tsBuildInfoFile` property?
 
 `tsBuildInfoFile` tells the TypeScript compiler where to store the output of `incremental`. We're going to use the `.cache` folder in `node_modules` as this is a common practice for storing caches for libraries and dependencies.
 
-Test it out!
+Test it out! (Using [globally installed `turbo`](https://turbo.build/repo/docs/installing#install-globally) for simplicity here)
 
 ```sh
-cd packages/ui
-pnpm typecheck
+cd packages/logger
+turbo typecheck
 ```
 
-If all goes according to plan, you'll see your task ran by Turborepo in your terminal and a `tsbuildinfo.json` file in the `node_modules/.cache` directory of your workspace. You can repeat this process in as many workspaces as you'd like.
+If all goes according to plan, you'll see your task ran by Turborepo in your terminal and a `tsbuildinfo.json` file in the `node_modules/.cache` directory of your workspace.
 
 ### Build a Turborepo pipeline
 
@@ -169,12 +165,15 @@ Now, we'll build our Turborepo pipeline with two important characteristics.
 
 With these two optimizations, we've massively sped up the type checking task in your repository. We also have a base TSConfig that we will always use so our repository has uniformity that we can trust between individuals and teams.
 
+Congratulations, you are now friends with TypeScript.
+
 <Callout type="goodToKnow">
   <li>
     You can create multiple files in your TSConfig workspace to extend from. You
     may want to do this if you have specific needs (for instance, a certain
-    framework requires certain options.) If you do create multiple files, you
-    still find it advantageous to extend from a common base configuration.
+    framework requires certain options). If you do create multiple files, you
+    may still find it advantageous to extend from a common base configuration in
+    those custom configurations.
   </li>
   <li>
     You'll notice I didn't mention TypeScript's Project References. In a
