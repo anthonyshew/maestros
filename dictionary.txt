@@ -22,7 +22,7 @@ Monorepos
 NPM
 OG
 OpenGraph
-PNPM
+pnpm
 polyrepo
 Polyrepo
 ShadUI
@@ -49,7 +49,6 @@ npm
 offseason
 ogDescription
 ogTitle
-pnpm
 Prisma
 publically
 repo

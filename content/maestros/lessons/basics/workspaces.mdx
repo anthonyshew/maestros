@@ -1,10 +1,74 @@
 ---
 title: Workspaces
 sidebarOrderPosition: 1
-unpublished: true
 ogDescription: Building workspaces in a monorepo
 ---
 
-import { UnderConstruction } from "../../UnderConstruction";
+Workspaces are the fundamental “slices” of your monorepo. In a monorepo, you will create workspaces that are installable into other workspaces similar to adding a package from the npm registry.
 
-<UnderConstruction />
+Every application and package that you build will be in its own workspace. We discussed this a little bit earlier in [the mental model](/monorepos/basics/mental-model) but the key is to think of your workspaces as independent, small projects in your repository whose purpose is to straightforwardly share code across your repository.
+
+## Conventions
+
+A typical way to set up a product-facing monorepo is to create an `apps` directory and a `packages` directory. Monorepos for libraries are often a little different because they have different needs - but the same workspacing techniques still apply.
+
+### `apps`
+
+In `apps`, you'll find independently deployable applications that you'll ship to your users. You won't ever install an app into a different workspace; they're at the absolute top of your dependency graph.
+
+### `packages`
+
+This is where we share code from. We'll install these into our applications and even other packages as needed.
+
+### `tooling`
+
+This is a personal quirk of mine but I often like to add a `tooling` directory as well. In `tooling`, I put packages meant for the configuration of the repository rather than source code that will contribute to the code for applciations. "Meta-packages" might be another way to think of these. Examples include TypeScript, ESLint, Prettier, and Tailwind configurations.
+
+## Defining workspaces
+
+npm and Yarn create workspaces by defining them in your repo's root `package.json`. Once set up, your package manager will know how to identify `package.json`'s in your code and treat them as workspaces.
+
+To learn how to set up workspaces for your package manager, check their pages:
+
+- [pnpm](/monorepos/package-managers/pnpm#workspaces)
+- [Yarn](/monorepos/package-managers/yarn#workspaces)
+- [npm](/monorepos/package-managers/npm#workspaces)
+
+## Anatomy of a workspace
+
+The groundwork for understanding how a workspace can be found in `package.json`, the file that defines many of the characteristics of your workspaces like its name, dependencies, scripts, and exports.
+
+```json filename="package.json" lang="json"
+{
+  "name": "@repo/my-package",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    // ...
+  },
+  "devDependencies": {
+    "@repo/lint": "workspace:*",
+    "@repo/prettier": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "typescript": "5.1.3"
+  }
+}
+```
+
+- `name`: Field defined in package.json that is used to reference this package in the rest of your monorepo. It's a best practice to namespace your workspaces so that you know you won't have collisions with external dependencies.
+
+- `dependencies`: Packages that you install into your workspace. Dependencies bring code from outside your workspace and can be external or internal to your monorepo.
+
+- `scripts`: The runnable tasks that your workspace executes. Think of them like "verbs" for your workspace. Things you want to do like build, lint, test, etc.
+
+- `exports`: The entrypoints of your workspace. You don't need to define these for applications. In packages, these are what are exposed by the workspace for other workspaces for use. We'll discuss techniques for creating these entrypoints with more depth in sectionnnnnnn.
+
+- Source code: The code that you write that we will share or deploy, depending on if your workspace is a package or an application.
