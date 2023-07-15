@@ -22,12 +22,12 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
-      <h1>{content.title}</h1>
-
-      <Callout type="warning" bold>
+      <Callout type="warning" bold className="mb-10">
         This is an early sneak peek of Monorepo Maestros. Your feedback is
         welcome!
       </Callout>
+
+      <h1>{content.title}</h1>
 
       <MDXContent components={mdxComponents} />
     </div>

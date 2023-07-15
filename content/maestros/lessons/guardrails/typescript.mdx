@@ -17,35 +17,27 @@ Let's build a simple TypeScript package to find out how this works.
 
 First, we'll build a TSConfig that will be the base for all the TypeScript code in our repository. We'll always extend off of this base to reduce duplication and know we're working with the right set of defaults every time.
 
-Create a workspace in your `tooling` directory (or `packages`, whatever you prefer).
+Create a workspace in your `tooling` directory (or `packages`, whatever you prefer). We'll add a `package.json` that exports a `base.json` file:
 
-<FileTree>
-  <FileTree.Folder name="tooling" open>
-    <FileTree.Folder name="tsconfig" open>
-      <FileTree.File name="package.json" />
-      <FileTree.File name="base.json" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
-
-We'll add a `package.json` that exports a `base.json` file:
-
-```json
+```json filename="tooling/tsconfig/package.json" lang="json"
 {
+  // focus(1:1)
   "name": "@acme/tsconfig",
   "version": "0.0.0",
   "private": true,
+  // focus(1:1)
   "files": ["base.json"]
 }
 ```
 
 Note that we don't need to install TypeScript (or anything else!) in this package's dependencies. All we need is a `base.json` TSConfig like this one:
 
-```json
+```json filename="tooling/tsconfig/base.json" lang="json"
 {
   "$schema": "https://json.schemastore.org/tsconfig", // For in-editor Intellisense
   "display": "Default",
   "compilerOptions": {
+    // focus(1:3)
     "incremental": true, // Must have for next steps!
     "skipLibCheck": true, // Highly recommended!
     "strict": true, // Highly recommended!
@@ -90,7 +82,7 @@ Let's start by handling the `package.json` for our workspace. We'll need to inst
 
 After that we'll create a script for running `tsc` with the `--noEmit` flag so that the compiler _only_ checks types, skipping out on the actual compilation work.
 
-```json
+```json filename="packages/logger/package.json" lang="json"
 {
   "scripts": {
     "typecheck": "tsc --noEmit"
@@ -104,22 +96,12 @@ After that we'll create a script for running `tsc` with the `--noEmit` flag so t
 }
 ```
 
-Next, we'll create a `tsconfig.json` in our workspace.
+Next, we'll create a `tsconfig.json` in our workspace where we'll extend from our base configuration:
 
-<FileTree>
-  <FileTree.Folder name="packages" open>
-    <FileTree.Folder name="logger" open>
-      <FileTree.File name="package.json" />
-      <FileTree.File name="tsconfig.json" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
-
-In the `tsconfig.json`, we'll extend from our base configuration:
-
-```json
+```json filename="packages/logger/tsconfig.json" lang="json"
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  // focus(1:4)
   "extends": "@acme/tsconfig/base.json", // Using our base config!
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
@@ -129,7 +111,7 @@ In the `tsconfig.json`, we'll extend from our base configuration:
 }
 ```
 
-Most of this file probably looks familiar. We're extending from our base TSConfig and we're including/excluding the files we care about. But what's this `tsBuildInfoFile` property?
+Most of this file probably looks familiar. We're extending from our base TSConfig - but what's this `tsBuildInfoFile` property?
 
 `tsBuildInfoFile` tells the TypeScript compiler where to store the output of `incremental`. We're going to use the `.cache` folder in `node_modules` as this is a common practice for storing caches for libraries and dependencies.
 
@@ -146,8 +128,9 @@ If all goes according to plan, you'll see your task ran by Turborepo in your ter
 
 Now, we'll build our Turborepo pipeline with two important characteristics.
 
-```json
+```json filename="turbo.json" lang="json"
 {
+  // ...
   "pipeline": {
     "topo": {
       "dependsOn": ["^topo"]
@@ -157,6 +140,7 @@ Now, we'll build our Turborepo pipeline with two important characteristics.
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
+  // ...
 }
 ```
 
@@ -173,7 +157,7 @@ Congratulations, you are now friends with TypeScript.
     may want to do this if you have specific needs (for instance, a certain
     framework requires certain options). If you do create multiple files, you
     may still find it advantageous to extend from a common base configuration in
-    those custom configurations.
+    those custom configurations..
   </li>
   <li>
     You'll notice I didn't mention TypeScript's Project References. In a

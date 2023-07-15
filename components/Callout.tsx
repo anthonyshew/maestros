@@ -7,6 +7,7 @@ interface CalloutProps {
   children: ReactNode;
   type: "info" | "goodToKnow" | "warning" | "danger";
   bold?: boolean;
+  className?: string;
 }
 
 const calloutStyles = cva("my-4 p-4 rounded text-sm leading-6", {
@@ -14,7 +15,7 @@ const calloutStyles = cva("my-4 p-4 rounded text-sm leading-6", {
     type: {
       info: "bg-neutral-400 text-neutral-800",
       goodToKnow:
-        "bg-transparent text-white border-white border [&>li>p]:inline",
+        "bg-transparent text-black dark:text-white border-black dark:border-white border [&>li>p]:inline",
       danger: "bg-red-400 text-red-800",
       warning: "bg-yellow-400 text-yellow-900",
     },
@@ -39,13 +40,18 @@ const iconSet = (type: CalloutProps["type"]) => {
   }
 };
 
-export const Callout = ({ children, type = "info" }: CalloutProps) => {
+export const Callout = ({
+  children,
+  type = "info",
+  className,
+}: CalloutProps) => {
   return (
     <div
       className={cn(
         calloutStyles({ type }),
         type === "warning" ? "font-semibold" : "",
-        "relative"
+        "relative",
+        className
       )}
     >
       {type !== "goodToKnow" ? (

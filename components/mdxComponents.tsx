@@ -1,13 +1,20 @@
 import NextImage from "next/image";
+import { Code } from "bright";
 import Balancer from "react-wrap-balancer";
 import { LinkHeading } from "#/components/LinkHeading";
 import type { ImageProps } from "next/image";
 import { TwoColumns, TwoColumnsProps } from "#/components/TwoColumns";
-import { getHighlighter } from "shiki";
+import { focus } from "./bright/focus";
+import { ReactNode } from "react";
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
 }
+
+Code.theme = {
+  dark: "github-dark",
+  light: "github-light",
+};
 
 export const mdxComponents = {
   TwoColumns: (props: TwoColumnsProps) => {
@@ -48,27 +55,37 @@ export const mdxComponents = {
   h6: ({ children }: { children: string }) => {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
-  // Not in love with this but it works. ✨
-  // @ts-expect-error
-  pre: async (props): JSX.Element => {
-    const { children } = props as {
-      children: { props: { children: string; className: string } };
-    };
-    const code = children.props.children;
-    const lang = children.props.className.replace("language-", "");
-
+  pre: async (props: {
+    children: ReactNode;
+    filename?: string;
+    lang: "ts" | "js" | "json";
+    // Meh, it works.
+    // @ts-expect-error
+  }): JSX.Element => {
     return (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: await getHighlighter({
-            theme: "github-dark-dimmed",
-            langs: ["json", "ts", "tsx", "sh"],
-            themes: [],
-          }).then((highlighter) => {
-            return highlighter.codeToHtml(code, { lang });
-          }),
-        }}
-      />
+      <>
+        <div data-theme="dark" className="hidden dark:block">
+          <Code
+            lang={props.lang}
+            className="m-0 border border-gray-800"
+            title={props.filename}
+            extensions={[focus]}
+          >
+            {props.children}
+          </Code>
+        </div>
+
+        <div data-theme="light" className="block dark:hidden">
+          <Code
+            lang={props.lang}
+            title={props.filename}
+            className="m-0 border border-gray-300"
+            extensions={[focus]}
+          >
+            {props.children}
+          </Code>
+        </div>
+      </>
     );
   },
 };

@@ -1,4 +1,6 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import rehypeMdxCodeProps from 'rehype-mdx-code-props'
+
 
 const BlogPost = defineDocumentType(() => ({
   name: 'BlogPost',
@@ -92,4 +94,9 @@ const MaestrosLesson = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'content',
   documentTypes: [BlogPost, MaestrosLesson, MaestrosLanding],
+  mdx: {
+    rehypePlugins: [
+      [rehypeMdxCodeProps],
+    ],
+  },
 })
