@@ -4,6 +4,7 @@ const { withContentlayer } = require("next-contentlayer");
 const moduleExports = {
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: ["shiki"],
   },
 };
 
