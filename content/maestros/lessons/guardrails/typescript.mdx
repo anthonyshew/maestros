@@ -66,12 +66,13 @@ The TSConfig above has the usual defaults for most projects so feel free to copy
 
 ## Make the TypeScript compiler fast in a monorepo
 
-There are two strategies that we will use to make `tsc` fast:
+There are three strategies that we will use to make `tsc` fast:
 
 1.  `incremental` saves information about your project compilation into a file. The first time you run `tsc`, the compiler will create this file to make subsequent runs faster.
-2.  Caching workspace tasks with our package manager so that we can ensure we never do the same work twice.
+2.  Parallelizing the type checking scripts in our workspaces.
+3.  Caching workspace tasks with our package manager so that we can ensure we never do the same work twice.
 
-Putting these two techniques together, we'll be caching the type check task for entire workspaces so we hit cache for work we've already done **and** be as fast as possible when we miss the cache to check types.
+Putting these techniques together, we'll be caching the type check task for entire workspaces so we hit cache for work we've already done **and** be as fast as possible when we miss the cache to check types.
 
 ### Set up a TypeScript workspace
 
