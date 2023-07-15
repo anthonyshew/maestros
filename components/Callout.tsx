@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 
 interface CalloutProps {
   children: ReactNode;
-  type: "info" | "goodToKnow" | "warning" | "danger";
+  type: "info" | "subtle" | "warning" | "danger";
   bold?: boolean;
 }
 
@@ -13,8 +13,7 @@ const calloutStyles = cva("my-4 p-4 rounded text-sm leading-6", {
   variants: {
     type: {
       info: "bg-neutral-400 text-neutral-800",
-      goodToKnow:
-        "bg-transparent text-white border-white border [&>li>p]:inline",
+      subtle: "bg-transparent text-white border-white border [&>li>p]:inline",
       danger: "bg-red-400 text-red-800",
       warning: "bg-yellow-400 text-yellow-900",
     },
@@ -30,7 +29,7 @@ const iconSet = (type: CalloutProps["type"]) => {
     return <AlertTriangle className="w-5 h-5" />;
   }
 
-  if (type === "goodToKnow") {
+  if (type === "subtle") {
     return <></>;
   }
 
@@ -48,7 +47,7 @@ export const Callout = ({ children, type = "info" }: CalloutProps) => {
         "relative"
       )}
     >
-      {type !== "goodToKnow" ? (
+      {type !== "subtle" ? (
         <div
           className={cn(
             calloutStyles({ type }),
@@ -58,7 +57,7 @@ export const Callout = ({ children, type = "info" }: CalloutProps) => {
           {iconSet(type)}
         </div>
       ) : null}
-      {type === "goodToKnow" ? "Good to know:" : null}
+      {type === "subtle" ? "Good to know:" : null}
       {children}
     </div>
   );
