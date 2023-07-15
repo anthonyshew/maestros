@@ -64,13 +64,23 @@ export const mdxComponents = {
     return (
       <>
         <div data-theme="dark" className="hidden dark:block">
-          <Code lang={props.lang} title={props.filename} extensions={[focus]}>
+          <Code
+            lang={props.lang}
+            className="m-0 border border-gray-800"
+            title={props.filename}
+            extensions={[focus]}
+          >
             {props.children}
           </Code>
         </div>
 
         <div data-theme="light" className="block dark:hidden">
-          <Code lang={props.lang} title={props.filename} extensions={[focus]}>
+          <Code
+            lang={props.lang}
+            title={props.filename}
+            className="m-0 border border-gray-300"
+            extensions={[focus]}
+          >
             {props.children}
           </Code>
         </div>
