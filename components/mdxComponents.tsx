@@ -63,7 +63,9 @@ export const mdxComponents = {
           __html: await getHighlighter({
             theme: "github-dark-dimmed",
             langs: ["json", "ts", "tsx", "sh"],
-            themes: [],
+            paths: {
+              themes: "./shiki-themes",
+            },
           }).then((highlighter) => {
             return highlighter.codeToHtml(code, { lang });
           }),
