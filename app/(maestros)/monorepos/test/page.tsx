@@ -1,7 +1,14 @@
-import { buildNavigationGroups } from "#/app/(maestros)/contentHandlers";
+import { Code } from "bright";
 
-const Page = () => {
-  return <pre>{JSON.stringify(buildNavigationGroups(), null, 2)}</pre>;
-};
+const myCode = `
+let hello = "hello brightness"
+console.log(hello, "my old friend")
+`.trim();
 
-export default Page;
+export default function Page() {
+  return (
+    <Code lang="js" title="shiny.js" theme="github-dark-dimmed">
+      {myCode}
+    </Code>
+  );
+}
