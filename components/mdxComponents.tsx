@@ -59,6 +59,7 @@ export const mdxComponents = {
     children: ReactNode;
     filename?: string;
     lang: "ts" | "js" | "json";
+    // Meh, it works.
     // @ts-expect-error
   }): JSX.Element => {
     return (

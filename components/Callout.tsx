@@ -15,7 +15,7 @@ const calloutStyles = cva("my-4 p-4 rounded text-sm leading-6", {
     type: {
       info: "bg-neutral-400 text-neutral-800",
       goodToKnow:
-        "bg-transparent text-black dark:text-white border-black dark:border-white border [&>li>p]:inline ",
+        "bg-transparent text-black dark:text-white border-black dark:border-white border [&>li>p]:inline",
       danger: "bg-red-400 text-red-800",
       warning: "bg-yellow-400 text-yellow-900",
     },
