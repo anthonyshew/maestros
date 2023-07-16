@@ -22,16 +22,17 @@ A monorepo is a code repository that contains the source code for multiple appli
     <FileTree.Folder name="web" />
   </FileTree.Folder>
   <FileTree.Folder name="packages" open>
-    <FileTree.Folder name="eslint-config" />
     <FileTree.Folder name="logger" />
     <FileTree.Folder name="ui" />
     <FileTree.Folder name="utils" />
   </FileTree.Folder>
+  <FileTree.Folder name="tooling" open>
+    <FileTree.Folder name="eslint-config" />
+    <FileTree.Folder name="prettier-config" />
+  </FileTree.Folder>
 </FileTree>
 
-There are more complex definitions that you can find out there but we're going to keep it simple. In a monorepo, you'll create organizational structures for your code where you can share "packages" to many applications.
-
-By bringing all of our code together, we give ourselves many opportunities for improved developer experience (DX), shipping velocity, and, because of that, better applications.
+There are more complex definitions that you can find out there but we're going to keep it simple. In a monorepo, you'll create organizational structures for your code where you can share "packages" to many applications. By bringing all of our code together, we give ourselves many opportunities for improved developer experience (DX), shipping velocity, and, because of that, better applications.
 
 ### Improved discoverability
 
@@ -49,7 +50,7 @@ Building your applications takes time as your source code is compiled and/or bun
 
 NOPE! Today's monorepo tools are built for making your workflow **fast** by **never doing the same work twice**. We'll create repositories that can get tasks done in **milliseconds** if the task has been done before.
 
-### A monorepo is not a monolith
+### A monorepo is not a monolith app
 
 A quick mental note: The various applications in your monorepo can (and should!) act independently of each other. For example, making changes to your web application doesn't have to (and shouldn't!) force your mobile application to redeploy.
 

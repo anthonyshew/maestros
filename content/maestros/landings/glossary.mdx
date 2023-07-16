@@ -27,4 +27,12 @@ Creating many different code repositories for your code. This is the opposite of
 
 ## Workspace
 
-A section of the repository that is meant to be its own self-contained module or application. A Workspace may depend on other Workspaces as dependencies but can be thought of as its own mini "project" in your repo.
+[See the Workspaces page.](/monorepos/basics/workspaces)
+
+## Yolorepo
+
+A monorepo that doesn't follow many of the rules laid out in this course. In a yolorepo, workspaces borrow code through pathing outside of their workspace boundaries, tasks use configuration from the root of the repository, and there aren't clear boxes drawn around workspaces.
+
+Tooling becomes difficult to use. Tasks run way too slow compared to their potential. Making any serious changes in the repository _hurts a lot_. You're constantly battling your formatting and linting configurations.
+
+You're in a yolorepo.

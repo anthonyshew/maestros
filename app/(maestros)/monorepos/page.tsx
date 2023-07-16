@@ -69,8 +69,8 @@ const Page = () => {
         <h2>For those who love to listen the music</h2>
         <p>
           You may also work in an excellent monorepo at work that someone else
-          set up and you just want to understand what you work with every day
-          better! That's cool, too!
+          set up and you want to better understand what you work with every day!
+          That's cool, too!
         </p>
         <h2>Hi, I'm Anthony and I'm here to help you conduct your symphony.</h2>
 

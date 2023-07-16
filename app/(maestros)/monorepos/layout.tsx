@@ -143,10 +143,6 @@ export default function RootLayout({
                   </SheetLink>
                 ))}
                 <hr className="!my-4 !mt-5 border-yellow-400" />
-                {/* <SheetDescription>
-                  This course is meant to work linearly but feel free to explore
-                  as you wish.
-                </SheetDescription> */}
                 <SideBarContent />
               </SheetHeader>
             </SheetContent>
