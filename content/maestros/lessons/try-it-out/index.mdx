@@ -1,9 +1,49 @@
 ---
 title: Try it out
 sidebarOrderPosition: 1
-ogDescription: Feel the power of a monorepo in
+ogDescription: Feel the power of a monorepo in less than three minutes
 ---
 
-If you've never worked with a monorepo before, I want you to feel what it's like in less than 3 minutes. Let's use a pre-built monorepo that you can quickly feel the power of.
+import { Callout } from "../../../components/Callout";
+
+If you've never worked with a monorepo before, I want you to see what it's like in 4 terminal commands and less than 2 minutes. Let's use a pre-built monorepo that you can quickly feel the power of.
 
 ## Your first monorepo
+
+First, grab the starter monorepo from Turborepo.
+
+```bash note='By default, the directory is "my-turborepo." Change the cd command if you gave it a different name.'
+npx create-turbo@latest // Follow the prompts.
+cd my-turborepo
+```
+
+## Build two applications...at the same time
+
+Next, build the applications in the repository.
+
+```bash note="Use your favorite package manager."
+pnpm build
+```
+
+In your terminal, you will see logs for the two Next.js applications being built in parallel. This is great! Instead of building the first one and then the second one, we're buliding both.
+
+## Build them again in less than a second
+
+Alright, now run the builds again using the same command as before.
+
+```bash note="Use your favorite package manager."
+pnpm build
+```
+
+<Img
+  src="/images/maestros/create-turbo-full-turbo.png"
+  alt="A screenshot of a `pnpm build` command building two Next.js applications in 300 ms."
+  width={3200}
+  height={2218}
+/>
+
+## Woah! 😱
+
+Through caching, we can ensure that we never do the same work twice. If you've built it before, we can simply use the build from last time instead of rebuilding again.
+
+Hopefully, you're convinced that that was an awesome developer experience. Let's [start understanding the fundamentals](/monorepos/basics) now so you can build your own applications.

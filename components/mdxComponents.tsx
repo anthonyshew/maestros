@@ -59,6 +59,7 @@ export const mdxComponents = {
     children: ReactNode;
     filename?: string;
     lang: "ts" | "js" | "json";
+    note?: string;
     // Meh, it works.
     // @ts-expect-error
   }): JSX.Element => {
@@ -67,23 +68,33 @@ export const mdxComponents = {
         <div data-theme="dark" className="hidden dark:block">
           <Code
             lang={props.lang}
-            className="m-0 border border-gray-800"
+            className="!m-0 border border-gray-800"
             title={props.filename}
             extensions={[focus]}
           >
             {props.children}
           </Code>
+          {props.note ? (
+            <p className="!my-0 p-2 px-4 border-[1px] border-gray-800 text-sm border-t-0">
+              Note: {props.note}
+            </p>
+          ) : null}
         </div>
 
         <div data-theme="light" className="block dark:hidden">
           <Code
             lang={props.lang}
             title={props.filename}
-            className="m-0 border border-gray-300"
+            className="!m-0 border border-gray-300"
             extensions={[focus]}
           >
             {props.children}
           </Code>
+          {props.note ? (
+            <p className="!my-0 p-2 px-4 border-[1px] border-gray-300 text-sm border-t-0">
+              Note: {props.note}
+            </p>
+          ) : null}
         </div>
       </>
     );
