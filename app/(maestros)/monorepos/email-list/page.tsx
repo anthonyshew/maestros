@@ -16,6 +16,7 @@ const Page = async () => {
 
   return (
     <div>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
       <pre>{JSON.stringify(emails, null, 2)}</pre>
     </div>
   );
