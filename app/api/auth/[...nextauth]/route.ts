@@ -9,18 +9,13 @@ if (!process.env.GH_CLIENT_ID || !process.env.GH_CLIENT_SECRET) {
 }
 
 export const authOptions: NextAuthOptions = {
-  callbacks: {
-    redirect: (params) => {
-      console.log(params)
-      return process.env.VERCEL_URL ?? "http://localhost:3000"
-    },
-    // @ts-expect-error
-    adapter: PrismaAdapter(prisma),
-    providers: [GitHub({
-      clientId: process.env.GH_CLIENT_ID,
-      clientSecret: process.env.GH_CLIENT_SECRET
-    })],
-  }
+  // @ts-expect-error
+  adapter: PrismaAdapter(prisma),
+  providers: [GitHub({
+    clientId: process.env.GH_CLIENT_ID,
+    clientSecret: process.env.GH_CLIENT_SECRET
+
+  })],
 }
 
 const handler = NextAuth(authOptions);
