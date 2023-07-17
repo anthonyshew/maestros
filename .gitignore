@@ -8,3 +8,5 @@ yarn.lock
 tsconfig.tsbuildinfo
 
 .env.local
+.vercel
+.env*.local
