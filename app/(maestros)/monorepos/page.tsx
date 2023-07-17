@@ -1,5 +1,6 @@
 import { buildMeta } from "#/app/metadata";
 import Image from "next/image";
+import { SubscribeButton } from "#/components/SubscribeButton";
 
 export const generateMetadata = () => {
   buildMeta({
@@ -36,8 +37,9 @@ const Page = () => {
           Monorepo Maestros
         </span>
       </h1>
+      <SubscribeButton />
 
-      <div className="z-10 w-full h-full p-2 prose lg:prose-lg sm:p-6 dark:prose-invert">
+      <div className="z-10 w-full h-full p-2 pt-8 prose lg:prose-lg sm:p-6 dark:prose-invert">
         <p>
           Some of the largest software engineering organizations in the world
           deliver using monorepos and you can, too. With the right knowledge and
