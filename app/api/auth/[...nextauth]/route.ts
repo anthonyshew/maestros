@@ -12,6 +12,9 @@ if (!process.env.GH_CLIENT_ID || !process.env.GH_CLIENT_SECRET) {
 export const authOptions: NextAuthOptions = {
   // @ts-expect-error
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: process.env.VERCEL_ENV === "preview" ? "jwt" : "database"
+  },
   providers: [
     process.env.VERCEL_ENV === "preview"
       ? CredentialsProvider({
