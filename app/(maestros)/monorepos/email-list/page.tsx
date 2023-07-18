@@ -2,6 +2,8 @@ import { prisma } from "#/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "#/app/api/auth/[...nextauth]/route";
 
+export const revalidate = 0;
+
 const Page = async () => {
   const session = await getServerSession(authOptions);
 
@@ -16,7 +18,6 @@ const Page = async () => {
 
   return (
     <div>
-      <pre>{JSON.stringify(session, null, 2)}</pre>
       <pre>{JSON.stringify(emails, null, 2)}</pre>
     </div>
   );
