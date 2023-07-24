@@ -131,7 +131,6 @@ Now, we'll build our Turborepo pipeline with two important characteristics.
 
 ```json filename="turbo.json" lang="json"
 {
-  // ...
   "pipeline": {
     "topo": {
       "dependsOn": ["^topo"]
@@ -141,7 +140,6 @@ Now, we'll build our Turborepo pipeline with two important characteristics.
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
-  // ...
 }
 ```
 
