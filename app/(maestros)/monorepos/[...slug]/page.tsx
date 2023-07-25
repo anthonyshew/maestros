@@ -23,8 +23,9 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
       <Callout type="warning" bold className="mb-10">
-        This is an early sneak peek of Monorepo Maestros. Your feedback is
-        welcome!
+        This is an early sneak peek of Monorepo Maestros. For this iteration,
+        I'm getting all of my thoughts down. In the future, we will deliver the
+        message more cleanly. Your feedback is welcome!
       </Callout>
 
       <h1>{content.title}</h1>
