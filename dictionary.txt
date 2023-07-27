@@ -87,3 +87,9 @@ entrypoints
 repo's
 namespace
 lockfile
+typescript-eslint
+formatter
+CLI
+linter
+Formatters
+whitespace
