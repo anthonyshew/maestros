@@ -133,7 +133,7 @@ module.exports = {
 };
 ```
 
-## Building a root task
+## Write a pipeline
 
 Once we've created our linting scripts in any workspaces that we want to lint, it's time to build up our Turborepo pipeline.
 
@@ -158,12 +158,13 @@ Once we've created our linting scripts in any workspaces that we want to lint, i
 
 With all of that ready to go, we're now ready to run our tasks!
 
-In the root of our monorepo, we will create this script:
+In the root of our monorepo, we will create these scripts:
 
 ```json filename="package.json" lang="json"
 {
   "scripts": {
-    "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'"
+    "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache'"
   }
 }
 ```
@@ -172,6 +173,7 @@ Run `pnpm lint`! On the first run, the command will create caches in each worksp
 
 - Running `pnpm lint` (without changing any code) will give you a `>>> FULL TURBO`. Awesome!
 - Changing some code in one workspace will hit cache for all your workspaces except that specific one. That workspace will use the ESLint cache file at `node_modules/.cache/.eslintcache` to lint as fast as possible.
+- You now run your `pnpm lint:fix` command to see if ESLint can find any auto-fixable problems.
 
 ### Breaking down the script
 
