@@ -1,9 +1,30 @@
 ---
 title: Package managers
 sidebarOrderPosition: 3
-ogDescription: The basics of a monorepo
+ogDescription: Monorepo package managers
 ---
 
-import { UnderConstruction } from "../UnderConstruction";
+**We will be using pnpm throughout Maestros.** If you need to use a different package manager, we'll leave it to you to adjust accordingly.
 
-<UnderConstruction />
+- [pnpm](/monorepos/padckage-managers/pnpm)
+- [yarn](/monorepos/padckage-managers/yarn)
+- [npm](/monorepos/padckage-managers/npm)
+
+Your package manager lays the foundation of your repository. It has two core responsibilities in your monorepo:
+
+- Handling dependencies
+- Establishing workspaces
+
+## Handling dependencies
+
+[The npm registry](https://www.npmjs.com/) contains many valuable external packages that you can leverage in building your applications. Additionally, you'll be building your own packages directly inside of your monorepo.
+
+Your package manager will help you install and use those dependencies for use throughout your project. Every package manager does this in slightly different ways and we'll make sure we understand those nuances to use the best package manager for our needs.
+
+## Establishing workspaces
+
+We've discussed more deeply how workspaces work on [the Workspaces page](/monorepos/basics/workspaces) but it's worth noting here that the establishment of workspaces is your package manager's responsibility.
+
+If you structure your repository as if it has workspaces **without** following the instructions for setting up workspaces for your package manager, you'll run into many problems.
+
+Check out the page for your package manager for notes on how to create your workspaces.
