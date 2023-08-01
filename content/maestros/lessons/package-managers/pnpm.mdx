@@ -23,6 +23,19 @@ packages:
 
 Note that you pnpm will let you add nested workspaces using a `/**` double star syntax but Turborepo does not currently support this feature.
 
+If you're using Turborepo, you'll also need to add a line to your root `package.json`:
+
+```json filename="package.json"
+{
+  "name": "my-repo",
+  "private": true,
+  "scripts": { ... },
+  "devDependencies": { ... },
+  // focus(1:1)
+  "packageManager": "pnpm@8.5.0"
+}
+```
+
 ## Migrating to pnpm
 
 If you're migrating to pnpm from a different package manager, you may find that your repository starts to throw erros about not being able to find dependencies in certain workspaces.
