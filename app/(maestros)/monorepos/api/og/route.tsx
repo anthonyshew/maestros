@@ -75,7 +75,9 @@ export async function GET(req: Request) {
             marginLeft: marginX,
           }}
         >
-          <div tw="text-yellow-400 text-6xl mt-60">Monorepo Maestros</div>
+          {title !== "Monorepo Maestros" ? (
+            <div tw="text-yellow-400 text-6xl mt-60">Monorepo Maestros</div>
+          ) : null}
           <div tw="text-yellow-400 text-5xl mt-8">
             The ultimate monorepo reference.
           </div>
