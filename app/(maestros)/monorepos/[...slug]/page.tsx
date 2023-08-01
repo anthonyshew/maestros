@@ -22,13 +22,13 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const content = getPageDocument(params.slug);
 
+  const title = content.ogTitle ?? content.title;
+
   return await buildMeta({
-    title: `${content.ogTitle ?? content.title} - Monorepo Maestros`,
+    title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
-      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${
-        content.ogTitle ?? content.ogTitle
-      }&subtitle=${content.ogDescription}`
+      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`
     ),
   });
 };
