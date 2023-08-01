@@ -5,7 +5,6 @@ import {
   Sheet,
   SheetTrigger,
   SheetContent,
-  // SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetLink,
@@ -27,6 +26,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
     title: "Monorepo Maestros",
     description: "Make beautiful monorepo music.",
+    ogImage: encodeURI(`https://${process.env.VERCEL_URL}/monorepos/api/og`),
   });
 };
 

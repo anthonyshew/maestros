@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { allDocuments } from "contentlayer/generated";
 import { getPageDocument } from "#/app/(maestros)/contentHandlers";
 import { Callout } from "#/components/Callout";
+import { Metadata } from "next";
+import { buildMeta } from "#/app/metadata";
 
 export async function generateStaticParams() {
   return [
@@ -12,6 +14,24 @@ export async function generateStaticParams() {
     ),
   ];
 }
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string[] };
+}): Promise<Metadata> => {
+  const content = getPageDocument(params.slug);
+
+  return await buildMeta({
+    title: `${content.ogTitle ?? content.title} - Monorepo Maestros`,
+    description: `${content.ogDescription}`,
+    ogImage: encodeURI(
+      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${
+        content.ogTitle ?? content.ogTitle
+      }`
+    ),
+  });
+};
 
 const Page = ({ params }: { params: { slug: string[] } }) => {
   const content = getPageDocument(params.slug);
