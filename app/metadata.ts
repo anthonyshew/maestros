@@ -16,7 +16,6 @@ const baseMetadata: Metadata =
   openGraph: {
     title: 'Anthony Shew',
     description: tagline,
-    url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
     siteName: 'Anthony Shew',
     images: [
       {

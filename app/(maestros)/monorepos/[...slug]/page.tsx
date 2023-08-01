@@ -28,7 +28,7 @@ export const generateMetadata = async ({
     ogImage: encodeURI(
       `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${
         content.ogTitle ?? content.ogTitle
-      }`
+      }&subtitle=${content.ogDescription}`
     ),
   });
 };
