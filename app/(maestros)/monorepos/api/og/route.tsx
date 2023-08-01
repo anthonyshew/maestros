@@ -35,11 +35,12 @@ export async function GET(req: Request) {
             marginLeft: 190,
             marginRight: 190,
             display: "flex",
-            fontSize: 140,
+            fontSize: 100,
             fontFamily: "Inter",
             color: "white",
             whiteSpace: "pre-wrap",
           }}
+          tw="text-8xl"
         >
           {title ?? "Monorepo Maestros"}
         </div>
@@ -52,7 +53,10 @@ export async function GET(req: Request) {
           }}
         >
           {subtitle ? (
-            <div tw="text-8xl text-slate-300" style={{ fontFamily: "Inter" }}>
+            <div
+              tw="text-6xl text-slate-300 mt-8"
+              style={{ fontFamily: "Inter" }}
+            >
               {subtitle}
             </div>
           ) : null}
