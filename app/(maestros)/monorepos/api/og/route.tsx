@@ -15,6 +15,9 @@ export async function GET(req: Request) {
   const title = searchParams.get("title") ?? "Monorepo Maestros";
   const subtitle = searchParams.get("subtitle");
 
+  const marginX = 230;
+  const marginY = marginX + 40;
+
   return new ImageResponse(
     (
       <div
@@ -23,8 +26,8 @@ export async function GET(req: Request) {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
           backgroundImage: 'url("https://shew.dev/images/maestros/og-bg.png")',
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
@@ -32,8 +35,9 @@ export async function GET(req: Request) {
       >
         <div
           style={{
-            marginLeft: 190,
-            marginRight: 190,
+            marginLeft: marginX,
+            marginRight: marginX,
+            marginTop: marginY,
             display: "flex",
             fontSize: 100,
             fontFamily: "Inter",
@@ -50,6 +54,7 @@ export async function GET(req: Request) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            marginLeft: marginX,
           }}
         >
           {subtitle ? (
@@ -60,6 +65,20 @@ export async function GET(req: Request) {
               {subtitle}
             </div>
           ) : null}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            marginLeft: marginX,
+          }}
+        >
+          <div tw="text-yellow-400 text-6xl mt-60">Monorepo Maestros</div>
+          <div tw="text-yellow-400 text-5xl mt-8">
+            The ultimate monorepo reference.
+          </div>
         </div>
       </div>
     ),
