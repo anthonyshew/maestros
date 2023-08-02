@@ -31,7 +31,7 @@ This comes with problems:
 
 - We can't parallelize this task. ESLint is going to have to work it's way through each workspace one-by-one.
 - We can't granularly cache this task since there is only one linting script happening at the root of the repository. If we change _any_ code in the repository, we would have to run the entire lint task for the whole repository again.
-- Handling the needs of different workspaces becomes difficult. The lines that you draw between your workspaces are muddied when you do this and you start leaning into [yolorepo](/monorepos/glossary/yolorepo) territory. We should avoid it when you can.
+- Handling the needs of different workspaces becomes difficult. The lines that you draw between your workspaces are muddied when you do this and you start leaning into [yolorepo](/monorepos/glossary#yolorepo) territory. We should avoid it when you can.
 
 You'll learn how to [improve your type checking scripts in the TypeScript section](/monorepos/guardrails/typescript) but let's go back to continuing to refine our mental model.
 
