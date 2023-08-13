@@ -94,7 +94,7 @@ export default async function Home() {
           </a>
           <a
             className="flex flex-row gap-2 my-4 hover:underline"
-            href="https://twitter.com/anthonysheww"
+            href="https://www.youtube.com/channel/UCwfYq8O-1QtU1TlWsJVGRBg"
             target="_blank"
             rel="noopener noreferrer"
           >
