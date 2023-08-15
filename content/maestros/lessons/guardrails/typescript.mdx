@@ -22,7 +22,7 @@ Create a workspace in your `tooling` directory (or `packages`, whatever you pref
 ```json filename="tooling/tsconfig/package.json" lang="json"
 {
   // focus(1:1)
-  "name": "@acme/tsconfig",
+  "name": "@repo/tsconfig",
   "version": "0.0.0",
   "private": true,
   // focus(1:1)
@@ -48,7 +48,7 @@ Note that we don't need to install TypeScript (or anything else!) in this packag
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node16",
     "noImplicitAny": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -79,7 +79,7 @@ Putting these techniques together, we'll be caching the type check task for enti
 Let's start by handling the `package.json` for our workspace. We'll need to install:
 
 1.  `typescript`
-2.  `@acme/tsconfig`, the package with our base TSConfig.
+2.  `@repo/tsconfig`, the package with our base TSConfig.
 
 After that we'll create a script for running `tsc` with the `--noEmit` flag so that the compiler _only_ checks types, skipping out on the actual compilation work.
 
@@ -89,7 +89,7 @@ After that we'll create a script for running `tsc` with the `--noEmit` flag so t
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/tsconfig": "workspace:*" // Use "*" for npm or yarn
+    "@repo/tsconfig": "workspace:*" // Use "*" for npm or yarn
   },
   "devDependencies": {
     "typescript": "5.1.6"
@@ -103,7 +103,7 @@ Next, we'll create a `tsconfig.json` in our workspace where we'll extend from ou
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   // focus(1:4)
-  "extends": "@acme/tsconfig/base.json", // Using our base config!
+  "extends": "@repo/tsconfig/base.json", // Using our base config!
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },

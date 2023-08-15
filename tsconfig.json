@@ -11,7 +11,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "noUncheckedIndexedAccess": true,
     "strictNullChecks": true,
