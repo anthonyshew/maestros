@@ -17,7 +17,7 @@ However, Internal Packages are different in two important ways:
 - In-repo source code: The code that makes up the package is in your repository, making it highly discoverable, accessible, and editable.
 - One version: When installing to other workspaces within your repository, you'll use `"*"` (or `"workspace:*"` for pnpm). This means you'll always use whatever the current version of the code that is in your repository.
 
-When you compile a package in your monorepo, you can cache your compilation outputs for sub-second build times. Build your source code once; never build it again.
+When you compile a package in your Turborepo, you can cache your compilation outputs for sub-second build times. Build your source code once; never build it again.
 
 Let's take a look at what it takes to build an Internal Package for UI component library with React and TypeScript.
 
@@ -25,7 +25,7 @@ Let's take a look at what it takes to build an Internal Package for UI component
 
 We first need to lay the foundation for our workspace. We can do so in a few quick steps.
 
-### Makes sure our package manager sees the workspace
+### Make sure our package manager sees the workspace
 
 Establish a workspace by following [the workspace instructions for your package manager](/monorepos/package-managers).
 
