@@ -111,8 +111,8 @@ In the root of our monorepo, we will create these scripts:
 ```json filename="package.json"
 {
   "scripts": {
-    "lint": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
-    "lint:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache'"
+    "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
+    "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache'"
   }
 }
 ```
