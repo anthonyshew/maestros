@@ -8,6 +8,7 @@ Contentlayer
 discoverability
 DX
 DevRel
+APIs
 Entrypoint
 ESLint
 ExternalMdxLink

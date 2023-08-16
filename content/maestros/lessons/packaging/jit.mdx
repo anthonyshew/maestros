@@ -1,10 +1,10 @@
 ---
-title: Just-in-Time Package
+title: Just-In-Time Package
 sidebarOrderPosition: 2
-ogDescription: Using Just-in-Time Packages in a monorepo
+ogDescription: Using Just-In-Time Packages in a monorepo
 ---
 
-Using Just-in-Time Packages is a great way to reduce the configuration complexity of your repository. Using a Just-in-Time Package allows you to directly consume TypeScript into applications without having to pre-compile them. Instead, the applications themselves will compile the TypeScript packages when they build for production.
+Using Just-in-Time Packages is a great way to reduce the configuration complexity of your repository. Using a Just-In-Time Package allows you to directly consume TypeScript into applications without having to pre-compile them. Instead, the applications themselves will compile the TypeScript packages when they build for production.
 
 While this approach is much simpler to set up, it does come with one drawback when using Turborepo: Because your package does not have build outputs, you won't be able to cache the build step for your package. This is a simple tradeoff of simplicity vs. build times. If you're interested in improving your build times, [take a look at the Internal Packages page](/monorepos/packaging/internal) to add a cacheable build step.
 
