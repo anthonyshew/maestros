@@ -39,17 +39,18 @@ const baseMetadata: Metadata =
     ],
   },
   icons: {
-    shortcut: '/favicon.ico',
+    shortcut: '/images/favicon.ico',
   },
 };
 
 interface BuildMetaParams {
   title: string,
   description?: string
-  ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>
+  ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>,
+  icons?: string
 }
 
-export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams): Promise<Metadata> => {
+export const buildMeta = async ({ title, description, ogImage, icons }: BuildMetaParams): Promise<Metadata> => {
   if (ogImage) {
     baseMetadata.openGraph!.images = ogImage
     baseMetadata.twitter!.images = ogImage
@@ -65,6 +66,10 @@ export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams
     baseMetadata.title = title
     baseMetadata.twitter!.title = title
     baseMetadata.openGraph!.title = title
+  }
+
+  if (icons) {
+    baseMetadata.icons!.shortcut = icons
   }
 
   return baseMetadata
