@@ -38,6 +38,7 @@ const baseMetadata: Metadata =
       },
     ],
   },
+
   icons: {
     shortcut: '/images/favicon.ico',
   },

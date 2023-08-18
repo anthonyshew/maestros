@@ -30,7 +30,7 @@ export const generateMetadata = async ({
     ogImage: encodeURI(
       `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`
     ),
-    icons: '/images/Mfavicon.ico'
+    icons: "/images/maestros-favicon.ico",
   });
 };
 
