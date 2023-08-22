@@ -1,29 +1,29 @@
-import { firaCode } from "#/app/fonts";
-import { Avatar, AvatarFallback, AvatarImage } from "#/components/Avatar";
-import { Cloud, Github, Twitter, Youtube } from "lucide-react";
-import { RepoCard, PinnedRepos } from "#/components/molecules/RepoCard";
-import { tagline } from "#/app/constants";
-import { buildMeta } from "#/app/metadata";
-import { Metadata } from "next";
-import Balancer from "react-wrap-balancer";
-import { Discord } from "#/components/Discord";
-import { Button } from "#/components/Button";
-import Link from "next/link";
+import { firaCode } from '#/app/fonts';
+import { Avatar, AvatarFallback, AvatarImage } from '#/components/Avatar';
+import { Cloud, Github, Twitter, Youtube } from 'lucide-react';
+import { RepoCard, PinnedRepos } from '#/components/molecules/RepoCard';
+import { tagline } from '#/app/constants';
+import { buildMeta } from '#/app/metadata';
+import { Metadata } from 'next';
+import Balancer from 'react-wrap-balancer';
+import { Discord } from '#/components/Discord';
+import { Button } from '#/components/Button';
+import Link from 'next/link';
 
 export const revalidate = 3600; // hourly
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
-    title: "Anthony Shew",
+    title: 'Anthony Shew',
     description: tagline,
   });
 };
 
 const getData = async () => {
   const pins = await fetch(
-    "https://gh-pinned-repos.egoist.dev/?username=anthonyshew"
+    'https://gh-pinned-repos.egoist.dev/?username=anthonyshew',
   )
-    .then((res): Promise<Array<PinnedRepos>> => res.json())
+    .then((res) => res.json() as unknown as Array<PinnedRepos>)
     .catch((err) => {
       throw new Error(err);
     });
@@ -57,12 +57,12 @@ export default async function Home() {
           Hey, I&apos;m Anthony. I played professional baseball for six years
           and now I write software. I'm currently at Vercel as a Content
           Engineer. If you'd like to learn more about me personally, I wrote a
-          little about how I got here in{" "}
+          little about how I got here in{' '}
           <Link href="/blog/my-developer-story">this blog post</Link>.
         </p>
         <p>
           Outside of my day job, I'm building a course about JavaScript and
-          TypeScript monorepos.{" "}
+          TypeScript monorepos.{' '}
           <strong>
             If you'd like to level up your skills so you can build healthy
             repositories for yourself and your teammates, feel free to join the

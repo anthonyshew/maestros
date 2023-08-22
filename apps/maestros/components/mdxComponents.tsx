@@ -6,10 +6,6 @@ import type { ImageProps } from 'next/image';
 import { TwoColumns, TwoColumnsProps } from '#/components/TwoColumns';
 import { focus } from './bright/focus';
 import { ReactNode } from 'react';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-
-type UseMDXComponent = ReturnType<typeof useMDXComponent>;
-
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
 }
