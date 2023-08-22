@@ -1,10 +1,10 @@
 {
-  "extends": "@repo/tsconfig/react-library.json",
+  "extends": "@repo/tsconfig/base.json",
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "rootDir": ".",
     "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src", "turbo", "vite.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

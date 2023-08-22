@@ -3,8 +3,14 @@
   "version": "0.1.1",
   "private": true,
   "exports": {
-    ".": "./index.ts",
-    "./validator": "./validator/index.ts"
+    ".": "./src/index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./src/index.ts"
+      ]
+    }
   },
   "scripts": {
     "db:format": "prisma format",
@@ -30,6 +36,7 @@
     "zod-prisma": "0.5.4"
   },
   "prisma": {
+    "schema": "./schema.prisma",
     "seed": "ts-node ./seed.ts"
   }
 }
