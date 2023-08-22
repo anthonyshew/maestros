@@ -6,8 +6,8 @@
     ".": "./src/components/index.ts"
   },
   "scripts": {
-    "dev": "tsc -w",
     "build": "tsc -b",
+    "dev": "tsc -w",
     "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"

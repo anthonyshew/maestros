@@ -3,8 +3,9 @@
 Dockerfile
 Dockerfile.*
 .github
-**/node_modules
+node_modules
 *.log
 public
-**/.next
+.next
 .turbo
+dist
