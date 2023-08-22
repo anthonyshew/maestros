@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "db:generate": {
+      "outputs": ["../../node_modules/.prisma/**"],
+      "outputMode": "new-only"
+    }
+  }
+}

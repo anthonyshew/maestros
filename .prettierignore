@@ -1,0 +1,10 @@
+.dockerignore
+.env
+Dockerfile
+Dockerfile.*
+.github
+**/node_modules
+*.log
+public
+**/.next
+.turbo

@@ -4,6 +4,15 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "dist/**"]
+    },
+    "topo": {
+      "dependsOn": ["@repo/prisma#db:generate", "^topo"]
+    },
+    "//#format-root": {
+      "dependsOn": ["^topo"]
+    },
+    "format": {
+      "dependsOn": ["^topo"]
     }
   }
 }
