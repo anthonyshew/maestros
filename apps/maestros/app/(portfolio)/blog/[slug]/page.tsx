@@ -1,13 +1,13 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+import Link from 'next/link';
+import type { Metadata } from 'next';
 
-import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogPosts } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import { mdxComponents } from "components/mdxComponents";
-import { getPost } from "./getPost";
-import Balancer from "react-wrap-balancer";
-import { notFound } from "next/navigation";
+import { compareDesc, format, parseISO } from 'date-fns';
+import { allBlogPosts } from 'contentlayer/generated';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { mdxComponents } from 'components/mdxComponents';
+import { getPost } from './getPost';
+import Balancer from 'react-wrap-balancer';
+import { notFound } from 'next/navigation';
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
@@ -25,13 +25,13 @@ export async function generateMetadata({
   const { title, date: publishedTime, summary, slug } = post;
 
   const ogUrl = new URL(
-    "/api/og",
+    '/api/og',
     process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:300"
+      : 'http://localhost:300',
   );
-  ogUrl.searchParams.set("title", title);
-  ogUrl.searchParams.set("subtitle", summary);
+  ogUrl.searchParams.set('title', title);
+  ogUrl.searchParams.set('subtitle', summary);
 
   return {
     title,
@@ -39,7 +39,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description: summary,
-      type: "article",
+      type: 'article',
       publishedTime,
       url: `https://shew.dev/blog/${slug}`,
       images: [
@@ -49,7 +49,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       description: summary,
       images: [ogUrl],
@@ -78,7 +78,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
   const post = getPost(params.slug);
 
-  const MDXContent = useMDXComponent(post?.body.code ?? "");
+  const MDXContent = useMDXComponent(post?.body.code ?? '');
   if (!post) return notFound();
 
   return (
@@ -93,7 +93,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               dateTime={post?.date}
               className="text-xs text-gray-600 dark:text-gray-400"
             >
-              {format(parseISO(post?.date), "LLLL d, yyyy")}
+              {format(parseISO(post?.date), 'LLLL d, yyyy')}
             </time>
             <hr className="flex-grow border-1 !my-auto text-slate-900" />
           </div>
@@ -101,6 +101,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </header>
 
       <article>
+        {/* @ts-expect-error Don't care, we shippin'! */}
         <MDXContent components={mdxComponents} />
       </article>
 

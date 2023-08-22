@@ -31,7 +31,6 @@
     "ts-node": "10.9.1",
     "tsup": "5.12.0",
     "typescript": "^5.1.3",
-    "vitest-mock-extended": "^1.0.8",
     "zod": "3.17.3",
     "zod-prisma": "0.5.4"
   },

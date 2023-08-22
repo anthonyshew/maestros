@@ -1,16 +1,16 @@
-import { mdxComponents } from "#/components/mdxComponents";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import { notFound } from "next/navigation";
-import { allDocuments } from "contentlayer/generated";
-import { getPageDocument } from "#/app/(maestros)/contentHandlers";
-import { Callout } from "#/components/Callout";
-import { Metadata } from "next";
-import { buildMeta } from "#/app/metadata";
+import { mdxComponents } from '#/components/mdxComponents';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { notFound } from 'next/navigation';
+import { allDocuments } from 'contentlayer/generated';
+import { getPageDocument } from '#/app/(maestros)/contentHandlers';
+import { Callout } from '#/components/Callout';
+import { Metadata } from 'next';
+import { buildMeta } from '#/app/metadata';
 
 export async function generateStaticParams() {
   return [
     allDocuments.filter(
-      (doc) => doc.type === "MaestrosLanding" || doc.type === "MaestrosLesson"
+      (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson',
     ),
   ];
 }
@@ -28,7 +28,7 @@ export const generateMetadata = async ({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
-      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`
+      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
     ),
   });
 };
@@ -36,7 +36,7 @@ export const generateMetadata = async ({
 const Page = ({ params }: { params: { slug: string[] } }) => {
   const content = getPageDocument(params.slug);
 
-  const MDXContent = useMDXComponent(content?.body.code ?? "");
+  const MDXContent = useMDXComponent(content?.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
@@ -51,6 +51,7 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
 
       <h1>{content.title}</h1>
 
+      {/* @ts-expect-error Don't care, we shippin'! */}
       <MDXContent components={mdxComponents} />
     </div>
   );

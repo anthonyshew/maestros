@@ -1,6 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "dev": {
+      "dependsOn": ["@repo/prisma#db:generate"],
+      "persistent": true,
+      "cache": false
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "dist/**"]
@@ -13,6 +18,10 @@
     },
     "format": {
       "dependsOn": ["^topo"]
+    },
+    "typecheck": {
+      "dependsOn": ["@repo/prisma#db:generate"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
 }

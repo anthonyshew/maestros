@@ -1,39 +1,24 @@
 {
+  "extends": "@repo/tsconfig/nextjs.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "noUncheckedIndexedAccess": true,
-    "strictNullChecks": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "plugins": [{ "name": "next" }],
     "baseUrl": ".",
+    "declarationMap": false,
+    "declaration": false,
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
       "#/*": ["./*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "moduleResolution": "Bundler",
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
+    "**/*.js",
     "**/*.ts",
     "**/*.tsx",
-    ".contentlayer/generated",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".next"]
 }
