@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "tsc -w",
-    "build": "tsc",
+    "build": "tsc -b",
     "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"

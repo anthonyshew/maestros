@@ -5,8 +5,9 @@ dist
 yarn.lock
 .DS_Store
 
-tsconfig.tsbuildinfo
-
 .env.local
 .vercel
 .env*.local
+
+tsconfig.tsbuildinfo
+.turbo
