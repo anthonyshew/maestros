@@ -24,7 +24,12 @@ export async function generateMetadata({
 
   const { title, date: publishedTime, summary, slug } = post;
 
-  const ogUrl = new URL("/api/og", `https://${process.env.VERCEL_URL}`);
+  const ogUrl = new URL(
+    "/api/og",
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:300"
+  );
   ogUrl.searchParams.set("title", title);
   ogUrl.searchParams.set("subtitle", summary);
 

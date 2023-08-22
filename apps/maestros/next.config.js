@@ -5,6 +5,7 @@ const moduleExports = {
   experimental: {
     appDir: true,
   },
+  transpilePackages: ["@repo/prisma"],
 };
 
 module.exports = withContentlayer(moduleExports);

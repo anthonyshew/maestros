@@ -25,7 +25,7 @@
     "encoding": "^0.1.13",
     "framer-motion": "^8.5.5",
     "lucide-react": "^0.108.0",
-    "next": "latest",
+    "next": "canary",
     "next-auth": "^4.22.1",
     "next-contentlayer": "latest",
     "next-themes": "^0.2.1",

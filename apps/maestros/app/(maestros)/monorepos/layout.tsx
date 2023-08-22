@@ -26,7 +26,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
     title: "Monorepo Maestros",
     description: "Make beautiful monorepo music.",
-    ogImage: encodeURI(`https://${process.env.VERCEL_URL}/monorepos/api/og`),
+    ogImage: encodeURI(
+      `https://${
+        process.env.VERCEL_URL ?? "http://localhost:3000"
+      }/monorepos/api/og`
+    ),
   });
 };
 
