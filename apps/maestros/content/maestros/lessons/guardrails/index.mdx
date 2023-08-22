@@ -1,0 +1,43 @@
+---
+title: Building guardrails
+sidebarOrderPosition: 4
+ogDescription: Encoding uniformity and safety in your monorepo
+---
+
+import { Callout } from "../../../components/Callout";
+
+An important part of creating a great monorepo is ensuring that you build safeguards for your developers. Formatters, linters, and type checkers help all developers in a repository work as quickly as possible by paving happy paths throughout your repository.
+
+When we build guardrails correctly, we'll have rules that allow us to do our best work **without blocking progress**. Our goal is to improve velocity, not build annoying roadblocks.
+
+We'll use a combination of tools to make this happen, integrating these tools with our local environment and CI pipelines.
+
+<Callout type="goodToKnow">
+  Yes, there are other tools out there for these purposes. The three shown below
+  are by far the most common. In the future, we'd love to explore other
+  formatting and linting tooling.
+</Callout>
+
+## ESLint for linting
+
+**Note that a linter is for verifying and correcting logic, names, and potential bugs in your code.** By statically analyzing certain characteristics of your code, a linter should be able to keep you working smoothly.
+
+We'll use [ESLint](https://eslint.org/) for this since its the most common tool for linting in the JavaScript world.
+
+[Learn how to use ESLint in a monorepo.](/monorepos/guardrails/eslint)
+
+## Prettier for formatting
+
+**Note that a formatter is specifically for formatting, not code quality.** It will handle simple things like whitespace, semi-colons, and dangling commas. It should run quickly and not be concerned with code logic or naming conventions.
+
+The most common formatter in the JavaScript ecosystem is [Prettier](https://prettier.io/) so we'll use that.
+
+[Learn how to use Prettier in a monorepo.](/monorepos/guardrails/prettier)
+
+## TypeScript for type checking
+
+**Note that a type checker is for ensuring that data used in your code is of a specific "type". A type checker is not responsible for whitespace, stylistic, or "taste" decisions.**
+
+Anthony's personal opinion incoming: TypeScript is a must-have for any JavaScript-based project today. You'll see pure JavaScript sprinkled throughout Monorepo Maestros but we will **always overwhelmingly** favor TypeScript for our monorepos.
+
+[Learn how to use TypeScript in a monorepo.](/monorepos/guardrails/typescript)

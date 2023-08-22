@@ -1,0 +1,35 @@
+{
+  "name": "@repo/prisma",
+  "version": "0.1.1",
+  "private": true,
+  "exports": {
+    ".": "./index.ts",
+    "./validator": "./validator/index.ts"
+  },
+  "scripts": {
+    "db:format": "prisma format",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.0.0"
+  },
+  "devDependencies": {
+    "@repo/lint": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^16.18.11",
+    "eslint": "^8.42.0",
+    "prisma": "^5.0.0",
+    "ts-node": "10.9.1",
+    "tsup": "5.12.0",
+    "typescript": "^5.1.3",
+    "vitest-mock-extended": "^1.0.8",
+    "zod": "3.17.3",
+    "zod-prisma": "0.5.4"
+  },
+  "prisma": {
+    "seed": "ts-node ./seed.ts"
+  }
+}
