@@ -4,6 +4,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
@@ -54,7 +55,7 @@ function Page({ params }: { params: { slug: string[] } }) {
       <h1>{content.title}</h1>
 
       {/* @ts-expect-error Don't care, we shippin'! */}
-      <MDXContent components={mdxComponents} />
+      <MDXContent components={mdxComponents({ imgComponent: Image })} />
     </div>
   );
 }

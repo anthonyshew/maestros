@@ -7,6 +7,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { mdxComponents } from '@repo/ui/server-only';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { getPost } from './getPost';
 import { metadataBaseURI } from '#/app/metadata';
 
@@ -98,7 +99,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 
       <article>
         {/* @ts-expect-error Don't care, we shippin'! */}
-        <MDXContent components={mdxComponents} />
+        <MDXContent components={mdxComponents({ imgComponent: Image })} />
       </article>
 
       <footer className="pt-4 mt-4 border-t-2 border-t-slate-600">
