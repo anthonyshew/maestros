@@ -14,9 +14,6 @@ importers:
       eslint:
         specifier: ^8.41.0
         version: 8.47.0
-      husky:
-        specifier: ^8.0.0
-        version: 8.0.0
       prettier:
         specifier: ^2.8.0
         version: 2.8.0
@@ -5081,12 +5078,6 @@ packages:
   /human-signals@4.3.1:
     resolution: {integrity: sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==}
     engines: {node: '>=14.18.0'}
-
-  /husky@8.0.0:
-    resolution: {integrity: sha512-4qbE/5dzNDNxFEkX9MNRPKl5+omTXQzdILCUWiqG/lWIAioiM5vln265/l6I2Zx8gpW8l1ukZwGQeCFbBZ6+6w==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: true
 
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}

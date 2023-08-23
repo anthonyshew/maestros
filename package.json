@@ -11,13 +11,11 @@
     "format:fix": "prettier . \"!./apps/**\" \"!./packages/**\" \"!./tooling/**\" --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache'",
     "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
-    "prepare": "husky install",
     "typecheck": "turbo typecheck --continue"
   },
   "devDependencies": {
     "@vercel/style-guide": "^4.0.2",
     "eslint": "^8.41.0",
-    "husky": "^8.0.0",
     "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.4.3",
     "turbo": "^1.10.12"
