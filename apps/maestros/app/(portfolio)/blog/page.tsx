@@ -37,8 +37,8 @@ export default function Home() {
   return (
     <div className="py-8">
       <h1 className="mb-8 text-3xl font-bold text-center">Blog</h1>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
+      {posts.map((post) => (
+        <PostCard key={post._id} {...post} />
       ))}
     </div>
   );

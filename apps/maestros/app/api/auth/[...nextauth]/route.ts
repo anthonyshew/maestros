@@ -9,7 +9,7 @@ if (!process.env.GH_CLIENT_ID || !process.env.GH_CLIENT_SECRET) {
 }
 
 export const authOptions: NextAuthOptions = {
-  // @ts-expect-error
+  // @ts-expect-error Not totally sure what's up here?
   adapter: PrismaAdapter(prisma),
   providers: [
     GitHub({
@@ -19,5 +19,6 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

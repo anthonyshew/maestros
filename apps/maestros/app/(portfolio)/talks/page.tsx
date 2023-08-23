@@ -10,8 +10,8 @@ const talks: { confName: string; title: string; link: string }[] = [
   },
 ];
 
-export async function generateMetadata({}): Promise<Metadata> {
-  return await buildMeta({
+export function generateMetadata(): Metadata {
+  return buildMeta({
     title: 'Talks',
     description: "Conference and other talks that I've done.",
   });

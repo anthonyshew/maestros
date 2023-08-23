@@ -17,8 +17,8 @@ import { firaCode } from '#/app/fonts';
 
 export const revalidate = 3600; // hourly
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  return await buildMeta({
+export const generateMetadata = (): Metadata => {
+  return buildMeta({
     title: 'Anthony Shew',
     description: tagline,
   });
@@ -30,6 +30,7 @@ const getData = async () => {
   )
     .then((res) => res.json() as unknown as PinnedRepos[])
     .catch((err) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       throw new Error(err);
     });
 

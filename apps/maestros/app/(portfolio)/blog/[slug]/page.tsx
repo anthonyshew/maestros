@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { compareDesc, format, parseISO } from 'date-fns';
+import type { BlogPost } from 'contentlayer/generated';
 import { allBlogPosts } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { mdxComponents } from '@repo/ui/server-only';
@@ -63,8 +64,8 @@ function PostLayout({ params }: { params: { slug: string } }) {
     if (foundIndex < 0) return notFound();
 
     return {
-      prevPost: allBlogPosts[foundIndex - 1],
-      nextPost: allBlogPosts[foundIndex + 1],
+      prevPost: allBlogPosts[foundIndex - 1] as BlogPost | undefined,
+      nextPost: allBlogPosts[foundIndex + 1] as BlogPost | undefined,
     };
   };
 
