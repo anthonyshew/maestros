@@ -1,4 +1,5 @@
-import { mdxComponents, Callout } from '@repo/ui';
+import { Callout } from '@repo/ui';
+import { mdxComponents } from '@repo/ui/server-only';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';

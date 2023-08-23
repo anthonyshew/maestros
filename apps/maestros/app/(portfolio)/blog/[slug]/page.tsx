@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allBlogPosts } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { mdxComponents } from '@repo/ui';
+import { mdxComponents } from '@repo/ui/server-only';
 import { getPost } from './getPost';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';

@@ -8,7 +8,9 @@
     "#utils/*": "./src/utils/*"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js",
+    "./server-only": "./dist/server-only.js",
+    "./cn": "./dist/utils/cn/index.js"
   },
   "scripts": {
     "build": "tsc -b",

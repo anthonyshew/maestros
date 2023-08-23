@@ -4,7 +4,7 @@ import Balancer from 'react-wrap-balancer';
 import { LinkHeading } from '#components/LinkHeading';
 import type { ImageProps } from 'next/image';
 import { TwoColumns, TwoColumnsProps } from '#components/TwoColumns';
-import { focus } from './bright/focus';
+import { focus } from './components/bright/focus';
 import { ReactNode } from 'react';
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
