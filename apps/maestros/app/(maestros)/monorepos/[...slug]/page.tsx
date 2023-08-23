@@ -54,6 +54,7 @@ function Page({ params }: { params: { slug: string[] } }) {
 
       <h1>{content.title}</h1>
       <MDXContent components={mdxComponents} />
+      <MDXContent components={mdxComponents} />
     </div>
   );
 }

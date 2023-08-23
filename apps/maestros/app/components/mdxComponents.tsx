@@ -5,6 +5,7 @@ import type { ImageProps } from 'next/image';
 import type { ReactNode } from 'react';
 import type { TwoColumnsProps } from '@repo/ui';
 import { LinkHeading, TwoColumns } from '@repo/ui';
+import { focus } from './bright-focus';
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
