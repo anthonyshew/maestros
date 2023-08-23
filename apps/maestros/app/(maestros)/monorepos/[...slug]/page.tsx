@@ -4,9 +4,8 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
-import { buildMeta } from '#/app/metadata';
+import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
 export function generateStaticParams() {
   return [
@@ -16,11 +15,11 @@ export function generateStaticParams() {
   ];
 }
 
-export const generateMetadata = async ({
+export const generateMetadata = ({
   params,
 }: {
   params: { slug: string[] };
-}): Promise<Metadata> => {
+}): Metadata => {
   const content = getPageDocument(params.slug);
 
   const title = content.ogTitle ?? content.title;
@@ -29,11 +28,7 @@ export const generateMetadata = async ({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
-      `${
-        process.env.VERCEL_URL
-          ? `https://proces.env.VERCEL_URL`
-          : 'http://localhost:3000'
-      }/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
+      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
     ),
   });
 };

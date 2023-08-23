@@ -1,5 +1,4 @@
 export * from './components/Avatar';
-export * from './components/ThemeController';
 export * from './components/Navbar';
 export * from './components/Sheet';
 export * from './components/Skeleton';

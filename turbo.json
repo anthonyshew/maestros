@@ -11,7 +11,7 @@
       "outputs": [".next/**", "dist/**"]
     },
     "topo": {
-      "dependsOn": ["@repo/prisma#db:generate", "^topo"]
+      "dependsOn": ["@repo/db#db:generate", "^topo"]
     },
     "//#format": {
       "outputs": ["node_modules/.cache/.prettiercache"]
@@ -31,19 +31,20 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint": {
-      "dependsOn": ["@repo/prisma#db:generate"],
+      "dependsOn": ["@repo/db#db:generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
-      "dependsOn": ["@repo/prisma#db:generate"],
+      "dependsOn": ["@repo/db#db:generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["@repo/prisma#db:generate"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+      "dependsOn": ["@repo/db#db:generate"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
+      "outputMode": "errors-only"
     }
   }
 }

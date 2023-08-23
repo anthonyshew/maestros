@@ -12,7 +12,7 @@
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache'",
     "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
     "prepare": "husky install",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck --continue"
   },
   "devDependencies": {
     "@vercel/style-guide": "^4.0.2",

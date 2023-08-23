@@ -46,7 +46,7 @@ export async function GET(req: Request) {
           }}
           tw="text-8xl"
         >
-          {title ?? 'Monorepo Maestros'}
+          {title}
         </div>
         <div
           style={{

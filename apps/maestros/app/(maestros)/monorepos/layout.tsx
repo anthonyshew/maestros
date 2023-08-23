@@ -15,7 +15,7 @@ import { Analytics } from '@repo/analytics';
 import { Twitter, SidebarOpen, Music } from 'lucide-react';
 import { linkStyles } from '../navLinks';
 import { inter } from '#/app/fonts';
-import { buildMeta } from '#/app/metadata';
+import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
 import { ThemeWrapper } from '#/app/providers';
 import { links } from '#/app/(maestros)/navLinks';
@@ -23,15 +23,11 @@ import { SideBarContent } from '#/app/(maestros)/monorepos/SidebarContent';
 import { buildNavigationGroups } from '#/app/(maestros)/contentHandlers';
 import { AuthSessionProvider } from '#/app/(maestros)/monorepos/SessionProvider';
 
-export const generateMetadata = async (): Promise<Metadata> => {
+export const generateMetadata = (): Metadata => {
   return buildMeta({
     title: 'Monorepo Maestros',
     description: 'Make beautiful monorepo music.',
-    ogImage: encodeURI(
-      `https://${
-        process.env.VERCEL_URL ?? 'http://localhost:3000'
-      }/monorepos/api/og`,
-    ),
+    ogImage: encodeURI(`${metadataBaseURI}/monorepos/api/og`),
   });
 };
 

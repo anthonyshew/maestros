@@ -22,7 +22,7 @@ export function SubscribeButton() {
 
   return (
     <div className="relative z-10 flex flex-row items-center justify-center animate-fade-in">
-      <Button className="py-8" onClick={() => signIn()}>
+      <Button className="py-8" onClick={() => void signIn()}>
         Get notified when <br />
         new content releases!
       </Button>

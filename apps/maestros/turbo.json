@@ -7,6 +7,7 @@
         "GH_CLIENT_SECRET",
         "NEXTAUTH_SECRET",
         "NEXTAUTH_URL",
+        "PORT",
         "POSTGRES_DATABASE",
         "POSTGRES_HOST",
         "POSTGRES_PASSWORD",

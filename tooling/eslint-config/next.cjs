@@ -26,9 +26,8 @@ module.exports = {
         'pages/**',
         'src/pages/**',
         'next.config.js',
-        'app/**/{head,layout,page,error,not-found}.tsx',
-        'src/app/**/{head,layout,loading,page,error,not-found}.tsx',
-        'src/app/**/*.page.tsx',
+        'app/**/{head,layout,loading,page,error,not-found}.tsx',
+        'contentlayer.config.ts',
       ],
       rules: {
         'import/no-default-export': 'off',

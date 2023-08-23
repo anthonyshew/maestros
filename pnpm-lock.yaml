@@ -44,7 +44,7 @@ importers:
       '@repo/analytics':
         specifier: workspace:*
         version: link:../../packages/analytics
-      '@repo/prisma':
+      '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
       '@repo/ui':
@@ -156,6 +156,9 @@ importers:
       '@vercel/analytics':
         specifier: ^1.0.2
         version: 1.0.2
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
     devDependencies:
       '@repo/lint':
         specifier: workspace:*
@@ -276,6 +279,9 @@ importers:
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../typescript-config
+      '@types/eslint':
+        specifier: ^8.44.2
+        version: 8.44.2
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.59.1
         version: 5.59.1(@typescript-eslint/parser@5.59.1)(eslint@8.47.0)(typescript@5.1.6)
@@ -2403,6 +2409,13 @@ packages:
     resolution: {integrity: sha512-/vPO1EPOs306Cvhwv7KfVfYvOJqA/S/AXjaHQiJboCZzcNDb+TIJFN9/2C9DZ//ijSKWioNyUxD792QmDJ+HKQ==}
     dependencies:
       '@types/ms': 0.7.31
+    dev: false
+
+  /@types/eslint@8.44.2:
+    resolution: {integrity: sha512-sdPRb9K6iL5XZOmBubg8yiFp5yS/JdUDQsq5e6h95km91MCYMuvp7mh1fjPEYUhvHepKpZOjnEaMBR4PxjWDzg==}
+    dependencies:
+      '@types/estree': 1.0.1
+      '@types/json-schema': 7.0.12
     dev: false
 
   /@types/estree-jsx@1.0.0:

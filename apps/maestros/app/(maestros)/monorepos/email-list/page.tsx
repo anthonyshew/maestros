@@ -1,4 +1,4 @@
-import { prisma } from '@repo/prisma';
+import { prisma } from '@repo/db';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '#/app/api/auth/[...nextauth]/route';
 

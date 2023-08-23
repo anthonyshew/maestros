@@ -5,8 +5,8 @@ import type { BlogPost } from 'contentlayer/generated';
 import { allBlogPosts } from 'contentlayer/generated';
 import { buildMeta } from '#/app/metadata';
 
-export async function generateMetadata({}): Promise<Metadata> {
-  return await buildMeta({
+export function generateMetadata(): Metadata {
+  return buildMeta({
     title: 'Blog',
     description: 'Education, ideas, and semi-random musings.',
   });

@@ -7,15 +7,16 @@ import { mdxComponents } from '@repo/ui/server-only';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
 import { getPost } from './getPost';
+import { metadataBaseURI } from '#/app/metadata';
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
 
-export async function generateMetadata({
+export function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata | undefined> {
+}): Metadata | undefined {
   const post = getPost(params.slug);
   if (!post) {
     return;
@@ -23,12 +24,7 @@ export async function generateMetadata({
 
   const { title, date: publishedTime, summary, slug } = post;
 
-  const ogUrl = new URL(
-    '/api/og',
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : 'http://localhost:300',
-  );
+  const ogUrl = new URL('/api/og', metadataBaseURI);
   ogUrl.searchParams.set('title', title);
   ogUrl.searchParams.set('subtitle', summary);
 

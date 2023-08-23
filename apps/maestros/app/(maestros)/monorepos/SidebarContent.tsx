@@ -14,9 +14,8 @@ export function SideBarContent() {
                 position: link.isNestedPage ? 'isNested' : undefined,
                 status: link.unpublished ? 'unpublished' : undefined,
               })}
-              key={link.path}
-              // href={link.unpublished ? "" : link.path}
               href={link.unpublished ? '' : link.path}
+              key={link.path}
             >
               {link.isNestedPage ? '↳ ' : ''}
               {link.title}
