@@ -1,8 +1,6 @@
-import { inter } from '#/app/fonts';
 import type { Metadata } from 'next';
 import {
   Sheet,
-  AnalyticsWrapper,
   GitHub,
   ThreadsApp,
   ThemeController,
@@ -12,19 +10,21 @@ import {
   SheetTitle,
   SheetLink,
 } from '@repo/ui';
+import Link from 'next/link';
+import { Analytics } from '@repo/analytics';
+import { Twitter, SidebarOpen, Music } from 'lucide-react';
+import { linkStyles } from '../navLinks';
+import { inter } from '#/app/fonts';
 import { buildMeta } from '#/app/metadata';
 import '#/app/globals.css';
 import { ThemeWrapper } from '#/app/providers';
-import { Twitter, SidebarOpen, Music } from 'lucide-react';
-import Link from 'next/link';
 import { links } from '#/app/(maestros)/navLinks';
 import { SideBarContent } from '#/app/(maestros)/monorepos/SidebarContent';
 import { buildNavigationGroups } from '#/app/(maestros)/contentHandlers';
-import { linkStyles } from '../navLinks';
 import { AuthSessionProvider } from '#/app/(maestros)/monorepos/SessionProvider';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  return await buildMeta({
+  return buildMeta({
     title: 'Monorepo Maestros',
     description: 'Make beautiful monorepo music.',
     ogImage: encodeURI(
@@ -42,11 +42,12 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
       className={`min-h-screen ${inter.className} antialiased dark`}
+      lang="en"
       suppressHydrationWarning
     >
       <body className="relative flex flex-row max-h-screen min-h-screen">
+        <Analytics />
         <AuthSessionProvider>
           <ThemeWrapper>
             <Sheet>
@@ -64,9 +65,9 @@ export default function RootLayout({
                 <div className="flex-row hidden gap-8 md:flex">
                   {links.mainLinks.map((link) => (
                     <Link
-                      key={link.href}
-                      href={link.href}
                       className="underline-offset-4 hover:underline"
+                      href={link.href}
+                      key={link.href}
                     >
                       {link.text}
                     </Link>
@@ -76,23 +77,23 @@ export default function RootLayout({
                   <ThemeController />
                   <a
                     href="https://github.com/anthonyshew/maestros"
-                    target="_blank"
                     rel="noopener noreferrer"
+                    target="_blank"
                   >
                     <GitHub className="w-6 h-6" />
                   </a>
                   <a
                     href="https://twitter.com/anthonysheww"
-                    target="_blank"
                     rel="noopener noreferrer"
+                    target="_blank"
                   >
                     <Twitter className="w-6 h-6 fill-white" />
                   </a>
 
                   <a
                     href="https://www.threads.net/@anthonyshew"
-                    target="_blank"
                     rel="noopener noreferrer"
+                    target="_blank"
                   >
                     <ThreadsApp className="w-6 h-6 fill-white" />
                   </a>
@@ -103,12 +104,12 @@ export default function RootLayout({
                   return (
                     <>
                       <Link
-                        key={link.path}
-                        href={link.unpublished ? '' : link.path}
+                        aria-disabled={link.unpublished}
                         className={linkStyles({
                           status: link.unpublished ? 'unpublished' : undefined,
                         })}
-                        aria-disabled={link.unpublished}
+                        href={link.unpublished ? '' : link.path}
+                        key={link.path}
                       >
                         {link.isNestedPage ? '↳ ' : ''}
                         {link.title}
@@ -116,15 +117,15 @@ export default function RootLayout({
                       {link.children.map((childLink) => {
                         return (
                           <Link
-                            key={childLink.path}
-                            href={childLink.unpublished ? '' : childLink.path}
+                            aria-disabled={childLink.unpublished}
                             className={linkStyles({
                               position: 'isNested',
                               status: childLink.unpublished
                                 ? 'unpublished'
                                 : undefined,
                             })}
-                            aria-disabled={childLink.unpublished}
+                            href={childLink.unpublished ? '' : childLink.path}
+                            key={childLink.path}
                           >
                             {'↳ '}
                             {childLink.title}
@@ -148,7 +149,7 @@ export default function RootLayout({
 
                   <hr className="!my-4 border-yellow-400" />
                   {links.mainLinks.map((link) => (
-                    <SheetLink key={link.href} href={link.href}>
+                    <SheetLink href={link.href} key={link.href}>
                       {link.text}
                     </SheetLink>
                   ))}
@@ -162,7 +163,6 @@ export default function RootLayout({
             </main>
           </ThemeWrapper>
         </AuthSessionProvider>
-        <AnalyticsWrapper />
       </body>
     </html>
   );

@@ -4,6 +4,8 @@ module.exports = {
   extends: [require.resolve('@repo/lint/node.cjs')],
   ignorePatterns: ['./src/components'],
   parserOptions: {
-    project: `${__dirname}/tsconfig.json`,
+    tsconfigRootDir: __dirname,
+    project: `./tsconfig.json`,
   },
+  plugins: ["@typescript-eslint"]
 };

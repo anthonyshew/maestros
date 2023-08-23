@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Laptop } from 'lucide-react';
 
-export const ThemeController = ({ position }: { position?: 'absolute' }) => {
+export function ThemeController({ position }: { position?: 'absolute' }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   useEffect(() => setMounted(true), []);
@@ -25,24 +25,17 @@ export const ThemeController = ({ position }: { position?: 'absolute' }) => {
 
   if (mounted) {
     return (
-      <>
-        <button
-          onClick={() => switcher()}
-          className={
-            position === 'absolute' ? 'absolute top-2 right-2' : undefined
-          }
-        >
-          {theme === 'dark' ? (
-            <Moon />
-          ) : theme === 'light' ? (
-            <Sun />
-          ) : (
-            <Laptop />
-          )}
-        </button>
-      </>
+      <button
+        className={
+          position === 'absolute' ? 'absolute top-2 right-2' : undefined
+        }
+        onClick={() => switcher()}
+        type="button"
+      >
+        {theme === 'dark' ? <Moon /> : theme === 'light' ? <Sun /> : <Laptop />}
+      </button>
     );
   }
 
   return null;
-};
+}

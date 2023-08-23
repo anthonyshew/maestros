@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession, signIn } from 'next-auth/react';
-import { Button } from '#components/Button';
+import { Button } from '@repo/ui';
 
 export function SubscribeButton() {
   const { data: session, status } = useSession();

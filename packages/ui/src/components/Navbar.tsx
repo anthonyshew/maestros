@@ -1,14 +1,24 @@
-import Link from 'next/link';
-import { ThemeController } from '#components/ThemeController';
+import type { ElementType } from 'react';
+import type { NextLinkType } from '#utils/types';
 
-interface Props {
+interface NavbarProps {
   links: {
     label: string;
     href: string;
   }[];
+  linkComponent: NextLinkType;
+  themeControllerComponent: ElementType;
 }
 
-export const Navbar = ({ links }: Props) => {
+export const Navbar = ({
+  links,
+  linkComponent,
+  themeControllerComponent,
+}: NavbarProps) => {
+  const Link = linkComponent;
+
+  const ThemeController = themeControllerComponent;
+
   return (
     <nav className="flex flex-row justify-center w-full gap-4 py-8 md:mx-10 md:mr-20 md:mt-24 md:flex-col md:w-16 md:justify-start">
       {links.map((link) => {

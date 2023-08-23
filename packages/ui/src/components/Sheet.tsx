@@ -3,9 +3,9 @@
 import * as React from 'react';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { X } from 'lucide-react';
+import { X } from 'lucide-icons-react';
 import type { ReactNode } from 'react';
-import Link from 'next/link';
+import type { NextLinkType } from '#utils/types';
 import { cn } from '#utils/cn';
 
 const Sheet = SheetPrimitive.Root;
@@ -134,17 +134,21 @@ const SheetLink = ({
   children,
   className,
   href,
+  linkComponent,
 }: {
   children: ReactNode;
   href: string;
   className?: string;
+  linkComponent: NextLinkType;
 }) => {
+  const LinkComponent = linkComponent;
+
   return (
-    <Link href={href} className={className}>
+    <LinkComponent href={href} className={className}>
       <SheetClose className="text-left underline-offset-4 hover:underline">
         {children}
       </SheetClose>
-    </Link>
+    </LinkComponent>
   );
 };
 

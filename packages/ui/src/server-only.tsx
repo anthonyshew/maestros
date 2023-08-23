@@ -1,11 +1,11 @@
-import NextImage from 'next/image';
 import { Code } from 'bright';
-import Balancer from 'react-wrap-balancer';
+import { Balancer } from 'react-wrap-balancer';
 import type { ImageProps } from 'next/image';
 import type { ReactNode } from 'react';
 import { LinkHeading } from '#components/LinkHeading';
 import type { TwoColumnsProps } from '#components/TwoColumns';
 import { TwoColumns } from '#components/TwoColumns';
+import type { NextImageType } from '#utils/types';
 import { focus } from './components/bright/focus';
 
 interface CustomImageProps extends ImageProps {
@@ -17,7 +17,11 @@ Code.theme = {
   light: 'github-light',
 };
 
-export const mdxComponents = {
+export const mdxComponents = ({
+  imgComponent,
+}: {
+  imgComponent: NextImageType;
+}) => ({
   TwoColumns: (props: TwoColumnsProps) => {
     return (
       <>
@@ -28,9 +32,11 @@ export const mdxComponents = {
   Img: (props: CustomImageProps) => {
     const { containerClassName, ...rest } = props;
 
+    const ImageComponent = imgComponent;
+
     return (
       <div className={`relative block ${containerClassName}`}>
-        <NextImage {...rest} className="object-contain rounded-md" />
+        <ImageComponent {...rest} className="object-contain rounded-md" />
       </div>
     );
   },
@@ -98,4 +104,4 @@ export const mdxComponents = {
       </>
     );
   },
-};
+});

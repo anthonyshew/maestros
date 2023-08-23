@@ -3,11 +3,12 @@ import { mdxComponents } from '@repo/ui/server-only';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
-import { Metadata } from 'next';
 import { buildMeta } from '#/app/metadata';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return [
     allDocuments.filter(
       (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson',
@@ -24,25 +25,31 @@ export const generateMetadata = async ({
 
   const title = content.ogTitle ?? content.title;
 
-  return await buildMeta({
+  return buildMeta({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
-      `https://${process.env.VERCEL_URL}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
+      `${
+        process.env.VERCEL_URL
+          ? `https://proces.env.VERCEL_URL`
+          : 'http://localhost:3000'
+      }/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
     ),
   });
 };
 
-const Page = ({ params }: { params: { slug: string[] } }) => {
+function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
-  const MDXContent = useMDXComponent(content?.body.code ?? '');
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const MDXContent = useMDXComponent(content.body.code ?? '');
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
-      <Callout type="warning" bold className="mb-10">
+      <Callout bold className="mb-10" type="warning">
         This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
         I'm getting all of my thoughts down. In the future, we'll have better
         information architecture, graphics, and other awesomeness. Your feedback
@@ -55,6 +62,6 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
       <MDXContent components={mdxComponents} />
     </div>
   );
-};
+}
 
 export default Page;

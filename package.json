@@ -7,15 +7,17 @@
     "checks:fix": "turbo format:fix lint:fix --continue",
     "clean": "find . -name node_modules -o -name .next -o -name dist -type d -prune | xargs rm -rf",
     "dev": "turbo dev",
-    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format": "prettier . \"!./apps/**\" \"!./packages/**\" \"!./tooling/**\" --check --cache --cache-location='node_modules/.cache/prettiercache' ",
+    "format:fix": "prettier . \"!./apps/**\" \"!./packages/**\" \"!./tooling/**\" --write --cache --cache-location='node_modules/.cache/prettiercache'",
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache'",
     "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "prepare": "husky install",
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@vercel/style-guide": "^4.0.2",
     "eslint": "^8.41.0",
+    "husky": "^8.0.0",
     "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.4.3",
     "turbo": "^1.10.12"

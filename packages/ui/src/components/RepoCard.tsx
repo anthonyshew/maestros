@@ -1,4 +1,4 @@
-import { Box, Globe, ExternalLink } from 'lucide-react';
+import { Box, Globe, ExternalLink } from 'lucide-icons-react';
 import { Avatar, AvatarFallback, AvatarImage } from '#components/Avatar';
 import { IconBox } from '#components/IconBox';
 

@@ -1,0 +1,28 @@
+
+{
+  "name": "@repo/analytics",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc -b",
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache'",
+    "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.0.2"
+  },
+  "devDependencies": {
+    "@repo/lint": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "eslint": "^8.42.0",
+    "typescript": "^5.1.3"
+  }
+}

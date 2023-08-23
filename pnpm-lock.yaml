@@ -14,6 +14,9 @@ importers:
       eslint:
         specifier: ^8.41.0
         version: 8.47.0
+      husky:
+        specifier: ^8.0.0
+        version: 8.0.0
       prettier:
         specifier: ^2.8.0
         version: 2.8.0
@@ -38,6 +41,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.2.14)(react@18.2.0)
+      '@repo/analytics':
+        specifier: workspace:*
+        version: link:../../packages/analytics
       '@repo/prisma':
         specifier: workspace:*
         version: link:../../packages/db
@@ -145,6 +151,25 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  packages/analytics:
+    dependencies:
+      '@vercel/analytics':
+        specifier: ^1.0.2
+        version: 1.0.2
+    devDependencies:
+      '@repo/lint':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      eslint:
+        specifier: ^8.42.0
+        version: 8.47.0
+      typescript:
+        specifier: ^5.1.3
+        version: 5.1.6
+
   packages/db:
     dependencies:
       '@prisma/client':
@@ -190,6 +215,9 @@ importers:
       '@radix-ui/react-avatar':
         specifier: ^1.0.2
         version: 1.0.3(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-dialog':
+        specifier: ^1.0.4
+        version: 1.0.4(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-select':
         specifier: ^1.2.1
         version: 1.2.1(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
@@ -5040,6 +5068,12 @@ packages:
   /human-signals@4.3.1:
     resolution: {integrity: sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==}
     engines: {node: '>=14.18.0'}
+
+  /husky@8.0.0:
+    resolution: {integrity: sha512-4qbE/5dzNDNxFEkX9MNRPKl5+omTXQzdILCUWiqG/lWIAioiM5vln265/l6I2Zx8gpW8l1ukZwGQeCFbBZ6+6w==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
