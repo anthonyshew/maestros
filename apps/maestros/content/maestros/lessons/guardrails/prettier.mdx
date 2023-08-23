@@ -4,7 +4,7 @@ sidebarOrderPosition: 1
 ogDescription: Setting up Prettier in your monorepo.
 ---
 
-import { FileTree } from "../../../../components/FileTree";
+import { FileTree } from '../../../../components/FileTree';
 
 [Prettier](https://prettier.io/) is a great formatter for quickly taking care of simple, non-logic stuff in your codebase. You can quickly, automatically standardize your entire codebase to have the same stylistic qualities and never worry about it again.
 
@@ -79,7 +79,7 @@ To put your workspace into your configuration, install your `@repo/prettier` pac
 And add a `.prettierrc.js` at the top of your workspace:
 
 ```js filename="packages/ui/.prettierrc.js"
-module.exports = "@repo/prettier";
+module.exports = '@repo/prettier';
 ```
 
 As you can see, this file is pretty simple. We're exporting the configuration that we made in `@repo/prettier` so that the Prettier CLI knows to use it in this workspace.

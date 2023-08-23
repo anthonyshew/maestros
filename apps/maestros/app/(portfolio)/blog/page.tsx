@@ -1,13 +1,13 @@
-import Link from "next/link";
-import type { Metadata } from "next";
-import { buildMeta } from "#/app/metadata";
-import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogPosts, BlogPost } from "contentlayer/generated";
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { buildMeta } from '#/app/metadata';
+import { compareDesc, format, parseISO } from 'date-fns';
+import { allBlogPosts, BlogPost } from 'contentlayer/generated';
 
 export async function generateMetadata({}): Promise<Metadata> {
   return await buildMeta({
-    title: "Blog",
-    description: "Education, ideas, and semi-random musings.",
+    title: 'Blog',
+    description: 'Education, ideas, and semi-random musings.',
   });
 }
 
@@ -20,7 +20,7 @@ function PostCard(post: BlogPost) {
           dateTime={post.date}
           className="block mb-2 text-xs text-gray-600 dark:text-gray-500"
         >
-          {format(parseISO(post.date), "LLLL d, yyyy")}
+          {format(parseISO(post.date), 'LLLL d, yyyy')}
         </time>
         <p className="mb-0">{post.summary}</p>
       </div>

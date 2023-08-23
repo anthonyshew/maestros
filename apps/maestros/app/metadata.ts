@@ -1,9 +1,10 @@
-import { Metadata } from "next";
-import { tagline } from "#/app/constants";
+import { Metadata } from 'next';
+import { tagline } from '#/app/constants';
 
-const baseMetadata: Metadata =
-{
-  metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL(`http://localhost:${process.env.PORT ?? 3000}`),
+const baseMetadata: Metadata = {
+  metadataBase: process.env.VERCEL_URL
+    ? new URL(`https://${process.env.VERCEL_URL}`)
+    : new URL(`http://localhost:${process.env.PORT ?? 3000}`),
   title: {
     default: 'Anthony Shew',
     template: '%s | Anthony Shew',
@@ -19,7 +20,9 @@ const baseMetadata: Metadata =
     siteName: 'Anthony Shew',
     images: [
       {
-        url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
+        url: encodeURI(
+          `https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`,
+        ),
         width: 1920,
         height: 1080,
       },
@@ -32,7 +35,9 @@ const baseMetadata: Metadata =
     card: 'summary_large_image',
     images: [
       {
-        url: encodeURI(`https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`),
+        url: encodeURI(
+          `https://${process.env.VERCEL_URL}/api/og?title=Anthony Shew`,
+        ),
         width: 1920,
         height: 1080,
       },
@@ -44,30 +49,34 @@ const baseMetadata: Metadata =
 };
 
 interface BuildMetaParams {
-  title: string,
-  description?: string
-  ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>
+  title: string;
+  description?: string;
+  ogImage?: NonNullable<NonNullable<Metadata['openGraph']>['images']>;
 }
 
-export const buildMeta = async ({ title, description, ogImage }: BuildMetaParams): Promise<Metadata> => {
+export const buildMeta = async ({
+  title,
+  description,
+  ogImage,
+}: BuildMetaParams): Promise<Metadata> => {
   if (ogImage) {
-    baseMetadata.openGraph!.images = ogImage
-    baseMetadata.twitter!.images = ogImage
+    baseMetadata.openGraph!.images = ogImage;
+    baseMetadata.twitter!.images = ogImage;
   }
 
   if (description) {
-    baseMetadata.description = description
-    baseMetadata.twitter!.description = description
-    baseMetadata.openGraph!.description = description
+    baseMetadata.description = description;
+    baseMetadata.twitter!.description = description;
+    baseMetadata.openGraph!.description = description;
   }
 
   if (title) {
-    baseMetadata.title = title
-    baseMetadata.twitter!.title = title
-    baseMetadata.openGraph!.title = title
+    baseMetadata.title = title;
+    baseMetadata.twitter!.title = title;
+    baseMetadata.openGraph!.title = title;
   }
 
-  return baseMetadata
-}
+  return baseMetadata;
+};
 
-export default baseMetadata
+export default baseMetadata;

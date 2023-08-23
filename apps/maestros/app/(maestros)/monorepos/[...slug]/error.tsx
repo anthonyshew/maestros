@@ -1,4 +1,4 @@
-"use client"; // Error components must be Client Components
+'use client'; // Error components must be Client Components
 
 export default function Error() {
   return (
@@ -11,7 +11,7 @@ export default function Error() {
         probably still being written.
       </p>
       <p>
-        If you think there's an issue, please{" "}
+        If you think there's an issue, please{' '}
         <a
           href="https://github.com/anthonyshew/maestros"
           target="_blank"

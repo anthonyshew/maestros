@@ -1,11 +1,10 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
-import rehypeMdxCodeProps from 'rehype-mdx-code-props'
-
+import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import rehypeMdxCodeProps from 'rehype-mdx-code-props';
 
 const BlogPost = defineDocumentType(() => ({
   name: 'BlogPost',
   filePathPattern: `blog/**/*.mdx`,
-  contentType: "mdx",
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -18,25 +17,25 @@ const BlogPost = defineDocumentType(() => ({
       required: true,
     },
     summary: {
-      type: "string",
-      description: "A summary of the post to show on OGs and other key spots.",
-      required: true
-    }
+      type: 'string',
+      description: 'A summary of the post to show on OGs and other key spots.',
+      required: true,
+    },
   },
   computedFields: {
     slug: {
       type: 'string',
       // The split is for handling the file structure
       // e.g. /blog/abc drops the "/blog/" to become "abc"
-      resolve: (doc) => doc._raw.flattenedPath.split("/")[1],
+      resolve: (doc) => doc._raw.flattenedPath.split('/')[1],
     },
   },
-}))
+}));
 
 const MaestrosLanding = defineDocumentType(() => ({
-  name: "MaestrosLanding",
-  filePathPattern: "maestros/landings/**/*.mdx",
-  contentType: "mdx",
+  name: 'MaestrosLanding',
+  filePathPattern: 'maestros/landings/**/*.mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -45,7 +44,8 @@ const MaestrosLanding = defineDocumentType(() => ({
     },
     path: {
       type: 'string',
-      description: 'URL path for the lesson (automatically prefixed with `/monorepos`',
+      description:
+        'URL path for the lesson (automatically prefixed with `/monorepos`',
       required: true,
     },
     ogTitle: {
@@ -57,13 +57,13 @@ const MaestrosLanding = defineDocumentType(() => ({
       description: 'Description for OpenGraph images',
       required: true,
     },
-  }
-}))
+  },
+}));
 
 const MaestrosLesson = defineDocumentType(() => ({
-  name: "MaestrosLesson",
-  filePathPattern: "maestros/lessons/**/*.mdx",
-  contentType: "mdx",
+  name: 'MaestrosLesson',
+  filePathPattern: 'maestros/lessons/**/*.mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -71,13 +71,15 @@ const MaestrosLesson = defineDocumentType(() => ({
       required: true,
     },
     unpublished: {
-      type: "boolean",
-      description: "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
+      type: 'boolean',
+      description:
+        "If you want to show the page in the navigation but aren't ready to publish it yet, set this to true.",
     },
     sidebarOrderPosition: {
-      type: "number",
-      description: "Which entry into the list does this item occupy? (0-indexed)",
-      required: true
+      type: 'number',
+      description:
+        'Which entry into the list does this item occupy? (0-indexed)',
+      required: true,
     },
     ogTitle: {
       type: 'string',
@@ -87,16 +89,14 @@ const MaestrosLesson = defineDocumentType(() => ({
       type: 'string',
       description: 'Description for OpenGraph images',
       required: true,
-    }
-  }
-}))
+    },
+  },
+}));
 
 export default makeSource({
   contentDirPath: 'content',
   documentTypes: [BlogPost, MaestrosLesson, MaestrosLanding],
   mdx: {
-    rehypePlugins: [
-      [rehypeMdxCodeProps],
-    ],
+    rehypePlugins: [[rehypeMdxCodeProps]],
   },
-})
+});

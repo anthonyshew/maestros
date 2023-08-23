@@ -1,13 +1,13 @@
-import { prisma } from "@repo/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "#/app/api/auth/[...nextauth]/route";
+import { prisma } from '@repo/prisma';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '#/app/api/auth/[...nextauth]/route';
 
 export const revalidate = 0;
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
 
-  const isAnthony = session?.user?.email === "anthonyshew@gmail.com";
+  const isAnthony = session?.user?.email === 'anthonyshew@gmail.com';
 
   if (!isAnthony) {
     throw new Error("You're not Anthony!");

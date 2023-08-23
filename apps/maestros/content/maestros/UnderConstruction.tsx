@@ -1,4 +1,4 @@
-import { Music } from "lucide-react";
+import { Music } from 'lucide-react';
 
 export const UnderConstruction = () => {
   return (

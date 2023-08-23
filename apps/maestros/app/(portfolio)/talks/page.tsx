@@ -1,18 +1,18 @@
-import { ArrowRight } from "lucide-react";
-import { Metadata } from "next";
-import { buildMeta } from "#/app/metadata";
+import { ArrowRight } from 'lucide-react';
+import { Metadata } from 'next';
+import { buildMeta } from '#/app/metadata';
 
 const talks: { confName: string; title: string; link: string }[] = [
   {
-    confName: "React Miami 2023",
-    link: "https://www.youtube.com/watch?v=S_CHo6A0bAs",
-    title: "On-demand Flow State: A Framework for Mental Performance",
+    confName: 'React Miami 2023',
+    link: 'https://www.youtube.com/watch?v=S_CHo6A0bAs',
+    title: 'On-demand Flow State: A Framework for Mental Performance',
   },
 ];
 
 export async function generateMetadata({}): Promise<Metadata> {
   return await buildMeta({
-    title: "Talks",
+    title: 'Talks',
     description: "Conference and other talks that I've done.",
   });
 }
