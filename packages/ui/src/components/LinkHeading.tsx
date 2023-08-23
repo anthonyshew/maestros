@@ -8,7 +8,11 @@ interface LinkHeadingProps {
   children: NonNullable<ReactNode>;
 }
 
-export function LinkHeading({ component, children, ...props }: LinkHeadingProps) {
+export function LinkHeading({
+  component,
+  children,
+  ...props
+}: LinkHeadingProps) {
   const Comp = component;
 
   // The MDX can come back with an object for certain strings. (e.g. "`apps`")

@@ -1,9 +1,8 @@
-import { inter } from '#/app/fonts';
 import type { Metadata } from 'next';
-import { AnalyticsWrapper, ThemeController } from '@repo/ui';
+import { AnalyticsWrapper, ThemeController, Navbar } from '@repo/ui';
+import { inter } from '#/app/fonts';
 import { ThemeWrapper } from '#/app/providers';
 import { buildMeta } from '#/app/metadata';
-import { Navbar } from '@repo/ui';
 import '#/app/globals.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -19,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
       className={`min-h-screen ${inter.className} antialiased`}
+      lang="en"
       suppressHydrationWarning
     >
       <body>

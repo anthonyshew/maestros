@@ -1,4 +1,5 @@
-import { MaestrosLesson, allDocuments } from 'contentlayer/generated';
+import type { MaestrosLesson } from 'contentlayer/generated';
+import { allDocuments } from 'contentlayer/generated';
 
 export const sideBarItems = allDocuments
   .filter((doc): doc is MaestrosLesson => doc.type === 'MaestrosLesson')
@@ -20,9 +21,9 @@ export const sideBarItems = allDocuments
   });
 
 export const buildNavigationGroups = () => {
-  const buildMe: Array<
-    typeof sideBarItems[number] & { children: typeof sideBarItems }
-  > = [];
+  const buildMe: (typeof sideBarItems[number] & {
+    children: typeof sideBarItems;
+  })[] = [];
   const items = sideBarItems;
 
   const allTopLevels = items.filter((item) => item.isIndex);

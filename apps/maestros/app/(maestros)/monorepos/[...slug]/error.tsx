@@ -14,8 +14,8 @@ export default function Error() {
         If you think there's an issue, please{' '}
         <a
           href="https://github.com/anthonyshew/maestros"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
           let us know in a GitHub issue!
         </a>

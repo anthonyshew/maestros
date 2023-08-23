@@ -59,8 +59,8 @@ export async function GET(req: Request) {
         >
           {subtitle ? (
             <div
-              tw="text-6xl text-slate-300 mt-8"
               style={{ fontFamily: 'Inter' }}
+              tw="text-6xl text-slate-300 mt-8"
             >
               {subtitle}
             </div>
