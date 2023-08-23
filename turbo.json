@@ -11,7 +11,7 @@
       "outputs": [".next/**", "dist/**"]
     },
     "topo": {
-      "dependsOn": ["@repo/db#db:generate", "^topo"]
+      "dependsOn": ["^topo"]
     },
     "//#format": {
       "outputs": ["node_modules/.cache/.prettiercache"]

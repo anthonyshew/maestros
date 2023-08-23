@@ -1,7 +1,6 @@
 {
   "name": "@repo/lint",
   "version": "0.0.0",
-  "type": "module",
   "files": [
     "node.js",
     "next.js"

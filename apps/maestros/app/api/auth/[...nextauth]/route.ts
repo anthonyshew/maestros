@@ -1,7 +1,7 @@
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth from 'next-auth';
 import GitHub from 'next-auth/providers/github';
-import prisma from '@repo/prisma';
+import { prisma } from '@repo/db';
 import type { NextAuthOptions } from 'next-auth';
 
 if (!process.env.GH_CLIENT_ID || !process.env.GH_CLIENT_SECRET) {

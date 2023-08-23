@@ -2,7 +2,6 @@
   "name": "@repo/db",
   "version": "0.1.1",
   "private": true,
-  "type": "module",
   "exports": {
     ".": "./dist/index.js"
   },
@@ -19,19 +18,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@prisma/client": "^5.0.0"
+    "@prisma/client": "^5.2.0"
   },
   "devDependencies": {
     "@repo/lint": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^16.18.11",
     "eslint": "^8.47.0",
-    "prisma": "^5.0.0",
+    "prisma": "^5.2.0",
     "ts-node": "10.9.1",
-    "tsup": "5.12.0",
-    "typescript": "^5.1.6",
-    "zod": "3.17.3",
-    "zod-prisma": "0.5.4"
+    "typescript": "^5.1.6"
   },
   "prisma": {
     "schema": "./schema.prisma",
