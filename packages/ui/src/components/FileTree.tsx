@@ -1,5 +1,5 @@
-import cn from "clsx";
-import type { ReactElement, ReactNode } from "react";
+import cn from 'clsx';
+import type { ReactElement, ReactNode } from 'react';
 
 interface FolderProps {
   name: string;
@@ -18,7 +18,7 @@ function Tree({ children }: { children: ReactNode }): ReactElement {
   return (
     <div
       className={cn(
-        "nextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300"
+        'nextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300',
       )}
     >
       <div className="inline-block px-4 py-2 border rounded-lg dark:border-neutral-800">
@@ -41,8 +41,8 @@ const Folder = ({ label, name, children, open }: FolderProps) => {
             strokeWidth="2"
             d={
               open
-                ? "M5 19a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4l2 2h4a2 2 0 0 1 2 2v1M5 19h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2Z"
-                : "M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z"
+                ? 'M5 19a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4l2 2h4a2 2 0 0 1 2 2v1M5 19h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2Z'
+                : 'M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-2H5a2 2 0 0 0-2 2Z'
             }
           />
         </svg>
@@ -52,13 +52,13 @@ const Folder = ({ label, name, children, open }: FolderProps) => {
     </li>
   );
 };
-Folder.displayName = "Folder";
+Folder.displayName = 'Folder';
 
 const File = ({ label, name, active }: FileProps) => (
   <li
     className={cn(
-      "flex list-none",
-      active && "text-primary-600 contrast-more:underline"
+      'flex list-none',
+      active && 'text-primary-600 contrast-more:underline',
     )}
   >
     <span className="inline-flex items-center cursor-default">
@@ -76,6 +76,6 @@ const File = ({ label, name, active }: FileProps) => (
     </span>
   </li>
 );
-File.displayName = "File";
+File.displayName = 'File';
 
 export const FileTree = Object.assign(Tree, { Folder, File });

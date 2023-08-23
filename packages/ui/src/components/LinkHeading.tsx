@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 const replaceNonAlphanumericsWithDash = (str: string) => {
-  return str.toLowerCase().replace(/[^a-z0-9]/gi, "-");
+  return str.toLowerCase().replace(/[^a-z0-9]/gi, '-');
 };
 interface Props {
   component: React.ElementType;
@@ -34,7 +34,7 @@ export function LinkHeading({ component, children, ...props }: Props) {
         <a
           className="font-bold no-underline hover:underline"
           href={`#${replaceNonAlphanumericsWithDash(
-            handledChildren.toString()
+            handledChildren.toString(),
           )}`}
           {...props}
         >

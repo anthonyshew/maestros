@@ -2,14 +2,14 @@
 
 /** @type {import("bright").Extension} */
 export const focus = {
-  name: "focus",
+  name: 'focus',
   MultilineAnnotation: ({ children }) => (
-    <div style={{ filter: "contrast(0.1)" }}>{children}</div>
+    <div style={{ filter: 'contrast(0.1)' }}>{children}</div>
   ),
   beforeHighlight: (props, focusAnnotations) => {
     if (focusAnnotations.length === 0) return props;
 
-    const lineCount = props.code.split("\n").length;
+    const lineCount = props.code.split('\n').length;
 
     const ranges = focusAnnotations.flatMap((a) => a.ranges);
 
@@ -53,9 +53,9 @@ export const focus = {
       });
     }
 
-    const newAnnotations = props.annotations.filter((a) => a.name !== "focus");
+    const newAnnotations = props.annotations.filter((a) => a.name !== 'focus');
     newAnnotations.push({
-      name: "focus",
+      name: 'focus',
       ranges: newRanges,
     });
     return { ...props, annotations: newAnnotations };
