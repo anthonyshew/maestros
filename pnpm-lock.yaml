@@ -258,16 +258,26 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(@next/eslint-plugin-next@13.4.20-canary.1)(eslint@8.47.0)(prettier@2.8.0)(typescript@5.1.6)
       eslint:
-        specifier: ^8.40.0
+        specifier: ^8.47.0
         version: 8.47.0
       eslint-config-turbo:
         specifier: ^1.9.3
         version: 1.9.3(eslint@8.47.0)
+      prettier:
+        specifier: ^2.8.0
+        version: 2.8.0
       typescript:
         specifier: ^5.1.3
         version: 5.1.6
 
-  tooling/typescript-config: {}
+  tooling/typescript-config:
+    devDependencies:
+      eslint:
+        specifier: ^8.47.0
+        version: 8.47.0
+      prettier:
+        specifier: ^2.8.0
+        version: 2.8.0
 
 packages:
 

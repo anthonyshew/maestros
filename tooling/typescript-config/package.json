@@ -4,9 +4,17 @@
   "private": true,
   "type": "module",
   "main": "index.js",
+  "scripts": {
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache'"
+  },
   "files": [
     "base.json",
     "nextjs.json",
     "react-library.json"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^2.8.0",
+    "eslint": "^8.47.0"
+  }
 }

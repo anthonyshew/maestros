@@ -2,15 +2,10 @@
 # Files that need to be ignored in `./apps`, `./packages`, and `/./tooling`
 # need to be given their own .prettierignore in their workspace.
 
-.env
-.github
+.env*
 node_modules
 *.log
 
-pnpm-lock.yaml
-
-# Ignoring workspaces
-
-apps/**
-packages/**
-tooling/**
+.next
+.contentlayer
+.vercel
