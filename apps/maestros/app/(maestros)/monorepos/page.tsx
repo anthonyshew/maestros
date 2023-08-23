@@ -1,14 +1,14 @@
-import { buildMeta } from "#/app/metadata";
-import Image from "next/image";
-import { SubscribeButton } from "#/components/SubscribeButton";
+import { buildMeta } from '#/app/metadata';
+import Image from 'next/image';
+import { SubscribeButton } from '@repo/ui';
 
 export const generateMetadata = () => {
   buildMeta({
-    title: "Monorepo Maestros",
-    description: "Are you ready to conduct the monorepo orchestra?",
+    title: 'Monorepo Maestros',
+    description: 'Are you ready to conduct the monorepo orchestra?',
     ogImage: {
       url: encodeURI(
-        `https://${process.env.VERCEL_URL}/monorepos/api/og?title=Monorepo Maestros`
+        `https://${process.env.VERCEL_URL}/monorepos/api/og?title=Monorepo Maestros`,
       ),
       width: 1920,
       height: 1080,
@@ -62,7 +62,7 @@ const Page = () => {
         </p>
         <h2>For monorepo haters</h2>
         <p>
-          You also may have what I like to lovingly call a{" "}
+          You also may have what I like to lovingly call a{' '}
           <strong>"yolorepo”</strong>, a monorepo where things are hanging on by
           a thread and teams don't have structure about how to navigate their
           packages and applications. If you feel like you're constantly battling
@@ -111,19 +111,19 @@ const Page = () => {
         <h2>Stay tuned</h2>
         <p>
           We're writing more music as we speak! We're excited for what we'll
-          unlock together to write the best music (erm, applications) possible.{" "}
+          unlock together to write the best music (erm, applications) possible.{' '}
         </p>
 
         <p>
-          To keep up with when new content is released,{" "}
+          To keep up with when new content is released,{' '}
           <a
             href="https://twitter.com/anthonysheww"
             target="_blank"
             rel="noopener noreferrer"
           >
             follow me on Twitter
-          </a>{" "}
-          and{" "}
+          </a>{' '}
+          and{' '}
           <a
             href="https://github.com/anthonyshew/maestros"
             target="_blank"

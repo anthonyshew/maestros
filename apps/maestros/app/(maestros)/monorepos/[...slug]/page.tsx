@@ -1,9 +1,8 @@
-import { mdxComponents } from '#/components/mdxComponents';
+import { mdxComponents, Callout } from '@repo/ui';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
-import { Callout } from '#/components/Callout';
 import { Metadata } from 'next';
 import { buildMeta } from '#/app/metadata';
 

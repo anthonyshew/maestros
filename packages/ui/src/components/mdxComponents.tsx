@@ -1,9 +1,9 @@
 import NextImage from 'next/image';
 import { Code } from 'bright';
 import Balancer from 'react-wrap-balancer';
-import { LinkHeading } from '#/components/LinkHeading';
+import { LinkHeading } from '#components/LinkHeading';
 import type { ImageProps } from 'next/image';
-import { TwoColumns, TwoColumnsProps } from '#/components/TwoColumns';
+import { TwoColumns, TwoColumnsProps } from '#components/TwoColumns';
 import { focus } from './bright/focus';
 import { ReactNode } from 'react';
 interface CustomImageProps extends ImageProps {

@@ -1,15 +1,14 @@
-import { inter } from "#/app/fonts";
-import type { Metadata } from "next";
-import AnalyticsWrapper from "#/components/Analytics";
-import { buildMeta } from "#/app/metadata";
-import { Navbar } from "#/components/Navbar";
-import "#/app/globals.css";
-import { ThemeWrapper } from "#/app/providers";
-import { ThemeController } from "#/components/ThemeController";
+import { inter } from '#/app/fonts';
+import type { Metadata } from 'next';
+import { AnalyticsWrapper, ThemeController } from '@repo/ui';
+import { ThemeWrapper } from '#/app/providers';
+import { buildMeta } from '#/app/metadata';
+import { Navbar } from '@repo/ui';
+import '#/app/globals.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
-    title: "Anthony Shew",
+    title: 'Anthony Shew',
   });
 };
 
@@ -32,9 +31,9 @@ export default function RootLayout({
             </div>
             <Navbar
               links={[
-                { label: "Home", href: "/" },
-                { label: "Blog", href: "/blog" },
-                { label: "Talks", href: "/talks" },
+                { label: 'Home', href: '/' },
+                { label: 'Blog', href: '/blog' },
+                { label: 'Talks', href: '/talks' },
               ]}
             />
             {children}

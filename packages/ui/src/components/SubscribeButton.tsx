@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useSession, signIn } from "next-auth/react";
-import { Button } from "#/components/Button";
+import { useSession, signIn } from 'next-auth/react';
+import { Button } from '#components/Button';
 
 export function SubscribeButton() {
   const { data: session, status } = useSession();
 
-  if (status === "loading") {
+  if (status === 'loading') {
     return <div className="p-8" />;
   }
 

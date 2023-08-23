@@ -1,35 +1,36 @@
-import { inter } from "#/app/fonts";
-import type { Metadata } from "next";
-import AnalyticsWrapper from "#/components/Analytics";
+import { inter } from '#/app/fonts';
+import type { Metadata } from 'next';
 import {
   Sheet,
+  AnalyticsWrapper,
+  GitHub,
+  ThreadsApp,
+  ThemeController,
   SheetTrigger,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetLink,
-} from "#/components/Sheet";
-import { buildMeta } from "#/app/metadata";
-import "#/app/globals.css";
-import { ThemeWrapper } from "#/app/providers";
-import { GitHub, ThreadsApp } from "#/components/Icons";
-import { Twitter, SidebarOpen, Music } from "lucide-react";
-import { ThemeController } from "#/components/ThemeController";
-import Link from "next/link";
-import { links } from "#/app/(maestros)/navLinks";
-import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
-import { buildNavigationGroups } from "#/app/(maestros)/contentHandlers";
-import { linkStyles } from "../navLinks";
-import { AuthSessionProvider } from "#/app/(maestros)/monorepos/SessionProvider";
+} from '@repo/ui';
+import { buildMeta } from '#/app/metadata';
+import '#/app/globals.css';
+import { ThemeWrapper } from '#/app/providers';
+import { Twitter, SidebarOpen, Music } from 'lucide-react';
+import Link from 'next/link';
+import { links } from '#/app/(maestros)/navLinks';
+import { SideBarContent } from '#/app/(maestros)/monorepos/SidebarContent';
+import { buildNavigationGroups } from '#/app/(maestros)/contentHandlers';
+import { linkStyles } from '../navLinks';
+import { AuthSessionProvider } from '#/app/(maestros)/monorepos/SessionProvider';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
-    title: "Monorepo Maestros",
-    description: "Make beautiful monorepo music.",
+    title: 'Monorepo Maestros',
+    description: 'Make beautiful monorepo music.',
     ogImage: encodeURI(
       `https://${
-        process.env.VERCEL_URL ?? "http://localhost:3000"
-      }/monorepos/api/og`
+        process.env.VERCEL_URL ?? 'http://localhost:3000'
+      }/monorepos/api/og`,
     ),
   });
 };
@@ -54,7 +55,7 @@ export default function RootLayout({
                   className="flex flex-row gap-4 font-bold"
                   href="/monorepos"
                 >
-                  <Music />{" "}
+                  <Music />{' '}
                   <span className="hidden sm:inline-block">Maestros</span>
                 </Link>
                 <SheetTrigger>
@@ -103,29 +104,29 @@ export default function RootLayout({
                     <>
                       <Link
                         key={link.path}
-                        href={link.unpublished ? "" : link.path}
+                        href={link.unpublished ? '' : link.path}
                         className={linkStyles({
-                          status: link.unpublished ? "unpublished" : undefined,
+                          status: link.unpublished ? 'unpublished' : undefined,
                         })}
                         aria-disabled={link.unpublished}
                       >
-                        {link.isNestedPage ? "↳ " : ""}
+                        {link.isNestedPage ? '↳ ' : ''}
                         {link.title}
                       </Link>
                       {link.children.map((childLink) => {
                         return (
                           <Link
                             key={childLink.path}
-                            href={childLink.unpublished ? "" : childLink.path}
+                            href={childLink.unpublished ? '' : childLink.path}
                             className={linkStyles({
-                              position: "isNested",
+                              position: 'isNested',
                               status: childLink.unpublished
-                                ? "unpublished"
+                                ? 'unpublished'
                                 : undefined,
                             })}
                             aria-disabled={childLink.unpublished}
                           >
-                            {"↳ "}
+                            {'↳ '}
                             {childLink.title}
                           </Link>
                         );

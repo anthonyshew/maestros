@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 import { AlertOctagon, AlertTriangle, Info } from 'lucide-react';
-import { cn } from '#/utils/cn';
+import { cn } from '#utils/cn';
 import { ReactNode } from 'react';
 
 interface CalloutProps {

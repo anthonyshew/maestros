@@ -1,5 +1,5 @@
-import { ThemeController } from "#/components/ThemeController";
-import Link from "next/link";
+import { ThemeController } from '#components/ThemeController';
+import Link from 'next/link';
 
 interface Props {
   links: Array<{

@@ -1,13 +1,18 @@
 import { firaCode } from '#/app/fonts';
-import { Avatar, AvatarFallback, AvatarImage } from '#/components/Avatar';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  RepoCard,
+  PinnedRepos,
+  Discord,
+  Button,
+} from '@repo/ui';
 import { Cloud, Github, Twitter, Youtube } from 'lucide-react';
-import { RepoCard, PinnedRepos } from '#/components/molecules/RepoCard';
 import { tagline } from '#/app/constants';
 import { buildMeta } from '#/app/metadata';
 import { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
-import { Discord } from '#/components/Discord';
-import { Button } from '#/components/Button';
 import Link from 'next/link';
 
 export const revalidate = 3600; // hourly

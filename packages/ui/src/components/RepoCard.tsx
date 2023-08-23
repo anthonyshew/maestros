@@ -1,14 +1,13 @@
-import { Box, Globe, ExternalLink } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "#/components/Avatar";
-import { IconBox } from "#/components/IconBox";
-import { firaCode } from "#/app/fonts";
+import { Box, Globe, ExternalLink } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '#components/Avatar';
+import { IconBox } from '#components/IconBox';
 
 const logos = {
   kittr:
-    "https://pbs.twimg.com/profile_images/1419807359589699590/rpRA-bIC_400x400.jpg",
+    'https://pbs.twimg.com/profile_images/1419807359589699590/rpRA-bIC_400x400.jpg',
   turbo:
-    "https://pbs.twimg.com/profile_images/1584620135490338816/tCCcROZD_400x400.png",
-  trpc: "https://pbs.twimg.com/profile_images/1562943276142960640/8Fo_MxSb_400x400.jpg",
+    'https://pbs.twimg.com/profile_images/1584620135490338816/tCCcROZD_400x400.png',
+  trpc: 'https://pbs.twimg.com/profile_images/1562943276142960640/8Fo_MxSb_400x400.jpg',
 };
 
 export type PinnedRepos = {
@@ -34,7 +33,7 @@ export const RepoCard = (repo: PinnedRepos) => {
             <AvatarFallback></AvatarFallback>
           </Avatar>
           <p
-            className={`my-auto ${firaCode.className} text-slate-800 dark:text-slate-200 tracking-wider`}
+            className={`my-auto text-slate-800 dark:text-slate-200 tracking-wider`}
           >
             {repo.owner}/{repo.repo}
           </p>

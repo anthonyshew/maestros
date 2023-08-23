@@ -2,8 +2,13 @@
   "name": "@repo/ui",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "imports": {
+    "#components/*": "./src/components/*",
+    "#utils/*": "./src/utils/*"
+  },
   "exports": {
-    ".": "./src/components/index.ts"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "build": "tsc -b",
