@@ -1,10 +1,9 @@
 import { Callout } from '@repo/ui';
-import { mdxComponents } from '@repo/ui/server-only';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { mdxComponents } from '#/app/components/mdxComponents';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
@@ -23,6 +22,8 @@ export const generateMetadata = ({
 }): Metadata => {
   const content = getPageDocument(params.slug);
 
+  if (!content) return notFound();
+
   const title = content.ogTitle ?? content.title;
 
   return buildMeta({
@@ -37,9 +38,8 @@ export const generateMetadata = ({
 function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const MDXContent = useMDXComponent(content.body.code ?? '');
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const MDXContent = useMDXComponent(content?.body.code ?? '');
+
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
@@ -53,9 +53,7 @@ function Page({ params }: { params: { slug: string[] } }) {
       </Callout>
 
       <h1>{content.title}</h1>
-
-      {/* @ts-expect-error Don't care, we shippin'! */}
-      <MDXContent components={mdxComponents({ imgComponent: Image })} />
+      <MDXContent components={mdxComponents} />
     </div>
   );
 }

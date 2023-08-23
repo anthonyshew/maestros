@@ -5,7 +5,7 @@ const replaceNonAlphanumericsWithDash = (str: string) => {
 };
 interface LinkHeadingProps {
   component: React.ElementType;
-  children: NonNullable<ReactNode>;
+  children: ReactNode;
 }
 
 export function LinkHeading({

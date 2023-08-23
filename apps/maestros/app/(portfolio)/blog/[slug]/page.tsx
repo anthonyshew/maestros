@@ -3,13 +3,12 @@ import type { Metadata } from 'next';
 import { compareDesc, format, parseISO } from 'date-fns';
 import type { BlogPost } from 'contentlayer/generated';
 import { allBlogPosts } from 'contentlayer/generated';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { mdxComponents } from '@repo/ui/server-only';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import { getPost } from './getPost';
 import { metadataBaseURI } from '#/app/metadata';
+import { mdxComponents } from '#/app/components/mdxComponents';
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
@@ -74,7 +73,6 @@ function PostLayout({ params }: { params: { slug: string } }) {
   const nextPost = getAdjacentPosts().nextPost;
 
   const post = getPost(params.slug);
-
   const MDXContent = useMDXComponent(post?.body.code ?? '');
   if (!post) return notFound();
 
@@ -98,8 +96,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
       </header>
 
       <article>
-        {/* @ts-expect-error Don't care, we shippin'! */}
-        <MDXContent components={mdxComponents({ imgComponent: Image })} />
+        <MDXContent components={mdxComponents} />
       </article>
 
       <footer className="pt-4 mt-4 border-t-2 border-t-slate-600">

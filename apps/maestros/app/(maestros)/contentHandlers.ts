@@ -47,7 +47,7 @@ export const buildNavigationGroups = () => {
   return buildMe;
 };
 
-export const getPageDocument = (slug: string[]): MaestrosLesson => {
+export const getPageDocument = (slug: string[]): MaestrosLesson | undefined => {
   return allDocuments.filter((doc) => {
     return (
       doc._id

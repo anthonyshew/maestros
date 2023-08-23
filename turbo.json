@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "dev": {
-      "dependsOn": ["@repo/prisma#db:generate"],
+      "dependsOn": ["@repo/db#db:generate"],
       "persistent": true,
       "cache": false
     },
