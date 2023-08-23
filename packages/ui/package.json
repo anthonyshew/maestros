@@ -24,11 +24,13 @@
     "@radix-ui/react-avatar": "^1.0.2",
     "@radix-ui/react-select": "^1.2.1",
     "@radix-ui/react-slot": "^1.0.1",
+    "bright": "^0.8.4",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "lucide-icons-react": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-wrap-balancer": "^1.1.0",
     "tailwind-merge": "^1.12.0"
   },
   "devDependencies": {

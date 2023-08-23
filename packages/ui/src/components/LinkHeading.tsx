@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const replaceNonAlphanumericsWithDash = (str: string) => {
   return str.toLowerCase().replace(/[^a-z0-9]/gi, '-');
@@ -13,13 +13,13 @@ export function LinkHeading({ component, children, ...props }: Props) {
 
   // The MDX can come back with an object for certain strings. (e.g. "`apps`")
   // This ensures we handle those correctly.
-  const getChildren = (childrenn: ReactNode) => {
+  const getChildren = (nodeChildren: ReactNode) => {
     // @ts-expect-error
-    if (childrenn?.props) {
+    if (nodeChildren.props) {
       // @ts-expect-error
       return children.props.children;
     }
-    return childrenn;
+    return nodeChildren;
   };
 
   const handledChildren = getChildren(children);

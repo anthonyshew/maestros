@@ -1,4 +1,4 @@
-import { LucideProps } from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
 
 export const GitHub = (props: LucideProps) => (
   <svg viewBox="0 0 438.549 438.549" {...props}>

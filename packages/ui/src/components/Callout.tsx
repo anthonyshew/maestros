@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
 import { AlertOctagon, AlertTriangle, Info } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { cn } from '#utils/cn';
-import { ReactNode } from 'react';
 
 interface CalloutProps {
   children: ReactNode;
-  type: 'info' | 'goodToKnow' | 'warning' | 'danger' | 'note';
+  type: 'danger' | 'goodToKnow' | 'info' | 'note' | 'warning';
   bold?: boolean;
   className?: string;
 }

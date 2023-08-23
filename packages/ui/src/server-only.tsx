@@ -1,11 +1,13 @@
 import NextImage from 'next/image';
 import { Code } from 'bright';
 import Balancer from 'react-wrap-balancer';
-import { LinkHeading } from '#components/LinkHeading';
 import type { ImageProps } from 'next/image';
-import { TwoColumns, TwoColumnsProps } from '#components/TwoColumns';
+import type { ReactNode } from 'react';
+import { LinkHeading } from '#components/LinkHeading';
+import type { TwoColumnsProps } from '#components/TwoColumns';
+import { TwoColumns } from '#components/TwoColumns';
 import { focus } from './components/bright/focus';
-import { ReactNode } from 'react';
+
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
 }
@@ -54,13 +56,11 @@ export const mdxComponents = {
   h6: ({ children }: { children: string }) => {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
-  pre: async (props: {
+  pre: (props: {
     children: ReactNode;
     filename?: string;
-    lang: 'ts' | 'js' | 'json';
+    lang: 'js' | 'json' | 'ts';
     note?: string;
-    // Meh, it works.
-    // @ts-expect-error
   }): JSX.Element => {
     return (
       <>

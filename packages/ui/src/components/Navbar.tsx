@@ -1,11 +1,11 @@
-import { ThemeController } from '#components/ThemeController';
 import Link from 'next/link';
+import { ThemeController } from '#components/ThemeController';
 
 interface Props {
-  links: Array<{
+  links: {
     label: string;
     href: string;
-  }>;
+  }[];
 }
 
 export const Navbar = ({ links }: Props) => {

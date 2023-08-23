@@ -1,13 +1,35 @@
 {
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "tailwindCSS.suggestions": true,
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "themesStyles",
-    "containerClassName"
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": ".prettierrc.js",
+  "prettier.prettierPath": "node_modules/prettier",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig.*.json"],
+      "url": "https://json.schemastore.org/tsconfig"
+    },
+    { "fileMatch": ["turbo.json"], "url": "https://turbo.build/schema.json" },
+    {
+      "fileMatch": ["vercel.json"],
+      "url": "https://openapi.vercel.sh/vercel.json"
+    }
   ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/.output": true,
+    "**/.turbo": true,
+    "**/.vercel": true,
+    "**/dist": true
+  },
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }

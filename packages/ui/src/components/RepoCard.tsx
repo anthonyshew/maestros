@@ -10,7 +10,7 @@ const logos = {
   trpc: 'https://pbs.twimg.com/profile_images/1562943276142960640/8Fo_MxSb_400x400.jpg',
 };
 
-export type PinnedRepos = {
+export interface PinnedRepos {
   owner: string;
   repo: keyof typeof logos;
   link: string;
@@ -21,7 +21,7 @@ export type PinnedRepos = {
   languageColor: string;
   stars: string;
   forks: string;
-};
+}
 
 export const RepoCard = (repo: PinnedRepos) => {
   return (
