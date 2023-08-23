@@ -1,14 +1,13 @@
 {
   "name": "@repo/lint",
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "files": [
     "node.js",
     "next.js"
   ],
   "scripts": {
-    "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
-    "lint": "eslint ."
+    "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "canary",

@@ -1,5 +1,6 @@
 {
   "extends": ["//"],
+  "globalEnv": ["NODE_ENV"],
   "pipeline": {
     "db:generate": {
       "outputs": ["../../node_modules/.prisma/**"],

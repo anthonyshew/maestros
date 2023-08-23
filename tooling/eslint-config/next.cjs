@@ -1,5 +1,6 @@
-const { rules } = require('./utils/rules');
+const { rules } = require('./shared/rules.cjs');
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
     'turbo',

@@ -38,6 +38,7 @@
     "tailwindcss-animate": "^1.0.6"
   },
   "devDependencies": {
+    "@repo/lint": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@tailwindcss/typography": "^0.5.9",
     "@total-typescript/ts-reset": "^0.5.1",

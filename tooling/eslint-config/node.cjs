@@ -1,8 +1,9 @@
 const { resolve } = require('node:path');
-const { rules } = require('./utils/rules');
+const { rules } = require('./shared/rules.cjs');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
     'turbo',

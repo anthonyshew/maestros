@@ -19,6 +19,10 @@
     "format": {
       "dependsOn": ["^topo"]
     },
+    "lint": {
+      "dependsOn": ["@repo/prisma#db:generate"],
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
     "typecheck": {
       "dependsOn": ["@repo/prisma#db:generate"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]

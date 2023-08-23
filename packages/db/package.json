@@ -2,21 +2,18 @@
   "name": "@repo/prisma",
   "version": "0.1.1",
   "private": true,
+  "type": "module",
   "exports": {
-    ".": "./src/index.ts"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./src/index.ts"
-      ]
-    }
+    ".": "./dist/index.js"
   },
   "scripts": {
+    "build": "tsc -b",
     "db:format": "prisma format",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
+    "dev": "tsc -w",
     "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

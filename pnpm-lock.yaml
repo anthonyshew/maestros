@@ -105,6 +105,9 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@3.3.2)
     devDependencies:
+      '@repo/lint':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript-config
@@ -193,9 +196,6 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.0.1
         version: 1.0.2(@types/react@18.2.14)(react@18.2.0)
-      bright:
-        specifier: ^0.8.4
-        version: 0.8.4(react@18.2.0)
       class-variance-authority:
         specifier: ^0.6.0
         version: 0.6.1
@@ -506,10 +506,6 @@ packages:
 
   /@code-hike/lighter@0.6.6:
     resolution: {integrity: sha512-dLkSpowP4NaWDUgay3Mebb8V+wYqVGRD+Tl8wSfWdtIH0z4OUU3UznSsmvvGpCgkdUIF5DhOPRGRowqkNWQsrg==}
-    dev: false
-
-  /@code-hike/lighter@0.8.1:
-    resolution: {integrity: sha512-St4rPmB7C2EWmAK1sAbvD3lZeM7UDInVDMjQDzEDsu4Q3B3AqF25vXedQK51U0UO0MCOASgBBdTiNwvJAfIqMQ==}
     dev: false
 
   /@contentlayer/cli@0.3.4(esbuild@0.19.2):
@@ -2987,16 +2983,6 @@ packages:
       react: ^18
     dependencies:
       '@code-hike/lighter': 0.6.6
-      react: 18.2.0
-      server-only: 0.0.1
-    dev: false
-
-  /bright@0.8.4(react@18.2.0):
-    resolution: {integrity: sha512-SBlcJje8EDh3lLihqr0W27yHCVpuh3NReziNxZOwUzuaShqq+V/imY+J+AvJdTIOifiCQkyIsgVWKAj5G/eOyg==}
-    peerDependencies:
-      react: ^18
-    dependencies:
-      '@code-hike/lighter': 0.8.1
       react: 18.2.0
       server-only: 0.0.1
     dev: false
