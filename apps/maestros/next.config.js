@@ -8,7 +8,7 @@ const moduleExports = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  transpilePackages: ['@repo/prisma'],
+  transpilePackages: ['@repo/prisma', '@repo/ui'],
 };
 
 module.exports = withContentlayer(moduleExports);

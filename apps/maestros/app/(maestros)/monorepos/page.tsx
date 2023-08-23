@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SubscribeButton } from '@repo/ui';
+import { SubscribeButton } from '#/app/(maestros)/monorepos/SubscribeButton';
 import { buildMeta } from '#/app/metadata';
 
 export const generateMetadata = () => {

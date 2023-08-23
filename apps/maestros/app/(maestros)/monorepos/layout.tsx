@@ -3,7 +3,6 @@ import {
   Sheet,
   GitHub,
   ThreadsApp,
-  ThemeController,
   SheetTrigger,
   SheetContent,
   SheetHeader,
@@ -14,6 +13,7 @@ import Link from 'next/link';
 import { Analytics } from '@repo/analytics';
 import { Twitter, SidebarOpen, Music } from 'lucide-react';
 import { linkStyles } from '../navLinks';
+import { ThemeController } from '#/app/components/ThemeController';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
@@ -145,7 +145,11 @@ export default function RootLayout({
 
                   <hr className="!my-4 border-yellow-400" />
                   {links.mainLinks.map((link) => (
-                    <SheetLink href={link.href} key={link.href}>
+                    <SheetLink
+                      href={link.href}
+                      key={link.href}
+                      linkComponent={Link}
+                    >
                       {link.text}
                     </SheetLink>
                   ))}

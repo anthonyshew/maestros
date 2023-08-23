@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
-import { ThemeController, Navbar } from '@repo/ui';
+import { Navbar } from '@repo/ui';
 import { Analytics } from '@repo/analytics';
+import Link from 'next/link';
 import { inter } from '#/app/fonts';
 import { ThemeWrapper } from '#/app/providers';
 import { buildMeta } from '#/app/metadata';
 import '#/app/globals.css';
+import { ThemeController } from '#/app/components/ThemeController';
 
 export const generateMetadata = (): Metadata => {
   return buildMeta({
@@ -31,11 +33,13 @@ export default function RootLayout({
               <ThemeController />
             </div>
             <Navbar
+              linkComponent={Link}
               links={[
                 { label: 'Home', href: '/' },
                 { label: 'Blog', href: '/blog' },
                 { label: 'Talks', href: '/talks' },
               ]}
+              themeControllerComponent={ThemeController}
             />
             {children}
           </main>
