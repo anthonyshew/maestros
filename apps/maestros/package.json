@@ -52,9 +52,5 @@
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.1.6"
-  },
-  "packageManager": "pnpm@8.6.5",
-  "engines": {
-    "node": "18"
   }
 }

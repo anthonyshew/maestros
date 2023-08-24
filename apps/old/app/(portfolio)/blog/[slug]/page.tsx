@@ -97,6 +97,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </header>
 
       <article>
+        {/* @ts-expect-error */}
         <MDXContent components={mdxComponents} />
       </article>
 

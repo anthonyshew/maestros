@@ -51,6 +51,7 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
 
       <h1>{content.title}</h1>
 
+      {/* @ts-expect-error */}
       <MDXContent components={mdxComponents} />
     </div>
   );

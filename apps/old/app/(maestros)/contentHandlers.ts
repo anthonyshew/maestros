@@ -1,9 +1,9 @@
 import { MaestrosLesson, allDocuments } from "contentlayer/generated";
 
 export const sideBarItems = allDocuments
-  .filter((doc) => doc.type === "MaestrosLesson")
-  .sort((a: MaestrosLesson, b: MaestrosLesson) => a.sidebarOrderPosition - b.sidebarOrderPosition)
-  .map((lesson: MaestrosLesson) => {
+  .filter((doc): doc is MaestrosLesson => doc.type === "MaestrosLesson")
+  .sort((a, b) => a.sidebarOrderPosition - b.sidebarOrderPosition)
+  .map((lesson) => {
     return {
       title: lesson.title,
       isNestedPage: (lesson._raw.flattenedPath.match(/\//g) ?? []).length > 2,
@@ -37,7 +37,6 @@ export const buildNavigationGroups = () => {
     })
 
     if (ind > -1) {
-      // @ts-expect-error I just don't feel like dealing with this correctly if I'm being honest.
       buildMe[ind].children[item.sidebarOrderPosition] = item
     }
   })
