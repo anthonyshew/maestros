@@ -2,8 +2,8 @@ import { PrismaAdapter } from '@auth/prisma-adapter';
 import NextAuth from 'next-auth'
 import GitHub from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials';
-import prisma from '#/prisma'
 import type { NextAuthOptions } from 'next-auth'
+import { prisma } from '#/prisma'
 
 if (!process.env.GH_CLIENT_ID || !process.env.GH_CLIENT_SECRET) {
   throw new Error("You're missing GitHub variables.")

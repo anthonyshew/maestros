@@ -7,5 +7,11 @@ module.exports = {
     'unicorn/filename-case': 'off',
     'tsdoc/syntax': 'off',
     camelcase: 'off',
+    'turbo/no-undeclared-env-vars': [
+      'error',
+      {
+        allowList: ['NODE_ENV'],
+      },
+    ],
   },
 };

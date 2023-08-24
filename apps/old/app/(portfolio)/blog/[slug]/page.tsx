@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allBlogPosts } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { mdxComponents } from 'components/mdxComponents';
-import { getPost } from './getPost';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
+import { mdxComponents } from '../../../../components/mdxComponents';
+import { getPost } from './getPost';
 import { metadataBaseURI } from '#/app/metadata';
 
 export const generateStaticParams = () =>
@@ -53,7 +52,7 @@ export async function generateMetadata({
   };
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+function PostLayout({ params }: { params: { slug: string } }) {
   const getAdjacentPosts = () => {
     const foundIndex = allBlogPosts
       .sort((a, b) => {
@@ -82,14 +81,14 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       <header className="w-full pb-4">
         <div className="text-center">
           <h1 className="mb-4">
-            <Balancer>{post?.title}</Balancer>
+            <Balancer>{post.title}</Balancer>
           </h1>
           <div className="flex flex-row gap-4 align-center">
             <time
-              dateTime={post?.date}
               className="text-xs text-gray-600 dark:text-gray-400"
+              dateTime={post.date}
             >
-              {format(parseISO(post?.date), 'LLLL d, yyyy')}
+              {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
             <hr className="flex-grow border-1 !my-auto text-slate-900" />
           </div>
@@ -127,6 +126,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </footer>
     </div>
   );
-};
+}
 
 export default PostLayout;

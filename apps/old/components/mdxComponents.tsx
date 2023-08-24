@@ -1,27 +1,25 @@
-import NextImage from "next/image";
-import { Code } from "bright";
-import Balancer from "react-wrap-balancer";
-import { LinkHeading } from "#/components/LinkHeading";
-import type { ImageProps } from "next/image";
-import { TwoColumns, TwoColumnsProps } from "#/components/TwoColumns";
-import { focus } from "./bright/focus";
-import { ReactNode } from "react";
+import NextImage from 'next/image';
+import { Code } from 'bright';
+import Balancer from 'react-wrap-balancer';
+import type { TwoColumnsProps } from '@repo/ui';
+import { LinkHeading, TwoColumns } from '@repo/ui';
+import type { ImageProps } from 'next/image';
+import type { ReactNode } from 'react';
+import { focus } from './bright/focus';
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
 }
 
 Code.theme = {
-  dark: "github-dark",
-  light: "github-light",
+  dark: 'github-dark',
+  light: 'github-light',
 };
 
 export const mdxComponents = {
   TwoColumns: (props: TwoColumnsProps) => {
     return (
-      <>
-        <TwoColumns {...props} />
-      </>
+      <TwoColumns {...props} />
     );
   },
   Img: (props: CustomImageProps) => {
@@ -58,19 +56,19 @@ export const mdxComponents = {
   pre: async (props: {
     children: ReactNode;
     filename?: string;
-    lang: "ts" | "js" | "json";
+    lang: 'js' | 'json' | 'ts';
     note?: string;
     // Meh, it works.
     // @ts-expect-error
   }): JSX.Element => {
     return (
       <>
-        <div data-theme="dark" className="hidden dark:block">
+        <div className="hidden dark:block" data-theme="dark">
           <Code
-            lang={props.lang}
             className="!m-0 border border-gray-800"
-            title={props.filename}
             extensions={[focus]}
+            lang={props.lang}
+            title={props.filename}
           >
             {props.children}
           </Code>
@@ -81,12 +79,12 @@ export const mdxComponents = {
           ) : null}
         </div>
 
-        <div data-theme="light" className="block dark:hidden">
+        <div className="block dark:hidden" data-theme="light">
           <Code
-            lang={props.lang}
-            title={props.filename}
             className="!m-0 border border-gray-300"
             extensions={[focus]}
+            lang={props.lang}
+            title={props.filename}
           >
             {props.children}
           </Code>

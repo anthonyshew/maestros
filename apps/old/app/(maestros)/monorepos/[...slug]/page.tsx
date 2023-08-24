@@ -1,10 +1,10 @@
-import { mdxComponents } from '#/components/mdxComponents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
+import { Callout } from '@repo/ui';
+import type { Metadata } from 'next';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
-import { Callout } from '#/components/Callout';
-import { Metadata } from 'next';
+import { mdxComponents } from '#/components/mdxComponents';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
 export async function generateStaticParams() {
@@ -33,16 +33,16 @@ export const generateMetadata = async ({
   });
 };
 
-const Page = ({ params }: { params: { slug: string[] } }) => {
+function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
-  const MDXContent = useMDXComponent(content?.body.code ?? '');
+  const MDXContent = useMDXComponent(content.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
   return (
     <div className="prose lg:prose-lg dark:prose-invert">
-      <Callout type="warning" bold className="mb-10">
+      <Callout bold className="mb-10" type="warning">
         This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
         I'm getting all of my thoughts down. In the future, we'll have better
         information architecture, graphics, and other awesomeness. Your feedback
@@ -55,6 +55,6 @@ const Page = ({ params }: { params: { slug: string[] } }) => {
       <MDXContent components={mdxComponents} />
     </div>
   );
-};
+}
 
 export default Page;

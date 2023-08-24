@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { buildMeta } from "#/app/metadata";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogPosts, BlogPost } from "contentlayer/generated";
+import type { BlogPost } from "contentlayer/generated";
+import { allBlogPosts } from "contentlayer/generated";
+import { buildMeta } from "#/app/metadata";
 
 export async function generateMetadata({}): Promise<Metadata> {
   return await buildMeta({
@@ -17,8 +18,8 @@ function PostCard(post: BlogPost) {
       <div className="p-4 mb-4 transition-all rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 md:p-6">
         <h2 className="text-xl font-bold">{post.title}</h2>
         <time
-          dateTime={post.date}
           className="block mb-2 text-xs text-gray-600 dark:text-gray-500"
+          dateTime={post.date}
         >
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>

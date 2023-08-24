@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { buildMeta } from "#/app/metadata";
 
 const talks: { confName: string; title: string; link: string }[] = [
@@ -28,11 +28,11 @@ export default function Home() {
       <div className="flex flex-col gap-4 mt-8">
         {talks.map((conference) => (
           <a
-            key={conference.confName}
-            href={conference.link}
-            target="_blank"
-            rel="nooopener noreferrer"
             className="flex flex-row justify-between p-4 text-white transition-all rounded-lg bg-slate-800 dark:hover:bg-slate-900"
+            href={conference.link}
+            key={conference.confName}
+            rel="nooopener noreferrer"
+            target="_blank"
           >
             <span className="flex flex-col gap-4">
               <span className="font-bold">{conference.title}</span>

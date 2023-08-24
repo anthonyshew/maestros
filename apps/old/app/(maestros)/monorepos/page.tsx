@@ -1,5 +1,5 @@
-import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import Image from 'next/image';
+import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import { SubscribeButton } from '#/components/SubscribeButton';
 
 export const generateMetadata = () => {
@@ -16,17 +16,17 @@ export const generateMetadata = () => {
   });
 };
 
-const Page = () => {
+function Page() {
   return (
     <>
       <div className="absolute top-0 left-0 right-0 z-0 aspect-square">
         <Image
-          src="/images/maestros/cover.jpeg"
-          className="object-cover !m-0 opacity-40 object-top h-50 dark:opacity-30"
           alt="Cover art for Monorepo Maestros"
+          className="object-cover !m-0 opacity-40 object-top h-50 dark:opacity-30"
           fill
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          src="/images/maestros/cover.jpeg"
         />
         <div className="absolute inset-0 z-0 bg-gradient-to-b to-95% from-transparent to-white dark:to-zinc-950" />
       </div>
@@ -79,11 +79,11 @@ const Page = () => {
         <div className="flex flex-row items-center justify-center w-full">
           <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
-              src="/images/me.jpg"
-              className="object-cover rounded-xl"
               alt="Cover art for Monorepo Maestros"
+              className="object-cover rounded-xl"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              src="/images/me.jpg"
             />
           </div>
         </div>
@@ -118,16 +118,16 @@ const Page = () => {
           To keep up with when new content is released,{' '}
           <a
             href="https://twitter.com/anthonysheww"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             follow me on Twitter
           </a>{' '}
           and{' '}
           <a
             href="https://github.com/anthonyshew/maestros"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             star this repo
           </a>
@@ -136,17 +136,17 @@ const Page = () => {
         <div className="flex flex-row items-center justify-center w-full">
           <div className="relative w-4/5 mb-4 overflow-hidden aspect-square rounded-xl">
             <Image
-              src="/images/maestros/maestro.jpg"
-              className="object-cover mb-2 rounded-xl grayscale"
               alt="Cover art for Monorepo Maestros"
+              className="object-cover mb-2 rounded-xl grayscale"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              src="/images/maestros/maestro.jpg"
             />
           </div>
         </div>
       </div>
     </>
   );
-};
+}
 
 export default Page;

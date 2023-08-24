@@ -1,5 +1,5 @@
-import { prisma } from "#/prisma";
 import { getServerSession } from "next-auth";
+import { prisma } from "#/prisma";
 import { authOptions } from "#/app/api/auth/[...nextauth]/route";
 
 export const revalidate = 0;

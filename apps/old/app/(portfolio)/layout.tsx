@@ -1,15 +1,16 @@
-import { inter } from "#/app/fonts";
-import type { Metadata } from "next";
-import AnalyticsWrapper from "#/components/Analytics";
-import { buildMeta } from "#/app/metadata";
-import { Navbar } from "#/components/Navbar";
-import "#/app/globals.css";
-import { ThemeWrapper } from "#/app/providers";
-import { ThemeController } from "#/components/ThemeController";
+import type { Metadata } from 'next';
+import { Navbar } from '@repo/ui';
+import { inter } from '#/app/fonts';
+import AnalyticsWrapper from '#/components/Analytics';
+import { buildMeta } from '#/app/metadata';
+import '#/app/globals.css';
+import { ThemeWrapper } from '#/app/providers';
+import { ThemeController } from '#/components/ThemeController';
+import Link from 'next/link';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return await buildMeta({
-    title: "Anthony Shew",
+    title: 'Anthony Shew',
   });
 };
 
@@ -20,8 +21,8 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
       className={`min-h-screen ${inter.className} antialiased`}
+      lang="en"
       suppressHydrationWarning
     >
       <body>
@@ -31,11 +32,13 @@ export default function RootLayout({
               <ThemeController />
             </div>
             <Navbar
+              linkComponent={Link}
               links={[
-                { label: "Home", href: "/" },
-                { label: "Blog", href: "/blog" },
-                { label: "Talks", href: "/talks" },
+                { label: 'Home', href: '/' },
+                { label: 'Blog', href: '/blog' },
+                { label: 'Talks', href: '/talks' },
               ]}
+              themeControllerComponent={ThemeController}
             />
             {children}
           </main>

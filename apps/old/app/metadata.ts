@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { tagline } from "#/app/constants";
 
 export const metadataBaseURI = process.env.VERCEL_URL

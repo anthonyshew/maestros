@@ -1,5 +1,5 @@
-import { tagline } from "#/app/constants";
 import { ImageResponse } from "next/server";
+import { tagline } from "#/app/constants";
 
 export const runtime = "edge";
 
@@ -49,7 +49,6 @@ export async function GET(req: Request) {
         </div>
         {subtitle ? (
           <div
-            tw="text-slate-300"
             style={{
               marginLeft: 190,
               marginRight: 190,
@@ -59,6 +58,7 @@ export async function GET(req: Request) {
               fontFamily: "Inter",
               whiteSpace: "pre-wrap",
             }}
+            tw="text-slate-300"
           >
             {subtitle}
           </div>
@@ -72,12 +72,12 @@ export async function GET(req: Request) {
           }}
         >
           <img
-            src="https://shew.dev/images/me.jpg"
-            width={250}
             height={250}
+            src="https://shew.dev/images/me.jpg"
             tw="rounded-full mb-10"
+            width={250}
           />
-          <div tw="text-7xl text-white" style={{ fontFamily: "Inter" }}>
+          <div style={{ fontFamily: "Inter" }} tw="text-7xl text-white">
             {titleIsMyName ? "" : "Anthony Shew"}
           </div>
           <div tw="text-6xl text-slate-400 mt-8">{tagline}</div>
