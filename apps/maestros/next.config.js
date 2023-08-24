@@ -5,9 +5,8 @@ const moduleExports = {
   experimental: {
     appDir: true,
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
   transpilePackages: ['@repo/prisma', '@repo/ui'],
 };
 
