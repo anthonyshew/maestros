@@ -10,9 +10,9 @@ import {
   ThreadsApp,
 } from '@repo/ui';
 import Link from 'next/link';
+import { Analytics } from '@repo/analytics';
 import { linkStyles } from '../navLinks';
 import { inter } from '#/app/fonts';
-import AnalyticsWrapper from '#/components/Analytics';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
 import { ThemeWrapper } from '#/app/providers';
@@ -24,7 +24,7 @@ import { buildNavigationGroups } from '#/app/(maestros)/contentHandlers';
 import { AuthSessionProvider } from '#/app/(maestros)/monorepos/SessionProvider';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  return await buildMeta({
+  return buildMeta({
     title: 'Monorepo Maestros',
     description: 'Make beautiful monorepo music.',
     ogImage: encodeURI(`${metadataBaseURI}/monorepos/api/og`),
@@ -162,7 +162,7 @@ export default function RootLayout({
             </main>
           </ThemeWrapper>
         </AuthSessionProvider>
-        <AnalyticsWrapper />
+        <Analytics />
       </body>
     </html>
   );

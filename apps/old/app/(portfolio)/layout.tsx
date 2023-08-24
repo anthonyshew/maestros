@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Navbar } from '@repo/ui';
+import { Analytics } from '@repo/analytics';
 import { inter } from '#/app/fonts';
-import AnalyticsWrapper from '#/components/Analytics';
 import { buildMeta } from '#/app/metadata';
 import '#/app/globals.css';
 import { ThemeWrapper } from '#/app/providers';
@@ -9,7 +9,7 @@ import { ThemeController } from '#/components/ThemeController';
 import Link from 'next/link';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  return await buildMeta({
+  return buildMeta({
     title: 'Anthony Shew',
   });
 };
@@ -43,7 +43,7 @@ export default function RootLayout({
             {children}
           </main>
         </ThemeWrapper>
-        <AnalyticsWrapper />
+        <Analytics />
       </body>
     </html>
   );
