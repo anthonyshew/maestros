@@ -8,8 +8,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./server-only": "./dist/server-only.js",
-    "./cn": "./dist/utils/cn/index.js"
+    "./server-only": "./dist/server-only.js"
   },
   "scripts": {
     "build": "tsc -b",

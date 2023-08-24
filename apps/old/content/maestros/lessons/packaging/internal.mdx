@@ -4,7 +4,7 @@ sidebarOrderPosition: 1
 ogDescription: Using the Internal Package pattern in a monorepo.
 ---
 
-import { Callout } from "../../../../components/Callout";
+import { Callout } from '@repo/ui';
 
 Internal Packages are similar to [External Packages](/monorepos/packaging) in many ways:
 
@@ -99,17 +99,17 @@ We'll need to get our TypeScript compiled to JavaScript so our applications and 
 We want to be able to compile our package the same way whether we are building in watch mode for development or building for production. `tsup` can read from a `tsup.config.js` file to give us a consistent configuration to use:
 
 ```js filename="packages/ui/tsup.config.js" note="We're using JavaScript here but will still get great autocomplete. 😄"
-import { defineConfig } from "tsup";
-import { exec } from "child_process";
+import { defineConfig } from 'tsup';
+import { exec } from 'child_process';
 
 export default defineConfig((options) => ({
-  entry: ["src/index.tsx"], // Where your source code lives (can provide multiple entries)
+  entry: ['src/index.tsx'], // Where your source code lives (can provide multiple entries)
   splitting: false,
   treeshake: true,
   clean: true,
-  outDir: "dist", // Where you want your compiled files to live
+  outDir: 'dist', // Where you want your compiled files to live
   onSuccess: async () => {
-    exec("tsc --emitDeclarationOnly");
+    exec('tsc --emitDeclarationOnly');
   },
   ...options,
 }));
@@ -175,7 +175,7 @@ We should be ready now! Run `turbo build --filter=ui` in your terminal and check
 We'll now be able to import our code in an application once we install it to its workspace:
 
 ```ts filename="apps/web/src/index.ts"
-import { Button } from "@repo/ui";
+import { Button } from '@repo/ui';
 ```
 
 ## Iteration speed: Unlocked

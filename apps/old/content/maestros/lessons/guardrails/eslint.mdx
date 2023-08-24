@@ -4,8 +4,8 @@ sidebarOrderPosition: 0
 ogDescription: Setting up ESLint in a monorepo.
 ---
 
-import { FileTree } from "../../../../components/FileTree";
-import { Callout } from "../../../../components/Callout";
+import { FileTree } from '../../../../components/FileTree';
+import { Callout } from '@repo/ui';
 
 ESLint is the most common linter used in the JavaScript world today. Setting it up in a monorepo can be difficult and piecing together the various configurations can be frustrating if you don't know what you need to do.
 
@@ -66,7 +66,7 @@ We'll create a `node.js` file for simple Node apps:
 
 ```js filename="tooling/eslint-config/node.js" lang="js"
 module.exports = {
-  ignorePatterns: ["node_modules/", "**/.eslintrc.js", "dist/"],
+  ignorePatterns: ['node_modules/', '**/.eslintrc.js', 'dist/'],
   root: true,
 };
 ```
@@ -74,11 +74,11 @@ module.exports = {
 And another one to use in our Next.js apps:
 
 ```js filename="tooling/eslint-config/next.js" lang="js"
-const { rules } = require("./utils/rules");
+const { rules } = require('./utils/rules');
 
 module.exports = {
-  extends: ["next"],
-  ignorePatterns: ["**/.next/**", "**/.eslintrc.js"],
+  extends: ['next'],
+  ignorePatterns: ['**/.next/**', '**/.eslintrc.js'],
   root: true,
 };
 ```
@@ -92,7 +92,7 @@ Now, we'll want to use these presets out in a workspace. To do so, we'll need to
 ```js filename="packages/logger/.eslintrc.js" lang="js"
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [require.resolve("@repo/lint/node")], // Installed in next step
+  extends: [require.resolve('@repo/lint/node')], // Installed in next step
   root: true, // Very important!
 };
 ```

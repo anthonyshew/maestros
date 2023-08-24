@@ -11,3 +11,4 @@ export * from './components/RepoCard';
 export * from './components/IconBox';
 export * from './components/FileTree';
 export * from './components/Discord';
+export * from './utils/cn';
