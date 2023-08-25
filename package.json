@@ -18,7 +18,7 @@
     "eslint": "^8.47.0",
     "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.4.3",
-    "turbo": "^1.10.12"
+    "turbo": "^1.10.13"
   },
   "packageManager": "pnpm@8.6.5",
   "engines": {
