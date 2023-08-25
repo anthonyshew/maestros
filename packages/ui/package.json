@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "imports": {
-    "#components/*": "./src/components/*",
-    "#utils/*": "./src/utils/*"
+    "#components/*": "./src/components/*"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -12,7 +11,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup -w",
+    "dev": "tsup --watch",
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
     "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache'",
@@ -27,7 +26,6 @@
     "@radix-ui/react-slot": "^1.0.1",
     "bright": "^0.8.4",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^1.2.1",
     "lucide-icons-react": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

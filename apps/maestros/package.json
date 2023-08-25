@@ -20,7 +20,6 @@
     "@vercel/og": "^0.0.27",
     "bright": "^0.8.2",
     "class-variance-authority": "^0.6.1",
-    "clsx": "^1.2.1",
     "contentlayer": "latest",
     "date-fns": "^2.30.0",
     "framer-motion": "^8.5.5",

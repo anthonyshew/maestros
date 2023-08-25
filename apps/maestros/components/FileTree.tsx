@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import type { ReactElement, ReactNode } from 'react';
 
 interface FolderProps {
@@ -17,7 +17,7 @@ interface FileProps {
 function Tree({ children }: { children: ReactNode }): ReactElement {
   return (
     <div
-      className={cn(
+      className={twMerge(
         'nextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300',
       )}
     >
@@ -57,7 +57,7 @@ Folder.displayName = 'Folder';
 function File({ label, name, active }: FileProps) {
   return (
     <li
-      className={cn(
+      className={twMerge(
         'flex list-none',
         active && 'text-primary-600 contrast-more:underline',
       )}

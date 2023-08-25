@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 import { AlertOctagon, AlertTriangle, Info } from 'lucide-icons-react';
 import type { ReactNode } from 'react';
-import { cn } from '#utils/cn';
+import { twMerge } from 'tailwind-merge';
 
 interface CalloutProps {
   children: ReactNode;
@@ -48,7 +48,7 @@ export const Callout = ({
 }: CalloutProps) => {
   return (
     <div
-      className={cn(
+      className={twMerge(
         calloutStyles({ type }),
         type === 'warning' ? 'font-semibold' : '',
         'relative',
@@ -57,7 +57,7 @@ export const Callout = ({
     >
       {type !== 'goodToKnow' && type !== 'note' ? (
         <div
-          className={cn(
+          className={twMerge(
             calloutStyles({ type }),
             'absolute -top-8 -left-4 p-2 text-xs rounded-full',
           )}

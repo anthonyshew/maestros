@@ -5,8 +5,8 @@ import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-icons-react';
 import type { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 import type { NextLinkType } from '#utils/types';
-import { cn } from '#utils/cn';
 
 const Sheet = SheetPrimitive.Root;
 
@@ -18,7 +18,7 @@ const SheetPortal = ({
   className,
   ...props
 }: SheetPrimitive.DialogPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
+  <SheetPrimitive.Portal className={twMerge(className)} {...props} />
 );
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
 
@@ -27,7 +27,7 @@ const SheetOverlay = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
-    className={cn(
+    className={twMerge(
       'fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className,
     )}
@@ -68,7 +68,7 @@ const SheetContent = React.forwardRef<
     <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}
-      className={cn(sheetVariants({ side }), className)}
+      className={twMerge(sheetVariants({ side }), className)}
       {...props}
     >
       {children}
@@ -86,7 +86,7 @@ const SheetHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn('flex flex-col space-y-2 sm:text-left', className)}
+    className={twMerge('flex flex-col space-y-2 sm:text-left', className)}
     {...props}
   />
 );
@@ -97,7 +97,7 @@ const SheetFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
+    className={twMerge(
       'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
       className,
     )}
@@ -112,7 +112,7 @@ const SheetTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
-    className={cn('text-lg font-semibold text-foreground', className)}
+    className={twMerge('text-lg font-semibold text-foreground', className)}
     {...props}
   />
 ));
@@ -124,7 +124,7 @@ const SheetDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
     ref={ref}
-    className={cn('text-sm text-muted-foreground', className)}
+    className={twMerge('text-sm text-muted-foreground', className)}
     {...props}
   />
 ));
