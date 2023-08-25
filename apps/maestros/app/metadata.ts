@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
-import { tagline } from "#/app/constants";
+import type { Metadata } from 'next';
+import { tagline } from '#/app/constants';
 
 export const metadataBaseURI = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : `http://localhost:${process.env.PORT ?? 3000}`;
 
-const baseMetadata: Metadata =
-{
-  metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL(`http://localhost:${process.env.PORT ?? 3000}`),
+const baseMetadata: Metadata = {
+  metadataBase: process.env.VERCEL_URL
+    ? new URL(`https://${process.env.VERCEL_URL}`)
+    : new URL(`http://localhost:${process.env.PORT ?? 3000}`),
   title: {
     default: 'Anthony Shew',
     template: '%s | Anthony Shew',
@@ -48,9 +49,9 @@ const baseMetadata: Metadata =
 };
 
 interface BuildMetaParams {
-  title: string,
-  description?: string
-  ogImage?: NonNullable<NonNullable<Metadata["openGraph"]>["images"]>
+  title: string;
+  description?: string;
+  ogImage?: NonNullable<NonNullable<Metadata['openGraph']>['images']>;
 }
 
 export const buildMeta = ({

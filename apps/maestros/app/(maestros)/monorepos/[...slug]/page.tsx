@@ -7,7 +7,7 @@ import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { mdxComponents } from '#/components/mdxComponents';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return [
     allDocuments.filter(
       (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson',
@@ -15,16 +15,18 @@ export async function generateStaticParams() {
   ];
 }
 
-export const generateMetadata = async ({
+export const generateMetadata = ({
   params,
 }: {
   params: { slug: string[] };
-}): Promise<Metadata> => {
+}): Metadata => {
   const content = getPageDocument(params.slug);
+
+  if (!content) return notFound();
 
   const title = content.ogTitle ?? content.title;
 
-  return await buildMeta({
+  return buildMeta({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
@@ -36,7 +38,7 @@ export const generateMetadata = async ({
 function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
-  const MDXContent = useMDXComponent(content.body.code ?? '');
+  const MDXContent = useMDXComponent(content?.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
@@ -51,7 +53,7 @@ function Page({ params }: { params: { slug: string[] } }) {
 
       <h1>{content.title}</h1>
 
-      {/* @ts-expect-error */}
+      {/* @ts-expect-error Don't care, we shippin'! */}
       <MDXContent components={mdxComponents} />
     </div>
   );

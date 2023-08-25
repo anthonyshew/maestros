@@ -4,9 +4,20 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Laptop } from 'lucide-react';
 
+type Themes = 'dark' | 'light' | 'system';
+
+const themeIcons: Record<Themes, React.ReactElement> = {
+  dark: <Moon />,
+  light: <Sun />,
+  system: <Laptop />,
+};
+
 export function ThemeController({ position }: { position?: 'absolute' }) {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme() as {
+    theme: Themes;
+    setTheme: (theme: Themes) => void;
+  };
   useEffect(() => setMounted(true), []);
 
   const switcher = () => {
@@ -32,7 +43,7 @@ export function ThemeController({ position }: { position?: 'absolute' }) {
         onClick={() => switcher()}
         type="button"
       >
-        {theme === 'dark' ? <Moon /> : theme === 'light' ? <Sun /> : <Laptop />}
+        {themeIcons[theme]}
       </button>
     );
   }

@@ -1,36 +1,36 @@
-import { ImageResponse } from "next/server";
-import { tagline } from "#/app/constants";
+import { ImageResponse } from 'next/server';
+import { tagline } from '#/app/constants';
 
-export const runtime = "edge";
+export const runtime = 'edge';
 
 export async function GET(req: Request) {
   const fontBold = await fetch(
-    new URL("../../../public/fonts/Inter-Bold.ttf", import.meta.url)
+    new URL('../../../public/fonts/Inter-Bold.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   const fontMedium = await fetch(
-    new URL("../../../public/fonts/Inter-Medium.ttf", import.meta.url)
+    new URL('../../../public/fonts/Inter-Medium.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   const searchParams = new URL(req.url).searchParams;
-  const title = searchParams.get("title") ?? "Anthony Shew";
-  const subtitle = searchParams.get("subtitle");
+  const title = searchParams.get('title') ?? 'Anthony Shew';
+  const subtitle = searchParams.get('subtitle');
 
-  const titleIsMyName = title === "Anthony Shew";
+  const titleIsMyName = title === 'Anthony Shew';
 
   return new ImageResponse(
     (
       <div
         style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           backgroundImage: 'url("https://shew.dev/images/og-bg.png")',
-          backgroundSize: "100% 100%",
-          backgroundPosition: "center",
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
         }}
       >
         <div
@@ -38,11 +38,11 @@ export async function GET(req: Request) {
             marginLeft: 190,
             marginRight: 190,
             marginBottom: 70,
-            display: "flex",
+            display: 'flex',
             fontSize: 140,
-            color: "white",
-            fontFamily: "Inter Bold",
-            whiteSpace: "pre-wrap",
+            color: 'white',
+            fontFamily: 'Inter Bold',
+            whiteSpace: 'pre-wrap',
           }}
         >
           {title}
@@ -53,10 +53,10 @@ export async function GET(req: Request) {
               marginLeft: 190,
               marginRight: 190,
               marginBottom: 120,
-              display: "flex",
+              display: 'flex',
               fontSize: 50,
-              fontFamily: "Inter",
-              whiteSpace: "pre-wrap",
+              fontFamily: 'Inter',
+              whiteSpace: 'pre-wrap',
             }}
             tw="text-slate-300"
           >
@@ -65,10 +65,10 @@ export async function GET(req: Request) {
         ) : null}
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <img
@@ -77,8 +77,8 @@ export async function GET(req: Request) {
             tw="rounded-full mb-10"
             width={250}
           />
-          <div style={{ fontFamily: "Inter" }} tw="text-7xl text-white">
-            {titleIsMyName ? "" : "Anthony Shew"}
+          <div style={{ fontFamily: 'Inter' }} tw="text-7xl text-white">
+            {titleIsMyName ? '' : 'Anthony Shew'}
           </div>
           <div tw="text-6xl text-slate-400 mt-8">{tagline}</div>
         </div>
@@ -89,18 +89,18 @@ export async function GET(req: Request) {
       height: 1080,
       fonts: [
         {
-          name: "Inter",
+          name: 'Inter',
           data: fontMedium,
-          style: "normal",
+          style: 'normal',
           weight: 400,
         },
         {
-          name: "Inter Bold",
+          name: 'Inter Bold',
           data: fontBold,
-          style: "normal",
+          style: 'normal',
           weight: 700,
         },
       ],
-    }
+    },
   );
 }
