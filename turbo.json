@@ -35,6 +35,7 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
+      "dependsOn": ["@repo/db#db:generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
