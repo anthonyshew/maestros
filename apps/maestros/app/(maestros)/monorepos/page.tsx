@@ -1,18 +1,14 @@
 import Image from 'next/image';
-import { SubscribeButton } from '#/app/(maestros)/monorepos/SubscribeButton';
-import { buildMeta } from '#/app/metadata';
+import { buildMeta, metadataBaseURI } from '#/app/metadata';
+import { SubscribeButton } from '#/components/SubscribeButton';
 
 export const generateMetadata = () => {
-  return buildMeta({
+  buildMeta({
     title: 'Monorepo Maestros',
     description: 'Are you ready to conduct the monorepo orchestra?',
     ogImage: {
       url: encodeURI(
-        `https://${
-          process.env.VERCEL_URL
-            ? `https://${process.env.VERCEL_URL}`
-            : `http://localhost:3000`
-        }/monorepos/api/og?title=Monorepo Maestros`,
+        `${metadataBaseURI}/monorepos/api/og?title=Monorepo Maestros`,
       ),
       width: 1920,
       height: 1080,

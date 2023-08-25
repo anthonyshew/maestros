@@ -1,29 +1,29 @@
 import type { Metadata } from 'next';
 import {
   Sheet,
-  GitHub,
-  ThreadsApp,
   SheetTrigger,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetLink,
+  GitHub,
+  ThreadsApp,
 } from '@repo/ui';
 import Link from 'next/link';
 import { Analytics } from '@repo/analytics';
-import { Twitter, SidebarOpen, Music } from 'lucide-react';
 import { linkStyles } from '../navLinks';
-import { ThemeController } from '#/app/components/ThemeController';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
 import { ThemeWrapper } from '#/app/providers';
+import { Twitter, SidebarOpen, Music } from 'lucide-react';
+import { ThemeController } from '#/components/ThemeController';
 import { links } from '#/app/(maestros)/navLinks';
 import { SideBarContent } from '#/app/(maestros)/monorepos/SidebarContent';
 import { buildNavigationGroups } from '#/app/(maestros)/contentHandlers';
 import { AuthSessionProvider } from '#/app/(maestros)/monorepos/SessionProvider';
 
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
   return buildMeta({
     title: 'Monorepo Maestros',
     description: 'Make beautiful monorepo music.',
@@ -43,7 +43,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative flex flex-row max-h-screen min-h-screen">
-        <Analytics />
         <AuthSessionProvider>
           <ThemeWrapper>
             <Sheet>
@@ -163,6 +162,7 @@ export default function RootLayout({
             </main>
           </ThemeWrapper>
         </AuthSessionProvider>
+        <Analytics />
       </body>
     </html>
   );

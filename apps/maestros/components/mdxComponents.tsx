@@ -1,11 +1,11 @@
 import NextImage from 'next/image';
 import { Code } from 'bright';
 import Balancer from 'react-wrap-balancer';
-import type { ImageProps } from 'next/image';
-import type { ReactNode } from 'react';
 import type { TwoColumnsProps } from '@repo/ui';
 import { LinkHeading, TwoColumns } from '@repo/ui';
-import { focus } from './bright-focus';
+import type { ImageProps } from 'next/image';
+import type { ReactNode } from 'react';
+import { focus } from './bright/focus';
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
@@ -29,44 +29,42 @@ export const mdxComponents = {
       </div>
     );
   },
-  h1: ({ children }: { children?: ReactNode }) => {
+  h1: ({ children }: { children: string }) => {
     return (
       <h1>
         <Balancer>{children}</Balancer>
       </h1>
     );
   },
-  h2: ({ children }: { children?: ReactNode }) => {
+  h2: ({ children }: { children: string }) => {
     return <LinkHeading component="h2">{children}</LinkHeading>;
   },
-  h3: ({ children }: { children?: ReactNode }) => {
+  h3: ({ children }: { children: string }) => {
     return <LinkHeading component="h3">{children}</LinkHeading>;
   },
-  h4: ({ children }: { children?: ReactNode }) => {
+  h4: ({ children }: { children: string }) => {
     return <LinkHeading component="h4">{children}</LinkHeading>;
   },
-  h5: ({ children }: { children?: ReactNode }) => {
+  h5: ({ children }: { children: string }) => {
     return <LinkHeading component="h5">{children}</LinkHeading>;
   },
-  h6: ({ children }: { children?: ReactNode }) => {
+  h6: ({ children }: { children: string }) => {
     return <LinkHeading component="h6">{children}</LinkHeading>;
   },
   pre: (props: {
-    children?: ReactNode;
+    children: ReactNode;
     filename?: string;
+    lang: 'js' | 'json' | 'ts';
     note?: string;
-  }): ReactNode => {
-    // lang is indeed a prop but useMDXComponent hates it
-    // Punting the type issue to here.
-    const lang = (props as { lang: string }).lang;
-
+    // Meh, it works.
+  }): JSX.Element => {
     return (
       <>
         <div className="hidden dark:block" data-theme="dark">
           <Code
             className="!m-0 border border-gray-800"
             extensions={[focus]}
-            lang={lang}
+            lang={props.lang}
             title={props.filename}
           >
             {props.children}
@@ -82,7 +80,7 @@ export const mdxComponents = {
           <Code
             className="!m-0 border border-gray-300"
             extensions={[focus]}
-            lang={lang}
+            lang={props.lang}
             title={props.filename}
           >
             {props.children}

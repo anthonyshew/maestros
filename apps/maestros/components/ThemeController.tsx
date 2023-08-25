@@ -1,15 +1,8 @@
 'use client';
 
-import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Laptop } from 'lucide-react';
-
-const icons: Record<string, ReactElement> = {
-  dark: <Moon />,
-  light: <Sun />,
-  system: <Laptop />,
-};
 
 export function ThemeController({ position }: { position?: 'absolute' }) {
   const [mounted, setMounted] = useState(false);
@@ -39,7 +32,7 @@ export function ThemeController({ position }: { position?: 'absolute' }) {
         onClick={() => switcher()}
         type="button"
       >
-        {icons[theme as 'dark' | 'light' | 'system']}
+        {theme === 'dark' ? <Moon /> : theme === 'light' ? <Sun /> : <Laptop />}
       </button>
     );
   }

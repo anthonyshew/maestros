@@ -3,10 +3,10 @@ import { Navbar } from '@repo/ui';
 import { Analytics } from '@repo/analytics';
 import Link from 'next/link';
 import { inter } from '#/app/fonts';
-import { ThemeWrapper } from '#/app/providers';
 import { buildMeta } from '#/app/metadata';
 import '#/app/globals.css';
-import { ThemeController } from '#/app/components/ThemeController';
+import { ThemeWrapper } from '#/app/providers';
+import { ThemeController } from '#/components/ThemeController';
 
 export const generateMetadata = (): Metadata => {
   return buildMeta({
@@ -26,7 +26,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Analytics />
         <ThemeWrapper>
           <main className="relative flex flex-col flex-auto max-w-5xl min-h-screen px-6 pb-4 mx-auto sm:py-8 lg:py-20 md:flex-row">
             <div className="absolute right-4 top-8 md:hidden">
@@ -44,6 +43,7 @@ export default function RootLayout({
             {children}
           </main>
         </ThemeWrapper>
+        <Analytics />
       </body>
     </html>
   );

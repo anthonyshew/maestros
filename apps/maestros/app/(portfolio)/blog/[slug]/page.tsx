@@ -3,12 +3,12 @@ import type { Metadata } from 'next';
 import { compareDesc, format, parseISO } from 'date-fns';
 import type { BlogPost } from 'contentlayer/generated';
 import { allBlogPosts } from 'contentlayer/generated';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { mdxComponents } from '../../../../components/mdxComponents';
 import { getPost } from './getPost';
 import { metadataBaseURI } from '#/app/metadata';
-import { mdxComponents } from '#/app/components/mdxComponents';
 
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
@@ -64,15 +64,16 @@ function PostLayout({ params }: { params: { slug: string } }) {
     if (foundIndex < 0) return notFound();
 
     return {
-      prevPost: allBlogPosts[foundIndex - 1] as BlogPost | undefined,
-      nextPost: allBlogPosts[foundIndex + 1] as BlogPost | undefined,
+      prevPost: allBlogPosts[foundIndex - 1],
+      nextPost: allBlogPosts[foundIndex + 1],
     };
   };
 
-  const prevPost = getAdjacentPosts().prevPost;
-  const nextPost = getAdjacentPosts().nextPost;
+  const prevPost = getAdjacentPosts().prevPost as BlogPost | undefined;
+  const nextPost = getAdjacentPosts().nextPost as BlogPost | undefined;
 
   const post = getPost(params.slug);
+
   const MDXContent = useMDXComponent(post?.body.code ?? '');
   if (!post) return notFound();
 
@@ -96,6 +97,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
       </header>
 
       <article>
+        {/* @ts-expect-error Don't care, we shippin'! */}
         <MDXContent components={mdxComponents} />
       </article>
 

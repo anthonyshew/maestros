@@ -1,8 +1,8 @@
-import type { MaestrosLesson } from 'contentlayer/generated';
-import { allDocuments } from 'contentlayer/generated';
+import type { MaestrosLesson} from "contentlayer/generated";
+import { allDocuments } from "contentlayer/generated";
 
 export const sideBarItems = allDocuments
-  .filter((doc): doc is MaestrosLesson => doc.type === 'MaestrosLesson')
+  .filter((doc): doc is MaestrosLesson => doc.type === "MaestrosLesson")
   .sort((a, b) => a.sidebarOrderPosition - b.sidebarOrderPosition)
   .map((lesson) => {
     return {
@@ -11,51 +11,49 @@ export const sideBarItems = allDocuments
       unpublished: lesson.unpublished,
       directory: lesson._raw.sourceFileDir,
       sidebarOrderPosition: lesson.sidebarOrderPosition,
-      isIndex: lesson._raw.sourceFileName === 'index.mdx',
-      path: '/monorepos/'.concat(
+      isIndex: lesson._raw.sourceFileName === "index.mdx",
+      path: "/monorepos/".concat(
         lesson._raw.flattenedPath
-          .replaceAll('maestros/lessons/', '')
-          .replaceAll('index', ''),
+          .replaceAll("maestros/lessons/", "")
+          .replaceAll("index", "")
       ),
     };
   });
 
 export const buildNavigationGroups = () => {
-  const buildMe: (typeof sideBarItems[number] & {
-    children: typeof sideBarItems;
-  })[] = [];
-  const items = sideBarItems;
+  const buildMe: (typeof sideBarItems[number] & { children: typeof sideBarItems })[] = []
+  const items = sideBarItems
 
-  const allTopLevels = items.filter((item) => item.isIndex);
+  const allTopLevels = items.filter(item => item.isIndex)
 
-  allTopLevels.forEach((item) => {
-    buildMe[item.sidebarOrderPosition] = { ...item, children: [] };
-  });
+  allTopLevels.forEach(item => {
+    buildMe[item.sidebarOrderPosition] = { ...item, children: [] }
+  })
 
-  const allChildren = items.filter((item) => !item.isIndex);
+  const allChildren = items.filter(item => !item.isIndex)
 
-  allChildren.forEach((item) => {
-    const ind = buildMe.findIndex((i) => {
-      return i.directory === item.directory;
-    });
+  allChildren.forEach(item => {
+    const ind = buildMe.findIndex(i => {
+      return i.directory === item.directory
+    })
 
     if (ind > -1) {
-      buildMe[ind].children[item.sidebarOrderPosition] = item;
+      buildMe[ind].children[item.sidebarOrderPosition] = item
     }
-  });
+  })
 
-  return buildMe;
-};
+  return buildMe
+}
 
-export const getPageDocument = (slug: string[]): MaestrosLesson | undefined => {
+export const getPageDocument = (slug: string[]): MaestrosLesson => {
   return allDocuments.filter((doc) => {
     return (
       doc._id
-        .replaceAll('.mdx', '')
-        .replace('/index', '')
-        .split('/')
+        .replaceAll(".mdx", "")
+        .replace("/index", "")
+        .split("/")
         .slice(2)
-        .join('/') === slug.join('/')
+        .join("/") === slug.join("/")
     );
-  })[0] as MaestrosLesson;
-};
+  })[0] as MaestrosLesson
+}

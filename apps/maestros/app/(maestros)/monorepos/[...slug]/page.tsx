@@ -1,13 +1,13 @@
-import { Callout } from '@repo/ui';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { mdxComponents } from '#/app/components/mdxComponents';
+import { Callout } from '#/components/Callout';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
+import { mdxComponents } from '#/components/mdxComponents';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return [
     allDocuments.filter(
       (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson',
@@ -15,18 +15,16 @@ export function generateStaticParams() {
   ];
 }
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
   params: { slug: string[] };
-}): Metadata => {
+}): Promise<Metadata> => {
   const content = getPageDocument(params.slug);
-
-  if (!content) return notFound();
 
   const title = content.ogTitle ?? content.title;
 
-  return buildMeta({
+  return await buildMeta({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
@@ -38,8 +36,7 @@ export const generateMetadata = ({
 function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
-  const MDXContent = useMDXComponent(content?.body.code ?? '');
-
+  const MDXContent = useMDXComponent(content.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
 
@@ -53,6 +50,8 @@ function Page({ params }: { params: { slug: string[] } }) {
       </Callout>
 
       <h1>{content.title}</h1>
+
+      {/* @ts-expect-error */}
       <MDXContent components={mdxComponents} />
     </div>
   );

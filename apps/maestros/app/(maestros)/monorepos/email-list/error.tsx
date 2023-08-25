@@ -3,7 +3,10 @@
 import { Button } from '@repo/ui';
 import { useRouter } from 'next/navigation';
 
-export default function Error() {
+export default function Error({}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   const router = useRouter();
 
   return (

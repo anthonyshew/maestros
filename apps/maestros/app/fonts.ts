@@ -1,12 +1,12 @@
-import { Fira_Code } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Fira_Code } from "next/font/google";
+import localFont from 'next/font/local'
 
 export const inter = localFont({
-  src: '../public/fonts/Inter.ttf',
-  variable: '--font-inter',
+  src: "../public/fonts/Inter.ttf",
+  variable: "--font-inter",
 });
 
 export const firaCode = Fira_Code({
-  variable: '--font-fira-code',
-  subsets: ['latin'],
+  variable: "--font-fira-code",
+  subsets: ["latin"],
 });

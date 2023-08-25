@@ -6,8 +6,7 @@ const moduleExports = {
     appDir: true,
   },
   eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
-  transpilePackages: ['@repo/prisma', '@repo/ui'],
+  transpilePackages: ['@repo/ui'],
 };
 
 module.exports = withContentlayer(moduleExports);

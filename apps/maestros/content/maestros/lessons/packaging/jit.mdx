@@ -88,7 +88,7 @@ For Next.js to transpile your external TypeScript code, you'll need to add a `tr
 ```js filename="next.config.js"
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@repo/ui'],
+  transpilePackages: ["@repo/ui"],
 };
 
 module.exports = nextConfig;
@@ -102,7 +102,7 @@ Vue can transpile your packages on-the-fly by adding `transpileDependencies` to 
 
 ```js filename="vue.config.js"
 module.exports = {
-  transpileDependencies: ['@repo/ui'],
+  transpileDependencies: ["@repo/ui"],
 };
 ```
 
