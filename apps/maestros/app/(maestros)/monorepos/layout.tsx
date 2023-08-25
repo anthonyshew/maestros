@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 import { Analytics } from '@repo/analytics';
 import { Twitter, SidebarOpen, Music } from 'lucide-react';
+import { Fragment } from 'react';
 import { linkStyles } from '../navLinks';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
@@ -97,14 +98,13 @@ export default function RootLayout({
               <aside className="hidden w-0 overflow-auto h-[calc(100vh-3.5rem)] p-6 border-r border-yellow-400/80 mt-14 md:w-80 md:flex md:flex-col md:gap-4">
                 {buildNavigationGroups().map((link) => {
                   return (
-                    <>
+                    <Fragment key={link.path}>
                       <Link
                         aria-disabled={link.unpublished}
                         className={linkStyles({
                           status: link.unpublished ? 'unpublished' : undefined,
                         })}
                         href={link.unpublished ? '' : link.path}
-                        key={link.path}
                       >
                         {link.isNestedPage ? '↳ ' : ''}
                         {link.title}
@@ -120,14 +120,14 @@ export default function RootLayout({
                                 : undefined,
                             })}
                             href={childLink.unpublished ? '' : childLink.path}
-                            key={childLink.path}
+                            key={link.path}
                           >
                             {'↳ '}
                             {childLink.title}
                           </Link>
                         );
                       })}
-                    </>
+                    </Fragment>
                   );
                 })}
               </aside>
