@@ -1,5 +1,7 @@
+'use client';
+
 import { cva } from 'class-variance-authority';
-import { AlertOctagon, AlertTriangle, Info } from 'lucide-icons-react';
+import { AlertOctagon, AlertTriangle, Info } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { cn } from '@repo/ui';
 
