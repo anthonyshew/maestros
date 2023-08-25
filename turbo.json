@@ -14,7 +14,7 @@
       "outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
     },
     "topo": {
-      "dependsOn": ["^topo"]
+      "dependsOn": ["^generate", "generate", "^topo"]
     },
     "//#format": {
       "outputs": ["node_modules/.cache/.prettiercache"]
@@ -34,21 +34,20 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint": {
-      "dependsOn": ["^generate", "generate"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
-      "dependsOn": ["^generate", "generate"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
-      "dependsOn": ["^generate", "generate"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^generate", "generate"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
-      "outputMode": "errors-only"
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
 }
