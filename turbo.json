@@ -7,7 +7,7 @@
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "@repo/db#db:generate"],
       "outputs": [".next/**", "dist/**"]
     },
     "topo": {
