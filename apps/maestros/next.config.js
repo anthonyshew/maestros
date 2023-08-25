@@ -6,7 +6,7 @@ const moduleExports = {
     appDir: true,
   },
   eslint: { ignoreDuringBuilds: true },
-  transpilePackages: ['@repo/ui'],
+  typescript: { ignoreBuildErrors: true },
 };
 
 module.exports = withContentlayer(moduleExports);

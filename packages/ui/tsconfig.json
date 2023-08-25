@@ -1,7 +1,7 @@
 {
   "extends": "@repo/tsconfig/react-library.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "incremental": false,
     "outDir": "dist",
     "paths": {
       "#components/*": ["./src/components/*"],

@@ -1,8 +1,8 @@
 import { execSync } from 'node:child_process'
-import { defineConfig } from 'tsup'
+import { Options, defineConfig } from 'tsup'
 
-export default defineConfig({
-  entry: ['src/index.ts'],
+export default defineConfig((options: Options) => ({
+  entry: ['src/index.ts', "src/server.ts"],
   clean: true,
   onSuccess: async () => {
     execSync("tsc --emitDeclarationOnly")
@@ -11,4 +11,5 @@ export default defineConfig({
   // https://github.com/egoist/tsup/issues/835#issuecomment-1594905290
   splitting: false,
   treeshake: false,
-})
+  ...options
+}))

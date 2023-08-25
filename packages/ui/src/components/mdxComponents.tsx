@@ -6,7 +6,7 @@ import { LinkHeading } from '#components/LinkHeading';
 import type { TwoColumnsProps } from '#components/TwoColumns';
 import { TwoColumns } from '#components/TwoColumns';
 import type { NextImageType } from '#utils/types';
-import { focus } from './components/bright/focus';
+import { focus } from './bright/focus';
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
