@@ -1,3 +1,5 @@
+'use client'
+
 export * from './components/Avatar';
 export * from './components/Navbar';
 export * from './components/Sheet';
