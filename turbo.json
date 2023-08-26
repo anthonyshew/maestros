@@ -47,7 +47,11 @@
     },
     "typecheck": {
       "dependsOn": ["^topo", "generate"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
+      "outputMode": "errors-only"
+    },
+    "spellcheck": {
+      "inputs": ["**/*.mdx"]
     }
   }
 }
