@@ -29,8 +29,7 @@ jobs:
 
       - name: Run Prettier
         run: turbo format
-
-
+        
   eslint:
     name: ESLint
     timeout-minutes: 15

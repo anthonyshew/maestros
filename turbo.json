@@ -2,16 +2,19 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "dev": {
-      "dependsOn": ["@repo/db#db:generate"],
+      "dependsOn": ["@repo/db#generate"],
       "persistent": true,
       "cache": false
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "^generate"],
       "outputs": [".next/**", "dist/**"]
     },
+    "generate": {
+      "outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
+    },
     "topo": {
-      "dependsOn": ["^topo"]
+      "dependsOn": ["^generate", "generate", "^topo"]
     },
     "//#format": {
       "outputs": ["node_modules/.cache/.prettiercache"]
@@ -31,15 +34,15 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint": {
-      "dependsOn": ["@repo/db#db:generate"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
-      "dependsOn": ["@repo/db#db:generate"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
-      "dependsOn": ["@repo/db#db:generate"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {

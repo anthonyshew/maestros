@@ -1,6 +1,6 @@
 import { Box, Globe, ExternalLink } from 'lucide-icons-react';
-import { Avatar, AvatarFallback, AvatarImage } from '#components/Avatar';
-import { IconBox } from '#components/IconBox';
+import { Avatar, AvatarFallback, AvatarImage } from './Avatar';
+import { IconBox } from './IconBox';
 
 const logos = {
   kittr:

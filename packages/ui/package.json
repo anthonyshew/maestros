@@ -6,8 +6,14 @@
     "#components/*": "./src/components/*"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./server": "./dist/server.js"
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./src/server.ts",
+      "default": "./dist/server.js"
+    }
   },
   "scripts": {
     "build": "tsup",

@@ -21,8 +21,8 @@ importers:
         specifier: ^2.4.3
         version: 2.4.3(prettier@2.8.0)
       turbo:
-        specifier: ^1.10.12
-        version: 1.10.12
+        specifier: ^1.10.13
+        version: 1.10.13
 
   apps/maestros:
     dependencies:
@@ -151,6 +151,9 @@ importers:
       eslint:
         specifier: ^8.47.0
         version: 8.47.0
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -179,6 +182,9 @@ importers:
       ts-node:
         specifier: 10.9.1
         version: 10.9.1(@types/node@16.18.11)(typescript@5.2.2)
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -239,7 +245,7 @@ importers:
         version: 8.47.0
       tsup:
         specifier: ^7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        version: 7.2.0(ts-node@10.9.1)(typescript@5.2.2)
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
@@ -6824,6 +6830,23 @@ packages:
       postcss: 8.4.24
       yaml: 2.3.1
 
+  /postcss-load-config@4.0.1(ts-node@10.9.1):
+    resolution: {integrity: sha512-vEJIc8RdiBRu3oRAI0ymerOn+7rPuMvRXslTvZUKZonDHFIczxztIyJ1urxM1x9JXEikvpWWTUUqal5j/8QgvA==}
+    engines: {node: '>= 14'}
+    peerDependencies:
+      postcss: '>=8.0.9'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      postcss:
+        optional: true
+      ts-node:
+        optional: true
+    dependencies:
+      lilconfig: 2.1.0
+      ts-node: 10.9.1(@types/node@16.18.11)(typescript@5.2.2)
+      yaml: 2.3.1
+    dev: true
+
   /postcss-nested@6.0.1(postcss@8.4.24):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
     engines: {node: '>=12.0'}
@@ -8062,7 +8085,7 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /tsup@7.2.0(typescript@5.2.2):
+  /tsup@7.2.0(ts-node@10.9.1)(typescript@5.2.2):
     resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -8086,7 +8109,7 @@ packages:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.1(postcss@8.4.24)
+      postcss-load-config: 4.0.1(ts-node@10.9.1)
       resolve-from: 5.0.0
       rollup: 3.28.1
       source-map: 0.8.0-beta.0
@@ -8107,65 +8130,64 @@ packages:
       tslib: 1.14.1
       typescript: 5.2.2
 
-  /turbo-darwin-64@1.10.12:
-    resolution: {integrity: sha512-vmDfGVPl5/aFenAbOj3eOx3ePNcWVUyZwYr7taRl0ZBbmv2TzjRiFotO4vrKCiTVnbqjQqAFQWY2ugbqCI1kOQ==}
+  /turbo-darwin-64@1.10.13:
+    resolution: {integrity: sha512-vmngGfa2dlYvX7UFVncsNDMuT4X2KPyPJ2Jj+xvf5nvQnZR/3IeDEGleGVuMi/hRzdinoxwXqgk9flEmAYp0Xw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.10.12:
-    resolution: {integrity: sha512-3JliEESLNX2s7g54SOBqqkqJ7UhcOGkS0ywMr5SNuvF6kWVTbuUq7uBU/sVbGq8RwvK1ONlhPvJne5MUqBCTCQ==}
+  /turbo-darwin-arm64@1.10.13:
+    resolution: {integrity: sha512-eMoJC+k7gIS4i2qL6rKmrIQGP6Wr9nN4odzzgHFngLTMimok2cGLK3qbJs5O5F/XAtEeRAmuxeRnzQwTl/iuAw==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.10.12:
-    resolution: {integrity: sha512-siYhgeX0DidIfHSgCR95b8xPee9enKSOjCzx7EjTLmPqPaCiVebRYvbOIYdQWRqiaKh9yfhUtFmtMOMScUf1gg==}
+  /turbo-linux-64@1.10.13:
+    resolution: {integrity: sha512-0CyYmnKTs6kcx7+JRH3nPEqCnzWduM0hj8GP/aodhaIkLNSAGAa+RiYZz6C7IXN+xUVh5rrWTnU2f1SkIy7Gdg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.10.12:
-    resolution: {integrity: sha512-K/ZhvD9l4SslclaMkTiIrnfcACgos79YcAo4kwc8bnMQaKuUeRpM15sxLpZp3xDjDg8EY93vsKyjaOhdFG2UbA==}
+  /turbo-linux-arm64@1.10.13:
+    resolution: {integrity: sha512-0iBKviSGQQlh2OjZgBsGjkPXoxvRIxrrLLbLObwJo3sOjIH0loGmVIimGS5E323soMfi/o+sidjk2wU1kFfD7Q==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.10.12:
-    resolution: {integrity: sha512-7FSgSwvktWDNOqV65l9AbZwcoueAILeE4L7JvjauNASAjjbuzXGCEq5uN8AQU3U5BOFj4TdXrVmO2dX+lLu8Zg==}
+  /turbo-windows-64@1.10.13:
+    resolution: {integrity: sha512-S5XySRfW2AmnTeY1IT+Jdr6Goq7mxWganVFfrmqU+qqq3Om/nr0GkcUX+KTIo9mPrN0D3p5QViBRzulwB5iuUQ==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.10.12:
-    resolution: {integrity: sha512-gCNXF52dwom1HLY9ry/cneBPOKTBHhzpqhMylcyvJP0vp9zeMQQkt6yjYv+6QdnmELC92CtKNp2FsNZo+z0pyw==}
+  /turbo-windows-arm64@1.10.13:
+    resolution: {integrity: sha512-nKol6+CyiExJIuoIc3exUQPIBjP9nIq5SkMJgJuxsot2hkgGrafAg/izVDRDrRduQcXj2s8LdtxJHvvnbI8hEQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.10.12:
-    resolution: {integrity: sha512-WM3+jTfQWnB9W208pmP4oeehZcC6JQNlydb/ZHMRrhmQa+htGhWLCzd6Q9rLe0MwZLPpSPFV2/bN5egCLyoKjQ==}
+  /turbo@1.10.13:
+    resolution: {integrity: sha512-vOF5IPytgQPIsgGtT0n2uGZizR2N3kKuPIn4b5p5DdeLoI0BV7uNiydT7eSzdkPRpdXNnO8UwS658VaI4+YSzQ==}
     hasBin: true
-    requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.10.12
-      turbo-darwin-arm64: 1.10.12
-      turbo-linux-64: 1.10.12
-      turbo-linux-arm64: 1.10.12
-      turbo-windows-64: 1.10.12
-      turbo-windows-arm64: 1.10.12
+      turbo-darwin-64: 1.10.13
+      turbo-darwin-arm64: 1.10.13
+      turbo-linux-64: 1.10.13
+      turbo-linux-arm64: 1.10.13
+      turbo-windows-64: 1.10.13
+      turbo-windows-arm64: 1.10.13
     dev: true
 
   /typanion@3.14.0:
