@@ -8,4 +8,4 @@ const moduleExports = {
   typescript: { ignoreBuildErrors: true },
 };
 
-module.exports = withVercelToolbar(withContentlayer(moduleExports));
+module.exports = withContentlayer(withVercelToolbar(moduleExports));
