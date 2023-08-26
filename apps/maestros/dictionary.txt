@@ -23,6 +23,7 @@ granularity
 parallelize
 granularly
 pathing
+Gitmoji
 repository
 UI
 Yolorepo
