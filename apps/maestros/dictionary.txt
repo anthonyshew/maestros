@@ -22,6 +22,7 @@ yolorepo
 granularity
 parallelize
 granularly
+ts-eslint
 pathing
 Gitmoji
 repository

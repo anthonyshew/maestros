@@ -1,10 +1,45 @@
 ---
 title: typescript-eslint
 sidebarOrderPosition: 3
-unpublished: true
 ogDescription: Setting up typescript-eslint in your monorepo
 ---
 
-import { UnderConstruction } from '../../UnderConstruction';
+[typescript-eslint.io](https://typescript-eslint.io) is an important addition to a monorepo, bringing more power to ESLint through the type checking of TypeScript. With ts-eslint enabled in your repository, you'll be able to have tighter checks on sneaky bugs that ESLint or TypeScript can't find by themselves.
 
-<UnderConstruction />
+In a monorepo, ts-eslint becomes even more important, finding potential bugs across module boundaries and bringing more clarity to your codebase.
+
+## Using ts-eslint
+
+The official ts-eslint documentation has [an excellent breakdown on how to use ts-eslint in a monorepo](https://typescript-eslint.io/linting/typed-linting/monorepos/#one-tsconfigjson-per-package-and-an-optional-one-in-the-root). Rather than rehash their docs, hop over there to learn the fundamentals. Below, we'll show an example of combining that documentation with the rest of the "happy path" here in Maestros.
+
+## Enabling ts-eslint in our monorepo
+
+Our first step is to install the ts-eslint packages that we will need into our monorepo. We'll install these dependencies into our `@repo/lint` package.
+
+```json filename="tooling/eslint-config" note="You will likely want to set a specific version rather than latest."
+{
+  "name": "@repo/lint",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest"
+  }
+}
+```
+
+The plugin and parser will now be able available in our workspaces' linting commands. To enable it, we'll add a few lines to any workspace where we want the plugin enabled.
+
+```js filename="packages/ui/.eslintrc.js"
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  root: true,
+  extends: [require.resolve('@repo/lint/next.js')],
+  // focus(1:5)
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: `./tsconfig.json`,
+  },
+  plugins: ['@typescript-eslint'],
+};
+```
+
+Just like that, you may have some new linting errors to clean up! Your editor will now be able to warn you about potential bugs and issues that you may not have noticed before.
