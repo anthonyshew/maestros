@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { Analytics } from '@repo/analytics';
 import { Twitter, SidebarOpen, Music } from 'lucide-react';
 import { Fragment } from 'react';
+import { VercelToolbar } from '@vercel/toolbar/next';
 import { linkStyles } from '../navLinks';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
@@ -44,6 +45,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative flex flex-row max-h-screen min-h-screen">
+        <VercelToolbar />
         <AuthSessionProvider>
           <ThemeWrapper>
             <Sheet>
