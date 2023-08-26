@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./src/index.tsx",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
     "build": "tsc -b",

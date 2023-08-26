@@ -6,7 +6,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-icons-react';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { NextLinkType } from '#utils/types';
+import type { NextLinkType } from '../utils/types';
 
 const Sheet = SheetPrimitive.Root;
 
