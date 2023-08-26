@@ -34,11 +34,11 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
