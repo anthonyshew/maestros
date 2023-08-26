@@ -1,5 +1,5 @@
 import type { ElementType } from 'react';
-import type { NextLinkType } from '#utils/types';
+import type { NextLinkType } from '../utils/types';
 
 interface NavbarProps {
   links: {

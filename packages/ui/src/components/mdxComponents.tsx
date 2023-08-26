@@ -2,10 +2,10 @@ import { Code } from 'bright';
 import { Balancer } from 'react-wrap-balancer';
 import type { ImageProps } from 'next/image';
 import type { ReactNode } from 'react';
-import { LinkHeading } from '#components/LinkHeading';
-import type { TwoColumnsProps } from '#components/TwoColumns';
-import { TwoColumns } from '#components/TwoColumns';
-import type { NextImageType } from '#utils/types';
+import type { NextImageType } from '../utils/types';
+import { LinkHeading } from './LinkHeading';
+import type { TwoColumnsProps } from './TwoColumns';
+import { TwoColumns } from './TwoColumns';
 import { focus } from './bright/focus';
 
 interface CustomImageProps extends ImageProps {

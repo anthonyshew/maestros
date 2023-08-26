@@ -1,4 +1,4 @@
-const { rules } = require('./shared/rules.cjs');
+const { rules } = require('./shared/rules.js');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {

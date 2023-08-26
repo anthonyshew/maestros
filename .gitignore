@@ -6,6 +6,7 @@ dist
 
 .vercel
 .env*
+!.env.example
 
 tsconfig.tsbuildinfo
 .turbo
