@@ -43,9 +43,12 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["@repo/db#db:generate"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"],
       "outputMode": "errors-only"
+    },
+    "spellcheck": {
+      "inputs": ["**/*.mdx"]
     }
   }
 }
