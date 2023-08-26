@@ -2,7 +2,7 @@
 module.exports = {
   root: true,
   extends: [require.resolve('@repo/lint/node.cjs')],
-  ignorePatterns: ['./src/components'],
+  ignorePatterns: ['tsup.config.ts'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: `./tsconfig.json`,
