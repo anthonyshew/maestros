@@ -1,9 +1,13 @@
 ---
-title: Packaging patterns
+title: Compilation patterns
 sidebarOrderPosition: 5
 ogDescription: Package compilation patterns in monorepos
 ---
 
-import { UnderConstruction } from '../UnderConstruction';
+Making the most out of your monorepo means ensuring that you're packaging your workspaces correctly. Our workspaces need to be given the correct configurations for code sharing and deployment.
 
-<UnderConstruction />
+There are three different strategies for compiling your packages within your monorepo:
+
+- [Internal Package](/monorepos/packaging/internal): Compile the source code for your workspace package in your monorepo and share it through installation into other workspaces. This strategy allows you to have hot-reloading for your packages in development and caching for your production builds.
+- [Just-In-Time Package](/monorepos/packaging/jit): If you'd like to avoid setting up a compiler, most modern frameworks can compile your packages _as they consume them_. While this strategy is easier to set up, it does come with the tradeoff that you won't be able to cache the build outputs for your packages.
+- [External packages](/monorepos/packaging/external): Pull your packages in from the npm registry. This strategy is likely what you want to move away from for any packages that you control the source code for but can still be useful in some scenarios. You'll be moving outside of a typical monorepo workflow in these situations. If you're unsure if a publishing your own external package is right for your monorepo, it probably isn't.
