@@ -6,5 +6,10 @@
 .github
 node_modules
 *.log
+.turbo
 
 pnpm-lock.yaml
+
+apps
+packages
+tooling

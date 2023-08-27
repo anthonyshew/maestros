@@ -14,13 +14,13 @@
       "outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
     },
     "topo": {
-      "dependsOn": ["^generate", "generate", "^topo"]
+      "dependsOn": ["^generate", "^topo"]
     },
     "//#format": {
       "outputs": ["node_modules/.cache/.prettiercache"]
     },
     "format": {
-      "dependsOn": ["^topo", "//#format"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.prettiercache"]
     },
     "//#format:fix": {
@@ -38,11 +38,11 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
-      "dependsOn": ["^topo", "generate"],
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint:fix": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["^topo", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "typecheck": {
