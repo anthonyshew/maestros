@@ -9,6 +9,8 @@ import { focus } from './bright/focus';
 
 interface CustomImageProps extends ImageProps {
   containerClassName: string;
+  srcDark: string;
+  srcLight: string;
 }
 
 Code.theme = {
@@ -21,11 +23,26 @@ export const mdxComponents = {
     return <TwoColumns {...props} />;
   },
   Img: (props: CustomImageProps) => {
-    const { containerClassName, ...rest } = props;
+    const { containerClassName, srcDark, srcLight, src: _src, ...rest } = props;
 
     return (
       <div className={`relative block ${containerClassName}`}>
-        <NextImage {...rest} className="object-contain rounded-md" />
+        <NextImage
+          className="hidden object-contain w-full h-auto rounded-md dark:block"
+          height={1}
+          sizes="100vw"
+          src={srcDark}
+          width={1}
+          {...rest}
+        />
+        <NextImage
+          className="block object-contain w-full h-auto rounded-md dark:hidden"
+          height={1}
+          sizes="100vw"
+          src={srcLight}
+          width={1}
+          {...rest}
+        />
       </div>
     );
   },

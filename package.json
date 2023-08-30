@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "checks": "turbo format lint typecheck --continue",
-    "checks:fix": "turbo format:fix lint:fix --continue",
+    "checks:fix": "turbo format:fix lint:fix --continue --force",
     "clean": "find . -name node_modules -o -name .next -o -name dist -o -name .contentlayer -type d -prune | xargs rm -rf",
     "dev": "turbo dev",
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
