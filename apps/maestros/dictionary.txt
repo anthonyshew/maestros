@@ -18,6 +18,7 @@ workspacing
 codebase
 deployable
 .gitignore
+config
 yolorepo
 granularity
 parallelize

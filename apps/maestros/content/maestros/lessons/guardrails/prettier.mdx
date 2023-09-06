@@ -6,47 +6,47 @@ ogDescription: Setting up Prettier in your monorepo.
 
 import { FileTree } from '../../../../components/FileTree';
 
-[Prettier](https://prettier.io/) is a great formatter for quickly taking care of simple, non-logic stuff in your codebase. You can quickly, automatically standardize your entire codebase to have the same stylistic qualities and never worry about it again.
+[Prettier](https://prettier.io/) is a great formatter for quickly taking care of simple, syntax consistency in your codebase. You can automatically standardize your entire codebase to have the same stylistic qualities and never worry about it again.
 
 ## Setting up Prettier
 
-As we head into getting Prettier set up, let's remember our requirements for conducting a monorepo symphony:
+Prettier has one simple job: standardize syntax. That simplicity can be reflected in the way that we set up Prettier since there isn't a need for overriding configurations in workspaces.
 
-- We want our workspaces to be as self-contained as possible.
-- We want our workspace tasks to happen _within_ our workspaces.
-- We want to encourage standardization across the entirety of our monorepo while still allowing for flexibility in workspaces when needed.
+We will still be able to format our workspaces as their own separate tasks to take advantage of caching but we will only have one file in our repository for establishing style.
 
-## Creating your configuration
+### Add Prettier to your repo
 
-We're going to create one root Prettier configuration that we share to all of our workspaces. Let's first create a workspace for our Prettier configuration in `tooling/prettier-config`.
+In your root `package.json`, you'll need to do two things:
+1. Install `prettier` (and `prettier-plugin-packagejson` if you'd like to format those).
+2. Add your formatting scripts.
 
-<FileTree>
-  <FileTree.Folder name="tooling" open>
-    <FileTree.Folder name="prettier-config" open>
-      <FileTree.File name="index.js" />
-      <FileTree.File name="package.json" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
-
-Our `package.json` will be relatively simple, installing `prettier` and exporting the files where we'll keep our presets. We'll also install `prettier-plugin-packagejson` for formatting `package.json` files throughout our repository.
-
-```json filename="tooling/prettier-config/package.json" lang="json"
+```json filename='./package.json' note="Prettier ^3.0.0 currently breaks the VSCode plugin for monorepos. We're sticking with ^2.8.0 for now."
 {
-  "name": "@repo/prettier",
-  "version": "0.0.0",
-  "private": true,
-  "files": ["index.js"],
+  "name": "my-project",
+  "version": "0.1.0",
+  "scripts": {
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
+  },
   "devDependencies": {
-    "prettier": "2.8.8",
-    "prettier-plugin-packagejson": "^2.4.3"
-  }
+    "prettier": "^2.8.0",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "turbo": "^1.10.13"
+  },
 }
+
 ```
 
-And now we'll make an `index.js` file with your Prettier configuration in it:
+We're including some flags on these commands so our tasks go as fast as possible. You can learn more about them in [the Prettier CLI documentation](https://prettier.io/docs/en/cli.html) but, to make a long story short:
+- `--cache`: Use cached assets to make Prettier runs faster.
+- `--cache-location`: Assign a specific location for the Prettier cache file.
+- `--loglevel`: Prevent writing every file that Prettier sees to the console.
 
-```js filename="tooling/prettier-config/index.js"
+### Create a Prettier configuration file
+
+In the root of your project, we'll write our rules for the repository:
+
+```js filename='./.prettierrc.js'
 // Purely for demonstration! Adjust to your liking.
 /** @type {import("prettier").Options} */
 const config = {
@@ -58,9 +58,27 @@ const config = {
 export default config;
 ```
 
+Both our root and workspace Prettier scripts will end up using this configuration.
+
+### Ignoring workspaces for your root task
+
+We don't want our root task to be responsible for formatting the entire repository. We can take advantage of more granular caching if our root Prettier script is only responsible for root files (not workspace files).
+
+To ignore workspaces for your root task, add a `.prettierignore` to your root:
+
+```js filename="./.prettierignore" note="This will not impact the ignore behavior within your workspaces. See next section."
+// Other files and directories to ignore
+...
+
+// focus(1:3)
+apps
+packages
+tooling
+```
+
 ## Add to your workspaces
 
-To put your workspace into your configuration, install your `@repo/prettier` package to your workspace and a format script:
+Let's get our workspaces formatted by adding scripts for these tasks. These are the same ones from the root.
 
 ```json filename="packages/ui/package.json"
 {
@@ -68,39 +86,56 @@ To put your workspace into your configuration, install your `@repo/prettier` pac
   "version": "0.0.0",
   // focus(1:6)
   "scripts": {
-    "format": "prettier \"**/*.{ts,tsx,md,mdx,json}\" --check"
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
   },
-  "devDependencies": {
-    "@repo/prettier": "workspace:*"
-  }
 }
 ```
 
-And add a `.prettierrc.js` at the top of your workspace:
+### Ignoring code in workspace tasks
 
-```js filename="packages/ui/.prettierrc.js"
-module.exports = '@repo/prettier';
+Prettier does not look above it's execution context for ignore files. This means that you'll need to create a `.prettierignore` file for each of your workspaces.
+
+You will always want to ignore formatting for the output directory of your builds. For instance, in a workspace for a Next.js app, you'll want to add an ignore file like this one:
+
+```js filename="apps/web/.prettierignore"
+.env*
+.next
 ```
 
-As you can see, this file is pretty simple. We're exporting the configuration that we made in `@repo/prettier` so that the Prettier CLI knows to use it in this workspace.
+## Write pipelines
 
-## Write a pipeline
-
-Once we've created our formatting scripts in any workspaces that we want to format, it's time to build up our Turborepo pipeline.
+Once we've created our formatting scripts in any workspaces that we want to format, it's time to build up our Turborepo pipelines.
 
 ```json filename="turbo.json" lang="json"
 {
   "pipeline": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "//#format": {
+      "outputs": ["node_modules/.cache/.prettiercache"]
+    },
     "format": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.prettiercache"]
+    },
+    "//#format:fix": {
       "outputs": ["node_modules/.cache/.prettiercache"],
-      "outputMode": "new-only"
-    }
+      "cache": false
+    },
+    "format:fix": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "cache": false
+    },
   }
 }
 ```
 
-- **`new-only` logging output**: Your Turborepo logs can be quieted by ensuring only new lines show up in your logs. This can help to quiet things down so you can focus on the log lines that show where you need to fix stuff.
-- **Using Prettier caching**: We're about to create an `.prettiercache` file in our workspaces in the next step. In the event that our task misses cache, we will still have the `.prettiercache` to use to speed up our task. Caching this file as a Turborepo `output` ensures that we have the `.prettiercache` shared across our machines as often as possible so we can use it in as many places as we can.
+- **`//#` for root tasks**: Tasks that need to be ran for the root of your repository must begin with `//#`.
+- **Recursively depending on `topo`**: This is [a little trick from the Turborepo documentation](https://turbo.build/repo/docs/core-concepts/monorepos/task-dependencies#dependencies-outside-of-a-task). In short, this `dependsOn` pattern flattens your task graph so that everything runs in parallel while still respecting changes in workspace dependencies. (If that sounds confusing, don't worry about it for now; just trust that it works. We'll be writing up a doc for this but, for the time being, let it be magic.) ✨
+- **Using Prettier caching**: We're about to create a `.prettiercache` file in our workspaces in the next step. In the event that our task misses cache, we will still have the `.prettiercache` to use to speed up our task. Caching this file as a Turborepo `output` ensures that we have the `.prettiercache` shared across our machines as often as possible so we can use it in as many places as we can.
 
 ## Run your format tasks
 
@@ -108,11 +143,11 @@ With all of that ready to go, we're now ready to run our tasks!
 
 In the root of our monorepo, we will create these scripts:
 
-```json filename="package.json"
+```json filename="package.json" note="--continue runs the rest of your tasks even if one fails."
 {
   "scripts": {
-    "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
-    "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache'"
+    "format": "turbo format --continue",
+    "format:fix": "turbo format:fix --continue"
   }
 }
 ```
@@ -120,18 +155,7 @@ In the root of our monorepo, we will create these scripts:
 Run `pnpm format`! On the first run, the command will create caches in each workspace both at the Prettier and Turborepo layers.
 
 - Running `pnpm format` (without changing any code) will give you a `>>> FULL TURBO`. Awesome!
-- Changing some code in one workspace will hit cache for all your workspaces except that specific one. That workspace will use the Prettier cache file at `node_modules/.cache/.prettiercache` to lint as fast as possible.
+- Changing some code in one workspace will hit cache for all your workspaces except that specific one. That workspace will use the Prettier cache file at `node_modules/.cache/.prettiercache` in each workspace to format as fast as possible.
 - You now run your `pnpm format:fix` command to see if Prettier can find any auto-fixable problems.
-
-### Breaking down the script
-
-There are a few key parts to this script. Breaking it down piece by piece:
-
-- `turbo`: Use Turborepo to run the tasks.
-- `format`: The task name to run in your workspaces.
-- `--contine`: A Turborepo flag to continue running tasks even if one fails.
-- `--`: Passes any flags after it to the underlying child scripts.
-- `--cache`: Tells Prettier to use a cache file when running.
-- `--cache-location`: Tells Prettier where the cache file is on your file system.
 
 With this all in place, you can run your linting tasks with incredible speed.

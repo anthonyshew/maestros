@@ -120,7 +120,7 @@ export default function RootLayout({
                                 : undefined,
                             })}
                             href={childLink.unpublished ? '' : childLink.path}
-                            key={link.path}
+                            key={childLink.path}
                           >
                             {'↳ '}
                             {childLink.title}

@@ -7,9 +7,9 @@ ogDescription: Setting up ESLint in a monorepo.
 import { FileTree } from '../../../../components/FileTree';
 import { Callout } from '../../../../components/Callout';
 
-ESLint is the most common linter used in the JavaScript world today. Setting it up in a monorepo can be difficult and piecing together the various configurations can be frustrating if you don't know what you need to do.
+ESLint is the most common linter used in the JavaScript world today. Setting it up in a monorepo can be difficult and piecing together the various configurations can be frustrating.
 
-But we're maestros! We can do this. Let's take a look at how to happily set up ESLint for JavaScript monorepo success.
+But we're maestros! We can do this. Let's take a look at how to happily set up ESLint for monorepo success.
 
 ## Setting up ESLint
 
@@ -18,6 +18,7 @@ As we head into getting ESLint set up, let's remember our requirements for condu
 - We want our workspaces to be as self-contained as possible.
 - We want our workspace tasks to happen _within_ our workspaces.
 - We want to encourage standardization across the entirety of our monorepo while still allowing for flexibility in workspaces when needed.
+- One-way configuration flow. When you need to understand what you're configuring for a package, you always have a singular "place" to start from and then you can work outwards.
 
 ### Creating presets
 
@@ -35,7 +36,7 @@ To create some presets for our workspaces, we'll set up a workspace with our con
   </FileTree.Folder>
 </FileTree>
 
-Our `package.json` will be relatively simple, installing `eslint` and exporting the files where we'll keep our presets.
+Our `package.json` will be relatively simple, installing `eslint` and including the files for our presets.
 
 ```json filename="tooling/eslint-config/package.json" lang="json"
 {
@@ -71,7 +72,7 @@ module.exports = {
 };
 ```
 
-And another one to use in our Next.js apps:
+And a `next.js` file to use in our Next.js apps:
 
 ```js filename="tooling/eslint-config/next.js" lang="js"
 const { rules } = require('./utils/rules');
@@ -79,6 +80,20 @@ const { rules } = require('./utils/rules');
 module.exports = {
   extends: ['next'],
   ignorePatterns: ['**/.next/**', '**/.eslintrc.js'],
+  overrides: [
+    {
+      files: [
+        'pages/**',
+        'src/pages/**',
+        'next.config.js',
+        'app/**/{head,layout,loading,page,error,not-found}.tsx',
+        'contentlayer.config.ts',
+      ],
+      rules: {
+        'import/no-default-export': 'off',
+      },
+    },
+  ],
   root: true,
 };
 ```
@@ -97,7 +112,9 @@ module.exports = {
 };
 ```
 
-Note the `root: true` property! This tells ESLint that it does NOT need to look outside of your workspace for more ESLint configuration files.
+Note the `root: true` property! This tells ESLint that it doesn't need to look outside of your workspace for any more configuration. By default, ESLint will look upwards in your project for more configuration.
+
+`root: true` prevents this. All of the config to be used within the workspace is now in the `extends` key and the workspace file itself.
 
 2. Install our `@repo/lint` package to the workspace and create a lint script.
 
@@ -107,8 +124,9 @@ Note the `root: true` property! This tells ESLint that it does NOT need to look 
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    // focus(1:1)
-    "lint": "eslint ."
+    // focus(1:2)
+    "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
   },
   "devDependencies": {
     // focus(1:2)
@@ -117,6 +135,12 @@ Note the `root: true` property! This tells ESLint that it does NOT need to look 
   }
 }
 ```
+
+We're including some flags on these commands. You can learn more about them in [the ESLint CLI documentation](https://eslint.org/docs/latest/use/command-line-interface) but, to make a long story short:
+- `--cache`: Used cached assets to make ESLint run much faster.
+- `--cache-location`: Tell ESLint where to look for the cache file.
+- `--max-warnings`: How many warnings are you willing to accept and still let your CI pass? If you can, make this 0.
+- `--fix`: Fix any auto-fixable errors that ESLint may encounter.
 
 ### Overriding rules in a workspace
 
@@ -133,9 +157,33 @@ module.exports = {
 };
 ```
 
+## Linting the root
+
+You can also ensure that you're linting any JavaScript/TypeScript files that aren't in your workspaces.
+
+## Add a root .eslintrc.js
+
+We'll first need a configuration file for our ESLint to use.
+
+```js filename="./.eslintrc.js" lang="js"
+module.exports = {
+  extends: [require.resolve("@repo/lint/node")]
+  ignorePatterns: ['apps/**', 'packages/**', 'tooling/**'], // Important!
+  root: true,
+};
+```
+
+### Note the `ignorePatterns`!
+
+It's important that we ignore our workspaces in this root task so that the task does not try to lint the entirety of your repository. Workspaces will be linted by their own tasks so we're ignoring them here in the root.
+
+## Add the scripts
+
+We'll also need the scripts for your
+
 ## Write a pipeline
 
-Once we've created our linting scripts in any workspaces that we want to lint, it's time to build up our Turborepo pipeline.
+Once we've created our linting scripts in any workspaces that we want to lint, it's time to build up our Turborepo pipelines.
 
 ```json filename="turbo.json" lang="json"
 {
@@ -143,14 +191,30 @@ Once we've created our linting scripts in any workspaces that we want to lint, i
     "topo": {
       "dependsOn": ["^topo"]
     },
+    "//#lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
     "lint": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "//#lint:fix": {
+      "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"],
-      "dependsOn": ["^topo"]
+      "cache": false
+    },
+    "lint:fix": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "cache": false
     }
   }
 }
 ```
 
+We're using a few Turborepo techniques in the pipelines above to keep things speedy.
+
+- **`//#` for root tasks**: Tasks that need to be ran for the root of your repository must begin with `//#`.
 - **Recursively depending on `topo`**: This is [a little trick from the Turborepo documentation](https://turbo.build/repo/docs/core-concepts/monorepos/task-dependencies#dependencies-outside-of-a-task). In short, this `dependsOn` pattern flattens your task graph so that everything runs in parallel while still respecting changes in workspace dependencies. (If that sounds confusing, don't worry about it for now; just trust that it works. We'll be writing up a doc for this but, for the time being, let it be magic.) ✨
 - **Using ESLint caching**: We're about to create an `.eslintcache` file in our workspaces in the next step. In the event that our task misses cache, we will still have the `.eslintcache` to use to speed up our task. Caching this file as a Turborepo `output` ensures that we have the `.eslintcache` shared across our machines as often as possible so we can use it in as many places as we can.
 
@@ -160,11 +224,11 @@ With all of that ready to go, we're now ready to run our tasks!
 
 In the root of our monorepo, we will create these scripts:
 
-```json filename="package.json" lang="json"
+```json filename="package.json" lang="json" note="--continue runs the rest of your tasks even if one fails."
 {
   "scripts": {
-    "lint": "turbo lint --continue -- --cache --cache-location 'node_modules/.cache/.eslintcache'",
-    "lint:fix": "turbo lint --continue -- --fix --cache --cache-location 'node_modules/.cache/.eslintcache'"
+    "lint": "turbo lint --continue",
+    "lint:fix": "turbo lint:fix --continue"
   }
 }
 ```
@@ -172,18 +236,7 @@ In the root of our monorepo, we will create these scripts:
 Run `pnpm lint`! On the first run, the command will create caches in each workspace both at the ESLint and Turborepo layers.
 
 - Running `pnpm lint` (without changing any code) will give you a `>>> FULL TURBO`. Awesome!
-- Changing some code in one workspace will hit cache for all your workspaces except that specific one. That workspace will use the ESLint cache file at `node_modules/.cache/.eslintcache` to lint as fast as possible.
-- You now run your `pnpm lint:fix` command to see if ESLint can find any auto-fixable problems.
-
-### Breaking down the script
-
-There are a few key parts to this script. Breaking it down piece by piece:
-
-- `turbo`: Use Turborepo to run the tasks.
-- `lint`: The task name to run in your workspaces.
-- `--contine`: A Turborepo flag to continue running tasks even if one fails.
-- `--`: Passes any flags after it to the underlying child scripts.
-- `--cache`: Tells ESLint to use a cache file when running.
-- `--cache-location`: Tells ESLint where the cache file is on your file system.
+- Changing some code in one workspace will hit cache for all your workspaces except that specific one. That workspace will use the ESLint cache file at `node_modules/.cache/.eslintcache` in each workspace to lint as fast as possible.
+- You can also run your `pnpm lint:fix` command to see if ESLint can find any auto-fixable problems.
 
 With this all in place, you can run your linting tasks with incredible speed.
