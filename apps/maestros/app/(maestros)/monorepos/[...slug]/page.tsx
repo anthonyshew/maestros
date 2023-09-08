@@ -2,6 +2,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
+import Link from 'next/link'
 import { Callout } from '#/components/Callout';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { mdxComponents } from '#/components/mdxComponents';
@@ -35,14 +36,20 @@ export const generateMetadata = ({
   });
 };
 
+const replaceNonAlphanumericsWithDash = (str: string) => {
+  return str.toLowerCase().replace(/[^a-z0-9]/gi, '-');
+};
+
 function Page({ params }: { params: { slug: string[] } }) {
   const content = getPageDocument(params.slug);
 
   const MDXContent = useMDXComponent(content?.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
+  const headings = content.body.raw.split(/\r?\n/).filter(line => line.startsWith("#"))
 
   return (
+    <>
     <div className="prose lg:prose-lg dark:prose-invert">
       <Callout bold className="mb-10" type="warning">
         This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
@@ -56,6 +63,12 @@ function Page({ params }: { params: { slug: string[] } }) {
       {/* @ts-expect-error Don't care, we shippin'! */}
       <MDXContent components={mdxComponents} />
     </div>
+    <div>{headings.map(heading => {
+      return (
+        <Link className="block" href={`#${replaceNonAlphanumericsWithDash(heading.replaceAll("#", "").trim())}`} key={heading}>{heading}</Link>
+      )
+    })}</div>
+    </>
   );
 }
 
