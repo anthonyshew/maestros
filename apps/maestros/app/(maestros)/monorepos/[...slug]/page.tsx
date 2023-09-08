@@ -47,6 +47,8 @@ function Page({ params }: { params: { slug: string[] } }) {
   if (!content) return notFound();
   if (content.unpublished) return notFound();
   const headings = content.body.raw
+    // Exclude code blocks
+    .replace(/```.*?```/gs, '')
     .split(/\r?\n/)
     .filter((line) => line.startsWith('#'));
 
@@ -75,7 +77,7 @@ function Page({ params }: { params: { slug: string[] } }) {
               <Link
                 className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
                 href={`#${replaceNonAlphanumericsWithDash(
-                  heading.replaceAll('#', '').trim(),
+                  heading.replaceAll('#', '').replaceAll('`', '').trim(),
                 )}`}
                 key={heading}
               >
