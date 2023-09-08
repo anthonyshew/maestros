@@ -74,7 +74,7 @@ function Page({ params }: { params: { slug: string[] } }) {
             const heading = rawHeading.replaceAll('#', '').trim();
 
             return (
-              <Link
+              <a
                 className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
                 href={`#${replaceNonAlphanumericsWithDash(
                   heading.replaceAll('#', '').replaceAll('`', '').trim(),
@@ -82,7 +82,7 @@ function Page({ params }: { params: { slug: string[] } }) {
                 key={heading}
               >
                 {heading}
-              </Link>
+              </a>
             );
           })}
         </div>
