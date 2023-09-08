@@ -11,6 +11,10 @@ export const links: {
 } = {
   mainLinks: [
     {
+      href: '/monorepos/mind-map',
+      text: 'Mind Map',
+    },
+    {
       href: '/monorepos/examples',
       text: 'Examples',
     },

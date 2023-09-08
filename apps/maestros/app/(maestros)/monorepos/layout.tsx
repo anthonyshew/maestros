@@ -17,6 +17,7 @@ import { linkStyles } from '../navLinks';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
+import 'reactflow/dist/style.css';
 import { ThemeWrapper } from '#/app/providers';
 import { ThemeController } from '#/components/ThemeController';
 import { links } from '#/app/(maestros)/navLinks';
@@ -157,9 +158,7 @@ export default function RootLayout({
                 </SheetHeader>
               </SheetContent>
             </Sheet>
-            <main className="relative flex flex-row justify-start overflow-x-hidden flex-auto h-[calc(100vh-3.5rem)] px-8 pt-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
-              {children}
-            </main>
+            {children}
           </ThemeWrapper>
         </AuthSessionProvider>
         <Analytics />
