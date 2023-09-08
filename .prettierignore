@@ -9,7 +9,3 @@ node_modules
 .turbo
 
 pnpm-lock.yaml
-
-apps
-packages
-tooling

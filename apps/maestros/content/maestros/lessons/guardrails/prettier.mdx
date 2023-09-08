@@ -17,6 +17,7 @@ We will still be able to format our workspaces as their own separate tasks to ta
 ### Add Prettier to your repo
 
 In your root `package.json`, you'll need to do two things:
+
 1. Install `prettier` (and `prettier-plugin-packagejson` if you'd like to format those).
 2. Add your formatting scripts.
 
@@ -26,18 +27,18 @@ In your root `package.json`, you'll need to do two things:
   "version": "0.1.0",
   "scripts": {
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
   },
   "devDependencies": {
     "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.4.3",
     "turbo": "^1.10.13"
-  },
+  }
 }
-
 ```
 
 We're including some flags on these commands so our tasks go as fast as possible. You can learn more about them in [the Prettier CLI documentation](https://prettier.io/docs/en/cli.html) but, to make a long story short:
+
 - `--cache`: Use cached assets to make Prettier runs faster.
 - `--cache-location`: Assign a specific location for the Prettier cache file.
 - `--loglevel`: Prevent writing every file that Prettier sees to the console.
@@ -87,8 +88,8 @@ Let's get our workspaces formatted by adding scripts for these tasks. These are 
   // focus(1:6)
   "scripts": {
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
-  },
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
+  }
 }
 ```
 
@@ -128,7 +129,7 @@ Once we've created our formatting scripts in any workspaces that we want to form
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.prettiercache"],
       "cache": false
-    },
+    }
   }
 }
 ```

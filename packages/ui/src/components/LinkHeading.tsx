@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export const replaceNonAlphanumericsWithDash = (str: string) => {
+const replaceNonAlphanumericsWithDash = (str: string) => {
   return str.toLowerCase().replace(/[^a-z0-9]/gi, '-');
 };
 interface LinkHeadingProps {

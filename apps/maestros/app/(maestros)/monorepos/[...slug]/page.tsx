@@ -2,7 +2,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import Link from 'next/link'
+import Link from 'next/link';
 import { Callout } from '#/components/Callout';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { mdxComponents } from '#/components/mdxComponents';
@@ -46,28 +46,45 @@ function Page({ params }: { params: { slug: string[] } }) {
   const MDXContent = useMDXComponent(content?.body.code ?? '');
   if (!content) return notFound();
   if (content.unpublished) return notFound();
-  const headings = content.body.raw.split(/\r?\n/).filter(line => line.startsWith("#"))
+  const headings = content.body.raw
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith('#'));
 
   return (
     <>
-    <div className="prose lg:prose-lg dark:prose-invert">
-      <Callout bold className="mb-10" type="warning">
-        This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
-        I'm getting all of my thoughts down. In the future, we'll have better
-        information architecture, graphics, and other awesomeness. Your feedback
-        is welcome!
-      </Callout>
+      <div className="w-full prose lg:prose-lg md:max-w-md lg:max-w-lg xl:max-w-3xl dark:prose-invert">
+        <Callout bold className="mb-10" type="warning">
+          This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
+          I'm getting all of my thoughts down. In the future, we'll have better
+          information architecture, graphics, and other awesomeness. Your
+          feedback is welcome!
+        </Callout>
 
-      <h1>{content.title}</h1>
+        <h1>{content.title}</h1>
 
-      {/* @ts-expect-error Don't care, we shippin'! */}
-      <MDXContent components={mdxComponents} />
-    </div>
-    <div>{headings.map(heading => {
-      return (
-        <Link className="block" href={`#${replaceNonAlphanumericsWithDash(heading.replaceAll("#", "").trim())}`} key={heading}>{heading}</Link>
-      )
-    })}</div>
+        {/* @ts-expect-error Don't care, we shippin'! */}
+        <MDXContent components={mdxComponents} />
+      </div>
+      <div className="sticky top-0 hidden lg:block">
+        <div className="flex flex-col gap-2 ml-6">
+          {headings.length > 0 ? <p>On this page</p> : null}
+          {headings.map((rawHeading) => {
+            const heading = rawHeading.replaceAll('#', '').trim();
+
+            return (
+              <Link
+                className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
+                href={`#${replaceNonAlphanumericsWithDash(
+                  heading.replaceAll('#', '').trim(),
+                )}`}
+                key={heading}
+              >
+                {heading}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
