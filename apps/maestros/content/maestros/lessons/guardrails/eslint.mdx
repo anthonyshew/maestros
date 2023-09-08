@@ -126,7 +126,7 @@ Note the `root: true` property! This tells ESLint that it doesn't need to look o
   "scripts": {
     // focus(1:2)
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0"
   },
   "devDependencies": {
     // focus(1:2)
@@ -137,6 +137,7 @@ Note the `root: true` property! This tells ESLint that it doesn't need to look o
 ```
 
 We're including some flags on these commands. You can learn more about them in [the ESLint CLI documentation](https://eslint.org/docs/latest/use/command-line-interface) but, to make a long story short:
+
 - `--cache`: Used cached assets to make ESLint run much faster.
 - `--cache-location`: Tell ESLint where to look for the cache file.
 - `--max-warnings`: How many warnings are you willing to accept and still let your CI pass? If you can, make this 0.

@@ -43,7 +43,8 @@ You'll learn how to [improve your type checking scripts in the TypeScript sectio
 When we install one workspace into another, we've created a relationship between those workspaces from "producer" to "consumer." For example, a workspace containing a UI package produces and exposes an API surface to a "consumer" web application.
 
 <Img
-  src="/images/maestros/basic-dep-graph-ui-to-web.png"
+  srcLight="/images/maestros/basic-dep-graph-light.png"
+  srcDark="/images/maestros/basic-dep-graph-dark.png"
   alt="An image showing an arrow between two boxes. The first box has the label 'UI package' with an arrow pointing to a 'web application'. The line is labeled with 'pnpm i' to demonstrate that we install the UI package into the web application."
   width={3000}
   height={2400}
@@ -52,7 +53,8 @@ When we install one workspace into another, we've created a relationship between
 But, remember that these are Typescript applications so we do need to have some configuration to handle our TypeScript. We'll create a common TypeScript configuration that we'll install into our workspaces to set those up.
 
 <Img
-  src="/images/maestros/basic-dep-graph-with-eslint.png"
+  srcLight="/images/maestros/dep-graph-with-config-package-light.png"
+  srcDark="/images/maestros/dep-graph-with-config-package-dark.png"
   alt="The same image as the previous but we've added a box with 'ESLint configuration package.' This package is installed into each application."
   width={3000}
   height={2400}
