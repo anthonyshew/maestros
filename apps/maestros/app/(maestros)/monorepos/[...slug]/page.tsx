@@ -2,7 +2,6 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Callout } from '#/components/Callout';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { mdxComponents } from '#/components/mdxComponents';
@@ -74,7 +73,7 @@ function Page({ params }: { params: { slug: string[] } }) {
             const heading = rawHeading.replaceAll('#', '').trim();
 
             return (
-              <Link
+              <a
                 className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
                 href={`#${replaceNonAlphanumericsWithDash(
                   heading.replaceAll('#', '').replaceAll('`', '').trim(),
@@ -82,7 +81,7 @@ function Page({ params }: { params: { slug: string[] } }) {
                 key={heading}
               >
                 {heading}
-              </Link>
+              </a>
             );
           })}
         </div>
