@@ -26,8 +26,8 @@ In your root `package.json`, you'll need to do two things:
   "name": "my-project",
   "version": "0.1.0",
   "scripts": {
-    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
+    "format": "prettier . \"!apps/** !packages/** !tooling/**\" --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . \"!apps/** !packages/** !tooling/**\" --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
   },
   "devDependencies": {
     "prettier": "^2.8.0",
@@ -39,6 +39,7 @@ In your root `package.json`, you'll need to do two things:
 
 We're including some flags on these commands so our tasks go as fast as possible. You can learn more about them in [the Prettier CLI documentation](https://prettier.io/docs/en/cli.html) but, to make a long story short:
 
+- **Ignore file globs**: We don't want our root Prettier task to format our workspaces (because they will format themselves).
 - `--cache`: Use cached assets to make Prettier runs faster.
 - `--cache-location`: Assign a specific location for the Prettier cache file.
 - `--loglevel`: Prevent writing every file that Prettier sees to the console.
@@ -60,22 +61,6 @@ export default config;
 ```
 
 Both our root and workspace Prettier scripts will end up using this configuration.
-
-### Ignoring workspaces for your root task
-
-We don't want our root task to be responsible for formatting the entire repository. We can take advantage of more granular caching if our root Prettier script is only responsible for root files (not workspace files).
-
-To ignore workspaces for your root task, add a `.prettierignore` to your root:
-
-```js filename="./.prettierignore" note="This will not impact the ignore behavior within your workspaces. See next section."
-// Other files and directories to ignore
-...
-
-// focus(1:3)
-apps
-packages
-tooling
-```
 
 ## Add to your workspaces
 
