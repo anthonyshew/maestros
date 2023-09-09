@@ -1,7 +1,7 @@
 import 'reactflow/dist/style.css';
 import type { Metadata } from 'next';
 import { Flow } from '#/components/Flow';
-import { metadataBaseURI, buildMeta } from '#/app/metadata';
+import { metadataBaseURI } from '#/app/metadata';
 
 export const generateMetadata = (): Metadata => {
   const title = `Mind Map`;
@@ -29,14 +29,14 @@ export const generateMetadata = (): Metadata => {
     },
   };
 
-  return buildMeta({
-    title,
-    description,
-    ogImage: '/monorepos/api/og',
-    // ogImage: encodeURI(
-    //   `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
-    // ),
-  });
+  // return buildMeta({
+  //   title,
+  //   description,
+  //   ogImage: '/monorepos/api/og',
+  // ogImage: encodeURI(
+  //   `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+  // ),
+  // });
 };
 
 function MindMap() {
