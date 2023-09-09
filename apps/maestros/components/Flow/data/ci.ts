@@ -7,8 +7,8 @@ export const ciNodeId = 'ci';
 
 export const ciParentNode = {
   id: ciNodeId,
-  data: { label: 'Continuous Integration' },
-  position: { x: -300, y: 850 },
+  data: { label: 'CI' },
+  position: { x: 100, y: 850 },
   // Must be defined using style directly on the node
   style: {
     width: 640,

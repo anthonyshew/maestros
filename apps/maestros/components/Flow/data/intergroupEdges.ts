@@ -11,9 +11,6 @@ type AllNodes = typeof rawCiNodes[number]['data']['label'] |
 
 type Groups = "ci" | "compilation" | "conformance" | "structure"
 
-const rawStructureEdges: (MinimumEdge<AllNodes> & { sourceGroup: Groups, targetGroup: Groups })[] = [
-  { sourceGroup: "structure", source: 'Workspaces', targetGroup: "conformance", target: 'Guardrails' },
-];
 
 export const handleIntergroupEdge = ({ sourceGroup, targetGroup, edge }: {
   sourceGroup: Groups,
@@ -43,6 +40,15 @@ export const handleIntergroupEdge = ({ sourceGroup, targetGroup, edge }: {
     type: 'custom',
   })
 };
+
+const rawStructureEdges: (MinimumEdge<AllNodes> & { sourceGroup: Groups, targetGroup: Groups })[] = [
+  { sourceGroup: "structure", source: 'Workspaces', targetGroup: "conformance", target: 'Guardrails' },
+  { sourceGroup: "conformance", source: 'TypeScript', targetGroup: "compilation", target: 'Bundlers' },
+  { sourceGroup: "conformance", source: 'TypeScript', targetGroup: "compilation", target: 'tsc' },
+  { sourceGroup: "conformance", source: 'TypeScript', targetGroup: "compilation", target: 'tsconfig.json' },
+  { sourceGroup: "structure", source: 'Tasks', targetGroup: "ci", target: 'Remote Cache' },
+];
+
 export const intergroupEdges = rawStructureEdges.map((edge) =>
   handleIntergroupEdge({ edge, sourceGroup: edge.sourceGroup, targetGroup: edge.targetGroup })
 );

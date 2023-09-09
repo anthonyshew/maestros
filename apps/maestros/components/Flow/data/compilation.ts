@@ -8,7 +8,7 @@ export const compilationNodeId = 'compilation';
 export const compilationParentNode = {
   id: compilationNodeId,
   data: { label: 'Compilation' },
-  position: { x: 600, y: 800 },
+  position: { x: 800, y: 800 },
   // Must be defined using style directly on the node
   style: {
     width: 1000,
