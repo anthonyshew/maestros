@@ -76,13 +76,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.react-flow__edges {
-  z-index: 20 !important;
-}
-
-.react-flow__node-group.selected {
-  z-index: 0 !important;
-  border: none;
-  outline: none;
-}
