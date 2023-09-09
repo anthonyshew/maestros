@@ -7,7 +7,7 @@ export const conformanceNodeId = 'conformance';
 export const conformanceParentNode = {
   id: conformanceNodeId,
   data: { label: 'Conformance' },
-  position: { x: 1200, y: 300 },
+  position: { x: 1200, y: 280 },
   // Must be defined using style directly on the node
   style: {
     width: 760,

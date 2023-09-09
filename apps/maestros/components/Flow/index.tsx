@@ -17,6 +17,9 @@ import {
   conformanceParentNode,
   conformanceNodes,
   conformanceEdges,
+  compliationParentNode,
+  compilationNodes,
+  compilationEdges,
 } from '#/components/Flow/data';
 
 const initialNodes = [
@@ -24,9 +27,15 @@ const initialNodes = [
   ...structureNodes,
   conformanceParentNode,
   ...conformanceNodes,
+  compliationParentNode,
+  ...compilationNodes,
 ];
 
-const initialEdges = [...structureEdges, ...conformanceEdges];
+const initialEdges = [
+  ...structureEdges,
+  ...conformanceEdges,
+  ...compilationEdges,
+];
 
 export function Flow() {
   const [nodes, _setNodes, onNodesChange] = useNodesState(
