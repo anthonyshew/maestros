@@ -1,12 +1,12 @@
 'use client';
 
-import type { EdgeTypes } from 'reactflow';
+import type { EdgeTypes, Node } from 'reactflow';
 import {
   ReactFlow,
   Background,
   useNodesState,
   useEdgesState,
-  MiniMap,
+  // MiniMap,
   Controls,
 } from 'reactflow';
 import { nodeTypes, edgeTypes } from '#/components/Flow/utils';
@@ -21,7 +21,9 @@ const initialNodes = [structureParentNode, ...structureNodes];
 const initialEdges = [...structureEdges];
 
 export function Flow() {
-  const [nodes, _setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, _setNodes, onNodesChange] = useNodesState(
+    initialNodes as Node[],
+  );
   const [edges, _setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (

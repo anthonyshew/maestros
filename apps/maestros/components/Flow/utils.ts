@@ -1,54 +1,62 @@
 import { Position, MarkerType } from 'reactflow';
-import type { Edge, Node } from "reactflow";
-import { GroupNode, LinkedNode, UnlinkedNode } from "#/components/Flow/nodes";
-import { CustomEdge } from "#/components/Flow/edges";
+import type { Edge, Node } from 'reactflow';
+import { GroupNode, LinkedNode, UnlinkedNode } from '#/components/Flow/nodes';
+import { CustomEdge } from '#/components/Flow/edges';
 
 interface RequiredEdgeKeys<T extends string> {
-  source: T
-  target: T
+  source: T;
+  target: T;
 }
 
-export type MinimumEdge<T extends string> = Partial<Edge> & RequiredEdgeKeys<T>
+export type MinimumEdge<T extends string> = Partial<Edge> & RequiredEdgeKeys<T>;
 
-export const handleEdge = (parentNodeId: string, edge: MinimumEdge<string>) => ({
+export const handleEdge = (
+  parentNodeId: string,
+  edge: MinimumEdge<string>,
+) => ({
   ...edge,
   id: `${parentNodeId}-${edge.source}-${edge.target}`,
   source: `${parentNodeId}-${edge.source}`,
   target: `${parentNodeId}-${edge.target}`,
-  type: "custom"
-})
+  type: 'custom',
+});
 
 export const edgeTypes = {
-  custom: CustomEdge
+  custom: CustomEdge,
+};
+
+export type NodeTypes = keyof typeof nodeTypes;
+
+export interface MinimumNode extends Omit<Node, 'id' | 'type'> {
+  id?: string;
+  data: { label: string };
+  position: Node['position'];
+  type: NodeTypes;
 }
 
-export type NodeTypes = keyof typeof nodeTypes
-
-export interface MinimumNode extends Omit<Node, "id" | "type"> {
-  id?: string
-  data: { label: string }
-  position: Node["position"]
-  type: NodeTypes
-}
-
-export const handleNode = (parentNodeId: string, node: Omit<MinimumNode, "id">) => ({
+export const handleNode = (
+  parentNodeId: string,
+  node: Omit<MinimumNode, 'id'>,
+) => ({
   ...node,
   id: `${parentNodeId}-${node.data.label}`,
   data: { label: node.data.label },
   parentNode: parentNodeId,
   extent: 'parent',
-})
+});
 
 export const nodeTypes = {
   group: GroupNode,
   linked: LinkedNode,
   unlinked: UnlinkedNode,
-}
-
+};
 
 // this helper function returns the intersection point
 // of the line between the center of the intersectionNode and the target node
-function getNodeIntersection(intersectionNode: Required<Node> & { width: number, height: number }, targetNode: Required<Node>) {
+function getNodeIntersection(
+  intersectionNode: Required<Node> & { width: number; height: number },
+  targetNode: Required<Node>,
+) {
   // https://math.stackexchange.com/questions/1724792/an-algorithm-for-finding-the-intersection-point-between-a-center-of-vision-and-a
   const {
     width: intersectionNodeWidth,
@@ -77,7 +85,10 @@ function getNodeIntersection(intersectionNode: Required<Node> & { width: number,
 }
 
 // returns the position (top,right,bottom or right) passed node compared to the intersection point
-function getEdgePosition(node: Required<Node>, intersectionPoint: { x: number, y: number }) {
+function getEdgePosition(
+  node: Required<Node>,
+  intersectionPoint: { x: number; y: number },
+) {
   const n = { ...node.positionAbsolute, ...node };
   const nx = Math.round(n.x);
   const ny = Math.round(n.y);
@@ -87,12 +98,14 @@ function getEdgePosition(node: Required<Node>, intersectionPoint: { x: number, y
   if (px <= nx + 1) {
     return Position.Left;
   }
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   if (px >= nx + n.width! - 1) {
     return Position.Right;
   }
   if (py <= ny + 1) {
     return Position.Top;
   }
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   if (py >= n.y + n.height! - 1) {
     return Position.Bottom;
   }
@@ -101,7 +114,10 @@ function getEdgePosition(node: Required<Node>, intersectionPoint: { x: number, y
 }
 
 // returns the parameters (sx, sy, tx, ty, sourcePos, targetPos) you need to create an edge
-export function getEdgeParams(source: Required<Node> & { width: number, height: number }, target: Required<Node> & { width: number, height: number }) {
+export function getEdgeParams(
+  source: Required<Node> & { width: number; height: number },
+  target: Required<Node> & { width: number; height: number },
+) {
   const sourceIntersectionPoint = getNodeIntersection(source, target);
   const targetIntersectionPoint = getNodeIntersection(target, source);
 
