@@ -4,15 +4,38 @@ import { Flow } from '#/components/Flow';
 import { metadataBaseURI, buildMeta } from '#/app/metadata';
 
 export const generateMetadata = (): Metadata => {
-  const title = `Mind Map - Monorepo Maestros`;
+  const title = `Mind Map`;
   const description = 'Your roadmap to monorepo mastery';
+
+  return {
+    title: `${title} - Monorepo Maestros`,
+    openGraph: {
+      images: [
+        {
+          url: encodeURI(
+            `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+          ),
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: encodeURI(
+            `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+          ),
+        },
+      ],
+    },
+  };
 
   return buildMeta({
     title,
     description,
-    ogImage: encodeURI(
-      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
-    ),
+    ogImage: '/monorepos/api/og',
+    // ogImage: encodeURI(
+    //   `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+    // ),
   });
 };
 
