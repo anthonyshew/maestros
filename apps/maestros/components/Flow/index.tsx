@@ -1,9 +1,8 @@
 'use client';
 
-// import { useCallback } from 'react';
+import type { EdgeTypes } from 'reactflow';
 import {
   ReactFlow,
-  addEdge,
   Background,
   useNodesState,
   useEdgesState,
@@ -25,13 +24,9 @@ export function Flow() {
   const [nodes, _setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, _setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  // const onConnect = useCallback((connection) => {
-  //   setEdges((eds) => addEdge(connection, eds));
-  // }, []);
-
   return (
     <ReactFlow
-      edgeTypes={edgeTypes}
+      edgeTypes={edgeTypes as EdgeTypes}
       edges={edges}
       fitView
       nodeTypes={nodeTypes}
@@ -42,7 +37,7 @@ export function Flow() {
     >
       {/* <MiniMap /> */}
       <Controls />
-      {/* <Background /> */}
+      <Background />
     </ReactFlow>
   );
 }

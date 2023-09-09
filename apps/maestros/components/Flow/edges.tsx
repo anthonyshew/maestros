@@ -1,42 +1,6 @@
-import { useTheme } from 'next-themes';
-import type { EdgeProps } from 'reactflow';
-import { BaseEdge, getBezierPath, useStore } from 'reactflow';
+import { getBezierPath, useStore } from 'reactflow';
 import { useCallback } from 'react';
 import { getEdgeParams } from './utils';
-
-// export function CustomEdge({
-//   id,
-//   sourceX,
-//   sourceY,
-//   targetX,
-//   targetY,
-//   sourcePosition,
-//   targetPosition,
-//   style = {},
-//   markerEnd,
-// }: EdgeProps) {
-//   const [edgePath, labelX, labelY] = getBezierPath({
-//     sourceX,
-//     sourceY,
-//     sourcePosition,
-//     targetX,
-//     targetY,
-//     targetPosition,
-//   });
-
-//   const theme = useTheme();
-
-//   return (
-//     <BaseEdge
-//       markerEnd={markerEnd}
-//       path={edgePath}
-//       style={{
-//         stroke: theme.theme === 'light' ? 'black' : 'white',
-//         strokeWidth: 2,
-//       }}
-//     />
-//   );
-// }
 
 export function CustomEdge({
   id,
@@ -47,7 +11,7 @@ export function CustomEdge({
   id: string;
   source: string;
   target: string;
-  markerEnd: string | undefined;
+  markerEnd: string;
 }) {
   const sourceNode = useStore(
     useCallback((store) => store.nodeInternals.get(source), [source]),
@@ -55,8 +19,6 @@ export function CustomEdge({
   const targetNode = useStore(
     useCallback((store) => store.nodeInternals.get(target), [target]),
   );
-
-  const theme = useTheme();
 
   if (!sourceNode || !targetNode) {
     return null;
@@ -84,7 +46,7 @@ export function CustomEdge({
       id={id}
       markerEnd={markerEnd}
       style={{
-        stroke: theme.theme === 'light' ? 'black' : 'white',
+        stroke: '#f59e0b',
         strokeWidth: 2,
       }}
     />

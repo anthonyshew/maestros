@@ -27,7 +27,7 @@ function _LinkedNode({ data }: { data: Record<string, any> }) {
 }
 function _UnlinkedNode({ data }: { data: Record<string, any> }) {
   return (
-    <div className="px-4 py-2 bg-white border-2 border-yellow-500 rounded-md shadow-md dark:bg-black">
+    <div className="z-30 px-4 py-2 bg-white border-2 border-yellow-500 rounded-md shadow-md dark:bg-black">
       <div className="flex items-center justify-center font-medium text-black rounded-full dark:text-white">
         {data.label}
       </div>
