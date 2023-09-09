@@ -10,7 +10,7 @@ export const structureParentNode = {
   // Must be defined using style directly on the node
   style: {
     width: 1000,
-    height: 1000,
+    height: 650,
     background: 'transparent',
     border: 'none',
   },
@@ -21,85 +21,89 @@ const rawStructureNodes: readonly MinimumNode[] = [
   {
     data: { label: 'Root' },
     type: 'unlinked',
-
-    position: { x: 100, y: 100 },
+    position: { x: 150, y: 150 },
   },
   {
     data: { label: 'Package managers' },
     type: 'unlinked',
-    position: { x: 320, y: 100 },
+    position: { x: 700, y: 110 },
   },
   {
     data: { label: 'Dependency management' },
     type: 'unlinked',
-    position: { x: 320, y: 150 },
+    position: { x: 170, y: 250 },
   },
   {
     data: { label: 'npm' },
     type: 'unlinked',
-    position: { x: 320, y: 150 },
+    position: { x: 480, y: 230 },
   },
   {
     data: { label: 'yarn' },
     type: 'unlinked',
-    position: { x: 320, y: 200 },
+    position: { x: 510, y: 300 },
   },
   {
     data: { label: 'pnpm' },
     type: 'unlinked',
-    position: { x: 320, y: 250 },
+    position: { x: 600, y: 300 },
   },
   {
     data: { label: 'Workspaces' },
     type: 'unlinked',
-    position: { x: 320, y: 300 },
+    position: { x: 750, y: 325 },
   },
   {
     data: { label: 'Applications' },
     type: 'unlinked',
-    position: { x: 320, y: 350 },
+    position: { x: 770, y: 400 },
   },
 
   {
     data: { label: 'Packages' },
     type: 'unlinked',
-    position: { x: 320, y: 350 },
+    position: { x: 620, y: 400 },
   },
 
   {
     data: { label: 'manypkg' },
     type: 'unlinked',
-    position: { x: 320, y: 450 },
+    position: { x: 130, y: 350 },
   },
   {
     data: { label: 'syncpack' },
     type: 'unlinked',
-    position: { x: 320, y: 500 },
+    position: { x: 275, y: 350 },
   },
   {
     data: { label: 'Tasks' },
     type: 'unlinked',
-    position: { x: 320, y: 550 },
+    position: { x: 750, y: 500 },
   },
   {
     data: { label: 'turbo.json' },
     type: 'unlinked',
-    position: { x: 320, y: 600 },
+    position: { x: 550, y: 470 },
   },
   {
     data: { label: 'Monorepo managers' },
     type: 'unlinked',
-    position: { x: 320, y: 650 },
+    position: { x: 160, y: 450 },
   },
   {
     data: { label: 'Turborepo' },
     type: 'unlinked',
-    position: { x: 320, y: 700 },
+    position: { x: 400, y: 470 },
   },
   {
     data: { label: 'Nx' },
     type: 'unlinked',
-    position: { x: 320, y: 750 },
+    position: { x: 428, y: 530 },
+  },
+  {
+    data: { label: 'nx.json' },
+    type: 'unlinked',
+    position: { x: 562, y: 530 },
   },
 ] as const;
 
@@ -123,6 +127,10 @@ const rawStructureEdges: MinimumEdge<
   { source: 'Turborepo', target: 'turbo.json' },
   { source: 'Workspaces', target: 'Packages' },
   { source: 'Workspaces', target: 'Applications' },
+  { source: 'Nx', target: 'nx.json' },
+  { source: 'nx.json', target: 'Tasks' },
+  { source: 'Tasks', target: 'Packages' },
+  { source: 'Tasks', target: 'Applications' },
 ];
 
 export const structureEdges = rawStructureEdges.map((edge) =>
