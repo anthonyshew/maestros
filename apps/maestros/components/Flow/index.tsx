@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 import {
   ReactFlow,
   addEdge,
@@ -10,7 +10,7 @@ import {
   MiniMap,
   Controls,
 } from 'reactflow';
-import { nodeTypes } from '#/components/Flow/utils';
+import { nodeTypes, edgeTypes } from '#/components/Flow/utils';
 import {
   structureNodes,
   structureEdges,
@@ -22,21 +22,21 @@ const initialNodes = [structureParentNode, ...structureNodes];
 const initialEdges = [...structureEdges];
 
 export function Flow() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, _setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, _setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const onConnect = useCallback((connection) => {
-    setEdges((eds) => addEdge(connection, eds));
-  }, []);
+  // const onConnect = useCallback((connection) => {
+  //   setEdges((eds) => addEdge(connection, eds));
+  // }, []);
 
   return (
     <ReactFlow
-      className="react-flow-subflows-example"
+      edgeTypes={edgeTypes}
       edges={edges}
       fitView
       nodeTypes={nodeTypes}
       nodes={nodes}
-      onConnect={onConnect}
+      // onConnect={onConnect}
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
     >

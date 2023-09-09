@@ -1,6 +1,7 @@
 
 import type { Edge, Node } from "reactflow";
 import { GroupNode, LinkedNode, UnlinkedNode } from "#/components/Flow/nodes";
+import { CustomEdge } from "#/components/Flow/edges";
 
 interface RequiredEdgeKeys<T extends string> {
   source: T
@@ -14,7 +15,12 @@ export const handleEdge = (parentNodeId: string, edge: MinimumEdge<string>) => (
   id: `${parentNodeId}-${edge.source}-${edge.target}`,
   source: `${parentNodeId}-${edge.source}`,
   target: `${parentNodeId}-${edge.target}`,
+  type: "custom"
 })
+
+export const edgeTypes = {
+  custom: CustomEdge
+}
 
 export type NodeTypes = keyof typeof nodeTypes
 
