@@ -10,7 +10,7 @@ export const conformanceParentNode = {
   position: { x: 1200, y: 180 },
   // Must be defined using style directly on the node
   style: {
-    width: 760,
+    width: 650,
     height: 510,
     background: 'transparent',
     border: 'none',
@@ -47,17 +47,17 @@ export const rawConformanceNodes = [
   {
     data: { label: '.npmrc' },
     type: 'unlinked',
-    position: { x: 555, y: 150 },
+    position: { x: 355, y: 50 },
   },
   {
     data: { label: 'Precommit hooks' },
     type: 'unlinked',
-    position: { x: 520, y: 220 },
+    position: { x: 375, y: 120 },
   },
   {
     data: { label: '.editorconfig' },
     type: 'unlinked',
-    position: { x: 540, y: 290 },
+    position: { x: 420, y: 190 },
   },
 ] as const;
 

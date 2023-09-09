@@ -83,7 +83,7 @@ export const rawCompilationNodes = [
   {
     data: { label: 'Entrypoints' },
     type: 'unlinked',
-    position: { x: 500, y: 250 },
+    position: { x: 500, y: 270 },
   },
   {
     data: { label: 'Single Entrypoint' },
@@ -116,6 +116,8 @@ const rawCompilationEdges: MinimumEdge<
     { source: 'Strategy', target: 'Just-in-Time Packages' },
     { source: 'Strategy', target: 'Compiled Packages' },
     { source: 'Strategy', target: 'External Packages' },
+    { source: 'Strategy', target: 'Entrypoints' },
+    { source: 'Strategy', target: 'Module Systems' },
     { source: 'Entrypoints', target: 'Single Entrypoint' },
     { source: 'Entrypoints', target: 'Multiple Entrypoint' },
   ];
