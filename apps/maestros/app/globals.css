@@ -76,3 +76,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.react-flow__edges {
+  z-index: 20 !important;
+}

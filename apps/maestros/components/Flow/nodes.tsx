@@ -5,9 +5,8 @@ import { Handle, Position } from 'reactflow';
 
 function _GroupNode({ data }: { data: Record<string, any> }) {
   return (
-    <div className="relative w-full h-full bg-gradient-to-br from-yellow-600/80 to-yellow-400/0 dark:from-yellow-700 dark:to-yellow-400/0 to rounded-3xl">
-      {/* <div className="absolute gradient-angle-155 from-50% to-yellow-300/20 dark:to-[rgb(83,76,51)] from-white dark:from-black inset-2 rounded-2xl"> */}
-      <div className="absolute bg-gradient-155 from-50% to-yellow-300/20 dark:to-[rgb(83,76,51)]/90 from-white dark:from-black inset-2 rounded-2xl">
+    <div className="relative z-10 w-full h-full bg-gradient-to-br from-yellow-600/80 to-yellow-400/0 dark:from-yellow-700 dark:to-yellow-400/0 to rounded-3xl">
+      <div className="absolute z-10 bg-gradient-155 from-50% to-yellow-300/20 dark:to-[rgb(83,76,51)]/90 from-white dark:from-black inset-2 rounded-2xl">
         <div className="mt-6 ml-6 text-4xl font-semibold text-left text-black dark:text-white">
           {data.label}
         </div>
@@ -21,8 +20,8 @@ function _LinkedNode({ data }: { data: Record<string, any> }) {
       <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
         {data.label}
       </div>
-      <Handle className="w-16" position={Position.Top} type="target" />
-      <Handle className="w-16" position={Position.Bottom} type="source" />
+      <Handle className="hidden" position={Position.Top} type="target" />
+      <Handle className="hidden" position={Position.Bottom} type="source" />
     </div>
   );
 }
@@ -32,8 +31,8 @@ function _UnlinkedNode({ data }: { data: Record<string, any> }) {
       <div className="flex items-center justify-center font-medium text-black rounded-full dark:text-white">
         {data.label}
       </div>
-      <Handle className="w-16" position={Position.Top} type="target" />
-      <Handle className="w-16" position={Position.Bottom} type="source" />
+      <Handle className="hidden" position={Position.Top} type="target" />
+      <Handle className="hidden" position={Position.Bottom} type="source" />
     </div>
   );
 }
