@@ -1,4 +1,4 @@
-import type { MinimumEdge, MinimumNode } from '#/components/Flow/utils';
+import type { MinimumEdge } from '#/components/Flow/utils';
 import { handleEdge, handleNode } from '#/components/Flow/utils';
 
 export const structureNodeId = 'structure';
@@ -7,7 +7,7 @@ export const structureParentNode = {
   id: structureNodeId,
   data: { label: 'Structure' },
   position: { x: 100, y: 100 },
-  // Must be defined using style directly on the node
+  // Must be defined using style directly on the node, apparently?
   style: {
     width: 1000,
     height: 650,
@@ -17,7 +17,7 @@ export const structureParentNode = {
   type: 'group',
 };
 
-const rawStructureNodes: readonly MinimumNode[] = [
+const rawStructureNodes = [
   {
     data: { label: 'Root' },
     type: 'unlinked',
@@ -114,24 +114,24 @@ export const structureNodes = rawStructureNodes.map((node) =>
 const rawStructureEdges: MinimumEdge<
   typeof rawStructureNodes[number]['data']['label']
 >[] = [
-  { source: 'Monorepo managers', target: 'Nx' },
-  { source: 'Monorepo managers', target: 'Turborepo' },
-  { source: 'Package managers', target: 'Dependency management' },
-  { source: 'Package managers', target: 'pnpm' },
-  { source: 'Package managers', target: 'npm' },
-  { source: 'Package managers', target: 'yarn' },
-  { source: 'Package managers', target: 'Workspaces' },
-  { source: 'Dependency management', target: 'manypkg' },
-  { source: 'Dependency management', target: 'syncpack' },
-  { source: 'Tasks', target: 'turbo.json' },
-  { source: 'Turborepo', target: 'turbo.json' },
-  { source: 'Workspaces', target: 'Packages' },
-  { source: 'Workspaces', target: 'Applications' },
-  { source: 'Nx', target: 'nx.json' },
-  { source: 'nx.json', target: 'Tasks' },
-  { source: 'Tasks', target: 'Packages' },
-  { source: 'Tasks', target: 'Applications' },
-];
+    { source: 'Monorepo managers', target: 'Nx' },
+    { source: 'Monorepo managers', target: 'Turborepo' },
+    { source: 'Package managers', target: 'Dependency management' },
+    { source: 'Package managers', target: 'pnpm' },
+    { source: 'Package managers', target: 'npm' },
+    { source: 'Package managers', target: 'yarn' },
+    { source: 'Package managers', target: 'Workspaces' },
+    { source: 'Dependency management', target: 'manypkg' },
+    { source: 'Dependency management', target: 'syncpack' },
+    { source: 'Tasks', target: 'turbo.json' },
+    { source: 'Turborepo', target: 'turbo.json' },
+    { source: 'Workspaces', target: 'Packages' },
+    { source: 'Workspaces', target: 'Applications' },
+    { source: 'Nx', target: 'nx.json' },
+    { source: 'nx.json', target: 'Tasks' },
+    { source: 'Tasks', target: 'Packages' },
+    { source: 'Tasks', target: 'Applications' },
+  ];
 
 export const structureEdges = rawStructureEdges.map((edge) =>
   handleEdge(structureNodeId, edge),
