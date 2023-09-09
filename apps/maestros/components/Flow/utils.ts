@@ -1,6 +1,6 @@
 import { Position, MarkerType } from 'reactflow';
 import type { Edge, Node } from 'reactflow';
-import { GroupNode, LinkedNode, UnlinkedNode } from '#/components/Flow/nodes';
+import { GroupNode, ContentNode } from '#/components/Flow/nodes';
 import { CustomEdge } from '#/components/Flow/edges';
 
 interface RequiredEdgeKeys<T extends string> {
@@ -40,15 +40,15 @@ export const handleNode = (
 ) => ({
   ...node,
   id: `${parentNodeId}-${node.data.label}`,
-  data: { label: node.data.label },
+  data: { ...node.data },
+  type: "content",
   parentNode: parentNodeId,
   extent: 'parent',
 });
 
 export const nodeTypes = {
   group: GroupNode,
-  linked: LinkedNode,
-  unlinked: UnlinkedNode,
+  content: ContentNode,
 };
 
 // this helper function returns the intersection point

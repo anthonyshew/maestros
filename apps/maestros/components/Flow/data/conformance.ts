@@ -21,42 +21,42 @@ export const conformanceParentNode = {
 export const rawConformanceNodes = [
   {
     data: { label: 'Guardrails' },
-    type: 'unlinked',
+
     position: { x: 200, y: 130 },
   },
   {
     data: { label: 'TypeScript' },
-    type: 'unlinked',
+
     position: { x: 110, y: 270 },
   },
   {
     data: { label: 'Prettier' },
-    type: 'unlinked',
+
     position: { x: 350, y: 270 },
   },
   {
     data: { label: 'ESLint' },
-    type: 'unlinked',
+
     position: { x: 240, y: 270 },
   },
   {
     data: { label: 'ts-eslint' },
-    type: 'unlinked',
+
     position: { x: 320, y: 400 },
   },
   {
     data: { label: '.npmrc' },
-    type: 'unlinked',
+
     position: { x: 355, y: 50 },
   },
   {
     data: { label: 'Precommit hooks' },
-    type: 'unlinked',
+
     position: { x: 375, y: 120 },
   },
   {
     data: { label: '.editorconfig' },
-    type: 'unlinked',
+
     position: { x: 420, y: 190 },
   },
 ] as const;

@@ -22,37 +22,37 @@ export const ciParentNode = {
 export const rawCiNodes = [
   {
     data: { label: 'Remote Cache' },
-    type: 'unlinked',
+
     position: { x: 260, y: 130 },
   },
   {
     data: { label: 'Vercel' },
-    type: 'unlinked',
+
     position: { x: 70, y: 200 },
   },
   {
     data: { label: 'CircleCI' },
-    type: 'unlinked',
+
     position: { x: 420, y: 250 },
   },
   {
     data: { label: 'Docker' },
-    type: 'unlinked',
+
     position: { x: 310, y: 300 },
   },
   {
     data: { label: 'GitHub Actions' },
-    type: 'unlinked',
+
     position: { x: 120, y: 270 },
   },
   {
     data: { label: 'Jenkins' },
-    type: 'unlinked',
+
     position: { x: 480, y: 170 },
   },
   {
     data: { label: 'E2E Testing' },
-    type: 'unlinked',
+
     position: { x: 120, y: 350 },
   },
 ] as const;

@@ -1,7 +1,10 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/no-explicit-any -- Don't feel like dealing with the anys in Record */
+import type { Url } from 'node:url';
 import React, { memo } from 'react';
 import { Handle, Position } from 'reactflow';
+import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 function _GroupNode({ data }: { data: Record<string, any> }) {
   return (
@@ -14,29 +17,25 @@ function _GroupNode({ data }: { data: Record<string, any> }) {
     </div>
   );
 }
-function _LinkedNode({ data }: { data: Record<string, any> }) {
+
+function _ContentNode({ data }: { data: Record<string, any> }) {
+  const Component = data.href ? Link : 'div';
+
   return (
-    <div className="px-4 py-2 bg-white border-2 rounded-md shadow-md border-stone-400">
-      <div className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
-        {data.label}
+    <Component href={data.href as Url}>
+      <div className="px-4 py-2 bg-white border-2 border-yellow-500 rounded-md shadow-md dark:bg-black">
+        <div className="flex items-center justify-center font-medium text-black rounded-full dark:text-white">
+          {data.label}{' '}
+          {data.href ? (
+            <ExternalLink className="w-[10px] h-[10px] ml-2" />
+          ) : null}
+        </div>
+        <Handle className="hidden" position={Position.Top} type="target" />
+        <Handle className="hidden" position={Position.Bottom} type="source" />
       </div>
-      <Handle className="hidden" position={Position.Top} type="target" />
-      <Handle className="hidden" position={Position.Bottom} type="source" />
-    </div>
-  );
-}
-function _UnlinkedNode({ data }: { data: Record<string, any> }) {
-  return (
-    <div className="px-4 py-2 bg-white border-2 border-yellow-500 rounded-md shadow-md dark:bg-black">
-      <div className="flex items-center justify-center font-medium text-black rounded-full dark:text-white">
-        {data.label}
-      </div>
-      <Handle className="hidden" position={Position.Top} type="target" />
-      <Handle className="hidden" position={Position.Bottom} type="source" />
-    </div>
+    </Component>
   );
 }
 
 export const GroupNode = memo(_GroupNode);
-export const LinkedNode = memo(_LinkedNode);
-export const UnlinkedNode = memo(_UnlinkedNode);
+export const ContentNode = memo(_ContentNode);

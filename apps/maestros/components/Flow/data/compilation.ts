@@ -22,77 +22,77 @@ export const compilationParentNode = {
 export const rawCompilationNodes = [
   {
     data: { label: 'Bundlers' },
-    type: 'unlinked',
+
     position: { x: 540, y: 90 },
   },
   {
     data: { label: 'Module Systems' },
-    type: 'unlinked',
+
     position: { x: 670, y: 300 },
   },
   {
     data: { label: 'ESM' },
-    type: 'unlinked',
+
     position: { x: 760, y: 430 },
   },
   {
     data: { label: 'CJS' },
-    type: 'unlinked',
+
     position: { x: 855, y: 400 },
   },
   {
     data: { label: 'tsconfig.json' },
-    type: 'unlinked',
+
     position: { x: 790, y: 100 },
   },
   {
     data: { label: 'tsc' },
-    type: 'unlinked',
+
     position: { x: 700, y: 60 },
   },
   {
     data: { label: 'tsup' },
-    type: 'unlinked',
+
     position: { x: 820, y: 165 },
   },
   {
     data: { label: 'Rollup' },
-    type: 'unlinked',
+
     position: { x: 760, y: 225 },
   },
   {
     data: { label: 'Strategy' },
-    type: 'unlinked',
+
     position: { x: 190, y: 140 },
   },
   {
     data: { label: 'External Packages' },
-    type: 'unlinked',
+
     position: { x: 50, y: 240 },
   },
   {
     data: { label: 'Just-in-Time Packages' },
-    type: 'unlinked',
+
     position: { x: 140, y: 330 },
   },
   {
     data: { label: 'Compiled Packages' },
-    type: 'unlinked',
+
     position: { x: 270, y: 260 },
   },
   {
     data: { label: 'Entrypoints' },
-    type: 'unlinked',
+
     position: { x: 500, y: 270 },
   },
   {
     data: { label: 'Single Entrypoint' },
-    type: 'unlinked',
+
     position: { x: 350, y: 400 },
   },
   {
     data: { label: 'Multiple Entrypoint' },
-    type: 'unlinked',
+
     position: { x: 550, y: 400 },
   },
 ] as const;
