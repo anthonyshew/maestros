@@ -1,5 +1,20 @@
 import 'reactflow/dist/style.css';
+import type { Metadata } from 'next';
 import { Flow } from '#/components/Flow';
+import { metadataBaseURI, buildMeta } from '#/app/metadata';
+
+export const generateMetadata = (): Metadata => {
+  const title = `Mind Map - Monorepo Maestros`;
+  const description = 'Your roadmap to monorepo mastery';
+
+  return buildMeta({
+    title,
+    description,
+    ogImage: encodeURI(
+      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+    ),
+  });
+};
 
 function MindMap() {
   return (
