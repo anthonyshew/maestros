@@ -5,10 +5,10 @@ import { handleEdge, handleNode } from '#/components/Flow/utils';
 
 export const compilationNodeId = 'compilation';
 
-export const compliationParentNode = {
+export const compilationParentNode = {
   id: compilationNodeId,
   data: { label: 'Compilation' },
-  position: { x: 300, y: 800 },
+  position: { x: 600, y: 800 },
   // Must be defined using style directly on the node
   style: {
     width: 1000,
@@ -19,7 +19,7 @@ export const compliationParentNode = {
   type: 'group',
 };
 
-const rawCompilationNodes = [
+export const rawCompilationNodes = [
   {
     data: { label: 'Bundlers' },
     type: 'unlinked',

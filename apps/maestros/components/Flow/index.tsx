@@ -17,9 +17,13 @@ import {
   conformanceParentNode,
   conformanceNodes,
   conformanceEdges,
-  compliationParentNode,
+  compilationParentNode,
   compilationNodes,
   compilationEdges,
+  ciParentNode,
+  ciNodes,
+  ciEdges,
+  intergroupEdges,
 } from '#/components/Flow/data';
 
 const initialNodes = [
@@ -27,14 +31,18 @@ const initialNodes = [
   ...structureNodes,
   conformanceParentNode,
   ...conformanceNodes,
-  compliationParentNode,
+  compilationParentNode,
   ...compilationNodes,
+  ciParentNode,
+  ...ciNodes,
 ];
 
 const initialEdges = [
   ...structureEdges,
   ...conformanceEdges,
   ...compilationEdges,
+  ...ciEdges,
+  ...intergroupEdges,
 ];
 
 export function Flow() {

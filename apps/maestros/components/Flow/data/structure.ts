@@ -17,7 +17,7 @@ export const structureParentNode = {
   type: 'group',
 };
 
-const rawStructureNodes = [
+export const rawStructureNodes = [
   {
     data: { label: 'Root' },
     type: 'unlinked',
@@ -88,7 +88,7 @@ const rawStructureNodes = [
   {
     data: { label: 'Monorepo managers' },
     type: 'unlinked',
-    position: { x: 160, y: 450 },
+    position: { x: 160, y: 500 },
   },
   {
     data: { label: 'Turborepo' },

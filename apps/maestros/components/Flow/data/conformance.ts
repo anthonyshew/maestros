@@ -7,7 +7,7 @@ export const conformanceNodeId = 'conformance';
 export const conformanceParentNode = {
   id: conformanceNodeId,
   data: { label: 'Conformance' },
-  position: { x: 1200, y: 280 },
+  position: { x: 1200, y: 180 },
   // Must be defined using style directly on the node
   style: {
     width: 760,
@@ -18,7 +18,7 @@ export const conformanceParentNode = {
   type: 'group',
 };
 
-const rawConformanceNodes = [
+export const rawConformanceNodes = [
   {
     data: { label: 'Guardrails' },
     type: 'unlinked',
