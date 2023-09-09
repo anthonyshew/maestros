@@ -14,11 +14,19 @@ import {
   structureNodes,
   structureEdges,
   structureParentNode,
+  conformanceParentNode,
+  conformanceNodes,
+  conformanceEdges,
 } from '#/components/Flow/data';
 
-const initialNodes = [structureParentNode, ...structureNodes];
+const initialNodes = [
+  structureParentNode,
+  ...structureNodes,
+  conformanceParentNode,
+  ...conformanceNodes,
+];
 
-const initialEdges = [...structureEdges];
+const initialEdges = [...structureEdges, ...conformanceEdges];
 
 export function Flow() {
   const [nodes, _setNodes, onNodesChange] = useNodesState(

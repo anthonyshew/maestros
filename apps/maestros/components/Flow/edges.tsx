@@ -25,7 +25,7 @@ export function CustomEdge({
   }
 
   const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(
-    // @ts-expect-error Don't care right now.
+    // @ts-expect-error Don't care, we shippin'.
     sourceNode,
     targetNode,
   );
