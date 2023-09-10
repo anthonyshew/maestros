@@ -51,7 +51,7 @@ const baseMetadata: Metadata = {
 interface BuildMetaParams {
   title: string;
   description?: string;
-  ogImage?: NonNullable<NonNullable<Metadata['openGraph']>['images']>;
+  ogImage?: string;
 }
 
 export const buildMeta = ({
@@ -60,13 +60,21 @@ export const buildMeta = ({
   ogImage,
 }: BuildMetaParams): Metadata => {
   if (baseMetadata.openGraph) {
-    if (ogImage) baseMetadata.openGraph.images = ogImage;
-    if (description) baseMetadata.openGraph.images = description;
+    if (ogImage) baseMetadata.openGraph.images = [{
+      url: ogImage,
+      width: 1920,
+      height: 1080,
+    }];
+    if (description) baseMetadata.openGraph.description = description;
   }
 
   if (baseMetadata.twitter) {
-    if (ogImage) baseMetadata.twitter.images = ogImage;
-    if (description) baseMetadata.twitter.images = description;
+    if (ogImage) baseMetadata.twitter.images = [{
+      url: ogImage,
+      width: 1920,
+      height: 1080,
+    }];
+    if (description) baseMetadata.twitter.description = description;
     if (title) baseMetadata.twitter.title = title;
   }
 
@@ -78,5 +86,6 @@ export const buildMeta = ({
     baseMetadata.title = title;
   }
 
+  console.log(baseMetadata)
   return baseMetadata;
 };
