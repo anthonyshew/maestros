@@ -52,7 +52,7 @@ function Page({ params }: { params: { slug: string[] } }) {
     .filter((line) => line.startsWith('#'));
 
   return (
-    <>
+    <main className="relative flex flex-row justify-start overflow-x-hidden flex-auto h-[calc(100vh-3.5rem)] px-8 pt-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
       <div className="w-full prose lg:prose-lg md:max-w-md lg:max-w-lg xl:max-w-3xl dark:prose-invert">
         <Callout bold className="mb-10" type="warning">
           This is an alpha, sneak peek of Monorepo Maestros. For this iteration,
@@ -86,7 +86,7 @@ function Page({ params }: { params: { slug: string[] } }) {
           })}
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

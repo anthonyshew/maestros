@@ -18,7 +18,7 @@ export const generateMetadata = () => {
 
 function Page() {
   return (
-    <>
+    <main className="relative flex flex-row justify-start overflow-x-hidden flex-auto h-[calc(100vh-3.5rem)] px-8 pt-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
       <div className="absolute top-0 left-0 right-0 z-0 aspect-square">
         <Image
           alt="Cover art for Monorepo Maestros"
@@ -153,7 +153,7 @@ function Page() {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

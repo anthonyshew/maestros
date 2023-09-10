@@ -32,6 +32,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-wrap-balancer": "^0.4.1",
+    "reactflow": "^11.8.3",
     "rehype-mdx-code-props": "^1.0.0",
     "spellchecker-cli": "^6.1.1",
     "tailwind-merge": "^1.13.2",
