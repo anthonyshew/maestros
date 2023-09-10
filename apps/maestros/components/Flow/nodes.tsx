@@ -27,7 +27,7 @@ function _ContentNode({ data }: { data: Record<string, any> }) {
         <div className="flex items-center justify-center font-medium text-black rounded-full dark:text-white">
           {data.label}{' '}
           {data.href ? (
-            <ExternalLink className="w-[10px] h-[10px] ml-2" />
+            <ExternalLink className="w-[14px] h-[14px] ml-2" />
           ) : null}
         </div>
         <Handle className="hidden" position={Position.Top} type="target" />

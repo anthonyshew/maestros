@@ -20,43 +20,35 @@ export const conformanceParentNode = {
 
 export const rawConformanceNodes = [
   {
-    data: { label: 'Guardrails' },
-
+    data: { label: 'Guardrails', href: "/monorepos/guardrails" },
     position: { x: 200, y: 130 },
   },
   {
-    data: { label: 'TypeScript' },
-
-    position: { x: 110, y: 270 },
+    data: { label: 'TypeScript', href: "/monorepos/guardrails/typescript" },
+    position: { x: 75, y: 270 },
   },
   {
-    data: { label: 'Prettier' },
-
-    position: { x: 350, y: 270 },
+    data: { label: 'Prettier', href: "/monorepos/guardrails/prettier" },
+    position: { x: 370, y: 270 },
   },
   {
-    data: { label: 'ESLint' },
-
+    data: { label: 'ESLint', href: "/monorepos/guardrails/eslint" },
     position: { x: 240, y: 270 },
   },
   {
-    data: { label: 'ts-eslint' },
-
+    data: { label: 'ts-eslint', href: "/monorepos/guardrails/ts-eslint" },
     position: { x: 320, y: 400 },
   },
   {
     data: { label: '.npmrc' },
-
     position: { x: 355, y: 50 },
   },
   {
     data: { label: 'Precommit hooks' },
-
     position: { x: 375, y: 120 },
   },
   {
     data: { label: '.editorconfig' },
-
     position: { x: 420, y: 190 },
   },
 ] as const;

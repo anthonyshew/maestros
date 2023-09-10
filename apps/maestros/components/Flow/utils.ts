@@ -31,7 +31,6 @@ export interface MinimumNode extends Omit<Node, 'id' | 'type'> {
   id?: string;
   data: { label: string };
   position: Node['position'];
-  type: NodeTypes;
 }
 
 export const handleNode = (

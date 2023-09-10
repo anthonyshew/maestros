@@ -20,89 +20,71 @@ export const structureParentNode = {
 export const rawStructureNodes = [
   {
     data: { label: 'Root', href: "/monorepos/basics/root" },
-
     position: { x: 150, y: 150 },
   },
   {
-    data: { label: 'Package managers' },
-
+    data: { label: 'Package managers', href: "/monorepos/package-managers" },
     position: { x: 700, y: 110 },
   },
   {
     data: { label: 'Dependency management' },
-
     position: { x: 170, y: 250 },
   },
   {
-    data: { label: 'npm' },
-
+    data: { label: 'npm', href: "/monorepos/package-managers/npm" },
     position: { x: 480, y: 230 },
   },
   {
-    data: { label: 'yarn' },
-
+    data: { label: 'yarn', href: "/monorepos/package-managers/yarn" },
     position: { x: 510, y: 300 },
   },
   {
-    data: { label: 'pnpm' },
-
-    position: { x: 600, y: 300 },
+    data: { label: 'pnpm', href: "/monorepos/package-managers/pnpm" },
+    position: { x: 620, y: 300 },
   },
   {
-    data: { label: 'Workspaces' },
-
+    data: { label: 'Workspaces', href: "/monorepos/basics/workspaces" },
     position: { x: 750, y: 325 },
   },
   {
-    data: { label: 'Applications' },
-
+    data: { label: 'Applications', href: "/monorepos/basics/workspaces#apps" },
     position: { x: 770, y: 400 },
   },
 
   {
-    data: { label: 'Packages' },
-
+    data: { label: 'Packages', href: "/monorepos/basics/workspaces#packages" },
     position: { x: 620, y: 400 },
   },
-
   {
     data: { label: 'manypkg' },
-
     position: { x: 130, y: 350 },
   },
   {
     data: { label: 'syncpack' },
-
     position: { x: 275, y: 350 },
   },
   {
     data: { label: 'Tasks' },
-
     position: { x: 750, y: 500 },
   },
   {
     data: { label: 'turbo.json' },
-
     position: { x: 550, y: 470 },
   },
   {
     data: { label: 'Monorepo managers' },
-
     position: { x: 160, y: 500 },
   },
   {
     data: { label: 'Turborepo' },
-
     position: { x: 400, y: 470 },
   },
   {
     data: { label: 'Nx' },
-
     position: { x: 428, y: 530 },
   },
   {
     data: { label: 'nx.json' },
-    type: "content",
     position: { x: 562, y: 530 },
   },
 ] as const;
