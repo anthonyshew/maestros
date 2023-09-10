@@ -41,7 +41,7 @@ export function CustomEdge({
 
   return (
     <path
-      className="react-flow__edge-path"
+      className="react-flow__edge-path nodrag"
       d={edgePath}
       id={id}
       markerEnd={markerEnd}

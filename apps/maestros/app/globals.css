@@ -76,3 +76,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.react-flow__node-group {
+  padding: 0 !important;
+}

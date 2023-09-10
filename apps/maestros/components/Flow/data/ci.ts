@@ -6,11 +6,11 @@ export const ciNodeId = 'ci';
 export const ciParentNode = {
   id: ciNodeId,
   data: { label: 'CI' },
-  position: { x: 100, y: 850 },
+  position: { x: 75, y: 637.5 },
   // Must be defined using style directly on the node
   style: {
-    width: 640,
-    height: 450,
+    width: 480,
+    height: 337.5,
     background: 'transparent',
     border: 'none',
   },
@@ -20,38 +20,31 @@ export const ciParentNode = {
 export const rawCiNodes = [
   {
     data: { label: 'Remote Cache' },
-
-    position: { x: 260, y: 130 },
+    position: { x: 195, y: 97.5 },
   },
   {
     data: { label: 'Vercel' },
-
-    position: { x: 70, y: 200 },
+    position: { x: 52.5, y: 150 },
   },
   {
     data: { label: 'CircleCI' },
-
-    position: { x: 420, y: 250 },
+    position: { x: 315, y: 187.5 },
   },
   {
     data: { label: 'Docker' },
-
-    position: { x: 310, y: 300 },
+    position: { x: 232.5, y: 225 },
   },
   {
     data: { label: 'GitHub Actions' },
-
-    position: { x: 120, y: 270 },
+    position: { x: 90, y: 202.5 },
   },
   {
     data: { label: 'Jenkins' },
-
-    position: { x: 480, y: 170 },
+    position: { x: 360, y: 127.5 },
   },
   {
     data: { label: 'E2E Testing' },
-
-    position: { x: 120, y: 350 },
+    position: { x: 90, y: 262.5 },
   },
 ] as const;
 

@@ -6,7 +6,6 @@ import {
   Background,
   useNodesState,
   useEdgesState,
-  // MiniMap,
   Controls,
 } from 'reactflow';
 import { nodeTypes, edgeTypes } from '#/components/Flow/utils';
@@ -53,16 +52,15 @@ export function Flow() {
 
   return (
     <ReactFlow
+      defaultViewport={{ x: 250, y: 250, zoom: 0.5 }}
       edgeTypes={edgeTypes as EdgeTypes}
       edges={edges}
       fitView
       nodeTypes={nodeTypes}
       nodes={nodes}
-      // onConnect={onConnect}
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
     >
-      {/* <MiniMap /> */}
       <Controls />
       <Background />
     </ReactFlow>
