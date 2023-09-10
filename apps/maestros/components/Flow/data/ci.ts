@@ -47,6 +47,10 @@ export const rawCiNodes = [
     data: { label: 'E2E Testing' },
     position: { x: 90, y: 212.5 },
   },
+  {
+    data: { label: 'Changesets' },
+    position: { x: 320, y: 222.5 },
+  },
 ] as const;
 
 export const ciNodes = rawCiNodes.map((node) => handleNode(ciNodeId, node));
