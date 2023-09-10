@@ -13,7 +13,7 @@ export const conformanceParentNode = {
     height: 382.5,
     background: 'transparent',
     border: 'none',
-    pointerEvents: "none"
+    pointerEvents: 'none',
   },
   type: 'group',
 };
@@ -60,12 +60,12 @@ export const conformanceNodes = rawConformanceNodes.map((node) =>
 const rawConformanceEdges: MinimumEdge<
   typeof rawConformanceNodes[number]['data']['label']
 >[] = [
-    { source: 'Guardrails', target: 'TypeScript' },
-    { source: 'Guardrails', target: 'Prettier' },
-    { source: 'Guardrails', target: 'ESLint' },
-    { source: 'TypeScript', target: 'ts-eslint' },
-    { source: 'ESLint', target: 'ts-eslint' },
-  ];
+  { source: 'Guardrails', target: 'TypeScript' },
+  { source: 'Guardrails', target: 'Prettier' },
+  { source: 'Guardrails', target: 'ESLint' },
+  { source: 'TypeScript', target: 'ts-eslint' },
+  { source: 'ESLint', target: 'ts-eslint' },
+];
 
 export const conformanceEdges = rawConformanceEdges.map((edge) =>
   handleEdge(conformanceNodeId, edge),

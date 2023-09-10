@@ -13,7 +13,7 @@ export const ciParentNode = {
     height: 285,
     background: 'transparent',
     border: 'none',
-    pointerEvents: "none"
+    pointerEvents: 'none',
   },
   type: 'group',
 };

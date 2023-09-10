@@ -13,7 +13,7 @@ export const compilationParentNode = {
     height: 397.5,
     background: 'transparent',
     border: 'none',
-    pointerEvents: "none"
+    pointerEvents: 'none',
   },
   type: 'group',
 };
@@ -91,23 +91,23 @@ export const compilationNodes = rawCompilationNodes.map((node) =>
 const rawCompilationEdges: MinimumEdge<
   typeof rawCompilationNodes[number]['data']['label']
 >[] = [
-    { source: 'Bundlers', target: 'tsc' },
-    { source: 'Bundlers', target: 'tsup' },
-    { source: 'Bundlers', target: 'Rollup' },
-    { source: 'Bundlers', target: 'tsconfig.json' },
-    { source: 'Bundlers', target: 'Packaging strategy' },
-    { source: 'Bundlers', target: 'Module Systems' },
-    { source: 'Bundlers', target: 'Entrypoints' },
-    { source: 'Module Systems', target: 'ESM' },
-    { source: 'Module Systems', target: 'CJS' },
-    { source: 'Packaging strategy', target: 'Just-in-Time Packages' },
-    { source: 'Packaging strategy', target: 'Internal Packages' },
-    { source: 'Packaging strategy', target: 'External Packages' },
-    { source: 'Packaging strategy', target: 'Entrypoints' },
-    { source: 'Packaging strategy', target: 'Module Systems' },
-    { source: 'Entrypoints', target: 'Single Entrypoint' },
-    { source: 'Entrypoints', target: 'Multiple Entrypoint' },
-  ];
+  { source: 'Bundlers', target: 'tsc' },
+  { source: 'Bundlers', target: 'tsup' },
+  { source: 'Bundlers', target: 'Rollup' },
+  { source: 'Bundlers', target: 'tsconfig.json' },
+  { source: 'Bundlers', target: 'Packaging strategy' },
+  { source: 'Bundlers', target: 'Module Systems' },
+  { source: 'Bundlers', target: 'Entrypoints' },
+  { source: 'Module Systems', target: 'ESM' },
+  { source: 'Module Systems', target: 'CJS' },
+  { source: 'Packaging strategy', target: 'Just-in-Time Packages' },
+  { source: 'Packaging strategy', target: 'Internal Packages' },
+  { source: 'Packaging strategy', target: 'External Packages' },
+  { source: 'Packaging strategy', target: 'Entrypoints' },
+  { source: 'Packaging strategy', target: 'Module Systems' },
+  { source: 'Entrypoints', target: 'Single Entrypoint' },
+  { source: 'Entrypoints', target: 'Multiple Entrypoint' },
+];
 
 export const compilationEdges = rawCompilationEdges.map((edge) =>
   handleEdge(compilationNodeId, edge),
