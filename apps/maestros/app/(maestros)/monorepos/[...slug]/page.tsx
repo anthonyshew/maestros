@@ -26,11 +26,6 @@ export const generateMetadata = ({
 
   const title = content.ogTitle ?? content.title;
 
-  console.log(
-    encodeURI(
-      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
-    ),
-  );
   return buildMeta({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
