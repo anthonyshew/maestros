@@ -1,0 +1,18 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "dev:viz": {
+      "dependsOn": ["@repo/db#generate"],
+      "persistent": true,
+      "cache": false
+    },
+    "build:viz": {
+      "dependsOn": ["^build", "^generate"],
+      "outputs": [".next/**", "dist/**"]
+    },
+    "start:viz": {
+      "dependsOn": ["build:viz"],
+      "cache": false
+    }
+  }
+}
