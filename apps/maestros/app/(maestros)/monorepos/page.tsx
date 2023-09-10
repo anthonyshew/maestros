@@ -6,13 +6,9 @@ export const generateMetadata = () => {
   buildMeta({
     title: 'Monorepo Maestros',
     description: 'Are you ready to conduct the monorepo orchestra?',
-    ogImage: {
-      url: encodeURI(
-        `${metadataBaseURI}/monorepos/api/og?title=Monorepo Maestros`,
-      ),
-      width: 1920,
-      height: 1080,
-    },
+    ogImage: encodeURI(
+      `${metadataBaseURI}/monorepos/api/og?title=Monorepo Maestros`,
+    ),
   });
 };
 

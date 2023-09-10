@@ -66,7 +66,7 @@ function Page({ params }: { params: { slug: string[] } }) {
         {/* @ts-expect-error Don't care, we shippin'! */}
         <MDXContent components={mdxComponents} />
       </div>
-      <div className="sticky top-0 hidden lg:block">
+      <div className="sticky top-0 hidden xl:block">
         <div className="flex flex-col gap-2 ml-6">
           {headings.length > 0 ? <p>On this page</p> : null}
           {headings.map((rawHeading) => {
