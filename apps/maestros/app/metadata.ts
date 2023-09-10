@@ -86,6 +86,5 @@ export const buildMeta = ({
     baseMetadata.title = title;
   }
 
-  console.log(baseMetadata)
   return baseMetadata;
 };
