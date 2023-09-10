@@ -6,13 +6,14 @@ export const compilationNodeId = 'compilation';
 export const compilationParentNode = {
   id: compilationNodeId,
   data: { label: 'Compilation' },
-  position: { x: 600, y: 600 },
+  position: { x: 525, y: 525 },
   // Must be defined using style directly on the node
   style: {
     width: 750,
     height: 397.5,
     background: 'transparent',
     border: 'none',
+    pointerEvents: "none"
   },
   type: 'group',
 };
@@ -24,7 +25,7 @@ export const rawCompilationNodes = [
   },
   {
     data: { label: 'Module Systems' },
-    position: { x: 502.5, y: 225 },
+    position: { x: 507.5, y: 225 },
   },
   {
     data: { label: 'ESM' },
@@ -56,11 +57,11 @@ export const rawCompilationNodes = [
   },
   {
     data: { label: 'External Packages', href: '/monorepos/packaging/external' },
-    position: { x: 30, y: 180 },
+    position: { x: 15, y: 180 },
   },
   {
     data: { label: 'Just-in-Time Packages', href: '/monorepos/packaging/jit' },
-    position: { x: 90, y: 247.5 },
+    position: { x: 80, y: 247.5 },
   },
   {
     data: { label: 'Internal Packages', href: '/monorepos/packaging/internal' },
@@ -68,7 +69,7 @@ export const rawCompilationNodes = [
   },
   {
     data: { label: 'Entrypoints' },
-    position: { x: 375, y: 202.5 },
+    position: { x: 380, y: 207.5 },
   },
   {
     data: { label: 'Single Entrypoint' },

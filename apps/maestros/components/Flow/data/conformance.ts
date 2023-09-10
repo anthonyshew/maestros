@@ -6,13 +6,14 @@ export const conformanceNodeId = 'conformance';
 export const conformanceParentNode = {
   id: conformanceNodeId,
   data: { label: 'Conformance' },
-  position: { x: 825, y: 135 },
+  position: { x: 805, y: 75 },
   // Must be defined using style directly on the node
   style: {
     width: 487.5,
     height: 382.5,
     background: 'transparent',
     border: 'none',
+    pointerEvents: "none"
   },
   type: 'group',
 };
@@ -24,11 +25,11 @@ export const rawConformanceNodes = [
   },
   {
     data: { label: 'TypeScript', href: '/monorepos/guardrails/typescript' },
-    position: { x: 56.25, y: 202.5 },
+    position: { x: 40.25, y: 202.5 },
   },
   {
     data: { label: 'Prettier', href: '/monorepos/guardrails/prettier' },
-    position: { x: 277.5, y: 202.5 },
+    position: { x: 287.5, y: 202.5 },
   },
   {
     data: { label: 'ESLint', href: '/monorepos/guardrails/eslint' },
@@ -40,15 +41,15 @@ export const rawConformanceNodes = [
   },
   {
     data: { label: '.npmrc' },
-    position: { x: 266.25, y: 37.5 },
+    position: { x: 276.25, y: 37.5 },
   },
   {
     data: { label: 'Precommit hooks' },
-    position: { x: 281.25, y: 90 },
+    position: { x: 291.25, y: 90 },
   },
   {
     data: { label: '.editorconfig' },
-    position: { x: 315, y: 142.5 },
+    position: { x: 330, y: 142.5 },
   },
 ] as const;
 

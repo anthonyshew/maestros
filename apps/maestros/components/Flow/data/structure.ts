@@ -13,6 +13,7 @@ export const structureParentNode = {
     height: 487.5,
     background: 'transparent',
     border: 'none',
+    pointerEvents: "none"
   },
   type: 'group',
 };
@@ -20,35 +21,35 @@ export const structureParentNode = {
 export const rawStructureNodes = [
   {
     data: { label: 'Root', href: '/monorepos/basics/root' },
-    position: { x: 112.5, y: 112.5 },
+    position: { x: 112.5, y: 92.5 },
   },
   {
     data: { label: 'Package managers', href: '/monorepos/package-managers' },
-    position: { x: 525, y: 82.5 },
+    position: { x: 525, y: 72.5 },
   },
   {
     data: { label: 'Dependency management' },
-    position: { x: 127.5, y: 187.5 },
+    position: { x: 127.5, y: 167.5 },
   },
   {
     data: { label: 'npm', href: '/monorepos/package-managers/npm' },
-    position: { x: 360, y: 172.5 },
+    position: { x: 350, y: 172.5 },
   },
   {
     data: { label: 'yarn', href: '/monorepos/package-managers/yarn' },
-    position: { x: 382.5, y: 225 },
+    position: { x: 367.5, y: 245 },
   },
   {
     data: { label: 'pnpm', href: '/monorepos/package-managers/pnpm' },
-    position: { x: 465, y: 225 },
+    position: { x: 465, y: 205 },
   },
   {
     data: { label: 'Workspaces', href: '/monorepos/basics/workspaces' },
-    position: { x: 562.5, y: 243.75 },
+    position: { x: 572.5, y: 243.75 },
   },
   {
     data: { label: 'Applications', href: '/monorepos/basics/workspaces#apps' },
-    position: { x: 577.5, y: 300 },
+    position: { x: 592.5, y: 300 },
   },
 
   {
