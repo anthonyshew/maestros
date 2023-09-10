@@ -1,5 +1,3 @@
-
-
 import type { MinimumEdge } from '#/components/Flow/utils';
 import { handleEdge, handleNode } from '#/components/Flow/utils';
 
@@ -57,20 +55,14 @@ export const rawCiNodes = [
   },
 ] as const;
 
-export const ciNodes = rawCiNodes.map((node) =>
-  handleNode(ciNodeId, node),
-);
+export const ciNodes = rawCiNodes.map((node) => handleNode(ciNodeId, node));
 
-const rawCiEdges: MinimumEdge<
-  typeof rawCiNodes[number]['data']['label']
->[] = [
-    { source: 'Remote Cache', target: 'Jenkins' },
-    { source: 'Remote Cache', target: 'CircleCI' },
-    { source: 'Remote Cache', target: 'Docker' },
-    { source: 'Remote Cache', target: 'GitHub Actions' },
-    { source: 'Remote Cache', target: 'Vercel' },
-  ];
+const rawCiEdges: MinimumEdge<typeof rawCiNodes[number]['data']['label']>[] = [
+  { source: 'Remote Cache', target: 'Jenkins' },
+  { source: 'Remote Cache', target: 'CircleCI' },
+  { source: 'Remote Cache', target: 'Docker' },
+  { source: 'Remote Cache', target: 'GitHub Actions' },
+  { source: 'Remote Cache', target: 'Vercel' },
+];
 
-export const ciEdges = rawCiEdges.map((edge) =>
-  handleEdge(ciNodeId, edge),
-);
+export const ciEdges = rawCiEdges.map((edge) => handleEdge(ciNodeId, edge));

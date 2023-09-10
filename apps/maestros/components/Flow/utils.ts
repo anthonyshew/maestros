@@ -40,7 +40,7 @@ export const handleNode = (
   ...node,
   id: `${parentNodeId}-${node.data.label}`,
   data: { ...node.data },
-  type: "content",
+  type: 'content',
   parentNode: parentNodeId,
   extent: 'parent',
 });

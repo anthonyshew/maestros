@@ -1,4 +1,3 @@
-
 import type { MinimumEdge } from '#/components/Flow/utils';
 import { handleEdge, handleNode } from '#/components/Flow/utils';
 
@@ -20,23 +19,23 @@ export const conformanceParentNode = {
 
 export const rawConformanceNodes = [
   {
-    data: { label: 'Guardrails', href: "/monorepos/guardrails" },
+    data: { label: 'Guardrails', href: '/monorepos/guardrails' },
     position: { x: 200, y: 130 },
   },
   {
-    data: { label: 'TypeScript', href: "/monorepos/guardrails/typescript" },
+    data: { label: 'TypeScript', href: '/monorepos/guardrails/typescript' },
     position: { x: 75, y: 270 },
   },
   {
-    data: { label: 'Prettier', href: "/monorepos/guardrails/prettier" },
+    data: { label: 'Prettier', href: '/monorepos/guardrails/prettier' },
     position: { x: 370, y: 270 },
   },
   {
-    data: { label: 'ESLint', href: "/monorepos/guardrails/eslint" },
+    data: { label: 'ESLint', href: '/monorepos/guardrails/eslint' },
     position: { x: 240, y: 270 },
   },
   {
-    data: { label: 'ts-eslint', href: "/monorepos/guardrails/ts-eslint" },
+    data: { label: 'ts-eslint', href: '/monorepos/guardrails/ts-eslint' },
     position: { x: 320, y: 400 },
   },
   {
@@ -60,12 +59,12 @@ export const conformanceNodes = rawConformanceNodes.map((node) =>
 const rawConformanceEdges: MinimumEdge<
   typeof rawConformanceNodes[number]['data']['label']
 >[] = [
-    { source: 'Guardrails', target: 'TypeScript' },
-    { source: 'Guardrails', target: 'Prettier' },
-    { source: 'Guardrails', target: 'ESLint' },
-    { source: 'TypeScript', target: 'ts-eslint' },
-    { source: 'ESLint', target: 'ts-eslint' },
-  ];
+  { source: 'Guardrails', target: 'TypeScript' },
+  { source: 'Guardrails', target: 'Prettier' },
+  { source: 'Guardrails', target: 'ESLint' },
+  { source: 'TypeScript', target: 'ts-eslint' },
+  { source: 'ESLint', target: 'ts-eslint' },
+];
 
 export const conformanceEdges = rawConformanceEdges.map((edge) =>
   handleEdge(conformanceNodeId, edge),

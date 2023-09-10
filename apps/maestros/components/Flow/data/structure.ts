@@ -19,11 +19,11 @@ export const structureParentNode = {
 
 export const rawStructureNodes = [
   {
-    data: { label: 'Root', href: "/monorepos/basics/root" },
+    data: { label: 'Root', href: '/monorepos/basics/root' },
     position: { x: 150, y: 150 },
   },
   {
-    data: { label: 'Package managers', href: "/monorepos/package-managers" },
+    data: { label: 'Package managers', href: '/monorepos/package-managers' },
     position: { x: 700, y: 110 },
   },
   {
@@ -31,28 +31,28 @@ export const rawStructureNodes = [
     position: { x: 170, y: 250 },
   },
   {
-    data: { label: 'npm', href: "/monorepos/package-managers/npm" },
+    data: { label: 'npm', href: '/monorepos/package-managers/npm' },
     position: { x: 480, y: 230 },
   },
   {
-    data: { label: 'yarn', href: "/monorepos/package-managers/yarn" },
+    data: { label: 'yarn', href: '/monorepos/package-managers/yarn' },
     position: { x: 510, y: 300 },
   },
   {
-    data: { label: 'pnpm', href: "/monorepos/package-managers/pnpm" },
+    data: { label: 'pnpm', href: '/monorepos/package-managers/pnpm' },
     position: { x: 620, y: 300 },
   },
   {
-    data: { label: 'Workspaces', href: "/monorepos/basics/workspaces" },
+    data: { label: 'Workspaces', href: '/monorepos/basics/workspaces' },
     position: { x: 750, y: 325 },
   },
   {
-    data: { label: 'Applications', href: "/monorepos/basics/workspaces#apps" },
+    data: { label: 'Applications', href: '/monorepos/basics/workspaces#apps' },
     position: { x: 770, y: 400 },
   },
 
   {
-    data: { label: 'Packages', href: "/monorepos/basics/workspaces#packages" },
+    data: { label: 'Packages', href: '/monorepos/basics/workspaces#packages' },
     position: { x: 620, y: 400 },
   },
   {
@@ -96,24 +96,24 @@ export const structureNodes = rawStructureNodes.map((node) =>
 const rawStructureEdges: MinimumEdge<
   typeof rawStructureNodes[number]['data']['label']
 >[] = [
-    { source: 'Monorepo managers', target: 'Nx' },
-    { source: 'Monorepo managers', target: 'Turborepo' },
-    { source: 'Package managers', target: 'Dependency management' },
-    { source: 'Package managers', target: 'pnpm' },
-    { source: 'Package managers', target: 'npm' },
-    { source: 'Package managers', target: 'yarn' },
-    { source: 'Package managers', target: 'Workspaces' },
-    { source: 'Dependency management', target: 'manypkg' },
-    { source: 'Dependency management', target: 'syncpack' },
-    { source: 'Tasks', target: 'turbo.json' },
-    { source: 'Turborepo', target: 'turbo.json' },
-    { source: 'Workspaces', target: 'Packages' },
-    { source: 'Workspaces', target: 'Applications' },
-    { source: 'Nx', target: 'nx.json' },
-    { source: 'nx.json', target: 'Tasks' },
-    { source: 'Tasks', target: 'Packages' },
-    { source: 'Tasks', target: 'Applications' },
-  ];
+  { source: 'Monorepo managers', target: 'Nx' },
+  { source: 'Monorepo managers', target: 'Turborepo' },
+  { source: 'Package managers', target: 'Dependency management' },
+  { source: 'Package managers', target: 'pnpm' },
+  { source: 'Package managers', target: 'npm' },
+  { source: 'Package managers', target: 'yarn' },
+  { source: 'Package managers', target: 'Workspaces' },
+  { source: 'Dependency management', target: 'manypkg' },
+  { source: 'Dependency management', target: 'syncpack' },
+  { source: 'Tasks', target: 'turbo.json' },
+  { source: 'Turborepo', target: 'turbo.json' },
+  { source: 'Workspaces', target: 'Packages' },
+  { source: 'Workspaces', target: 'Applications' },
+  { source: 'Nx', target: 'nx.json' },
+  { source: 'nx.json', target: 'Tasks' },
+  { source: 'Tasks', target: 'Packages' },
+  { source: 'Tasks', target: 'Applications' },
+];
 
 export const structureEdges = rawStructureEdges.map((edge) =>
   handleEdge(structureNodeId, edge),
