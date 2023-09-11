@@ -1,24 +1,26 @@
+'use client';
+
 import 'reactflow/dist/style.css';
-import { Edge, Node } from 'reactflow';
-import { Reactflow } from './Reactflow';
-import { TurboNodeData } from './TurboNode';
+import type { Edge, Node } from 'reactflow';
+import type { GraphDirection, Turbotask } from '../utils/types';
+import { Turboflow } from './Turboflow';
+import type { TurboNodeData } from './TurboNode';
 import {
   formatTaskToNode,
   topLevelTasks,
   edgesBuilder,
   getLayoutedElements,
 } from './utils';
-import { GraphDirection, Turbotask } from '../utils/types';
 
-export const ReactFlowOuter = ({
+export function ReactFlowOuter({
   tasks,
   activeTask,
   direction,
 }: {
-  tasks: Array<Turbotask>;
+  tasks: Turbotask[];
   activeTask: string;
   direction: GraphDirection;
-}) => {
+}) {
   const initialNodes: Node<TurboNodeData>[] = [
     {
       id: '___ROOT___',
@@ -47,12 +49,12 @@ export const ReactFlowOuter = ({
   );
 
   return (
-    <Reactflow
-      direction={direction}
-      initialNodes={layoutedNodes}
-      initialEdges={layoutedEdges}
-      tasks={tasks}
+    <Turboflow
       activeTask={activeTask}
+      direction={direction}
+      initialEdges={layoutedEdges}
+      initialNodes={layoutedNodes}
+      tasks={tasks}
     />
   );
-};
+}

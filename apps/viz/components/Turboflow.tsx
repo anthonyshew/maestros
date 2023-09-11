@@ -1,20 +1,18 @@
 import { useCallback, useEffect } from 'react';
-import ReactFlow, {
-  MiniMap,
-  Node,
-  Edge,
+import type { Node, Edge, Connection } from 'reactflow';
+import {
+  ReactFlow,
   Controls,
   Background,
   useNodesState,
   useEdgesState,
   addEdge,
-  Connection,
   // useReactFlow,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import TurboNode, { TurboNodeData } from './TurboNode';
+import type { GraphDirection, Turbotask } from '../utils/types';
+import TurboNode, { type TurboNodeData } from './TurboNode';
 import TurboEdge from './TurboEdge';
-import { GraphDirection, Turbotask } from '../utils/types';
 import {
   edgesBuilder,
   formatTaskToNode,
@@ -30,7 +28,7 @@ const edgeTypes = {
   turbo: TurboEdge,
 };
 
-export function Reactflow({
+export function Turboflow({
   initialNodes,
   initialEdges,
   tasks,
@@ -128,54 +126,46 @@ export function Reactflow({
   }, [direction]);
 
   return (
-    <>
-      <ReactFlow
-        style={{ minHeight: '100vh' }}
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        nodeTypes={nodeTypes}
-        edgeTypes={edgeTypes}
-        onConnect={onConnect}
-        onNodeMouseEnter={(e) =>
-          // @ts-ignore
-          getNeighbors(e.target.id)
-        }
-        onNodeMouseLeave={() => resetDim()}
-        fitView
-      >
-        {/* <MiniMap /> */}
-        <Controls />
-        <Background />
-        <svg>
-          <defs>
-            <linearGradient id="edge-gradient">
-              <stop offset="0%" stopColor="#ae53ba" />
-              <stop offset="100%" stopColor="#2a8af6" />
-            </linearGradient>
+    <ReactFlow
+      edgeTypes={edgeTypes}
+      edges={edges}
+      fitView
+      nodeTypes={nodeTypes}
+      nodes={nodes}
+      onConnect={onConnect}
+      onEdgesChange={onEdgesChange}
+      onNodeMouseEnter={(e) =>
+        // @ts-expect-error
+        getNeighbors(e.target.id)
+      }
+      onNodeMouseLeave={() => resetDim()}
+      onNodesChange={onNodesChange}
+      style={{ minHeight: '100vh' }}
+    >
+      {/* <MiniMap /> */}
+      <Controls />
+      <Background />
+      <svg>
+        <defs>
+          <linearGradient id="edge-gradient">
+            <stop offset="0%" stopColor="#ae53ba" />
+            <stop offset="100%" stopColor="#2a8af6" />
+          </linearGradient>
 
-            <marker
-              id="edge-circle"
-              viewBox="-5 -5 10 10"
-              refX="0"
-              refY="0"
-              markerUnits="strokeWidth"
-              markerWidth="10"
-              markerHeight="10"
-              orient="auto"
-            >
-              <circle
-                stroke="#2a8af6"
-                strokeOpacity="0.75"
-                r="2"
-                cx="0"
-                cy="0"
-              />
-            </marker>
-          </defs>
-        </svg>
-      </ReactFlow>
-    </>
+          <marker
+            id="edge-circle"
+            markerHeight="10"
+            markerUnits="strokeWidth"
+            markerWidth="10"
+            orient="auto"
+            refX="0"
+            refY="0"
+            viewBox="-5 -5 10 10"
+          >
+            <circle cx="0" cy="0" r="2" stroke="#2a8af6" strokeOpacity="0.75" />
+          </marker>
+        </defs>
+      </svg>
+    </ReactFlow>
   );
 }
