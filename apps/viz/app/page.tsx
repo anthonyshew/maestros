@@ -7,10 +7,8 @@ export const dynamic = 'force-dynamic';
 
 export default function Page() {
   const graphBuffer = execSync(`cd ../.. && turbo build --dry=json`).toString();
-  // const graph = JSON.parse(graphBuffer.toString());
-
-  const graph = dry.parse(JSON.parse(graphBuffer.toString()));
-
+  const rawGraph = JSON.parse(graphBuffer.toString());
+  const graph = dry.parse(rawGraph);
   const task = graph.tasks;
 
   return (

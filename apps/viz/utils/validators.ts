@@ -12,16 +12,11 @@ export const taskConfiguration = z.object({
   persistent: z.boolean(),
 });
 
-
 export const task = z.object({
   taskId: z.string(),
   task: z.string(),
   package: z.string(),
   hash: z.string(),
-  // cacheState: z.object({
-  //   local: z.boolean(),
-  //   remote: z.boolean(),
-  // }),
   command: z.string(),
   outputs: z.array(z.string()).nullable(),
   excludedOutputs: z.array(z.string()).nullable(),
@@ -36,7 +31,6 @@ export const task = z.object({
   cliArguments: z.array(z.string()),
   environmentVariables: z.object({
     configured: z.array(z.string()),
-    // global: z.array(z.string()),
     inferred: z.array(z.string()),
   }),
   expandedOutputs: z.array(z.string()),
@@ -49,19 +43,40 @@ export const task = z.object({
 export const dry = z.object({
   id: z.string(),
   monorepo: z.boolean(),
-  globalCacheInputs: z.array(z.string()),
-  envMode: z.enum(["strict", "loose"]),
+  globalCacheInputs: z.object({
+    rootKey: z.string(),
+    files: z.record(z.string(), z.string()),
+    hashOfExternalDependencies: z.string(),
+    globalDotEnv: z.array(z.string()).nullable(),
+    environmentVariables: z.object({
+      specified: z.object({
+        env: z.array(z.string()).nullable(),
+        passThroughEnv: z.array(z.string()).nullable(),
+      }).nullable(),
+      configured: z.array(z.object({
+        env: z.array(z.string()).nullable(),
+        passThroughEnv: z.array(z.string()).nullable(),
+      })),
+      inferred: z.array(z.object({
+        env: z.array(z.string()).nullable(),
+        passThroughEnv: z.array(z.string()).nullable(),
+      })),
+      passthrough: z.object({
+        env: z.array(z.string()).nullable(),
+        passThroughEnv: z.array(z.string()).nullable(),
+      }).nullable(),
+    })
+  }),
+  envMode: z.enum(["strict", "loose", "infer"]),
   frameworkInference: z.boolean(),
   user: z.string(),
-  scm: z.string(),
+  scm: z.object({
+    type: z.enum(["git"]),
+    sha: z.string(),
+    branch: z.string()
+  }).nullable(),
   version: z.string(),
   turboVersion: z.string(),
-  // globalCacheInputs: z.object({
-  //   rootKey: z.string(),
-  //   files: z.object({}),
-  //   hashOfExternalDependencies: z.string(),
-  //   rootPipeline: z.record(taskConfiguration),
-  // }),
   packages,
   tasks: z.array(task),
 }).strict();
