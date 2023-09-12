@@ -21,7 +21,7 @@ export const task = z.object({
   outputs: z.array(z.string()).nullable(),
   excludedOutputs: z.array(z.string()).nullable(),
   logFile: z.string(),
-  directory: z.string(),
+  directory: z.string().optional(), // Optional for root tasks
   dependencies: z.array(z.string()),
   dependents: z.array(z.string()),
   cache: z.object({

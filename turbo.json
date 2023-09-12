@@ -36,7 +36,7 @@
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "lint": {
-      "dependsOn": ["^topo", "generate"],
+      "dependsOn": ["^topo", "^generate", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
     "//#lint:fix": {
@@ -45,12 +45,12 @@
       "cache": false
     },
     "lint:fix": {
-      "dependsOn": ["^topo", "generate"],
+      "dependsOn": ["^topo", "^generate", "generate"],
       "outputs": ["node_modules/.cache/.eslintcache"],
       "cache": false
     },
     "typecheck": {
-      "dependsOn": ["^topo", "generate"],
+      "dependsOn": ["^topo", "^generate", "generate"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"],
       "outputMode": "errors-only"
     },

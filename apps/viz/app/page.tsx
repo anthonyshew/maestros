@@ -6,7 +6,10 @@ import { dry } from '../utils/validators';
 export const dynamic = 'force-dynamic';
 
 export default function Page() {
-  const graphBuffer = execSync(`cd ../.. && turbo build --dry=json`).toString();
+  const taskName = 'lint';
+  const graphBuffer = execSync(
+    `cd ../.. && turbo ${taskName} --dry=json`,
+  ).toString();
   const rawGraph = JSON.parse(graphBuffer.toString());
   const graph = dry.parse(rawGraph);
   const tasks = graph.tasks.filter(
@@ -18,7 +21,7 @@ export default function Page() {
       {/* <pre className="w-screen h-screen overflow-x-hidden overflow-y-auto text-white">
         {JSON.stringify(task, null, 2)}
       </pre> */}
-      <ReactFlowOuter activeTask="build" direction="LR" tasks={tasks} />
+      <ReactFlowOuter activeTask={taskName} direction="LR" tasks={tasks} />
     </>
   );
 }
