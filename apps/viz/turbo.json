@@ -13,6 +13,7 @@
     "start:viz": {
       "dependsOn": ["build:viz"],
       "cache": false
-    }
+    },
+    "typecheck:viz": {}
   }
 }
