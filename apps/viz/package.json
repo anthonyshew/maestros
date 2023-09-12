@@ -16,10 +16,9 @@
   "scripts": {
     "build:viz": "next build",
     "dev:viz": "next dev",
-    "lint": "next lint",
+    "lint:viz": "next lint",
     "start:viz": "next start",
-    "test": "echo \"Tests go here!\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck:viz": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",

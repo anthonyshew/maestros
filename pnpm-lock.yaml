@@ -147,9 +147,6 @@ importers:
       '@radix-ui/react-select':
         specifier: ^1.2.1
         version: 1.2.1(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       class-variance-authority:
         specifier: ^0.5.2
         version: 0.5.2(typescript@5.2.2)
@@ -181,12 +178,6 @@ importers:
         specifier: ^3.2.7
         version: 3.3.2
     devDependencies:
-      '@repo/lint':
-        specifier: workspace:*
-        version: link:../../tooling/eslint-config
-      '@repo/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript-config
       '@types/node':
         specifier: 18.14.6
         version: 18.14.6

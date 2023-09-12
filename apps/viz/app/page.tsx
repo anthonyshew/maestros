@@ -13,10 +13,10 @@ export default function Page() {
 
   return (
     <>
-      <pre className="w-screen h-screen overflow-x-hidden overflow-y-auto text-white">
+      {/* <pre className="w-screen h-screen overflow-x-hidden overflow-y-auto text-white">
         {JSON.stringify(task, null, 2)}
-      </pre>
-      {/* <ReactFlowOuter activeTask="build" direction="BT" tasks={task} /> */}
+      </pre> */}
+      <ReactFlowOuter activeTask="build" direction="LR" tasks={task} />
     </>
   );
 }
