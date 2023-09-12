@@ -100,6 +100,7 @@ export const getLayoutedElements = (
   // the red-blue gradient can make the line disappear since the bounding box won't have height.
   // This sub-pixel shift makes the line visible again.
   nodes[0].position.y = nodes[0].position.y + 0.01
+  nodes[0].position.x = nodes[0].position.x + 0.01
 
   return { nodes, edges };
 };
