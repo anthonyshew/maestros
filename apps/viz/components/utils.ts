@@ -1,10 +1,10 @@
-import { Edge, Node, Position } from 'reactflow';
-import { GraphDirection, Turbotask } from '../utils/types';
-import { TurboNodeData } from './TurboNode';
-
-// dagre doesn't have types but that's okay :)
-// @ts-ignore
+import type { Edge, Node } from 'reactflow';
+import { Position } from 'reactflow';
+// @ts-expect-error dagre doesn't have types but that's okay :)
 import dagre from 'dagre';
+import type { GraphDirection, Turbotask } from '../utils/types';
+import type { TurboNodeData } from './TurboNode';
+
 
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -39,6 +39,7 @@ export const formatTaskToNode = (
   type: 'turbo',
 });
 
+
 export const topLevelTasks = (tasks: Turbotask[]) =>
   tasks.filter((task) => !task.dependents.length).map(formatTaskToNode);
 
@@ -47,18 +48,6 @@ export const getLayoutedElements = (
   edges: Edge[],
   direction: GraphDirection = 'LR',
 ) => {
-  dagreGraph.setGraph({ rankdir: direction });
-
-  nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
-  });
-
-  edges.forEach((edge) => {
-    dagreGraph.setEdge(edge.source, edge.target);
-  });
-
-  dagre.layout(dagreGraph);
-
   const handleDirection = (dir: GraphDirection): [Position, Position] => {
     if (dir === 'BT') {
       return [Position.Top, Position.Bottom];
@@ -73,6 +62,22 @@ export const getLayoutedElements = (
     }
     return [Position.Right, Position.Left];
   };
+
+  dagreGraph.setGraph({ rankdir: direction });
+
+  nodes.forEach((node) => {
+    dagreGraph.setNode(node.id, {
+      width: nodeWidth,
+      height: nodeHeight * 2,
+    });
+  });
+
+  edges.forEach((edge) => {
+    dagreGraph.setEdge(edge.source, edge.target);
+  });
+
+  dagre.layout(dagreGraph);
+
 
   nodes.forEach((node) => {
     const nodeWithPosition = dagreGraph.node(node.id);

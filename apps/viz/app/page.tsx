@@ -9,14 +9,16 @@ export default function Page() {
   const graphBuffer = execSync(`cd ../.. && turbo build --dry=json`).toString();
   const rawGraph = JSON.parse(graphBuffer.toString());
   const graph = dry.parse(rawGraph);
-  const task = graph.tasks;
+  const tasks = graph.tasks.filter(
+    (graph) => graph.command !== '<NONEXISTENT>',
+  );
 
   return (
     <>
       {/* <pre className="w-screen h-screen overflow-x-hidden overflow-y-auto text-white">
         {JSON.stringify(task, null, 2)}
       </pre> */}
-      <ReactFlowOuter activeTask="build" direction="LR" tasks={task} />
+      <ReactFlowOuter activeTask="build" direction="LR" tasks={tasks} />
     </>
   );
 }
