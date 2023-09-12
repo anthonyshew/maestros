@@ -13,12 +13,7 @@ import 'reactflow/dist/style.css';
 import type { GraphDirection, Turbotask } from '../utils/types';
 import TurboNode, { type TurboNodeData } from './TurboNode';
 import TurboEdge from './TurboEdge';
-import {
-  edgesBuilder,
-  formatTaskToNode,
-  getLayoutedElements,
-  topLevelTasks,
-} from './utils';
+import { getLayoutedElements } from './utils';
 
 const nodeTypes = {
   turbo: TurboNode,
@@ -46,36 +41,18 @@ export function Turboflow({
   // const { setViewport, zoomIn, zoomOut } = useReactFlow();
 
   useEffect(() => {
-    const nextNodes: Node<TurboNodeData>[] = [
-      {
-        id: '___ROOT___',
-        data: { id: '___ROOT___', title: activeTask },
-        position: { x: 0, y: 0 },
-        type: 'turbo',
-      },
-      ...tasks.map(formatTaskToNode),
-    ];
+    const nextNodes: Node<TurboNodeData>[] = initialNodes;
 
-    const nextEdges: Edge[] = [
-      ...topLevelTasks(tasks).map(
-        (task): Edge => ({
-          id: `___ROOT___-${task.id}`,
-          source: '___ROOT___',
-          target: task.id,
-          className: 'full-opacity',
-        }),
-      ),
-      ...edgesBuilder(tasks),
-    ];
+    const nextEdges: Edge[] = initialEdges;
 
-    const { nodes, edges } = getLayoutedElements(
+    const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
       nextNodes,
       nextEdges,
       direction,
     );
 
-    setNodes(nodes);
-    setEdges(edges);
+    setNodes(layoutedNodes);
+    setEdges(layoutedEdges);
   }, [tasks, activeTask]);
 
   const getNeighbors = (targetId: string) => {
@@ -90,8 +67,8 @@ export function Turboflow({
       neighbors.push(foundNode);
     });
 
-    setNodes((nodes) => [
-      ...nodes,
+    setNodes((nodess) => [
+      ...nodess,
       ...neighbors.map((node) => ({
         ...node,
         className: 'full-opacity background-green',
