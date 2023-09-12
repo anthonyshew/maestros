@@ -71,7 +71,7 @@ export function Turboflow({
       ...nodess,
       ...neighbors.map((node) => ({
         ...node,
-        className: 'full-opacity background-green',
+        className: 'full-opacity',
       })),
     ]);
   };
@@ -128,19 +128,6 @@ export function Turboflow({
             <stop offset="0%" stopColor="#ae53ba" />
             <stop offset="100%" stopColor="#2a8af6" />
           </linearGradient>
-
-          <marker
-            id="edge-circle"
-            markerHeight="10"
-            markerUnits="strokeWidth"
-            markerWidth="10"
-            orient="auto"
-            refX="0"
-            refY="0"
-            viewBox="-5 -5 10 10"
-          >
-            <circle cx="0" cy="0" r="2" stroke="#2a8af6" strokeOpacity="0.75" />
-          </marker>
         </defs>
       </svg>
     </ReactFlow>

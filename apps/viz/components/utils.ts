@@ -21,6 +21,7 @@ export const edgesBuilder = (taskList: Turbotask[]): Edge[] => {
         id: `${task.taskId}-${dep}`,
         source: task.taskId,
         target: dep,
+        type: "turbo",
         className: 'full-opacity',
       });
     });
@@ -31,13 +32,14 @@ export const edgesBuilder = (taskList: Turbotask[]): Edge[] => {
 
 export const formatTaskToNode = (
   task: Turbotask,
-  index?: number,
-): Node<TurboNodeData> => ({
-  id: task.taskId,
-  position: { x: 10, y: (index ?? 1) * 150 },
-  data: { id: task.taskId, title: task.taskId },
-  type: 'turbo',
-});
+): Node<TurboNodeData> => {
+  return ({
+    id: task.taskId,
+    position: { x: 0, y: 0 }, // Doesn't actually get used...dagre sets this.
+    data: { id: task.taskId, title: task.taskId },
+    type: 'turbo',
+  })
+};
 
 
 export const topLevelTasks = (tasks: Turbotask[]) =>
@@ -93,6 +95,11 @@ export const getLayoutedElements = (
 
     return node;
   });
+
+  // Edge case: If there is only one task at the root of the graph,
+  // the red-blue gradient can make the line disappear since the bounding box won't have height.
+  // This sub-pixel shift makes the line visible again.
+  nodes[0].position.y = nodes[0].position.y + 0.01
 
   return { nodes, edges };
 };
