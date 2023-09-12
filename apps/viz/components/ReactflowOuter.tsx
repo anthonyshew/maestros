@@ -24,7 +24,7 @@ export function ReactFlowOuter({
   const initialNodes: Node<TurboNodeData>[] = [
     {
       id: '___ROOT___',
-      data: { id: '___ROOT___', title: activeTask },
+      data: { id: '___ROOT___', title: `Pipeline: ${activeTask}` },
       position: { x: 0, y: 0 },
       type: 'turbo',
     },
