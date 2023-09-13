@@ -2,11 +2,9 @@
 
 import { redirect } from "next/navigation";
 
-export async function create(formData: FormData) {
-
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function requestTask(formData: FormData) {
   const task = formData.get('task') as string | null;
-  console.log(task)
-
   if (!task) return;
 
   redirect(encodeURI(task));

@@ -16,7 +16,8 @@ export default function Error({
 
   return (
     <div className="text-white">
-      <p>Error: bad command</p>
+      <p>{error.name}</p>
+      <p>{error.message}</p>
     </div>
   );
 }
