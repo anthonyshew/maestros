@@ -1,12 +1,17 @@
 import './globals.css';
 import '../components/styles.css';
 import Link from 'next/link';
+import { TaskInput } from './TaskInput';
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const handleSubmit = (formData: FormData) => {
+    console.log(formData);
+  };
+
   return (
     <html lang="en">
       <body className="flex flex-col items-center justify-center min-h-screen bg-black">
@@ -14,6 +19,8 @@ export default function RootLayout({
           <div className="flex flex-col gap-4 text-white w-52">
             <Link href="/">Home</Link>
             <Link href="/json">json</Link>
+
+            <TaskInput />
           </div>
           {children}
         </div>
