@@ -1,7 +1,7 @@
 {
-  "name": "unofficial-turboviz",
+  "name": "unofficial-turbostudio",
   "version": "0.0.0",
-  "description": "A visualization studio to help with your Turborepo.",
+  "description": "An unofficial visualization studio for your Turborepo.",
   "bugs": {
     "url": "https://github.com/anthonyshew/maestros/issues"
   },

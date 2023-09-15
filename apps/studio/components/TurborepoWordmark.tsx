@@ -32,7 +32,7 @@ export function TurborepoWordmark({ className }: { className?: string }) {
         fill="white"
       />
       <path
-        clip-rule="evenodd"
+        clipRule="evenodd"
         d="M33.0865 7.619V0C49.6469 0.8854 62.8025 14.5958 62.8025 31.3766C62.8025 48.1574 49.6469 61.864 33.0865 62.7532V55.1342C45.4289 54.2526 55.2025 43.9394 55.2025 31.3766C55.2025 18.8138 45.4289 8.5006 33.0865 7.619ZM13.3798 46.9565C10.108 43.1793 7.999 38.3685 7.6228 33.0865H0C0.3952 40.4775 3.3516 47.1845 7.9838 52.3487L13.376 46.9565H13.3798ZM29.6666 62.7532V55.1342C24.3808 54.758 19.57 52.6528 15.7928 49.3772L10.4006 54.7694C15.5686 59.4054 22.2756 62.358 29.6628 62.7532H29.6666Z"
         fill="url(#:ri:paint0_linear_2733_12955)"
         fill-rule="evenodd"
@@ -46,8 +46,8 @@ export function TurborepoWordmark({ className }: { className?: string }) {
           y1="4.4122"
           y2="35.2986"
         >
-          <stop stop-color="#0096FF" />
-          <stop offset="1" stop-color="#FF1E56" />
+          <stop stopColor="#0096FF" />
+          <stop offset="1" stopColor="#FF1E56" />
         </linearGradient>
       </defs>
     </svg>
