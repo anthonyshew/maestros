@@ -1,10 +1,9 @@
 import { execSync } from 'node:child_process';
-import { Suspense } from 'react';
 import { dry } from '../../utils/validators';
 
 export const dynamic = 'force-dynamic';
 
-export default function Page() {
+export default async function Page() {
   const taskName = 'lint';
   const graphBuffer = execSync(
     `cd ../.. && turbo ${taskName} --dry=json`,
@@ -15,11 +14,13 @@ export default function Page() {
     (graph) => graph.command !== '<NONEXISTENT>',
   );
 
+  const data = await fetch('https://jsonplaceholder.typicode.com/todos/1', {
+    cache: 'no-store',
+  }).then((res) => res.json());
+
   return (
-    <Suspense fallback={<div>loadinggggg</div>}>
-      <pre className="h-screen max-w-screen-md overflow-x-hidden overflow-y-auto text-white">
-        {JSON.stringify(tasks, null, 2)}
-      </pre>
-    </Suspense>
+    <pre className="h-screen max-w-screen-md overflow-x-hidden overflow-y-auto text-white">
+      {JSON.stringify(tasks, null, 2)}
+    </pre>
   );
 }

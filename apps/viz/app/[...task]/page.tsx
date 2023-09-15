@@ -6,8 +6,14 @@ import type { Dry } from '../../utils/types';
 
 export const dynamic = 'force-dynamic';
 
-export default function Page({ params }: { params: { task: string } }) {
+export default function Content({ params }: { params: { task: string } }) {
   const taskName = decodeURIComponent(params.task);
+
+  // Not totally sure why this is happening...?
+  if (taskName === 'favicon.ico') {
+    return null;
+  }
+
   const command = `cd ../.. && turbo ${taskName} --dry=json`;
   let graph: Dry | null = null;
 

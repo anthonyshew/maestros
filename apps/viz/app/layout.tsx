@@ -16,7 +16,7 @@ export default function RootLayout({
             <Link href="/json">json</Link>
             <TaskInput />
           </div>
-          {children}
+          <div className="w-full min-h-screen">{children}</div>
         </div>
       </body>
     </html>
