@@ -1,19 +1,19 @@
 {
   "extends": ["//"],
   "pipeline": {
-    "dev:viz": {
+    "dev:studio": {
       "dependsOn": [],
       "persistent": true,
       "cache": false
     },
-    "build:viz": {
+    "build:studio": {
       "dependsOn": [],
       "outputs": [".next/**", "dist/**"]
     },
-    "start:viz": {
-      "dependsOn": ["build:viz"],
+    "start:studio": {
+      "dependsOn": ["build:studio"],
       "cache": false
     },
-    "typecheck:viz": {}
+    "typecheck:studio": {}
   }
 }
