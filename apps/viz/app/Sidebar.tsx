@@ -23,7 +23,9 @@ export function Sidebar() {
     e.preventDefault();
     if (!task) return;
 
-    setPastInputs((list) => [...new Set([...list, task])].reverse());
+    setPastInputs((list) =>
+      [...new Set([...list, task])].reverse().slice(0, 10),
+    );
     router.push(`${task}`);
   };
 
@@ -51,6 +53,9 @@ export function Sidebar() {
           </Link>
         );
       })}
+      <p className="mt-auto text-sm">
+        An unofficial Turborepo task graph visualizer.
+      </p>
     </div>
   );
 }
