@@ -22,7 +22,9 @@ export default function Content({ params }: { params: { task: string } }) {
     const rawGraph = JSON.parse(graphBuffer.toString());
     graph = dry.parse(rawGraph);
   } catch (error) {
-    throw new Error(`The command ${command} looks to be invalid.`);
+    // @ts-expect-error We shippin'!
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    throw new Error(error.message);
   }
 
   const tasks = graph.tasks.filter(
