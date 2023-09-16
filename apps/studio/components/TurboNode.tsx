@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import React, { memo } from 'react';
 import type { NodeProps } from 'reactflow';
-import { Handle, Position } from 'reactflow';
+import { Handle } from 'reactflow';
 
 export interface TurboNodeData {
   id: string;
@@ -10,8 +10,14 @@ export interface TurboNodeData {
   subline?: string;
 }
 
-export default memo(
+export const TurboNode = memo(
   ({ data, sourcePosition, targetPosition }: NodeProps<TurboNodeData>) => {
+    if (!sourcePosition || !targetPosition) {
+      throw new Error(
+        'Either a sourcePosition or targetPosition was not provided to a Reactflow node.',
+      );
+    }
+
     return (
       <div className="wrapper gradient" id={data.id}>
         <div className="inner" id={data.id}>
@@ -24,10 +30,12 @@ export default memo(
               ) : null}
             </div>
           </div>
-          <Handle position={sourcePosition!} type="target" />
-          <Handle position={targetPosition!} type="source" />{' '}
+          <Handle position={sourcePosition} type="target" />
+          <Handle position={targetPosition} type="source" />{' '}
         </div>
       </div>
     );
   },
 );
+
+TurboNode.displayName = 'TurboNode';

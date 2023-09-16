@@ -2,7 +2,7 @@ import React from 'react';
 import type { EdgeProps } from 'reactflow';
 import { getBezierPath } from 'reactflow';
 
-export default function CustomEdge({
+export function TurboEdge({
   id,
   sourceX,
   sourceY,

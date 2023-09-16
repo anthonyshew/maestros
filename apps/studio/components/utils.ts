@@ -1,3 +1,6 @@
+// dagre doesn't have types so we'll need to disable some ESLint in this file.
+/* eslint-disable-next-line eslint-comments/disable-enable-pair */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import type { Edge, Node } from 'reactflow';
 import { Position } from 'reactflow';
 // @ts-expect-error dagre doesn't have types but that's okay :)

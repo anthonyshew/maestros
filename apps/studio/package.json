@@ -16,6 +16,8 @@
   "scripts": {
     "build:studio": "next build",
     "dev:studio": "next dev",
+    "format:studio": "next lint",
+    "lint:fix:studio": "next lint --fix",
     "lint:studio": "next lint",
     "start:studio": "next start",
     "typecheck:studio": "tsc --noEmit"

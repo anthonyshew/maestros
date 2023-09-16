@@ -7,12 +7,11 @@ import {
   useNodesState,
   useEdgesState,
   addEdge,
-  // useReactFlow,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import type { GraphDirection, Turbotask } from '../utils/types';
-import TurboNode, { type TurboNodeData } from './TurboNode';
-import TurboEdge from './TurboEdge';
+import { TurboNode, type TurboNodeData } from './TurboNode';
+import { TurboEdge } from './TurboEdge';
 import { getLayoutedElements } from './utils';
 
 const nodeTypes = {
@@ -38,7 +37,6 @@ export function Turboflow({
 }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  // const { setViewport, zoomIn, zoomOut } = useReactFlow();
 
   useEffect(() => {
     const nextNodes: Node<TurboNodeData>[] = initialNodes;
@@ -53,7 +51,8 @@ export function Turboflow({
 
     setNodes(layoutedNodes);
     setEdges(layoutedEdges);
-  }, [tasks, activeTask]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tasks, activeTask, direction]);
 
   const getNeighbors = (targetId: string) => {
     const edgesToNeighbors = edges.filter((edge) => edge.id.includes(targetId));
@@ -95,12 +94,12 @@ export function Turboflow({
       setNodes([...layoutedNodes]);
       setEdges([...layoutedEdges]);
     },
-    [nodes, edges],
+    [nodes, edges, setEdges, setNodes],
   );
 
   useEffect(() => {
     onLayout(direction);
-  }, [direction]);
+  }, [direction, onLayout]);
 
   return (
     <ReactFlow
@@ -112,7 +111,8 @@ export function Turboflow({
       onConnect={onConnect}
       onEdgesChange={onEdgesChange}
       onNodeMouseEnter={(e) =>
-        // @ts-expect-error
+        // @ts-expect-error Difficult to type with Reactflow
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         getNeighbors(e.target.id)
       }
       onNodeMouseLeave={() => resetDim()}

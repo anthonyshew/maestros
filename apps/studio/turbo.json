@@ -14,6 +14,12 @@
       "dependsOn": ["build:studio"],
       "cache": false
     },
-    "typecheck:studio": {}
+    "typecheck:studio": {},
+    "lint:studio": {},
+    "lint:fix:studio": {
+      "cache": false
+    },
+    "format:studio": {},
+    "format:fix:studio": {}
   }
 }

@@ -19,6 +19,7 @@ export default function Content({ params }: { params: { task: string } }) {
 
   try {
     const graphBuffer = execSync(command).toString();
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const rawGraph = JSON.parse(graphBuffer.toString());
     graph = dry.parse(rawGraph);
   } catch (error) {
@@ -28,7 +29,7 @@ export default function Content({ params }: { params: { task: string } }) {
   }
 
   const tasks = graph.tasks.filter(
-    (graph) => graph.command !== '<NONEXISTENT>',
+    (parsedGraph) => parsedGraph.command !== '<NONEXISTENT>',
   );
 
   return <ReactFlowOuter activeTask={taskName} direction="LR" tasks={tasks} />;
