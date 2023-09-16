@@ -15,7 +15,7 @@ Internal Packages are similar to [External Packages](/monorepos/packaging) in ma
 However, Internal Packages are different in two important ways:
 
 - In-repo source code: The code that makes up the package is in your repository, making it highly discoverable, accessible, and editable.
-- One version: When installing to other workspaces within your repository, you'll use `"*"` (or `"workspace:*"` for pnpm). This means you'll always use whatever the current version of the code that is in your repository.
+- One version: When installing to other workspaces within your repository, you'll use `"*"` (or `"*"` for pnpm). This means you'll always use whatever the current version of the code that is in your repository.
 
 When you compile a package in your Turborepo, you can cache your compilation outputs for sub-second build times. Build your source code once; never build it again.
 
@@ -69,7 +69,7 @@ Create a `package.json` in your workspace directory. We'll fill in `"exports"` a
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@repo/tsconfig": "workspace:*",
+    "@repo/tsconfig": "*",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.0",
     "tsup": "^7.2.0", // Bundler for compilation

@@ -24,8 +24,8 @@
     "@prisma/client": "^5.2.0"
   },
   "devDependencies": {
-    "@repo/lint": "workspace:*",
-    "@repo/tsconfig": "workspace:*",
+    "@repo/lint": "*",
+    "@repo/tsconfig": "*",
     "@types/node": "^16.18.11",
     "eslint": "^8.47.0",
     "prisma": "^5.2.0",
