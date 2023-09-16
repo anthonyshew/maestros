@@ -10,3 +10,6 @@ dist
 
 tsconfig.tsbuildinfo
 .turbo
+
+# Want to ship defaults when folks copy the workspace
+!/apps/studio/.env.local

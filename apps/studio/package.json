@@ -1,0 +1,48 @@
+{
+  "name": "unofficial-turbostudio",
+  "version": "0.0.0",
+  "description": "An unofficial visualization studio for your Turborepo.",
+  "bugs": {
+    "url": "https://github.com/anthonyshew/maestros/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthonyshew/maestros"
+  },
+  "author": {
+    "name": "Anthony Shew",
+    "url": "https://twitter.com/anthonysheww"
+  },
+  "scripts": {
+    "build:studio": "next build",
+    "dev:studio": "next dev",
+    "format:studio": "next lint",
+    "lint:fix:studio": "next lint --fix",
+    "lint:studio": "next lint",
+    "start:studio": "next start",
+    "typecheck:studio": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.0.1",
+    "@radix-ui/react-select": "^1.2.1",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.5.2",
+    "classnames": "^2.3.2",
+    "dagre": "^0.8.5",
+    "next": "^13.4.19",
+    "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.5.6",
+    "tailwindcss": "^3.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "autoprefixer": "^10.4.14",
+    "typescript": "^5.0.2",
+    "zod": "^3.21.4"
+  }
+}
