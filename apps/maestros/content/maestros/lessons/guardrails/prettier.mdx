@@ -26,8 +26,8 @@ In your root `package.json`, you'll need to do two things:
   "name": "my-project",
   "version": "0.1.0",
   "scripts": {
-    "format": "prettier . \"!apps/** !packages/** !tooling/**\" --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . \"!apps/** !packages/** !tooling/**\" --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
+    "format": "prettier . \"!apps/** !packages/** !tooling/**\" --check --cache --cache-location='node_modules/.cache/.prettiercache'",
+    "format:fix": "prettier . \"!apps/** !packages/** !tooling/**\" --write --cache --cache-location='node_modules/.cache/.prettiercache' --loglevel=warn"
   },
   "devDependencies": {
     "prettier": "^2.8.0",
@@ -72,8 +72,8 @@ Let's get our workspaces formatted by adding scripts for these tasks. These are 
   "version": "0.0.0",
   // focus(1:6)
   "scripts": {
-    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn"
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/.prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --loglevel=warn"
   }
 }
 ```
