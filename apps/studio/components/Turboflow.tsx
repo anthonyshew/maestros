@@ -99,7 +99,8 @@ export function Turboflow({
 
   useEffect(() => {
     onLayout(direction);
-  }, [direction, onLayout]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [direction]);
 
   return (
     <ReactFlow

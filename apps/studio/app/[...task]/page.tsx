@@ -14,8 +14,8 @@ export default function Content({ params }: { params: { task: string } }) {
     return null;
   }
 
-  // eslint-disable-next-line turbo/no-undeclared-env-vars
-  const command = `${
+  const command = `cd ${
+    // eslint-disable-next-line turbo/no-undeclared-env-vars
     process.env.REPO_RELATIVE_ROOT_LOCATION ?? '../..'
   } && turbo ${taskName} --dry=json`;
   let graph: Dry | null = null;

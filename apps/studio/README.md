@@ -1,10 +1,11 @@
 # Turbo Studio
 
-## An unofficial visualizer for your Turborepo
+## A visualizer for your Turborepo task graph
 
-TODOs:
+> This project is unofficial - but powerful!
 
-- Any perf improvements I can make on graph drawing? (dagre sometimes gets the spacing wrong, as well, eesh.)
-- Do I want to make a deployed version?
-- dagre gives weird paint dimensions sometimes? Particularly on more complex graphs.
-- README
+![Turbo Studio Visualizer](./assets/graph.png)
+
+## Quickstart
+
+To use this application in your project, run `turbo gen workspace --copy https://github.com/anthonyshew/maestros/tree/main/apps/studio`
