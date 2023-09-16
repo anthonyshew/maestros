@@ -8,7 +8,6 @@ import dagre from 'dagre';
 import type { GraphDirection, Turbotask } from '../utils/types';
 import type { TurboNodeData } from './TurboNode';
 
-
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 
@@ -24,7 +23,7 @@ export const edgesBuilder = (taskList: Turbotask[]): Edge[] => {
         id: `${task.taskId}-${dep}`,
         source: task.taskId,
         target: dep,
-        type: "turbo",
+        type: 'turbo',
         className: 'full-opacity',
       });
     });
@@ -33,17 +32,14 @@ export const edgesBuilder = (taskList: Turbotask[]): Edge[] => {
   return edgesArr;
 };
 
-export const formatTaskToNode = (
-  task: Turbotask,
-): Node<TurboNodeData> => {
-  return ({
+export const formatTaskToNode = (task: Turbotask): Node<TurboNodeData> => {
+  return {
     id: task.taskId,
     position: { x: 0, y: 0 }, // Doesn't actually get used...dagre sets this.
     data: { id: task.taskId, title: task.taskId },
     type: 'turbo',
-  })
+  };
 };
-
 
 export const topLevelTasks = (tasks: Turbotask[]) =>
   tasks.filter((task) => !task.dependents.length).map(formatTaskToNode);
@@ -83,7 +79,6 @@ export const getLayoutedElements = (
 
   dagre.layout(dagreGraph);
 
-
   nodes.forEach((node) => {
     const nodeSizeAndPosition = dagreGraph.node(node.id);
     node.targetPosition = handleDirection(direction)[0];
@@ -102,8 +97,8 @@ export const getLayoutedElements = (
   // Edge case: If there is only one task at the root of the graph,
   // the red-blue gradient can make the line disappear since the bounding box won't have height.
   // This sub-pixel shift makes the line visible again.
-  nodes[0].position.y = nodes[0].position.y + 0.01
-  nodes[0].position.x = nodes[0].position.x + 0.01
+  nodes[0].position.y = nodes[0].position.y + 0.01;
+  nodes[0].position.x = nodes[0].position.x + 0.01;
 
   return { nodes, edges };
 };

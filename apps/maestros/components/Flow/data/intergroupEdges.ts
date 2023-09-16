@@ -5,10 +5,10 @@ import { type rawStructureNodes, structureParentNode } from './structure';
 import { type MinimumEdge } from '#/components/Flow/utils';
 
 type AllNodes =
-  | typeof rawCiNodes[number]['data']['label']
-  | typeof rawCompilationNodes[number]['data']['label']
-  | typeof rawConformanceNodes[number]['data']['label']
-  | typeof rawStructureNodes[number]['data']['label'];
+  | (typeof rawCiNodes)[number]['data']['label']
+  | (typeof rawCompilationNodes)[number]['data']['label']
+  | (typeof rawConformanceNodes)[number]['data']['label']
+  | (typeof rawStructureNodes)[number]['data']['label'];
 
 type Groups = 'ci' | 'compilation' | 'conformance' | 'structure';
 

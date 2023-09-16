@@ -40,43 +40,55 @@ export const task = z.object({
   resolvedTaskDefinition: taskConfiguration,
 });
 
-export const dry = z.object({
-  id: z.string(),
-  monorepo: z.boolean(),
-  globalCacheInputs: z.object({
-    rootKey: z.string(),
-    files: z.record(z.string(), z.string()),
-    hashOfExternalDependencies: z.string(),
-    globalDotEnv: z.array(z.string()).nullable(),
-    environmentVariables: z.object({
-      specified: z.object({
-        env: z.array(z.string()).nullable(),
-        passThroughEnv: z.array(z.string()).nullable(),
-      }).nullable(),
-      configured: z.array(z.object({
-        env: z.array(z.string()).nullable(),
-        passThroughEnv: z.array(z.string()).nullable(),
-      })),
-      inferred: z.array(z.object({
-        env: z.array(z.string()).nullable(),
-        passThroughEnv: z.array(z.string()).nullable(),
-      })),
-      passthrough: z.object({
-        env: z.array(z.string()).nullable(),
-        passThroughEnv: z.array(z.string()).nullable(),
-      }).nullable(),
-    })
-  }),
-  envMode: z.enum(["strict", "loose", "infer"]),
-  frameworkInference: z.boolean(),
-  user: z.string(),
-  scm: z.object({
-    type: z.enum(["git"]),
-    sha: z.string(),
-    branch: z.string()
-  }).nullable(),
-  version: z.string(),
-  turboVersion: z.string(),
-  packages,
-  tasks: z.array(task),
-}).strict();
+export const dry = z
+  .object({
+    id: z.string(),
+    monorepo: z.boolean(),
+    globalCacheInputs: z.object({
+      rootKey: z.string(),
+      files: z.record(z.string(), z.string()),
+      hashOfExternalDependencies: z.string(),
+      globalDotEnv: z.array(z.string()).nullable(),
+      environmentVariables: z.object({
+        specified: z
+          .object({
+            env: z.array(z.string()).nullable(),
+            passThroughEnv: z.array(z.string()).nullable(),
+          })
+          .nullable(),
+        configured: z.array(
+          z.object({
+            env: z.array(z.string()).nullable(),
+            passThroughEnv: z.array(z.string()).nullable(),
+          }),
+        ),
+        inferred: z.array(
+          z.object({
+            env: z.array(z.string()).nullable(),
+            passThroughEnv: z.array(z.string()).nullable(),
+          }),
+        ),
+        passthrough: z
+          .object({
+            env: z.array(z.string()).nullable(),
+            passThroughEnv: z.array(z.string()).nullable(),
+          })
+          .nullable(),
+      }),
+    }),
+    envMode: z.enum(['strict', 'loose', 'infer']),
+    frameworkInference: z.boolean(),
+    user: z.string(),
+    scm: z
+      .object({
+        type: z.enum(['git']),
+        sha: z.string(),
+        branch: z.string(),
+      })
+      .nullable(),
+    version: z.string(),
+    turboVersion: z.string(),
+    packages,
+    tasks: z.array(task),
+  })
+  .strict();
