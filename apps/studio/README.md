@@ -4,7 +4,6 @@
 
 TODOs:
 
-- Make sidebar pretty
 - How should I have ESLint set up?
 - Clear ESLint errors
 - TypeScript any's I can be rid of

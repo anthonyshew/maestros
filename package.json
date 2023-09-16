@@ -1,6 +1,11 @@
 {
   "name": "monorepo-maestros",
   "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tooling/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "checks": "turbo format lint typecheck --continue",
@@ -18,9 +23,9 @@
     "eslint": "^8.47.0",
     "prettier": "^2.8.0",
     "prettier-plugin-packagejson": "^2.4.3",
-    "turbo": "^1.10.13"
+    "turbo": "^1.10.14"
   },
-  "packageManager": "pnpm@8.6.5",
+  "packageManager": "bun@1.0.1",
   "engines": {
     "node": "18"
   }
