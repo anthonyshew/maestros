@@ -1,11 +1,6 @@
 {
   "name": "monorepo-maestros",
   "version": "0.1.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "tooling/*"
-  ],
   "scripts": {
     "build": "turbo build",
     "checks": "turbo format lint typecheck --continue",
