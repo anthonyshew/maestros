@@ -58,7 +58,7 @@ export const conformanceNodes = rawConformanceNodes.map((node) =>
 );
 
 const rawConformanceEdges: MinimumEdge<
-  (typeof rawConformanceNodes)[number]['data']['label']
+  typeof rawConformanceNodes[number]['data']['label']
 >[] = [
   { source: 'Guardrails', target: 'TypeScript' },
   { source: 'Guardrails', target: 'Prettier' },
