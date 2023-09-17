@@ -18,7 +18,7 @@ In a monorepo, we're building one repository that handles all of our application
 
 ## Workspaces are like mini-projects
 
-Every application and package that you build will be in its own workspace. The key is to think of your workspaces as independent, small projects in your repository whose purpose is to straightforwardly share code to other parts of your repository.
+Every application and package that you build will be in its own workspace. The key is to think of your workspaces as independent, small projects in your repository whose purpose is to straightforwardly share code to other parts of your repository. This includes dependencies and source code that is required to develop and build that workspace.
 
 In this way, you'll start thinking of your monorepo in self-contained slices that expose an API to the outside world. This should sound familiar if you're used to writing modular code. In a monorepo, we can encourage ourselves and our teammates to use the workspace boundary as a module boundary.
 
