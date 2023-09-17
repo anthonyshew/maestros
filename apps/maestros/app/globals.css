@@ -80,3 +80,16 @@
 .react-flow__node-group {
   padding: 0 !important;
 }
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: none !important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: none !important;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-md py-1 px-1;
+}
+
