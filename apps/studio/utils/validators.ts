@@ -68,12 +68,7 @@ export const dry = z
             passThroughEnv: z.array(z.string()).nullable(),
           }),
         ),
-        passthrough: z
-          .object({
-            env: z.array(z.string()).nullable(),
-            passThroughEnv: z.array(z.string()).nullable(),
-          })
-          .nullable(),
+        passthrough: z.array(z.string()).nullable(),
       }),
     }),
     envMode: z.enum(['strict', 'loose', 'infer']),
