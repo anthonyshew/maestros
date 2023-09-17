@@ -3,6 +3,7 @@ import { execSync } from 'node:child_process';
 import { ReactFlowOuter } from '../../components/ReactflowOuter';
 import { dry } from '../../utils/validators';
 import type { Dry } from '../../utils/types';
+import { ClientErrorProxy } from '#/[...task]/ClientErrorProxy';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,22 +19,29 @@ export default function Content({ params }: { params: { task: string } }) {
     // eslint-disable-next-line turbo/no-undeclared-env-vars
     process.env.REPO_RELATIVE_ROOT_LOCATION ?? '../..'
   } && turbo ${taskName} --dry=json`;
-  let graph: Dry | null = null;
 
   try {
     const graphBuffer = execSync(command).toString();
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const rawGraph = JSON.parse(graphBuffer.toString());
-    graph = dry.parse(rawGraph);
-  } catch (error) {
-    // @ts-expect-error We shippin'!
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    throw new Error(error.message);
+    const graph: Dry = dry.parse(rawGraph);
+
+    const tasks = graph.tasks.filter(
+      (parsedGraph) => parsedGraph.command !== '<NONEXISTENT>',
+    );
+
+    return (
+      <ReactFlowOuter activeTask={taskName} direction="LR" tasks={tasks} />
+    );
+  } catch (err) {
+    if (err instanceof Error) {
+      return <ClientErrorProxy error={err.message} />;
+    }
+    // eslint-disable-next-line no-console
+    console.error('Something quite unexpected has happened.');
+    // eslint-disable-next-line no-console
+    console.error('Please file an issue on the repo with a reproduction.');
   }
 
-  const tasks = graph.tasks.filter(
-    (parsedGraph) => parsedGraph.command !== '<NONEXISTENT>',
-  );
-
-  return <ReactFlowOuter activeTask={taskName} direction="LR" tasks={tasks} />;
+  return null;
 }
