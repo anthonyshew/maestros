@@ -4,4 +4,46 @@ sidebarOrderPosition: 6
 ogDescription: Handling CI/CD in a monorepo
 ---
 
-Developing an app is good fun but, at the end of it all, shipping is what matters.
+Developing an app is great fun but, at the end of it all, shipping is what matters.
+
+Continuous deployment and continuous integration can be done in a lot of different ways. In Maestros, we'll discuss simple, powerful patterns to get web applications online to get you started. As your skills grow into more bespoke system, you'll have a good foundation to work from.
+
+On this page, we'll discuss the high-level process of getting an application out to production in a fast, maintainable, and predictable way.
+
+## General process
+
+The conventional process for getting code out to production in a modern CI/CD process follows this general pattern:
+
+1. Developer writes code.
+2. Developer commits code to git and creates a pull request to the main branch of the codebase.
+3. Automated checks are ran against the newly committed code. Additionally, one or more reviewers are asked to read through the code.
+4. Once code passes all automated checks and has been reviewed, it is merged and deployed to production.
+
+## Common objections
+
+In a monorepo, specifically, issues can arise in this process if you aren't using good tooling. Let's talk about these potential problems below and discuss how the techniques in Maestros solve them.
+
+### Release management
+
+A common misconception is that constantly putting new code on the mainline means that you will be constantly releasing new code to the hot paths of your application. If you're working on a new feature, you want to release it when it is complete instead of the first time that you write code for it.
+
+To account for this, we use [feature flags](/monorepos/ci-cd/feature-flags). In a modern CI/CD process, you (nearly) always want to be merging into main through [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development). This allows you to:
+
+- Develop in small batches
+- Learn about merge conflicts faster (and reduce them in general)
+- Test code sooner
+- Ship faster
+
+We'll discuss what this looks like more on the [Feature Flags page](/monorepos/ci-cd/feature-flags).
+
+### Slower feedback loops
+
+A common concern with monorepos is that there's simply more code in the codebase to run checks against. That means that checks will run slower since there is more work to do for more code.
+
+This is a very valid concern. Our developers deserve tight feedback loops. Waiting an hour for checks to run against millions of lines of code should be considered unacceptable.
+
+The good news is that we can easily resolve this concern with Turborepo. [With caching](/monorepos/ci-cd/caching), we can ensure that we never do the same work twice.
+
+## Tools for the job
+
+As mentioned before, we're going to administer a straightforward pipeline using [GitHub Actions](/monorepos/ci-cd/github-actions) and [deploying to Vercel](/monorepos/ci-cd/deployment). There are absolutely other actions providers, platforms, and tooling that you can use if you prefer others (and we hope to add more in the future!).

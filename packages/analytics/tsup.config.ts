@@ -10,4 +10,7 @@ export default defineConfig((options: Options) => ({
   splitting: true,
   treeshake: true,
   ...options,
+  banner: {
+    js: '"use client"',
+  },
 }));
