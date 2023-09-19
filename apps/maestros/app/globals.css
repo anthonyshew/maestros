@@ -89,6 +89,6 @@
   content: none !important;
 }
 
-.prose code {
+.prose p code {
   @apply bg-gray-100 dark:bg-gray-800 rounded-md py-1 px-1;
 }
