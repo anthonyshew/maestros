@@ -2,17 +2,11 @@
   "name": "@repo/db",
   "version": "0.1.1",
   "private": true,
-  "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "default": "./dist/index.js"
-    }
-  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "scripts": {
-    "build": "tsup",
     "db:format": "prisma format",
     "db:studio": "prisma studio",
-    "dev": "tsup --watch",
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
     "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
     "generate": "prisma generate",
@@ -21,20 +15,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@prisma/client": "^5.2.0"
+    "@prisma/client": "^5.3.1"
   },
   "devDependencies": {
     "@repo/lint": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^16.18.11",
     "eslint": "^8.47.0",
-    "prisma": "^5.2.0",
+    "prisma": "^5.3.1",
     "ts-node": "10.9.1",
-    "tsup": "^7.2.0",
     "typescript": "^5.1.6"
-  },
-  "prisma": {
-    "schema": "./schema.prisma",
-    "seed": "ts-node ./seed.ts"
   }
 }
