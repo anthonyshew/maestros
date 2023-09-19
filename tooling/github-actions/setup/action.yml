@@ -1,0 +1,17 @@
+name: 'Setup and install'
+description: 'Common setup steps for Actions'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - uses: actions/checkout@v3
+
+    - shell: bash
+      run: npm i -g pnpm turbo
+
+    - shell: bash
+      run: pnpm install

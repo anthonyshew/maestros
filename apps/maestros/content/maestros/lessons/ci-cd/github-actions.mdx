@@ -4,6 +4,56 @@ sidebarOrderPosition: 1
 ogDescription: Using GitHub Actions in a monorepo
 ---
 
-import { UnderConstruction } from '../../UnderConstruction';
+Creating checks in GitHub Actions ensures that our repository maintains its health through constant development. All of the developers in the repository will need to follow the guardrails that we have codified into our checks, making our entire monorepo predictable, safe, and a joy to work in at any scale.
 
-<UnderConstruction />
+Rather than rewrite [the excellent instructions from the Turborepo documentation](https://turbo.build/repo/docs/ci/github-actions), we encourage you to [visit their guide](https://turbo.build/repo/docs/ci/github-actions) to learn how to set up `turbo` to run checks in your repository.
+
+Below, we will talk about a few techniques of GitHub Actions that we use in [the Maestros repository](https://github.com/anthonyshew/maestros) that you can leverage.
+
+## Running a GitHub action for trunk-based deployments
+
+As mentioned on [our CI/CD introduction page](/monorepos/ci-cd), our goal is to always be merging our pull requests to the main branch. To make sure the checks that we've written run when we put up a pull request under these conditions, we need to write this rule into the top of our GitHub Action:
+
+```yml filename=".github/workflows.quality.yml"
+name: Quality
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+```
+
+The `on` block informs GitHub to run the Action whenever a `pull_request` is `opened` or updated (`synchronize`) to the `branches` in the provided array (in our case, `main`). Our developers will now be informed about any code that doesn't follow the conventions established in our codebase.
+
+## Creating a uniform installation action
+
+The jobs in the GitHub Actions of a monorepo often need to go through similar setup steps. We can create a common setup step to reduce boilerplate and keep things more simple. Let's learn about this by taking a look at [the setup steps for the Actions in this repo](https://github.com/anthonyshew/maestros/blob/main/tooling/github-actions/setup/action.yml):
+
+```yml filename="./tooling/github-actions/setup/action.yml"
+name: 'Setup and install'
+description: 'Common setup steps for Actions'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - uses: actions/checkout@v3
+
+    - shell: bash
+      run: npm i -g pnpm turbo
+
+    - shell: bash
+      run: pnpm install
+```
+
+A few key details to keep in mind when reading this file are:
+
+- `using: composite`: Makes it possible for this file to be used in jobs in another GitHub actions yml file
+- `npm i -g pnpm turbo`: GitHub Actions runners do not have pnpm or turbo available by default so we need to install them with npm first.
+- `pnpm install`: Install all of our packages for our repo now that they are available.

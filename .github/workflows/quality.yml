@@ -21,11 +21,8 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./tooling/github-actions/install
+      - name: Setup
+        uses: ./tooling/github-actions/setup
 
       - name: Run Prettier
         run: turbo format
@@ -35,11 +32,8 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup and install
-        uses: ./tooling/github-actions/install
+      - name: Setup
+        uses: ./tooling/github-actions/setup
 
       - name: Lint
         run: turbo lint
@@ -49,11 +43,8 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./tooling/github-actions/install
+      - name: Setup
+        uses: ./tooling/github-actions/setup
 
       - name: Run TypeScript type check
         run: turbo typecheck
@@ -63,11 +54,8 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install
-        uses: ./tooling/github-actions/install
+      - name: Setup
+        uses: ./tooling/github-actions/setup
 
       - name: Run spellchecker
         run: turbo spellcheck
