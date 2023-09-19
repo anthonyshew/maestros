@@ -44,7 +44,7 @@ export function Sidebar() {
         </div>
       </div>
       <form className="relative" onSubmit={(e) => handleSubmit(e)}>
-        <span className="absolute text-sm text-gray-300 top-[2.4rem] left-3">
+        <span className="absolute text-sm text-gray-300 top-[2.45rem] left-3">
           turbo run
         </span>
         <Label
