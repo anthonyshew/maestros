@@ -72,7 +72,6 @@ function Page({ params }: { params: { slug: string[] } }) {
           {headings.length > 0 ? <p>On this page</p> : null}
           {headings.map((rawHeading) => {
             const heading = rawHeading.replaceAll('#', '').trim();
-
             return (
               <Link
                 className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
