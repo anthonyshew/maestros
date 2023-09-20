@@ -4,7 +4,7 @@ module.exports = {
   extends: [require.resolve('@repo/lint/next.js')],
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: `./tsconfig.json`,
+    project: true,
   },
   plugins: ['@typescript-eslint'],
 };

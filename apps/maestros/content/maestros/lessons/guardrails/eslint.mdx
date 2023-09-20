@@ -98,6 +98,8 @@ module.exports = {
 };
 ```
 
+Using your newfound knowledge, you can also add any extra configurations that you see fit.
+
 ### Adding presets to workspaces
 
 Now, we'll want to use these presets out in a workspace. To do so, we'll need to do two things:
@@ -118,7 +120,7 @@ Note the `root: true` property! This tells ESLint that it doesn't need to look o
 
 2. Install our `@repo/lint` package to the workspace and create a lint script.
 
-```json filename="packages/logger/package.json" lang="js"
+```json filename="packages/logger/package.json" lang="json"
 {
   "name": "@repo/logger",
   "version": "0.0.0",
@@ -162,21 +164,40 @@ module.exports = {
 
 You can also ensure that you're linting any JavaScript/TypeScript files that aren't in your workspaces.
 
-## Add a root .eslintrc.js
+### Add a root .eslintrc.js
 
 We'll first need a configuration file for our ESLint to use.
 
 ```js filename="./.eslintrc.js" lang="js"
 module.exports = {
   extends: [require.resolve("@repo/lint/node")]
-  ignorePatterns: ['apps/**', 'packages/**', 'tooling/**'], // Important!
   root: true,
 };
 ```
 
-### Note the `ignorePatterns`!
+### Create a linting task
 
-It's important that we ignore our workspaces in this root task so that the task does not try to lint the entirety of your repository. Workspaces will be linted by their own tasks so we're ignoring them here in the root.
+We'll now create a root linting task that looks like the ones from our workspaces - but with one key addition.
+
+```json filename="package.json" lang="json"
+{
+  "name": "my-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    // focus(1:2)
+    "lint": "eslint . \"!apps/** !packages/** !tooling/**\" --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+    "lint:fix": "eslint . \"!apps/** !packages/** !tooling/**\" --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0"
+  },
+  "devDependencies": {
+    // focus(1:2)
+    "@repo/lint": "workspace:*",
+    "eslint": "^8.42.0"
+  }
+}
+```
+
+The `\"!apps/** !packages/** !tooling/**\"` phrase ensures that our root ESLint task doesn't try to lint our workspaces - because our workspaces are responsible for themselves!
 
 ## Write a pipeline
 

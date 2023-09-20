@@ -5,7 +5,7 @@ module.exports = {
   ignorePatterns: ['tsup.config.ts'],
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: `./tsconfig.json`,
+    project: true,
   },
   plugins: ['@typescript-eslint'],
 };
