@@ -4,7 +4,7 @@ module.exports = {
   extends: [require.resolve('@repo/lint/node.js')],
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: `./tsconfig.json`,
+    project: true,
   },
   ignorePatterns: ['tsup.config.ts'],
   plugins: ['@typescript-eslint'],

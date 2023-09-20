@@ -4,29 +4,30 @@ sidebarOrderPosition: 3
 ogDescription: Setting up typescript-eslint in your monorepo
 ---
 
-[typescript-eslint](https://typescript-eslint.io) is an important addition to a monorepo, bringing more power to [ESLint](/monorepos/guardrails/eslint) through the type checking of TypeScript. With ts-eslint enabled in your repository, you'll be able to have tighter checks on sneaky bugs that ESLint or TypeScript can't find by themselves.
+[typescript-eslint](https://typescript-eslint.io) is an important addition to a monorepo, bringing the linting of [ESLint](/monorepos/guardrails/eslint) to your TypeScript code. Without typescript-eslint enabled in your repository, ESLint won't be able to properly understand TypeScript and you'll be missing important checks for your codebase's health.
 
-In a monorepo, ts-eslint becomes even more important, finding potential bugs across module boundaries and bringing more clarity to your codebase.
+Once properly installed, typescript-eslint will enable new superpowers for your linter, finding bugs, enforcing standards, and recommending a common style for everyone in the codebase.
 
-## Using ts-eslint
+## Using typescript-eslint
 
-The official ts-eslint documentation has [an excellent breakdown on how to use ts-eslint in a monorepo](https://typescript-eslint.io/linting/typed-linting/monorepos/#one-tsconfigjson-per-package-and-an-optional-one-in-the-root). Rather than rehash their docs in Maestros, we encourage you to hop over there to learn the fundamentals. Below, we'll show an example of combining that documentation with the rest of the "happy path" here in Maestros.
+The official typescript-eslint documentation has [an excellent breakdown on how to use typescript-eslint in a monorepo](https://typescript-eslint.io/linting/typed-linting/monorepos/#one-tsconfigjson-per-package-and-an-optional-one-in-the-root). Rather than rehash their already excellent docs here in Maestros, we encourage you to hop over there to learn the fundamentals. Below, we'll show an example of combining that documentation with the rest of the "happy path" here in Maestros.
 
-## Enabling ts-eslint in our monorepo
+## Enabling typescript-eslint in our monorepo
 
-Our first step is to install the ts-eslint packages that we will need into our monorepo. We'll install these dependencies into our `@repo/lint` package.
+Our first step is to install the typescript-eslint packages that we will need into our monorepo. We'll install these dependencies into our `@repo/lint` package.
 
 ```json filename="tooling/eslint-config" note="You will likely want to set a specific version rather than latest."
 {
   "name": "@repo/lint",
   "dependencies": {
+    // Replace latest with current version
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest"
   }
 }
 ```
 
-The plugin and parser will now be able available in our workspaces' linting commands. To enable it, we'll add a few lines to any workspace where we want the plugin enabled.
+The plugin and parser will now be available in our workspaces' linting commands. To enable it, we'll add a few lines to any workspace where we want the plugin enabled.
 
 ```js filename="packages/ui/.eslintrc.js"
 /** @type {import("eslint").Linter.Config} */
@@ -36,10 +37,18 @@ module.exports = {
   // focus(1:5)
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: `./tsconfig.json`,
+    project: true,
   },
   plugins: ['@typescript-eslint'],
 };
 ```
 
-Just like that, you may have some new linting errors to clean up! Your editor will now be able to warn you about potential bugs and issues that you may not have noticed before.
+## Add new linting rules
+
+Last, we'll add the plugin so typescript-eslint can recommend some best practices throughout our codebase. For any of your root configurations that you'd like typescript-eslint to help you with add these to your extends key:
+
+```json filename="tooling/eslint-config/node.js" lang="js"
+extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended-type-checked']
+```
+
+You'll now get the recommended lint checks from the typescript-eslint team and avoid some key bugs that could be lurking in your codebase.
