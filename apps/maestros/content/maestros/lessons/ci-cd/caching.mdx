@@ -4,6 +4,28 @@ sidebarOrderPosition: 0
 ogDescription: Using caching in your monorepo
 ---
 
-import { UnderConstruction } from '../../UnderConstruction';
+At it's core, Turborepo makes things fast by leveraging caching for monorepos. While caching isn't a new concept in development, bringing this pattern to JavaScript and TypeScript monorepos means we can drastically speed up builds, tests, lints, type checks, and other tasks that happen in your monorepo.
 
-<UnderConstruction />
+## How it works
+
+The first time that you run a task, Turborepo won't know the end result of the work you've asked for. The task(s) will run from start to finish, taking their full time to execute.
+
+![Caching Diagram](/images/maestros/ci-uncached.png)
+
+However, if we run our task again using the same inputs, we will hit cache and all of our tasks will be complete in milliseconds.
+
+![Caching Diagram](/images/maestros/ci-cached.png)
+
+While these images come from a small repository with already quick tasks, the time you get back adds up quickly. You can see how much time the [Vercel Remote Cache]() has saved on [the Turborepo docs](https://turbo.build/repo/docs). At the time of this writing, over **900 days of compute time had been saved**!
+
+## Using a Remote Cache
+
+While this concept is powerful for a single developer on their local machine, Remote Caching is where gigantic speedups can be found.
+
+Through Remote Caching, your local machine and every CI machine can be connected, creating a multiplayer, distributed cache that allows everyone to use caches for tasks that have been ran before. If you run `turbo lint` on your local machine, your CI will instantly hit a cache when it runs `turbo lint`.
+
+### Setting up the Remote Cache
+
+While you can use [Custom Remote Caches](https://turbo.build/repo/docs/core-concepts/remote-caching#custom-remote-caches) with Turborepo, it's easiest to demonstrate how the Remote Cache works with Vercel since we won't have to set up any infrastructure for a quick demo.
+
+[Check out the Deploying to Vercel](/monorepos/ci-cd/vercel) and [GitHub Actions](/monorepos/ci-cd/github-actions) pages to learn more.
