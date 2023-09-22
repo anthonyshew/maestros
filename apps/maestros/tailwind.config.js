@@ -81,5 +81,6 @@ module.exports = {
       },
     },
   },
+  // @ts-expect-error No types for tailwindcss-animate
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 };

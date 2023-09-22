@@ -1,7 +1,5 @@
-export * from './components/mdxComponents';
 export * from './components/Callout';
 export * from './components/Discord';
-export * from './components/ExternalMdxLink';
 export * from './components/IconBox';
 export * from './components/Icons';
 export * from './components/LinkHeading';

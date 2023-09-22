@@ -6,8 +6,8 @@ import { allBlogPosts } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Balancer from 'react-wrap-balancer';
 import { notFound } from 'next/navigation';
-import { mdxComponents } from '../../../../components/mdxComponents';
 import { getPost } from './getPost';
+import { mdxComponents } from '#/components/mdxComponents';
 import { metadataBaseURI } from '#/app/metadata';
 
 export const generateStaticParams = () =>

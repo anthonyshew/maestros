@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority';
-import { AlertOctagon, AlertTriangle, Info } from 'lucide-react';
+import { AlertOctagon, AlertTriangle, Info } from 'lucide-icons-react';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 

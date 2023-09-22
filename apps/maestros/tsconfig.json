@@ -9,9 +9,7 @@
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
       "#/*": ["./*"]
-    },
-    "moduleResolution": "Bundler",
-    "strictNullChecks": true
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -22,5 +20,5 @@
     "next.config.js",
     "postcss.config.js"
   ],
-  "exclude": ["node_modules", ".next"]
+  "exclude": ["node_modules", ".next", ".contentlayer"]
 }
