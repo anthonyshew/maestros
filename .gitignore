@@ -13,3 +13,5 @@ tsconfig.tsbuildinfo
 
 # Want to ship defaults when folks copy the workspace
 !/apps/studio/.env.local
+
+next-env.d.ts

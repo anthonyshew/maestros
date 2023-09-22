@@ -8,6 +8,8 @@
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
+    "declaration": false,
+    "declarationMap": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -17,6 +19,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["src", "next-env.d.ts"],
+  "include": ["next-env.d.ts"],
   "exclude": ["node_modules"]
 }
