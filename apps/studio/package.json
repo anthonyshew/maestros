@@ -19,7 +19,7 @@
     "format:studio": "next lint",
     "lint:fix:studio": "next lint --fix",
     "lint:studio": "next lint",
-    "start:studio": "next start",
+    "start:studio": "next start -p 3001",
     "typecheck:studio": "tsc --noEmit"
   },
   "dependencies": {

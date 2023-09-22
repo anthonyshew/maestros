@@ -17,7 +17,7 @@ Vercel features built-in CI/CD that can build Turborepo applications with near-z
 
 For demo purposes, let's use the Turborepo starter.
 
-```bash
+```bash filename="Terminal"
 npx create-turbo@latest
 cd my-turborepo # or whatever name you used
 ```
@@ -26,7 +26,7 @@ cd my-turborepo # or whatever name you used
 
 In your new repository, make sure you have a remote to commit your code to.
 
-```bash
+```bash filename="Terminal"
 gh repo create --public --source=. --remote=origin
 ```
 
@@ -34,7 +34,7 @@ gh repo create --public --source=. --remote=origin
 
 Now that your local repository has a remote on GitHub, you can create projects on Vercel that are connected to your remote using [Vercel CLI](https://vercel.com/docs/cli).
 
-```bash
+```bash filename="Terminal"
 vercel link --repo
 ```
 
@@ -46,14 +46,14 @@ You're ready to go! Time to ship your applications.
 
 To ship your `docs` app:
 
-```bash
+```bash filename="Terminal"
 cd apps/docs
 vercel
 ```
 
 To ship your `web` app:
 
-```bash
+```bash filename="Terminal"
 cd apps/web
 vercel
 ```
@@ -66,7 +66,7 @@ Vercel will use your [Vercel Remote Cache](https://vercel.com/docs/monorepos/rem
 
 To get your local machine hooked up to your [Vercel Remote Cache](https://vercel.com/docs/monorepos/remote-caching#vercel-remote-cache), run two quick commands:
 
-```bash
+```bash filename="Terminal"
 npx turbo login
 npx turbo link
 ```
