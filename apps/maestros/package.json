@@ -48,6 +48,7 @@
     "autoprefixer": "^10.4.14",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "lucide-icons-react": "^1.0.2",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.2",
     "typescript": "latest"

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 export * from './components/Avatar';
 export * from './components/Callout';
