@@ -33,7 +33,7 @@ const iconSet = (type: CalloutProps['type']) => {
   }
 
   if (type === 'goodToKnow') {
-    return <></>;
+    return null;
   }
 
   if (type === 'info') {
@@ -41,11 +41,7 @@ const iconSet = (type: CalloutProps['type']) => {
   }
 };
 
-export const Callout = ({
-  children,
-  type = 'info',
-  className,
-}: CalloutProps) => {
+export function Callout({ children, type = 'info', className }: CalloutProps) {
   return (
     <div
       className={twMerge(
@@ -70,4 +66,4 @@ export const Callout = ({
       {children}
     </div>
   );
-};
+}

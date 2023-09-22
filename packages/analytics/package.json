@@ -4,13 +4,17 @@
   "private": true,
   "exports": {
     ".": {
-      "types": "./src/index.tsx",
-      "default": "./dist/index.js"
+      "default": "./src/index.tsx"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./src/index.tsx"
+      ]
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
     "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",

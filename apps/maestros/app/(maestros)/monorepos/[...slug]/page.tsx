@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { allDocuments } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Callout } from '#/components/Callout';
+import { Callout } from '@repo/ui';
 import { getPageDocument } from '#/app/(maestros)/contentHandlers';
 import { mdxComponents } from '#/components/mdxComponents';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';

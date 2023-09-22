@@ -1,4 +1,3 @@
-export * from './components/mdxComponents';
 export * from './components/Callout';
 export * from './components/Discord';
 export * from './components/ExternalMdxLink';
