@@ -53,6 +53,6 @@
     "typescript": "latest"
   },
   "engines": {
-    "node": "18"
+    "node": "20"
   }
 }
