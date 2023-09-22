@@ -11,6 +11,8 @@ DevRel
 APIs
 Entrypoint
 ESLint
+acyclic
+overcommunicate
 ExternalMdxLink
 FileTree
 GitHub
