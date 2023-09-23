@@ -6,4 +6,3 @@ export * from './components/LinkHeading';
 export * from './components/Navbar';
 export * from './components/RepoCard';
 export * from './components/Skeleton';
-export * from './components/TwoColumns';

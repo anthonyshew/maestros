@@ -1,12 +1,12 @@
 import { twMerge } from 'tailwind-merge';
 
-export const IconBox = ({
+export function IconBox({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+}) {
   return (
     <div
       className={twMerge(
@@ -17,4 +17,4 @@ export const IconBox = ({
       {children}
     </div>
   );
-};
+}

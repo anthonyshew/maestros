@@ -31,24 +31,21 @@ export function LinkHeading({
   const handledChildren = getChildren(children);
 
   return (
-    <>
-      <Comp
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-        id={replaceNonAlphanumericsWithDash(handledChildren.toString())}
-        className="!mt-0"
+    <Comp
+      className="!mt-0"
+      id={replaceNonAlphanumericsWithDash(handledChildren.toString())}
+    >
+      <span className="block pt-8" />
+      <a
+        className="font-bold no-underline hover:underline"
+        href={`#${replaceNonAlphanumericsWithDash(
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+          handledChildren.toString(),
+        )}`}
+        {...props}
       >
-        <span className="block pt-8" />
-        <a
-          className="font-bold no-underline hover:underline"
-          href={`#${replaceNonAlphanumericsWithDash(
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-            handledChildren.toString(),
-          )}`}
-          {...props}
-        >
-          {children}
-        </a>
-      </Comp>
-    </>
+        {children}
+      </a>
+    </Comp>
   );
 }

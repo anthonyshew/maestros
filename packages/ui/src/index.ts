@@ -5,7 +5,6 @@ export * from './components/Callout';
 export * from './components/Navbar';
 export * from './components/Sheet';
 export * from './components/Skeleton';
-export * from './components/TwoColumns';
 export * from './components/Button';
 export * from './components/LinkHeading';
 export * from './components/Icons';
