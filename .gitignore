@@ -8,7 +8,6 @@ dist
 .env*
 !.env.example
 
-tsconfig.tsbuildinfo
 .turbo
 
 # Want to ship defaults when folks copy the workspace
