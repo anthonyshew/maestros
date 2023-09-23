@@ -383,6 +383,9 @@ importers:
 
   tooling/typescript-config:
     devDependencies:
+      '@repo/lint':
+        specifier: workspace:*
+        version: link:../eslint-config
       eslint:
         specifier: ^8.47.0
         version: 8.49.0
