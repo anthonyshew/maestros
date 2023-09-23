@@ -14,6 +14,7 @@
       ]
     },
     "dev": {
+      "persistent": true,
       "dotEnv": [
         ".env.development.local",
         ".env.local",
