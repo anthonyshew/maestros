@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "files": [
     "node.js",
-    "next.js"
+    "next.js",
+    "react-interal.js"
   ],
   "scripts": {
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",

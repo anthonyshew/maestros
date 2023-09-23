@@ -1,11 +1,10 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: [require.resolve('@repo/lint/node.js')],
+  extends: [require.resolve('@repo/lint/react-internal.js')],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: true,
   },
-  ignorePatterns: ['tsup.config.ts'],
   plugins: ['@typescript-eslint'],
 };
