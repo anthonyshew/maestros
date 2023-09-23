@@ -4,10 +4,7 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",
-    "declarationMap": false,
-    "declaration": false,
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"],
       "#/*": ["./*"]
     }
   },
@@ -17,8 +14,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.cjs",
-    "postcss.config.cjs"
+    "next.config.js"
   ],
-  "exclude": ["node_modules", ".next", ".contentlayer"]
+  "exclude": ["node_modules", ".next"]
 }

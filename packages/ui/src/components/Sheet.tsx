@@ -14,12 +14,12 @@ const SheetTrigger = SheetPrimitive.Trigger;
 
 const SheetClose = SheetPrimitive.Close;
 
-const SheetPortal = ({
+function SheetPortal({
   className,
   ...props
-}: SheetPrimitive.DialogPortalProps) => (
-  <SheetPrimitive.Portal className={twMerge(className)} {...props} />
-);
+}: SheetPrimitive.DialogPortalProps) {
+  return <SheetPrimitive.Portal className={twMerge(className)} {...props} />;
+}
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
 
 const SheetOverlay = React.forwardRef<
@@ -67,8 +67,8 @@ const SheetContent = React.forwardRef<
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content
-      ref={ref}
       className={twMerge(sheetVariants({ side }), className)}
+      ref={ref}
       {...props}
     >
       {children}
@@ -81,29 +81,33 @@ const SheetContent = React.forwardRef<
 ));
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
-const SheetHeader = ({
+function SheetHeader({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={twMerge('flex flex-col space-y-2 sm:text-left', className)}
-    {...props}
-  />
-);
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={twMerge('flex flex-col space-y-2 sm:text-left', className)}
+      {...props}
+    />
+  );
+}
 SheetHeader.displayName = 'SheetHeader';
 
-const SheetFooter = ({
+function SheetFooter({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={twMerge(
-      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
-      className,
-    )}
-    {...props}
-  />
-);
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={twMerge(
+        'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 SheetFooter.displayName = 'SheetFooter';
 
 const SheetTitle = React.forwardRef<
@@ -111,8 +115,8 @@ const SheetTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
-    ref={ref}
     className={twMerge('text-lg font-semibold text-foreground', className)}
+    ref={ref}
     {...props}
   />
 ));
@@ -123,14 +127,14 @@ const SheetDescription = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
-    ref={ref}
     className={twMerge('text-sm text-muted-foreground', className)}
+    ref={ref}
     {...props}
   />
 ));
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
-const SheetLink = ({
+function SheetLink({
   children,
   className,
   href,
@@ -140,17 +144,17 @@ const SheetLink = ({
   href: string;
   className?: string;
   linkComponent: NextLinkType;
-}) => {
+}) {
   const LinkComponent = linkComponent;
 
   return (
-    <LinkComponent href={href} className={className}>
+    <LinkComponent className={className} href={href}>
       <SheetClose className="text-left underline-offset-4 hover:underline">
         {children}
       </SheetClose>
     </LinkComponent>
   );
-};
+}
 
 export {
   Sheet,

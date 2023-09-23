@@ -10,11 +10,11 @@ interface NavbarProps {
   themeControllerComponent: ElementType;
 }
 
-export const Navbar = ({
+export function Navbar({
   links,
   linkComponent,
   themeControllerComponent,
-}: NavbarProps) => {
+}: NavbarProps) {
   const Link = linkComponent;
 
   const ThemeController = themeControllerComponent;
@@ -24,12 +24,12 @@ export const Navbar = ({
       {links.map((link) => {
         return (
           <Link
-            key={link.label}
-            href={link.href}
             className="tracking-wider group"
+            href={link.href}
+            key={link.label}
           >
             {link.label}
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1px] bg-slate-800 dark:bg-white"></span>
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1px] bg-slate-800 dark:bg-white" />
           </Link>
         );
       })}
@@ -38,4 +38,4 @@ export const Navbar = ({
       </div>
     </nav>
   );
-};
+}

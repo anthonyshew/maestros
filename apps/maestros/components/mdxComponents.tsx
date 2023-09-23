@@ -1,8 +1,7 @@
 import NextImage from 'next/image';
 import { Code } from 'bright';
 import Balancer from 'react-wrap-balancer';
-import type { TwoColumnsProps } from '@repo/ui';
-import { LinkHeading, TwoColumns } from '@repo/ui';
+import { LinkHeading } from '@repo/ui';
 import type { ImageProps } from 'next/image';
 import type { ReactNode } from 'react';
 import { focus } from './bright/focus';
@@ -19,9 +18,6 @@ Code.theme = {
 };
 
 export const mdxComponents = {
-  TwoColumns: (props: TwoColumnsProps) => {
-    return <TwoColumns {...props} />;
-  },
   Img: (props: CustomImageProps) => {
     const { containerClassName, srcDark, srcLight, src: _src, ...rest } = props;
 

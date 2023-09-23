@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Next.js",
   "extends": "./base.json",
   "compilerOptions": {
@@ -8,15 +7,18 @@
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
+    "declaration": false,
+    "declarationMap": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["src", "next-env.d.ts"],
+  "include": ["next-env.d.ts"],
   "exclude": ["node_modules"]
 }

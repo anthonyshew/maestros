@@ -95,7 +95,7 @@ export const structureNodes = rawStructureNodes.map((node) =>
 );
 
 const rawStructureEdges: MinimumEdge<
-  typeof rawStructureNodes[number]['data']['label']
+  (typeof rawStructureNodes)[number]['data']['label']
 >[] = [
   { source: 'Monorepo managers', target: 'Nx' },
   { source: 'Monorepo managers', target: 'Turborepo' },

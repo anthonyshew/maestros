@@ -23,24 +23,22 @@ export interface PinnedRepos {
   forks: string;
 }
 
-export const RepoCard = (repo: PinnedRepos) => {
+export function RepoCard(repo: PinnedRepos) {
   return (
     <div className="flex flex-row justify-center w-full lg:w-60">
       <div className="flex flex-col justify-around w-full gap-8 p-6 border rounded shadow-lg lg:justify-between ">
         <div className="flex flex-row justify-center gap-4 lg:justify-between">
-          <Avatar key={repo.repo} className="shadow-xl">
+          <Avatar className="shadow-xl" key={repo.repo}>
             <AvatarImage src={logos[repo.repo]} />
-            <AvatarFallback></AvatarFallback>
+            <AvatarFallback />
           </Avatar>
-          <p
-            className={`my-auto text-slate-800 dark:text-slate-200 tracking-wider`}
-          >
+          <p className="my-auto text-slate-800 dark:text-slate-200 tracking-wider">
             {repo.owner}/{repo.repo}
           </p>
         </div>
         <div className="flex flex-col justify-around gap-8 lg:flex-col sm:flex-row">
           <div className="flex flex-row justify-around w-full gap-4">
-            <a href={repo.link} target="_blank" rel="noreferrer">
+            <a href={repo.link} rel="noreferrer" target="_blank">
               <IconBox className="relative">
                 <Box className="inline w-5 h-5 text-white" strokeWidth="1.4" />
                 <span className="absolute text-white rounded-full bg-slate-500 -top-3 -right-3">
@@ -50,7 +48,7 @@ export const RepoCard = (repo: PinnedRepos) => {
             </a>
 
             <div>
-              <a href={repo.website} target="_blank" rel="noreferrer">
+              <a href={repo.website} rel="noreferrer" target="_blank">
                 <IconBox className="relative">
                   <Globe
                     className="inline w-5 h-5 text-white"
@@ -67,4 +65,4 @@ export const RepoCard = (repo: PinnedRepos) => {
       </div>
     </div>
   );
-};
+}
