@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
-const replaceNonAlphanumericsWithDash = (str: string) => {
-  return str.toLowerCase().replace(/[^a-z0-9]/gi, '-');
+const replaceNonAlphanumericsWithDash = (str?: string) => {
+  return str?.toLowerCase().replace(/[^a-z0-9]/gi, '-') ?? '';
 };
 interface LinkHeadingProps {
   component: React.ElementType;
@@ -17,7 +17,7 @@ export function LinkHeading({
 
   // The MDX can come back with an object for certain strings. (e.g. "`apps`")
   // This ensures we handle those correctly.
-  const getChildren = (nodeChildren: ReactNode) => {
+  const getChildren = (nodeChildren: ReactNode): ReactNode => {
     // @ts-expect-error Don't care at the moment!
     if (nodeChildren.props) {
       // @ts-expect-error Don't care at the moment!
@@ -27,20 +27,18 @@ export function LinkHeading({
     return nodeChildren;
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const handledChildren = getChildren(children);
 
   return (
     <Comp
       className="!mt-0"
-      id={replaceNonAlphanumericsWithDash(handledChildren.toString())}
+      id={replaceNonAlphanumericsWithDash(handledChildren?.toString())}
     >
       <span className="block pt-8" />
       <a
         className="font-bold no-underline hover:underline"
         href={`#${replaceNonAlphanumericsWithDash(
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-          handledChildren.toString(),
+          handledChildren?.toString(),
         )}`}
         {...props}
       >

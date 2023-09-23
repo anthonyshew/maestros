@@ -7,8 +7,8 @@
     "checks:fix": "turbo format:fix lint:fix --continue --force",
     "clean": "find . -name node_modules -o -name .next -o -name dist -o -name .contentlayer -type d -prune | xargs rm -rf",
     "dev": "turbo dev",
-    "format": "prettier . \"!apps/** !packages/** !tooling/** \" --check --cache --cache-location='node_modules/.cache/prettiercache'",
-    "format:fix": "prettier . \"!apps/** !packages/** !tooling/** \" --write --cache --cache-location='node_modules/.cache/prettiercache' --loglevel=warn",
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --log-level=warn",
     "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
     "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
     "typecheck": "turbo typecheck --continue"
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@vercel/style-guide": "^4.0.2",
     "eslint": "^8.47.0",
-    "prettier": "^2.8.0",
+    "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.3",
     "turbo": "^1.10.14"
   },

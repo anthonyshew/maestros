@@ -27,10 +27,10 @@ In your root `package.json`, you'll need to do two things:
   "version": "0.1.0",
   "scripts": {
     "format": "prettier . \"!apps/** !packages/** !tooling/**\" --check --cache --cache-location='node_modules/.cache/.prettiercache'",
-    "format:fix": "prettier . \"!apps/** !packages/** !tooling/**\" --write --cache --cache-location='node_modules/.cache/.prettiercache' --loglevel=warn"
+    "format:fix": "prettier . \"!apps/** !packages/** !tooling/**\" --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn"
   },
   "devDependencies": {
-    "prettier": "^2.8.0",
+    "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.3",
     "turbo": "^1.10.13"
   }
@@ -73,7 +73,7 @@ Let's get our workspaces formatted by adding scripts for these tasks. These are 
   // focus(1:6)
   "scripts": {
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/.prettiercache'",
-    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --loglevel=warn"
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/.prettiercache' --log-level=warn"
   }
 }
 ```

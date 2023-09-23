@@ -1,8 +1,5 @@
 {
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.configPath": ".prettierrc.js",
-  "prettier.prettierPath": "node_modules/prettier",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
