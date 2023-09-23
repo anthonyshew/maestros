@@ -1,4 +1,5 @@
 const { rules } = require('./shared/rules.js');
+const { overrides } = require('./shared/overrides.js');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
   ],
   ignorePatterns: ['**/.next/**', '**/.eslintrc.js'],
   overrides: [
+    ...overrides,
     {
       files: ['**/route.tsx'],
       rules: {

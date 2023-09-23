@@ -1,5 +1,6 @@
 const { resolve } = require('node:path');
 const { rules } = require('./shared/rules.js');
+const { overrides } = require('./shared/overrides.js');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
@@ -14,6 +15,7 @@ module.exports = {
   ],
   ignorePatterns: ['node_modules/', 'dist/'],
   overrides: [
+    ...overrides,
     {
       files: ['**/*.test.*'],
       extends: [require.resolve('@vercel/style-guide/eslint/jest')],
