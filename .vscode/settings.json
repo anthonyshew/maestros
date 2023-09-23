@@ -9,7 +9,11 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "json.schemas": [
     {
-      "fileMatch": ["tsconfig.*.json"],
+      "fileMatch": [
+        "tsconfig.*.json",
+        "tooling/typescript-config/**/*.json",
+        "!tooling/typescript-config/package.json"
+      ],
       "url": "https://json.schemastore.org/tsconfig"
     },
     {
