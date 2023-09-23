@@ -12,7 +12,10 @@
       "fileMatch": ["tsconfig.*.json"],
       "url": "https://json.schemastore.org/tsconfig"
     },
-    { "fileMatch": ["turbo.json"], "url": "https://turbo.build/schema.json" },
+    {
+      "fileMatch": ["**/*/turbo.json"],
+      "url": "https://turbo.build/schema.json"
+    },
     {
       "fileMatch": ["vercel.json"],
       "url": "https://openapi.vercel.sh/vercel.json"
