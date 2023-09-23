@@ -38,9 +38,6 @@ module.exports = {
       },
     },
   ],
-  parserOptions: {
-    project: true,
-  },
   root: true,
   rules,
   settings: {
