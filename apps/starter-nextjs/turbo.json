@@ -21,6 +21,24 @@
         ".env.development",
         ".env"
       ]
+    },
+    "lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "lint:fix": {
+      "outputs": ["node_modules/.cache/.eslintcache"],
+      "cache": false
+    },
+    "format": {
+      "outputs": ["node_modules/.cache/.prettiercache"]
+    },
+    "format:fix": {
+      "outputs": ["node_modules/.cache/.prettiercache"],
+      "cache": false
+    },
+    "typecheck": {
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
+      "outputMode": "errors-only"
     }
   }
 }

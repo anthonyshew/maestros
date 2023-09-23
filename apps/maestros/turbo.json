@@ -3,6 +3,12 @@
   "pipeline": {
     "build": {
       "outputs": ["./next/**", "!./next/cache/**", ".contentlayer/**"],
+      "dotEnv": [
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ],
       "env": [
         "GH_CLIENT_ID",
         "GH_CLIENT_SECRET",
@@ -16,6 +22,15 @@
         "POSTGRES_URL",
         "POSTGRES_URL_NON_POOLING",
         "VERCEL_URL"
+      ]
+    },
+    "dev": {
+      "persistent": true,
+      "dotEnv": [
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
       ]
     }
   }
