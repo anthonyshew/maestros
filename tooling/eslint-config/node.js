@@ -39,7 +39,7 @@ module.exports = {
     },
   ],
   parserOptions: {
-    project: `${__dirname}/tsconfig.json`,
+    project: true,
   },
   root: true,
   rules,
