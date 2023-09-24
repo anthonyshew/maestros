@@ -7,7 +7,7 @@ import {
   Discord,
   Button,
 } from '@repo/ui';
-import { Cloud, Github, Twitter, Youtube } from 'lucide-react';
+import { Github, Twitter, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
@@ -113,14 +113,6 @@ export default async function Home() {
             target="_blank"
           >
             <Discord className="relative top-0.5 w-6 h-6" /> Discord
-          </a>
-          <a
-            className="flex flex-row gap-2 my-4 hover:underline"
-            href="https://bsky.app/profile/shew.dev"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Cloud className="relative top-0.5 w-6 h-6" /> BlueSky
           </a>
           <a
             className="flex flex-row gap-2 my-4 hover:underline"

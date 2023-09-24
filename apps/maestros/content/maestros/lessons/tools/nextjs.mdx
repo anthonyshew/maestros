@@ -8,7 +8,7 @@ Using Next.js in a monorepo is a great way to give your Next.js applications eve
 
 ## Want easy mode?
 
-If you prefer, you can [clone the monorepo for Maestros](https://github.com/anthonyshew/maestros.git) (remember to star the repo while you're there!) and use the application found in `apps/starter-nextjs`. Remove the `apps/maestros` and `/apps/studio` directories and you're ready to go!
+If you prefer, you can [clone the monorepo for Maestros](https://github.com/anthonyshew/maestros.git) (remember to star the repo while you're there!) and use the application found in `apps/starter-nextjs`. Remove any apps you don't want and you're good to go!
 
 ## Getting started
 
@@ -170,7 +170,6 @@ module.exports = {
   root: true,
   extends: [require.resolve('@repo/lint/next.js')],
   parserOptions: {
-    tsconfigRootDir: __dirname,
     project: true,
   },
   plugins: ['@typescript-eslint'],

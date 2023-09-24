@@ -36,9 +36,6 @@ module.exports = {
       },
     },
   ],
-  parserOptions: {
-    tsconfigRootDir: `${__dirname}/tsconfig.json`,
-  },
   root: true,
   rules,
 };

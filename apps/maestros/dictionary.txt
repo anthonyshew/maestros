@@ -6,6 +6,8 @@ BlueSky
 Callout
 Contentlayer
 discoverability
+Vite's
+scaffolder
 DX
 DevRel
 APIs
