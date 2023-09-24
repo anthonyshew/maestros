@@ -67,7 +67,7 @@ Well, we can do exactly that!
 ```yml filename="./.github/workflows/quality.yml"
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 ```
 
 This block of code tells a GitHub Action to cancel any workflows that are:
