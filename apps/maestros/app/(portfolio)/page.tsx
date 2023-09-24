@@ -7,7 +7,7 @@ import {
   Discord,
   Button,
 } from '@repo/ui';
-import { Cloud, Github, Twitter, Youtube } from 'lucide-react';
+import { Github, Twitter, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
