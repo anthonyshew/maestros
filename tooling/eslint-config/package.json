@@ -4,7 +4,8 @@
   "files": [
     "node.js",
     "next.js",
-    "react-interal.js"
+    "react-internal.js",
+    "vite.js"
   ],
   "scripts": {
     "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
