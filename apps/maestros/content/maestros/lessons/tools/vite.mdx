@@ -6,19 +6,156 @@ ogDescription: Using Vite for React in a monorepo
 
 ## Want easy mode?
 
-If you prefer, you can [clone the monorepo for Maestros](https://github.com/anthonyshew/maestros.git) (remember to star the repo while you're there!) and use the application found in `apps/starter-nextjs`. Remove any apps you don't want and you're good to go!
+If you prefer, you can [clone the monorepo for Maestros](https://github.com/anthonyshew/maestros.git) (remember to star the repo while you're there!) and use the application found in `apps/starter-vite`. Remove any apps you don't want and you're good to go!
 
-## Geting started
+## Getting started
+
+Create an app with Vite's scaffolder in your `apps` folder:
+
+```bash filename="Terminal"
+cd apps
+pnpm create vite
+```
+
+We'll also add a `turbo.json` to ensure all of our pipelines are set for this app:
+
+```json filename="apps/starter-vite/turbo.json"
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "dotEnv": [
+        ".env.production.local",
+        ".env.production",
+        ".env.local",
+        ".env"
+      ]
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dotEnv": [
+        ".env.production.local",
+        ".env.production",
+        ".env.local",
+        ".env"
+      ]
+    }
+  }
+}
+```
 
 ## Adding your configurations
 
+If you've followed the [Prettier](monorepos/guardrails/prettier), [ESLint](/monorepos/guardrails/eslint), and [TypeScript](/monorepos/guardrails/typescript) pages here in Maestros, you'll want to integrate the configuration from these packages into your Vite app. Let's get those incorporated in one by one.
+
 ### Prettier
+
+First, add the scripts to `package.json`:
+
+```json filename="apps/my-app/package.json"
+{
+  "scripts": {
+    "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
+    "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --log-level=warn"
+  },
+  "devDependencies": {
+    // Replace latest with most recent version
+    "prettier": "latest"
+  }
+}
+```
+
+Prettier will use the configuration found in the root of your monorepo - but it won't respect the `.prettierignore` found there. That's okay, though, because we can add one within our application's directory so we can make sure we don't spend time formatting files we don't need to.
+
+```text filename="apps/my-app/.prettierignore"
+.env*
+node_modules
+dist
+```
 
 ### TypeScript
 
+First, install [your TSConfig presets](/monorepos/guardrails/typescript) to your application and making a type checking script:
+
+```json filename="apps/my-app/package.json"
+{
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*", // or "*" for npm and yarn
+    // Replace latest with most recent version
+    "typescript": "latest"
+  }
+}
+```
+
+Creating your Vite app using the scaffolder will generate two TypeScript configuration files (as long as you picked TypeScript), one for your application and one for `vite.config.ts`. We want to use our root configurations so we have more standardization for our TypeScript across our repository.
+
+If you haven't yet, abstract these generated files into your TypeScript configuration package:
+
+- [`vite.json` example](https://github.com/anthonyshew/maestros/blob/main/tooling/typescript-config/vite.json)
+
+- [`vite.node.json` example](https://github.com/anthonyshew/maestros/blob/main/tooling/typescript-config/vite.node.json)
+
+And use them in your TypeScript Configurations in your application:
+
+```json filename="apps/starter-vite/tsconfig.json"
+{
+  // focus(1:1)
+  "extends": "@repo/tsconfig/vite.json"
+}
+```
+
+```json filename="apps/starter-vite/tsconfig.node.json"
+{
+  // focus(1:1)
+  "extends": "@repo/tsconfig/vite.node.json"
+}
+```
+
 ### ESLint
 
+Using [our Vite preset](/monorepos/guardrails/eslint#creating-presets) we can quickly have ESLint set up exactly like the rest of our Vite apps.
+
+Add ESLint and its scripts to your application's `package.json`:
+
+```json filename="apps/starter-vite/package.json"
+{
+  "scripts": {
+    "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0"
+  },
+  "devDependencies": {
+    "@repo/lint": "workspace:*", // or "*" for npm and yarn
+    // Replace latest with most recent version
+    "eslint": "latest"
+  }
+}
+```
+
+Then, integrate your configuration into `eslintrc.js`:
+
+```js filename="apps/starter-vite/eslintrc.js" note="If you're not using TypeScript, you can remove parserOptions and plugins."
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  root: true,
+  extends: [require.resolve('@repo/lint/vite.js')],
+  parserOptions: {
+    project: true,
+  },
+  plugins: ['@typescript-eslint'],
+};
+```
+
 ## Using your UI package
+
+Vite will compile TypeScript on-the-fly with zero-configuration so it doesn't matter what [packaging pattern](/monorepos/packaging) we are using. Install it into your Vite app and start building!
 
 ### With Tailwind
 
