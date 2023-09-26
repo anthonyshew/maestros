@@ -9,9 +9,7 @@
         ".env.production",
         ".env"
       ],
-      "env": [
-        // Add your environment variables!
-      ]
+      "env": ["ADD YOUR ENVIRONMENT VARIABLES"]
     },
     "dev": {
       "persistent": true,

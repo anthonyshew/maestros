@@ -1,5 +1,6 @@
 {
   "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "editor.defaultFormatter": "biomejs.biome",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },

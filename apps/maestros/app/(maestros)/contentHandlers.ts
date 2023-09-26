@@ -21,7 +21,7 @@ export const sideBarItems = allDocuments
   });
 
 export const buildNavigationGroups = () => {
-  const buildMe: ((typeof sideBarItems)[number] & {
+  const buildMe: (typeof sideBarItems[number] & {
     children: typeof sideBarItems;
   })[] = [];
   const items = sideBarItems;

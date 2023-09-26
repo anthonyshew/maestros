@@ -16,8 +16,8 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  prettier:
-    name: Prettier
+  format:
+    name: Formatter
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -26,8 +26,8 @@ jobs:
       - name: Setup
         uses: ./tooling/github-actions/setup
 
-      - name: Run Prettier
-        run: turbo format
+      - name: Run formatter
+        run: pnpm format
 
   eslint:
     name: ESLint
