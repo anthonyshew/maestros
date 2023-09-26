@@ -169,6 +169,9 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.30
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -227,6 +230,9 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.30
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -8400,6 +8406,12 @@ packages:
     dependencies:
       sort-package-json: 2.4.1
       synckit: 0.8.5
+
+  /prettier@3.0.3:
+    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /pretty-format@3.8.0:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
