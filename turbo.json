@@ -15,20 +15,8 @@
     "topo": {
       "dependsOn": ["^generate", "^topo"]
     },
-    "//#format": {
-      "outputs": ["node_modules/.cache/.prettiercache"]
-    },
-    "format": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.prettiercache"]
-    },
+    "//#format": {},
     "//#format:fix": {
-      "outputs": ["node_modules/.cache/.prettiercache"],
-      "cache": false
-    },
-    "format:fix": {
-      "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.prettiercache"],
       "cache": false
     },
     "//#lint": {
@@ -54,7 +42,8 @@
       "outputMode": "errors-only"
     },
     "spellcheck": {
-      "inputs": ["**/*.mdx"]
+      "inputs": ["**/*.mdx"],
+      "cache": false
     }
   }
 }

@@ -10,6 +10,8 @@
   },
 
   "formatter": {
+    "enabled": true,
+    "ignore": ["**/*/.next/**", "**/*/.contentlayer"],
     "indentStyle": "space"
   },
   "linter": {
