@@ -13,16 +13,10 @@ importers:
         version: 1.2.2
       '@vercel/style-guide':
         specifier: ^4.0.2
-        version: 4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(prettier@3.0.3)(typescript@5.2.2)
+        version: 4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(typescript@5.2.2)
       eslint:
         specifier: ^8.47.0
         version: 8.49.0
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
-      prettier-plugin-packagejson:
-        specifier: ^2.4.3
-        version: 2.4.3(prettier@3.0.3)
       turbo:
         specifier: ^1.10.14
         version: 1.10.14
@@ -175,9 +169,6 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.30
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -236,9 +227,6 @@ importers:
       postcss:
         specifier: ^8.4.24
         version: 8.4.30
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.3
@@ -437,22 +425,15 @@ importers:
         version: 5.59.1(eslint@8.49.0)(typescript@5.2.2)
       '@vercel/style-guide':
         specifier: ^4.0.2
-        version: 4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(prettier@3.0.3)(typescript@5.2.2)
+        version: 4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(typescript@5.2.2)
       eslint:
         specifier: ^8.47.0
         version: 8.49.0
       eslint-config-turbo:
         specifier: ^1.10.14
         version: 1.10.14(eslint@8.49.0)
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
 
-  tooling/typescript-config:
-    devDependencies:
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
+  tooling/typescript-config: {}
 
 packages:
 
@@ -3933,7 +3914,7 @@ packages:
       yoga-wasm-web: 0.3.0
     dev: false
 
-  /@vercel/style-guide@4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(prettier@3.0.3)(typescript@5.2.2):
+  /@vercel/style-guide@4.0.2(@next/eslint-plugin-next@13.5.1)(eslint@8.49.0)(typescript@5.2.2):
     resolution: {integrity: sha512-FroL+oOePzhw7n/I+f7zr4WNroGHT/+2TlW6WH9+CVSjMNsEyu7Qstj2mI5gWIBjT1Y2ZImKPppCzI2cIYmNZw==}
     engines: {node: '>=16'}
     peerDependencies:
@@ -3971,8 +3952,7 @@ packages:
       eslint-plugin-testing-library: 5.11.1(eslint@8.49.0)(typescript@5.2.2)
       eslint-plugin-tsdoc: 0.2.17
       eslint-plugin-unicorn: 43.0.2(eslint@8.49.0)
-      prettier: 3.0.3
-      prettier-plugin-packagejson: 2.4.3(prettier@3.0.3)
+      prettier-plugin-packagejson: 2.4.3
       typescript: 5.2.2
     transitivePeerDependencies:
       - eslint-import-resolver-node
@@ -8410,7 +8390,7 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  /prettier-plugin-packagejson@2.4.3(prettier@3.0.3):
+  /prettier-plugin-packagejson@2.4.3:
     resolution: {integrity: sha512-kPeeviJiwy0BgOSk7No8NmzzXfW4R9FYWni6ziA5zc1kGVVrKnBzMZdu2TUhI+I7h8/5Htt3vARYOk7KKJTTNQ==}
     peerDependencies:
       prettier: '>= 1.16.0'
@@ -8418,14 +8398,8 @@ packages:
       prettier:
         optional: true
     dependencies:
-      prettier: 3.0.3
       sort-package-json: 2.4.1
       synckit: 0.8.5
-
-  /prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
-    engines: {node: '>=14'}
-    hasBin: true
 
   /pretty-format@3.8.0:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
