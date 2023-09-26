@@ -5,6 +5,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
+      "env": ["ADD YOUR ENVIRONMENT VARIABLES"],
       "dotEnv": [
         ".env.production.local",
         ".env.production",
