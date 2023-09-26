@@ -1,39 +1,40 @@
 {
-  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "tsconfig.*.json",
-        "tooling/typescript-config/**/*.json",
-        "!tooling/typescript-config/package.json"
-      ],
-      "url": "https://json.schemastore.org/tsconfig"
-    },
-    {
-      "fileMatch": ["**/*/turbo.json"],
-      "url": "https://turbo.build/schema.json"
-    },
-    {
-      "fileMatch": ["vercel.json"],
-      "url": "https://openapi.vercel.sh/vercel.json"
-    }
-  ],
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/.next": true,
-    "**/.output": true,
-    "**/.turbo": true,
-    "**/.vercel": true,
-    "**/dist": true
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "editor.quickSuggestions": {
-    "strings": true
-  }
+	"eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+	"editor.defaultFormatter": "biomejs.biome",
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"tsconfig.*.json",
+				"tooling/typescript-config/**/*.json",
+				"!tooling/typescript-config/package.json"
+			],
+			"url": "https://json.schemastore.org/tsconfig"
+		},
+		{
+			"fileMatch": ["**/*/turbo.json"],
+			"url": "https://turbo.build/schema.json"
+		},
+		{
+			"fileMatch": ["vercel.json"],
+			"url": "https://openapi.vercel.sh/vercel.json"
+		}
+	],
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/.next": true,
+		"**/.output": true,
+		"**/.turbo": true,
+		"**/.vercel": true,
+		"**/dist": true
+	},
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+	],
+	"editor.quickSuggestions": {
+		"strings": true
+	}
 }
