@@ -2,6 +2,7 @@
   "name": "monorepo-maestros",
   "version": "0.1.0",
   "scripts": {
+    "biome": "biome format . --write",
     "build": "turbo build",
     "checks": "turbo format lint typecheck --continue",
     "checks:fix": "turbo format:fix lint:fix --continue --force",
@@ -14,6 +15,7 @@
     "typecheck": "turbo typecheck --continue"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.2.2",
     "@vercel/style-guide": "^4.0.2",
     "eslint": "^8.47.0",
     "prettier": "^3.0.3",
