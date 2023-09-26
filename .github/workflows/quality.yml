@@ -27,7 +27,7 @@ jobs:
         uses: ./tooling/github-actions/setup
 
       - name: Run formatter
-        run: turbo format
+        run: pn format
 
   eslint:
     name: ESLint
