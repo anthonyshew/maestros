@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer');
+const withVercelToolbar = require('@vercel/toolbar/plugins/next')();
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
@@ -8,4 +9,4 @@ const moduleExports = {
   typescript: { ignoreBuildErrors: true },
 };
 
-module.exports = withContentlayer(moduleExports);
+module.exports = withVercelToolbar(withContentlayer(moduleExports));

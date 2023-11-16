@@ -12,8 +12,9 @@ import {
 import Link from 'next/link';
 import { Analytics } from '@repo/analytics';
 import { Twitter, SidebarOpen, Music } from 'lucide-react';
-import { Fragment } from 'react';
+import { Fragment, Suspense } from 'react';
 import { linkStyles } from '../navLinks';
+import { Toolbar } from './toolbar';
 import { inter } from '#/app/fonts';
 import { buildMeta, metadataBaseURI } from '#/app/metadata';
 import '#/app/globals.css';
@@ -162,6 +163,9 @@ export default function RootLayout({
           </ThemeWrapper>
         </AuthSessionProvider>
         <Analytics />
+        <Suspense>
+          <Toolbar />
+        </Suspense>
       </body>
     </html>
   );
