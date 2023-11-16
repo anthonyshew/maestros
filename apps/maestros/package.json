@@ -17,6 +17,7 @@
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@vercel/og": "^0.0.27",
+    "@vercel/toolbar": "^0.1.5",
     "bright": "^0.8.2",
     "class-variance-authority": "^0.6.1",
     "contentlayer": "latest",
