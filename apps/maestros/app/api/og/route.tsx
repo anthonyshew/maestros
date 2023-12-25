@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 import { tagline } from '#/app/constants';
 
 export const runtime = 'edge';
@@ -71,6 +71,7 @@ export async function GET(req: Request) {
         }}
       >
         <img
+          alt=""
           height={250}
           src="https://shew.dev/images/me.jpg"
           tw="rounded-full mb-10"

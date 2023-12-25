@@ -1,5 +1,0 @@
-{
-  "extends": "@repo/tsconfig/vite.json",
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
-}

@@ -7,7 +7,7 @@
     },
     "build": {
       "dependsOn": ["^build", "^generate"],
-      "outputs": [".next/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "generate": {
       "outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
@@ -19,26 +19,20 @@
     "//#format:fix": {
       "cache": false
     },
-    "//#lint": {
-      "outputs": ["node_modules/.cache/.eslintcache"]
-    },
+    "//#lint": {},
     "lint": {
-      "dependsOn": ["^topo", "^generate", "generate"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
+      "dependsOn": ["^topo", "^generate", "generate"]
     },
     "//#lint:fix": {
       "dependsOn": ["^topo"],
-      "outputs": ["node_modules/.cache/.eslintcache"],
       "cache": false
     },
     "lint:fix": {
       "dependsOn": ["^topo", "^generate", "generate"],
-      "outputs": ["node_modules/.cache/.eslintcache"],
       "cache": false
     },
     "typecheck": {
       "dependsOn": ["^topo", "^generate", "generate"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"],
       "outputMode": "errors-only"
     },
     "spellcheck": {

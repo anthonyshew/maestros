@@ -16,8 +16,8 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  format:
-    name: Formatter
+  quality-checks:
+    name: Quality checks
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -27,43 +27,4 @@ jobs:
         uses: ./tooling/github-actions/setup
 
       - name: Run formatter
-        run: pnpm format
-
-  eslint:
-    name: ESLint
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./tooling/github-actions/setup
-
-      - name: Lint
-        run: turbo lint
-
-  typecheck:
-    name: TypeScript
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./tooling/github-actions/setup
-
-      - name: Run TypeScript type check
-        run: turbo typecheck
-
-  spellcheck:
-    name: Spellcheck
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./tooling/github-actions/setup
-
-      - name: Run spellchecker
-        run: turbo spellcheck
+        run: pnpm checks
