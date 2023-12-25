@@ -11,3 +11,4 @@ export * from './components/Icons';
 export * from './components/RepoCard';
 export * from './components/IconBox';
 export * from './components/Discord';
+export * from './components/Xitter';

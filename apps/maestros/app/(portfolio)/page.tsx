@@ -1,13 +1,13 @@
-import type { PinnedRepos } from '@repo/ui';
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-  RepoCard,
   Discord,
-  Button,
+  ThreadsApp,
+  Xitter,
+  // Button,
 } from '@repo/ui';
-import { Github, Twitter, Youtube } from 'lucide-react';
+import { Github, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
@@ -24,22 +24,7 @@ export const generateMetadata = (): Metadata => {
   });
 };
 
-const getData = async () => {
-  const pins = await fetch(
-    'https://gh-pinned-repos.egoist.dev/?username=anthonyshew',
-  )
-    .then((res) => res.json() as unknown as PinnedRepos[])
-    .catch((err) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      throw new Error(err);
-    });
-
-  return pins;
-};
-
-export default async function Home() {
-  const data = await getData();
-
+export default function Home() {
   return (
     <div>
       <div className="flex flex-row gap-4 sm:gap-8">
@@ -61,22 +46,29 @@ export default async function Home() {
       <div className="max-w-2xl mx-auto mt-8 prose dark:prose-invert">
         <p>
           Hey, I&apos;m Anthony. I played professional baseball for six years
-          and now I write software. I'm currently at Vercel as a Content
-          Engineer. If you'd like to learn more about me personally, I wrote a
+          and now I write software. I'm currently at Vercel as Turbo DX, where I
+          get to lead the{' '}
+          <a
+            href="https://turbo.build"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Turbo
+          </a>{' '}
+          community. If you'd like to learn more about me personally, I wrote a
           little about how I got here in{' '}
           <Link href="/blog/my-developer-story">this blog post</Link>.
         </p>
+
         <p>
-          Outside of my day job, I'm building a course about JavaScript and
-          TypeScript monorepos.{' '}
-          <strong>
-            If you'd like to level up your skills so you can build healthy
-            repositories for yourself and your teammates, feel free to join the
-            course!
-          </strong>
+          I'm also creating <Link href="/monorepos">Monorepo Maestros</Link>, a
+          reference for all things monorepo. As monorepo tooling continues to
+          improve, I'm excited to help developers learn more about how to create
+          well-architected, beautiful, <strong>fast</strong> monorepos to
+          deliver the best work of their lives.
         </p>
 
-        <div className="flex flex-row items-center justify-center">
+        {/* <div className="flex flex-row items-center justify-center">
           <Button asChild size="lg" variant="default">
             <Link
               className="flex flex-col py-10 text-xl font-bold text-center no-underline md:w-full md:py-8 md:flex-row"
@@ -86,7 +78,7 @@ export default async function Home() {
               <span>Monorepo Maestros</span>
             </Link>
           </Button>
-        </div>
+        </div> */}
 
         <hr className="mt-8 mb-4" />
         <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-8">
@@ -96,7 +88,7 @@ export default async function Home() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Twitter className="relative top-0.5" /> Twitter
+            <Xitter className="relative top-0.5 w-6 h-6" /> Xitter
           </a>
           <a
             className="flex flex-row gap-2 my-4 hover:underline"
@@ -105,6 +97,14 @@ export default async function Home() {
             target="_blank"
           >
             <Youtube className="relative top-0.5" /> YouTube
+          </a>
+          <a
+            className="flex flex-row gap-2 my-4 hover:underline"
+            href="https://www.threads.net/@anthonyshew"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ThreadsApp className="relative top-0.5 w-6 h-6" /> Threads
           </a>
           <a
             className="flex flex-row gap-2 my-4 hover:underline"
@@ -124,16 +124,6 @@ export default async function Home() {
           </a>
         </div>
         <hr className="mt-4 mb-8" />
-      </div>
-
-      <h2 className="my-6 text-2xl font-medium text-black dark:text-white">
-        Projects I&apos;m proud to be involved in
-      </h2>
-
-      <div className="flex flex-row flex-wrap justify-center gap-8">
-        {data.map((repo) => (
-          <RepoCard key={repo.repo} {...repo} />
-        ))}
       </div>
     </div>
   );
