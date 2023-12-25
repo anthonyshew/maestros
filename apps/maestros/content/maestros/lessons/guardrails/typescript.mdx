@@ -135,7 +135,7 @@ Now, we'll build our Turborepo pipeline with two important characteristics.
       "dependsOn": ["^topo"]
     },
     "typecheck": {
-      "dependsOn": ["^topo"],
+      "dependsOn": ["topo"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
