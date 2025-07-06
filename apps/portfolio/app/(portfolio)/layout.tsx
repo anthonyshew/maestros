@@ -27,7 +27,7 @@ export default function RootLayout({
 		>
 			<body>
 				<ThemeWrapper>
-					<main className="relative flex flex-col flex-auto max-w-5xl min-h-screen px-6 pb-4 mx-auto sm:py-8 lg:py-20 md:flex-row">
+					<main className="relative flex flex-col flex-auto max-w-5xl min-h-screen px-6 pb-4 mx-auto sm:py-8 lg:py-20">
 						<div className="absolute right-4 top-8 md:hidden">
 							<ThemeController />
 						</div>

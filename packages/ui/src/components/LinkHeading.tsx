@@ -38,7 +38,7 @@ export function LinkHeading({
 
 	return (
 		<Comp
-			className="!mt-0"
+			className="mt-0!"
 			id={replaceNonAlphanumericsWithDash(childrenString)}
 		>
 			<span className="block pt-8" />

@@ -75,14 +75,14 @@ export const mdxComponents = {
 			<>
 				<div className="hidden dark:block" data-theme="dark">
 					<Code
-						className="!m-0 border border-gray-800"
+						className="m-0! border border-gray-800"
 						extensions={[focus]}
 						lang={props.lang}
 						title={props.filename}
 						code={String(props.children)}
 					/>{" "}
 					{props.note ? (
-						<p className="!my-0 p-2 px-4 border-[1px] border-gray-800 text-sm border-t-0">
+						<p className="my-0! p-2 px-4 border border-gray-800 text-sm border-t-0">
 							Note: {props.note}
 						</p>
 					) : null}
@@ -90,14 +90,14 @@ export const mdxComponents = {
 
 				<div className="block dark:hidden" data-theme="light">
 					<Code
-						className="!m-0 border border-gray-300"
+						className="m-0! border border-gray-300"
 						extensions={[focus]}
 						lang={props.lang}
 						title={props.filename}
 						code={String(props.children)}
 					/>{" "}
 					{props.note ? (
-						<p className="!my-0 p-2 px-4 border-[1px] border-gray-300 text-sm border-t-0">
+						<p className="my-0! p-2 px-4 border border-gray-300 text-sm border-t-0">
 							Note: {props.note}
 						</p>
 					) : null}

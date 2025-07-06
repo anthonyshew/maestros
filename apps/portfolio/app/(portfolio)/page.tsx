@@ -27,7 +27,7 @@ export const generateMetadata = (): Metadata => {
 export default function Home() {
 	return (
 		<div>
-			<div className="flex flex-row gap-4 sm:gap-8">
+			<div className="flex flex-row justify-center gap-4 sm:gap-8">
 				<Avatar className="w-12 h-12 sm:w-20 sm:h-20">
 					<AvatarImage src="/images/me.jpg" />
 					<AvatarFallback />
