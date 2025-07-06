@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 import { allDocs } from "content-collections";
-import { MDXContent } from "@content-collections/mdx/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Callout } from "@repo/ui";
 import { getPageDocument } from "#/app/(maestros)/contentHandlers";
-import { mdxComponents } from "#/components/mdxComponents";
 import { buildMeta, metadataBaseURI } from "#/app/metadata";
 
 export function generateStaticParams() {
@@ -45,9 +43,8 @@ function Page({ params }: { params: { slug: string[] } }) {
 
 	if (!content) return notFound();
 	if (content.unpublished) return notFound();
-	const headings = content.toc || [];
 	// For now, disable TOC since we're not pre-compiling MDX
-	// const headings = [];
+	const headings: Array<{ title: string; url: string }> = [];
 
 	return (
 		<main className="relative flex flex-row justify-start overflow-x-hidden flex-auto h-[calc(100vh-3.5rem)] px-8 py-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
@@ -68,7 +65,7 @@ function Page({ params }: { params: { slug: string[] } }) {
 			<div className="sticky top-0 hidden max-w-sm xl:block">
 				<div className="flex flex-col gap-2 ml-6">
 					{headings.length > 0 ? <p>On this page</p> : null}
-				{headings.map((heading) => {
+				{headings.map((heading: { title: string; url: string }) => {
 					return (
 						<Link
 							className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"

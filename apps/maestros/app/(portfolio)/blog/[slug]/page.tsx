@@ -97,7 +97,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			</header>
 
 			<article>
-				<MDXContent code={post.body} components={mdxComponents as any} />
+				<MDXContent code={post.content} components={mdxComponents as any} />
 			</article>
 
 			<footer className="pt-4 mt-4 border-t-2 border-t-slate-600">

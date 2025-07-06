@@ -1,8 +1,12 @@
-import { allDocs, allMetas } from 'content-collections';
-import { loader } from 'fumadocs-core/source';
-import { createMDXSource } from '@fumadocs/content-collections';
+import { allDocs } from 'content-collections';
 
-export const source = loader({
-  baseUrl: '/monorepos',
-  source: createMDXSource(allDocs, allMetas),
-});
+// Simple source implementation without fumadocs
+export const source = {
+  getPage: (slug: string[]) => {
+    const path = slug.join('/');
+    return allDocs.find(doc => 
+      doc._meta.path.replace('lessons/', '').replace('.mdx', '').replace('/index', '') === path
+    );
+  },
+  getPages: () => allDocs,
+};
