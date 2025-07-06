@@ -26,5 +26,5 @@ jobs:
       - name: Setup
         uses: ./tooling/github-actions/setup
 
-      - name: Run formatter
-        run: pnpm checks
+      - name: Run checks
+        run: turbo run format lint typecheck spellcheck --continue
