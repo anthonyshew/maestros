@@ -1,7 +1,6 @@
 {
 	"name": "maestros",
 	"version": "0.1.0",
-	"type": "module",
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev",
