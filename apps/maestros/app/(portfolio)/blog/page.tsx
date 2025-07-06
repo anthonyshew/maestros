@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { compareDesc, format, parseISO } from "date-fns";
+import { compareDesc, format } from "date-fns";
 import { allBlogs, type Blog } from "content-collections";
 import { buildMeta } from "#/app/metadata";
 

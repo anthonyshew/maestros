@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 const replaceNonAlphanumericsWithDash = (str?: string | null) => {
-	if (!str || typeof str !== 'string') return "";
+	if (!str || typeof str !== "string") return "";
 	return str.toLowerCase().replace(/[^a-z0-9]/gi, "-");
 };
 interface LinkHeadingProps {
@@ -29,9 +29,12 @@ export function LinkHeading({
 	};
 
 	const handledChildren = getChildren(children);
-	const childrenString = typeof handledChildren === 'string' ? handledChildren : 
-		typeof handledChildren === 'object' && handledChildren !== null ? 
-		String(handledChildren) : '';
+	const childrenString =
+		typeof handledChildren === "string"
+			? handledChildren
+			: typeof handledChildren === "object" && handledChildren !== null
+				? String(handledChildren)
+				: "";
 
 	return (
 		<Comp

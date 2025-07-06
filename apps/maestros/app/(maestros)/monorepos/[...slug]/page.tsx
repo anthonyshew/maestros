@@ -9,10 +9,10 @@ import { buildMeta, metadataBaseURI } from "#/app/metadata";
 export function generateStaticParams() {
 	return allDocs.map((doc) => ({
 		slug: doc._meta.path
-			.replace('lessons/', '')
-			.replace('.mdx', '')
-			.replace('/index', '')
-			.split('/'),
+			.replace("lessons/", "")
+			.replace(".mdx", "")
+			.replace("/index", "")
+			.split("/"),
 	}));
 }
 
@@ -36,8 +36,6 @@ export const generateMetadata = ({
 	});
 };
 
-
-
 function Page({ params }: { params: { slug: string[] } }) {
 	const content = getPageDocument(params.slug);
 
@@ -55,27 +53,27 @@ function Page({ params }: { params: { slug: string[] } }) {
 					information architecture, graphics, and other awesomeness. Your
 					feedback is welcome!
 				</Callout>
-
-			<h1>{content.title}</h1>
-
-			<div>
-				<p>Content migration in progress...</p>
-				<pre>{JSON.stringify(content, null, 2)}</pre>
-			</div>			</div>
+				<h1>{content.title}</h1>
+				<div>
+					<p>Content migration in progress...</p>
+					<pre>{JSON.stringify(content, null, 2)}</pre>
+				</div>{" "}
+			</div>
 			<div className="sticky top-0 hidden max-w-sm xl:block">
 				<div className="flex flex-col gap-2 ml-6">
 					{headings.length > 0 ? <p>On this page</p> : null}
-				{headings.map((heading: { title: string; url: string }) => {
-					return (
-						<Link
-							className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
-							href={heading.url}
-							key={heading.title}
-						>
-							{heading.title}
-						</Link>
-					);
-				})}				</div>
+					{headings.map((heading: { title: string; url: string }) => {
+						return (
+							<Link
+								className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
+								href={heading.url}
+								key={heading.title}
+							>
+								{heading.title}
+							</Link>
+						);
+					})}{" "}
+				</div>
 			</div>
 		</main>
 	);

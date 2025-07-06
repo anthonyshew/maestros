@@ -1,49 +1,409 @@
 // @ts-nocheck -- skip type checking
-import * as docs_40 from "../content/maestros/lessons/tools/vitest.mdx?collection=docs&hash=1751821659869"
-import * as docs_39 from "../content/maestros/lessons/tools/vite.mdx?collection=docs&hash=1751821659869"
-import * as docs_38 from "../content/maestros/lessons/tools/trpc.mdx?collection=docs&hash=1751821659869"
-import * as docs_37 from "../content/maestros/lessons/tools/tailwind.mdx?collection=docs&hash=1751821659869"
-import * as docs_36 from "../content/maestros/lessons/tools/sentry.mdx?collection=docs&hash=1751821659869"
-import * as docs_35 from "../content/maestros/lessons/tools/prisma.mdx?collection=docs&hash=1751821659869"
-import * as docs_34 from "../content/maestros/lessons/tools/nextjs.mdx?collection=docs&hash=1751821659869"
-import * as docs_33 from "../content/maestros/lessons/tools/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_32 from "../content/maestros/lessons/tools/graphql.mdx?collection=docs&hash=1751821659869"
-import * as docs_31 from "../content/maestros/lessons/tools/drizzle.mdx?collection=docs&hash=1751821659869"
-import * as docs_30 from "../content/maestros/lessons/tools/authjs.mdx?collection=docs&hash=1751821659869"
-import * as docs_29 from "../content/maestros/lessons/understanding-monorepos/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_28 from "../content/maestros/lessons/packaging/multiple.mdx?collection=docs&hash=1751821659869"
-import * as docs_27 from "../content/maestros/lessons/packaging/jit.mdx?collection=docs&hash=1751821659869"
-import * as docs_26 from "../content/maestros/lessons/packaging/internal.mdx?collection=docs&hash=1751821659869"
-import * as docs_25 from "../content/maestros/lessons/packaging/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_24 from "../content/maestros/lessons/packaging/external.mdx?collection=docs&hash=1751821659869"
-import * as docs_23 from "../content/maestros/lessons/packaging/applications.mdx?collection=docs&hash=1751821659869"
-import * as docs_22 from "../content/maestros/lessons/try-it-out/thinking-in-graphs.mdx?collection=docs&hash=1751821659869"
-import * as docs_21 from "../content/maestros/lessons/try-it-out/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_20 from "../content/maestros/lessons/package-managers/yarn.mdx?collection=docs&hash=1751821659869"
-import * as docs_19 from "../content/maestros/lessons/package-managers/pnpm.mdx?collection=docs&hash=1751821659869"
-import * as docs_18 from "../content/maestros/lessons/package-managers/npm.mdx?collection=docs&hash=1751821659869"
-import * as docs_17 from "../content/maestros/lessons/package-managers/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_16 from "../content/maestros/lessons/ci-cd/vercel.mdx?collection=docs&hash=1751821659869"
-import * as docs_15 from "../content/maestros/lessons/ci-cd/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_14 from "../content/maestros/lessons/ci-cd/github-actions.mdx?collection=docs&hash=1751821659869"
-import * as docs_13 from "../content/maestros/lessons/ci-cd/feature-flags.mdx?collection=docs&hash=1751821659869"
-import * as docs_12 from "../content/maestros/lessons/ci-cd/caching.mdx?collection=docs&hash=1751821659869"
-import * as docs_11 from "../content/maestros/lessons/guardrails/typescript.mdx?collection=docs&hash=1751821659869"
-import * as docs_10 from "../content/maestros/lessons/guardrails/tseslint.mdx?collection=docs&hash=1751821659869"
-import * as docs_9 from "../content/maestros/lessons/guardrails/prettier.mdx?collection=docs&hash=1751821659869"
-import * as docs_8 from "../content/maestros/lessons/guardrails/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_7 from "../content/maestros/lessons/guardrails/eslint.mdx?collection=docs&hash=1751821659869"
-import * as docs_6 from "../content/maestros/lessons/basics/workspaces.mdx?collection=docs&hash=1751821659869"
-import * as docs_5 from "../content/maestros/lessons/basics/root.mdx?collection=docs&hash=1751821659869"
-import * as docs_4 from "../content/maestros/lessons/basics/index.mdx?collection=docs&hash=1751821659869"
-import * as docs_3 from "../content/maestros/landings/motivation.mdx?collection=docs&hash=1751821659869"
-import * as docs_2 from "../content/maestros/landings/glossary.mdx?collection=docs&hash=1751821659869"
-import * as docs_1 from "../content/maestros/landings/examples.mdx?collection=docs&hash=1751821659869"
-import * as docs_0 from "../content/maestros/landings/credits.mdx?collection=docs&hash=1751821659869"
-import * as blogs_2 from "../content/blog/vercel-year-1.mdx?collection=blogs&hash=1751821659869"
-import * as blogs_1 from "../content/blog/my-developer-story.mdx?collection=blogs&hash=1751821659869"
-import * as blogs_0 from "../content/blog/how-i-built-my-site.mdx?collection=blogs&hash=1751821659869"
-import { _runtime } from "fumadocs-mdx"
-import * as _source from "../source.config"
-export const blogs = _runtime.docs<typeof _source.blogs>([{ info: {"path":"how-i-built-my-site.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/how-i-built-my-site.mdx"}, data: blogs_0 }, { info: {"path":"my-developer-story.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/my-developer-story.mdx"}, data: blogs_1 }, { info: {"path":"vercel-year-1.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/vercel-year-1.mdx"}, data: blogs_2 }], [])
-export const docs = _runtime.docs<typeof _source.docs>([{ info: {"path":"landings/credits.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/credits.mdx"}, data: docs_0 }, { info: {"path":"landings/examples.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/examples.mdx"}, data: docs_1 }, { info: {"path":"landings/glossary.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/glossary.mdx"}, data: docs_2 }, { info: {"path":"landings/motivation.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/motivation.mdx"}, data: docs_3 }, { info: {"path":"lessons/basics/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/index.mdx"}, data: docs_4 }, { info: {"path":"lessons/basics/root.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/root.mdx"}, data: docs_5 }, { info: {"path":"lessons/basics/workspaces.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/workspaces.mdx"}, data: docs_6 }, { info: {"path":"lessons/guardrails/eslint.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/eslint.mdx"}, data: docs_7 }, { info: {"path":"lessons/guardrails/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/index.mdx"}, data: docs_8 }, { info: {"path":"lessons/guardrails/prettier.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/prettier.mdx"}, data: docs_9 }, { info: {"path":"lessons/guardrails/tseslint.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/tseslint.mdx"}, data: docs_10 }, { info: {"path":"lessons/guardrails/typescript.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/typescript.mdx"}, data: docs_11 }, { info: {"path":"lessons/ci-cd/caching.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/caching.mdx"}, data: docs_12 }, { info: {"path":"lessons/ci-cd/feature-flags.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/feature-flags.mdx"}, data: docs_13 }, { info: {"path":"lessons/ci-cd/github-actions.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/github-actions.mdx"}, data: docs_14 }, { info: {"path":"lessons/ci-cd/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/index.mdx"}, data: docs_15 }, { info: {"path":"lessons/ci-cd/vercel.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/vercel.mdx"}, data: docs_16 }, { info: {"path":"lessons/package-managers/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/index.mdx"}, data: docs_17 }, { info: {"path":"lessons/package-managers/npm.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/npm.mdx"}, data: docs_18 }, { info: {"path":"lessons/package-managers/pnpm.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/pnpm.mdx"}, data: docs_19 }, { info: {"path":"lessons/package-managers/yarn.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/yarn.mdx"}, data: docs_20 }, { info: {"path":"lessons/try-it-out/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/try-it-out/index.mdx"}, data: docs_21 }, { info: {"path":"lessons/try-it-out/thinking-in-graphs.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/try-it-out/thinking-in-graphs.mdx"}, data: docs_22 }, { info: {"path":"lessons/packaging/applications.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/applications.mdx"}, data: docs_23 }, { info: {"path":"lessons/packaging/external.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/external.mdx"}, data: docs_24 }, { info: {"path":"lessons/packaging/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/index.mdx"}, data: docs_25 }, { info: {"path":"lessons/packaging/internal.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/internal.mdx"}, data: docs_26 }, { info: {"path":"lessons/packaging/jit.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/jit.mdx"}, data: docs_27 }, { info: {"path":"lessons/packaging/multiple.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/multiple.mdx"}, data: docs_28 }, { info: {"path":"lessons/understanding-monorepos/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/understanding-monorepos/index.mdx"}, data: docs_29 }, { info: {"path":"lessons/tools/authjs.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/authjs.mdx"}, data: docs_30 }, { info: {"path":"lessons/tools/drizzle.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/drizzle.mdx"}, data: docs_31 }, { info: {"path":"lessons/tools/graphql.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/graphql.mdx"}, data: docs_32 }, { info: {"path":"lessons/tools/index.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/index.mdx"}, data: docs_33 }, { info: {"path":"lessons/tools/nextjs.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/nextjs.mdx"}, data: docs_34 }, { info: {"path":"lessons/tools/prisma.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/prisma.mdx"}, data: docs_35 }, { info: {"path":"lessons/tools/sentry.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/sentry.mdx"}, data: docs_36 }, { info: {"path":"lessons/tools/tailwind.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/tailwind.mdx"}, data: docs_37 }, { info: {"path":"lessons/tools/trpc.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/trpc.mdx"}, data: docs_38 }, { info: {"path":"lessons/tools/vite.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/vite.mdx"}, data: docs_39 }, { info: {"path":"lessons/tools/vitest.mdx","absolutePath":"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/vitest.mdx"}, data: docs_40 }], [])
+import * as docs_40 from "../content/maestros/lessons/tools/vitest.mdx?collection=docs&hash=1751821659869";
+import * as docs_39 from "../content/maestros/lessons/tools/vite.mdx?collection=docs&hash=1751821659869";
+import * as docs_38 from "../content/maestros/lessons/tools/trpc.mdx?collection=docs&hash=1751821659869";
+import * as docs_37 from "../content/maestros/lessons/tools/tailwind.mdx?collection=docs&hash=1751821659869";
+import * as docs_36 from "../content/maestros/lessons/tools/sentry.mdx?collection=docs&hash=1751821659869";
+import * as docs_35 from "../content/maestros/lessons/tools/prisma.mdx?collection=docs&hash=1751821659869";
+import * as docs_34 from "../content/maestros/lessons/tools/nextjs.mdx?collection=docs&hash=1751821659869";
+import * as docs_33 from "../content/maestros/lessons/tools/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_32 from "../content/maestros/lessons/tools/graphql.mdx?collection=docs&hash=1751821659869";
+import * as docs_31 from "../content/maestros/lessons/tools/drizzle.mdx?collection=docs&hash=1751821659869";
+import * as docs_30 from "../content/maestros/lessons/tools/authjs.mdx?collection=docs&hash=1751821659869";
+import * as docs_29 from "../content/maestros/lessons/understanding-monorepos/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_28 from "../content/maestros/lessons/packaging/multiple.mdx?collection=docs&hash=1751821659869";
+import * as docs_27 from "../content/maestros/lessons/packaging/jit.mdx?collection=docs&hash=1751821659869";
+import * as docs_26 from "../content/maestros/lessons/packaging/internal.mdx?collection=docs&hash=1751821659869";
+import * as docs_25 from "../content/maestros/lessons/packaging/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_24 from "../content/maestros/lessons/packaging/external.mdx?collection=docs&hash=1751821659869";
+import * as docs_23 from "../content/maestros/lessons/packaging/applications.mdx?collection=docs&hash=1751821659869";
+import * as docs_22 from "../content/maestros/lessons/try-it-out/thinking-in-graphs.mdx?collection=docs&hash=1751821659869";
+import * as docs_21 from "../content/maestros/lessons/try-it-out/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_20 from "../content/maestros/lessons/package-managers/yarn.mdx?collection=docs&hash=1751821659869";
+import * as docs_19 from "../content/maestros/lessons/package-managers/pnpm.mdx?collection=docs&hash=1751821659869";
+import * as docs_18 from "../content/maestros/lessons/package-managers/npm.mdx?collection=docs&hash=1751821659869";
+import * as docs_17 from "../content/maestros/lessons/package-managers/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_16 from "../content/maestros/lessons/ci-cd/vercel.mdx?collection=docs&hash=1751821659869";
+import * as docs_15 from "../content/maestros/lessons/ci-cd/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_14 from "../content/maestros/lessons/ci-cd/github-actions.mdx?collection=docs&hash=1751821659869";
+import * as docs_13 from "../content/maestros/lessons/ci-cd/feature-flags.mdx?collection=docs&hash=1751821659869";
+import * as docs_12 from "../content/maestros/lessons/ci-cd/caching.mdx?collection=docs&hash=1751821659869";
+import * as docs_11 from "../content/maestros/lessons/guardrails/typescript.mdx?collection=docs&hash=1751821659869";
+import * as docs_10 from "../content/maestros/lessons/guardrails/tseslint.mdx?collection=docs&hash=1751821659869";
+import * as docs_9 from "../content/maestros/lessons/guardrails/prettier.mdx?collection=docs&hash=1751821659869";
+import * as docs_8 from "../content/maestros/lessons/guardrails/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_7 from "../content/maestros/lessons/guardrails/eslint.mdx?collection=docs&hash=1751821659869";
+import * as docs_6 from "../content/maestros/lessons/basics/workspaces.mdx?collection=docs&hash=1751821659869";
+import * as docs_5 from "../content/maestros/lessons/basics/root.mdx?collection=docs&hash=1751821659869";
+import * as docs_4 from "../content/maestros/lessons/basics/index.mdx?collection=docs&hash=1751821659869";
+import * as docs_3 from "../content/maestros/landings/motivation.mdx?collection=docs&hash=1751821659869";
+import * as docs_2 from "../content/maestros/landings/glossary.mdx?collection=docs&hash=1751821659869";
+import * as docs_1 from "../content/maestros/landings/examples.mdx?collection=docs&hash=1751821659869";
+import * as docs_0 from "../content/maestros/landings/credits.mdx?collection=docs&hash=1751821659869";
+import * as blogs_2 from "../content/blog/vercel-year-1.mdx?collection=blogs&hash=1751821659869";
+import * as blogs_1 from "../content/blog/my-developer-story.mdx?collection=blogs&hash=1751821659869";
+import * as blogs_0 from "../content/blog/how-i-built-my-site.mdx?collection=blogs&hash=1751821659869";
+import { _runtime } from "fumadocs-mdx";
+import type * as _source from "../source.config";
+export const blogs = _runtime.docs<typeof _source.blogs>(
+	[
+		{
+			info: {
+				path: "how-i-built-my-site.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/how-i-built-my-site.mdx",
+			},
+			data: blogs_0,
+		},
+		{
+			info: {
+				path: "my-developer-story.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/my-developer-story.mdx",
+			},
+			data: blogs_1,
+		},
+		{
+			info: {
+				path: "vercel-year-1.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/blog/vercel-year-1.mdx",
+			},
+			data: blogs_2,
+		},
+	],
+	[],
+);
+export const docs = _runtime.docs<typeof _source.docs>(
+	[
+		{
+			info: {
+				path: "landings/credits.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/credits.mdx",
+			},
+			data: docs_0,
+		},
+		{
+			info: {
+				path: "landings/examples.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/examples.mdx",
+			},
+			data: docs_1,
+		},
+		{
+			info: {
+				path: "landings/glossary.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/glossary.mdx",
+			},
+			data: docs_2,
+		},
+		{
+			info: {
+				path: "landings/motivation.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/landings/motivation.mdx",
+			},
+			data: docs_3,
+		},
+		{
+			info: {
+				path: "lessons/basics/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/index.mdx",
+			},
+			data: docs_4,
+		},
+		{
+			info: {
+				path: "lessons/basics/root.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/root.mdx",
+			},
+			data: docs_5,
+		},
+		{
+			info: {
+				path: "lessons/basics/workspaces.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/basics/workspaces.mdx",
+			},
+			data: docs_6,
+		},
+		{
+			info: {
+				path: "lessons/guardrails/eslint.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/eslint.mdx",
+			},
+			data: docs_7,
+		},
+		{
+			info: {
+				path: "lessons/guardrails/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/index.mdx",
+			},
+			data: docs_8,
+		},
+		{
+			info: {
+				path: "lessons/guardrails/prettier.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/prettier.mdx",
+			},
+			data: docs_9,
+		},
+		{
+			info: {
+				path: "lessons/guardrails/tseslint.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/tseslint.mdx",
+			},
+			data: docs_10,
+		},
+		{
+			info: {
+				path: "lessons/guardrails/typescript.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/guardrails/typescript.mdx",
+			},
+			data: docs_11,
+		},
+		{
+			info: {
+				path: "lessons/ci-cd/caching.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/caching.mdx",
+			},
+			data: docs_12,
+		},
+		{
+			info: {
+				path: "lessons/ci-cd/feature-flags.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/feature-flags.mdx",
+			},
+			data: docs_13,
+		},
+		{
+			info: {
+				path: "lessons/ci-cd/github-actions.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/github-actions.mdx",
+			},
+			data: docs_14,
+		},
+		{
+			info: {
+				path: "lessons/ci-cd/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/index.mdx",
+			},
+			data: docs_15,
+		},
+		{
+			info: {
+				path: "lessons/ci-cd/vercel.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/ci-cd/vercel.mdx",
+			},
+			data: docs_16,
+		},
+		{
+			info: {
+				path: "lessons/package-managers/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/index.mdx",
+			},
+			data: docs_17,
+		},
+		{
+			info: {
+				path: "lessons/package-managers/npm.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/npm.mdx",
+			},
+			data: docs_18,
+		},
+		{
+			info: {
+				path: "lessons/package-managers/pnpm.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/pnpm.mdx",
+			},
+			data: docs_19,
+		},
+		{
+			info: {
+				path: "lessons/package-managers/yarn.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/package-managers/yarn.mdx",
+			},
+			data: docs_20,
+		},
+		{
+			info: {
+				path: "lessons/try-it-out/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/try-it-out/index.mdx",
+			},
+			data: docs_21,
+		},
+		{
+			info: {
+				path: "lessons/try-it-out/thinking-in-graphs.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/try-it-out/thinking-in-graphs.mdx",
+			},
+			data: docs_22,
+		},
+		{
+			info: {
+				path: "lessons/packaging/applications.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/applications.mdx",
+			},
+			data: docs_23,
+		},
+		{
+			info: {
+				path: "lessons/packaging/external.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/external.mdx",
+			},
+			data: docs_24,
+		},
+		{
+			info: {
+				path: "lessons/packaging/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/index.mdx",
+			},
+			data: docs_25,
+		},
+		{
+			info: {
+				path: "lessons/packaging/internal.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/internal.mdx",
+			},
+			data: docs_26,
+		},
+		{
+			info: {
+				path: "lessons/packaging/jit.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/jit.mdx",
+			},
+			data: docs_27,
+		},
+		{
+			info: {
+				path: "lessons/packaging/multiple.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/packaging/multiple.mdx",
+			},
+			data: docs_28,
+		},
+		{
+			info: {
+				path: "lessons/understanding-monorepos/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/understanding-monorepos/index.mdx",
+			},
+			data: docs_29,
+		},
+		{
+			info: {
+				path: "lessons/tools/authjs.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/authjs.mdx",
+			},
+			data: docs_30,
+		},
+		{
+			info: {
+				path: "lessons/tools/drizzle.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/drizzle.mdx",
+			},
+			data: docs_31,
+		},
+		{
+			info: {
+				path: "lessons/tools/graphql.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/graphql.mdx",
+			},
+			data: docs_32,
+		},
+		{
+			info: {
+				path: "lessons/tools/index.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/index.mdx",
+			},
+			data: docs_33,
+		},
+		{
+			info: {
+				path: "lessons/tools/nextjs.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/nextjs.mdx",
+			},
+			data: docs_34,
+		},
+		{
+			info: {
+				path: "lessons/tools/prisma.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/prisma.mdx",
+			},
+			data: docs_35,
+		},
+		{
+			info: {
+				path: "lessons/tools/sentry.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/sentry.mdx",
+			},
+			data: docs_36,
+		},
+		{
+			info: {
+				path: "lessons/tools/tailwind.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/tailwind.mdx",
+			},
+			data: docs_37,
+		},
+		{
+			info: {
+				path: "lessons/tools/trpc.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/trpc.mdx",
+			},
+			data: docs_38,
+		},
+		{
+			info: {
+				path: "lessons/tools/vite.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/vite.mdx",
+			},
+			data: docs_39,
+		},
+		{
+			info: {
+				path: "lessons/tools/vitest.mdx",
+				absolutePath:
+					"/Users/anthonyshew/projects/open/maestros/apps/maestros/content/maestros/lessons/tools/vitest.mdx",
+			},
+			data: docs_40,
+		},
+	],
+	[],
+);

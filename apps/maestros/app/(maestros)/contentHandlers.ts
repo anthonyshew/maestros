@@ -4,11 +4,12 @@ export const sideBarItems = allDocs
 	.filter((doc) => doc.sidebarOrderPosition !== undefined)
 	.sort((a, b) => (a.sidebarOrderPosition || 0) - (b.sidebarOrderPosition || 0))
 	.map((lesson) => {
-		const pathParts = lesson._meta.path.split('/');
+		const pathParts = lesson._meta.path.split("/");
 		const isNestedPage = pathParts.length > 2;
-		const directory = lesson._meta.directory?.replace('content/maestros/', '') || '';
+		const directory =
+			lesson._meta.directory?.replace("content/maestros/", "") || "";
 		const isIndex = lesson._meta.fileName === "index.mdx";
-		
+
 		return {
 			title: lesson.title,
 			isNestedPage,
@@ -17,9 +18,7 @@ export const sideBarItems = allDocs
 			sidebarOrderPosition: lesson.sidebarOrderPosition || 0,
 			isIndex,
 			path: "/monorepos/".concat(
-				lesson._meta.path
-					.replace('lessons/', '')
-					.replace('/index', ''),
+				lesson._meta.path.replace("lessons/", "").replace("/index", ""),
 			),
 		};
 	});
@@ -54,10 +53,10 @@ export const buildNavigationGroups = () => {
 export const getPageDocument = (slug: string[]): Doc | undefined => {
 	return allDocs.find((doc) => {
 		const docPath = doc._meta.path
-			.replace('.mdx', '')
-			.replace('/index', '')
-			.replace('lessons/', '');
-		
+			.replace(".mdx", "")
+			.replace("/index", "")
+			.replace("lessons/", "");
+
 		return docPath === slug.join("/");
 	});
 };

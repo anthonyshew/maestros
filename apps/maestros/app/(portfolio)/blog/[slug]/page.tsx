@@ -97,6 +97,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			</header>
 
 			<article>
+				{/* biome-ignore lint: Ignored while migrating */}
 				<MDXContent code={post.content} components={mdxComponents as any} />
 			</article>
 

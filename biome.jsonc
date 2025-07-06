@@ -10,7 +10,8 @@
 			"!**/dist/**",
 			"!**/build/**",
 			"!**/.turbo/**",
-			"!**/coverage/**"
+			"!**/coverage/**",
+			"!apps/maestros/.content-collections/**"
 		]
 	},
 	"formatter": {
