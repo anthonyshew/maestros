@@ -1,4 +1,4 @@
-const { withContentlayer } = require("next-contentlayer");
+const { withContentCollections } = require('@content-collections/next');
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
@@ -8,4 +8,4 @@ const moduleExports = {
 	typescript: { ignoreBuildErrors: true },
 };
 
-module.exports = withContentlayer(moduleExports);
+module.exports = withContentCollections(moduleExports);

@@ -1,6 +1,6 @@
-import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
-import { allDocuments } from "contentlayer/generated";
+import { allDocs } from "content-collections";
+import { MDXContent } from "@content-collections/mdx/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Callout } from "@repo/ui";
@@ -9,11 +9,13 @@ import { mdxComponents } from "#/components/mdxComponents";
 import { buildMeta, metadataBaseURI } from "#/app/metadata";
 
 export function generateStaticParams() {
-	return [
-		allDocuments.filter(
-			(doc) => doc.type === "MaestrosLanding" || doc.type === "MaestrosLesson",
-		),
-	];
+	return allDocs.map((doc) => ({
+		slug: doc._meta.path
+			.replace('lessons/', '')
+			.replace('.mdx', '')
+			.replace('/index', '')
+			.split('/'),
+	}));
 }
 
 export const generateMetadata = ({
@@ -36,21 +38,16 @@ export const generateMetadata = ({
 	});
 };
 
-const replaceNonAlphanumericsWithDash = (str: string) => {
-	return str.toLowerCase().replace(/[^a-z0-9]/gi, "-");
-};
+
 
 function Page({ params }: { params: { slug: string[] } }) {
 	const content = getPageDocument(params.slug);
 
-	const MDXContent = useMDXComponent(content?.body.code ?? "");
 	if (!content) return notFound();
 	if (content.unpublished) return notFound();
-	const headings = content.body.raw
-		// Exclude code blocks
-		.replace(/```.*?```/gs, "")
-		.split(/\r?\n/)
-		.filter((line) => line.startsWith("#"));
+	const headings = content.toc || [];
+	// For now, disable TOC since we're not pre-compiling MDX
+	// const headings = [];
 
 	return (
 		<main className="relative flex flex-row justify-start overflow-x-hidden flex-auto h-[calc(100vh-3.5rem)] px-8 py-8 md:px-12 overflow-auto mt-14 sm:py-8 lg:py-14">
@@ -62,28 +59,26 @@ function Page({ params }: { params: { slug: string[] } }) {
 					feedback is welcome!
 				</Callout>
 
-				<h1>{content.title}</h1>
+			<h1>{content.title}</h1>
 
-				<MDXContent components={mdxComponents} />
-			</div>
+			<div>
+				<p>Content migration in progress...</p>
+				<pre>{JSON.stringify(content, null, 2)}</pre>
+			</div>			</div>
 			<div className="sticky top-0 hidden max-w-sm xl:block">
 				<div className="flex flex-col gap-2 ml-6">
 					{headings.length > 0 ? <p>On this page</p> : null}
-					{headings.map((rawHeading) => {
-						const heading = rawHeading.replaceAll("#", "").trim();
-						return (
-							<Link
-								className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
-								href={`#${replaceNonAlphanumericsWithDash(
-									heading.replaceAll("#", "").replaceAll("`", "").trim(),
-								)}`}
-								key={heading}
-							>
-								{heading}
-							</Link>
-						);
-					})}
-				</div>
+				{headings.map((heading) => {
+					return (
+						<Link
+							className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
+							href={heading.url}
+							key={heading.title}
+						>
+							{heading.title}
+						</Link>
+					);
+				})}				</div>
 			</div>
 		</main>
 	);

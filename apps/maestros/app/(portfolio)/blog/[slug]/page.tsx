@@ -1,9 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { compareDesc, format, parseISO } from "date-fns";
-import type { BlogPost } from "contentlayer/generated";
-import { allBlogPosts } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { allBlogs } from "content-collections";
+import { MDXContent } from "@content-collections/mdx/react";
 import Balancer from "react-wrap-balancer";
 import { notFound } from "next/navigation";
 import { getPost } from "./getPost";
@@ -13,7 +12,7 @@ import { metadataBaseURI } from "#/app/metadata";
 export const dynamic = "force-dynamic";
 
 export const generateStaticParams = () =>
-	allBlogPosts.map((post) => ({ slug: post.slug }));
+	allBlogs.map((post) => ({ slug: post.slug }));
 
 export function generateMetadata({
 	params,
@@ -57,7 +56,7 @@ export function generateMetadata({
 
 function PostLayout({ params }: { params: { slug: string } }) {
 	const getAdjacentPosts = () => {
-		const foundIndex = allBlogPosts
+		const foundIndex = allBlogs
 			.sort((a, b) => {
 				return compareDesc(new Date(a.date), new Date(b.date));
 			})
@@ -66,17 +65,16 @@ function PostLayout({ params }: { params: { slug: string } }) {
 		if (foundIndex < 0) return notFound();
 
 		return {
-			prevPost: allBlogPosts[foundIndex - 1],
-			nextPost: allBlogPosts[foundIndex + 1],
+			prevPost: allBlogs[foundIndex - 1],
+			nextPost: allBlogs[foundIndex + 1],
 		};
 	};
 
-	const prevPost = getAdjacentPosts().prevPost as BlogPost | undefined;
-	const nextPost = getAdjacentPosts().nextPost as BlogPost | undefined;
+	const prevPost = getAdjacentPosts().prevPost;
+	const nextPost = getAdjacentPosts().nextPost;
 
 	const post = getPost(params.slug);
 
-	const MDXContent = useMDXComponent(post?.body.code ?? "");
 	if (!post) return notFound();
 
 	return (
@@ -99,7 +97,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			</header>
 
 			<article>
-				<MDXContent components={mdxComponents} />
+				<MDXContent code={post.body} components={mdxComponents as any} />
 			</article>
 
 			<footer className="pt-4 mt-4 border-t-2 border-t-slate-600">

@@ -42,26 +42,26 @@ export const mdxComponents = {
 			</div>
 		);
 	},
-	h1: ({ children }: { children: string }) => {
+	h1: ({ children }: { children: ReactNode }) => {
 		return (
 			<h1>
 				<Balancer>{children}</Balancer>
 			</h1>
 		);
 	},
-	h2: ({ children }: { children: string }) => {
+	h2: ({ children }: { children: ReactNode }) => {
 		return <LinkHeading component="h2">{children}</LinkHeading>;
 	},
-	h3: ({ children }: { children: string }) => {
+	h3: ({ children }: { children: ReactNode }) => {
 		return <LinkHeading component="h3">{children}</LinkHeading>;
 	},
-	h4: ({ children }: { children: string }) => {
+	h4: ({ children }: { children: ReactNode }) => {
 		return <LinkHeading component="h4">{children}</LinkHeading>;
 	},
-	h5: ({ children }: { children: string }) => {
+	h5: ({ children }: { children: ReactNode }) => {
 		return <LinkHeading component="h5">{children}</LinkHeading>;
 	},
-	h6: ({ children }: { children: string }) => {
+	h6: ({ children }: { children: ReactNode }) => {
 		return <LinkHeading component="h6">{children}</LinkHeading>;
 	},
 	pre: (props: {

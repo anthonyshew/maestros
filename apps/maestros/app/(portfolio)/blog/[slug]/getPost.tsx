@@ -1,7 +1,7 @@
-import { allBlogPosts } from "contentlayer/generated";
+import { allBlogs } from "content-collections";
 
 export const getPost = (slug?: string) => {
-	const post = allBlogPosts.find((blogPost) => {
+	const post = allBlogs.find((blogPost) => {
 		return blogPost.slug === slug;
 	});
 

@@ -1,21 +1,25 @@
-import type { MaestrosLesson } from "contentlayer/generated";
-import { allDocuments } from "contentlayer/generated";
+import { allDocs, type Doc } from "content-collections";
 
-export const sideBarItems = allDocuments
-	.filter((doc): doc is MaestrosLesson => doc.type === "MaestrosLesson")
-	.sort((a, b) => a.sidebarOrderPosition - b.sidebarOrderPosition)
+export const sideBarItems = allDocs
+	.filter((doc) => doc.sidebarOrderPosition !== undefined)
+	.sort((a, b) => (a.sidebarOrderPosition || 0) - (b.sidebarOrderPosition || 0))
 	.map((lesson) => {
+		const pathParts = lesson._meta.path.split('/');
+		const isNestedPage = pathParts.length > 2;
+		const directory = lesson._meta.directory?.replace('content/maestros/', '') || '';
+		const isIndex = lesson._meta.fileName === "index.mdx";
+		
 		return {
 			title: lesson.title,
-			isNestedPage: (lesson._raw.flattenedPath.match(/\//g) ?? []).length > 2,
+			isNestedPage,
 			unpublished: lesson.unpublished,
-			directory: lesson._raw.sourceFileDir,
-			sidebarOrderPosition: lesson.sidebarOrderPosition,
-			isIndex: lesson._raw.sourceFileName === "index.mdx",
+			directory,
+			sidebarOrderPosition: lesson.sidebarOrderPosition || 0,
+			isIndex,
 			path: "/monorepos/".concat(
-				lesson._raw.flattenedPath
-					.replaceAll("maestros/lessons/", "")
-					.replaceAll("index", ""),
+				lesson._meta.path
+					.replace('lessons/', '')
+					.replace('/index', ''),
 			),
 		};
 	});
@@ -47,15 +51,13 @@ export const buildNavigationGroups = () => {
 	return buildMe;
 };
 
-export const getPageDocument = (slug: string[]): MaestrosLesson | undefined => {
-	return allDocuments.filter((doc) => {
-		return (
-			doc._id
-				.replaceAll(".mdx", "")
-				.replace("/index", "")
-				.split("/")
-				.slice(2)
-				.join("/") === slug.join("/")
-		);
-	})[0] as MaestrosLesson;
+export const getPageDocument = (slug: string[]): Doc | undefined => {
+	return allDocs.find((doc) => {
+		const docPath = doc._meta.path
+			.replace('.mdx', '')
+			.replace('/index', '')
+			.replace('lessons/', '');
+		
+		return docPath === slug.join("/");
+	});
 };
