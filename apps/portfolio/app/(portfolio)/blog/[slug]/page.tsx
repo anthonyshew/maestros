@@ -13,12 +13,12 @@ export const dynamic = "force-dynamic";
 export const generateStaticParams = () =>
 	allBlogs.map((post) => ({ slug: getSlug(post) }));
 
-export function generateMetadata({
+export async function generateMetadata({
 	params,
 }: {
 	params: { slug: string };
-}): Metadata | undefined {
-	const post = getPost(params.slug);
+}): Promise<Metadata | undefined> {
+	const post = getPost((await params).slug);
 	if (!post) {
 		return;
 	}
@@ -53,7 +53,8 @@ export function generateMetadata({
 	};
 }
 
-function PostLayout({ params }: { params: { slug: string } }) {
+async function PostLayout(props: { params: Promise<{ slug: string }> }) {
+	const params = await props.params;
 	const getAdjacentPosts = () => {
 		const foundIndex = allBlogs
 			.sort((a, b) => {
@@ -98,7 +99,6 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			</header>
 
 			<article>
-				{/* @ts-expect-error */}
 				<Mdx components={mdxComponents} />
 			</article>
 

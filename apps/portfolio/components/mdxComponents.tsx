@@ -3,7 +3,7 @@ import { Code } from "bright";
 import Balancer from "react-wrap-balancer";
 import { LinkHeading } from "@repo/ui";
 import type { ImageProps } from "next/image";
-import type { ReactNode } from "react";
+import type { ReactNode, JSX } from "react";
 import { focus } from "./bright/focus";
 
 interface CustomImageProps extends ImageProps {
@@ -79,9 +79,8 @@ export const mdxComponents = {
 						extensions={[focus]}
 						lang={props.lang}
 						title={props.filename}
-					>
-						{props.children}
-					</Code>
+						code={String(props.children)}
+					/>{" "}
 					{props.note ? (
 						<p className="!my-0 p-2 px-4 border-[1px] border-gray-800 text-sm border-t-0">
 							Note: {props.note}
@@ -95,9 +94,8 @@ export const mdxComponents = {
 						extensions={[focus]}
 						lang={props.lang}
 						title={props.filename}
-					>
-						{props.children}
-					</Code>
+						code={String(props.children)}
+					/>{" "}
 					{props.note ? (
 						<p className="!my-0 p-2 px-4 border-[1px] border-gray-300 text-sm border-t-0">
 							Note: {props.note}

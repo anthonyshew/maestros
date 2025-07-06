@@ -14,11 +14,8 @@ const SheetTrigger = SheetPrimitive.Trigger;
 
 const SheetClose = SheetPrimitive.Close;
 
-function SheetPortal({
-	className,
-	...props
-}: SheetPrimitive.DialogPortalProps) {
-	return <SheetPrimitive.Portal className={twMerge(className)} {...props} />;
+function SheetPortal({ ...props }: SheetPrimitive.DialogPortalProps) {
+	return <SheetPrimitive.Portal {...props} />;
 }
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
 
