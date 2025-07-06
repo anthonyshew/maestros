@@ -54,8 +54,8 @@ export async function generateMetadata({
 }
 
 async function PostLayout(props: { params: Promise<{ slug: string }> }) {
-    const params = await props.params;
-    const getAdjacentPosts = () => {
+	const params = await props.params;
+	const getAdjacentPosts = () => {
 		const foundIndex = allBlogs
 			.sort((a, b) => {
 				return compareDesc(new Date(a.date), new Date(b.date));
@@ -70,16 +70,16 @@ async function PostLayout(props: { params: Promise<{ slug: string }> }) {
 		};
 	};
 
-    const prevPost = getAdjacentPosts().prevPost;
-    const nextPost = getAdjacentPosts().nextPost;
+	const prevPost = getAdjacentPosts().prevPost;
+	const nextPost = getAdjacentPosts().nextPost;
 
-    const post = getPost(params.slug);
+	const post = getPost(params.slug);
 
-    if (!post) return notFound();
+	if (!post) return notFound();
 
-    const Mdx = post.body;
+	const Mdx = post.body;
 
-    return (
+	return (
 		<div className="flex flex-col w-full prose md:pr-8 lg:prose-lg dark:prose-invert">
 			<header className="w-full pb-4">
 				<div className="text-center">
@@ -99,7 +99,6 @@ async function PostLayout(props: { params: Promise<{ slug: string }> }) {
 			</header>
 
 			<article>
-				{/* @ts-expect-error */}
 				<Mdx components={mdxComponents} />
 			</article>
 
