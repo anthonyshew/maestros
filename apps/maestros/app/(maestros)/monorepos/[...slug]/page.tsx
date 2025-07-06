@@ -64,7 +64,6 @@ function Page({ params }: { params: { slug: string[] } }) {
 
         <h1>{content.title}</h1>
 
-        {/* @ts-expect-error Don't care, we shippin'! */}
         <MDXContent components={mdxComponents} />
       </div>
       <div className="sticky top-0 hidden max-w-sm xl:block">
