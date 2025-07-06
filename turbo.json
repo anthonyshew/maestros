@@ -1,5 +1,5 @@
 {
-	"pipeline": {
+	"tasks": {
 		"dev": {
 			"dependsOn": ["@repo/db#generate"],
 			"persistent": true,
@@ -32,8 +32,7 @@
 			"cache": false
 		},
 		"typecheck": {
-			"dependsOn": ["^topo", "^generate", "generate"],
-			"outputMode": "errors-only"
+			"dependsOn": ["^topo", "^generate", "generate"]
 		},
 		"spellcheck": {
 			"inputs": ["**/*.mdx"],
