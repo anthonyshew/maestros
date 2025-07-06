@@ -1,7 +1,6 @@
 {
 	"tasks": {
 		"dev": {
-			"dependsOn": ["@repo/db#generate"],
 			"persistent": true,
 			"cache": false
 		},
@@ -10,7 +9,7 @@
 			"outputs": [".next/**", "!.next/cache/**", "dist/**"]
 		},
 		"generate": {
-			"outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
+			"outputs": [".contentlayer/**"]
 		},
 		"topo": {
 			"dependsOn": ["^generate", "^topo"]
