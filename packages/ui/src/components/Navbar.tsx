@@ -29,7 +29,7 @@ export function Navbar({
 						key={link.label}
 					>
 						{link.label}
-						<span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-[1px] bg-slate-800 dark:bg-white" />
+						<span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-px bg-slate-800 dark:bg-white" />
 					</Link>
 				);
 			})}

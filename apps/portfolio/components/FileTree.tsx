@@ -49,7 +49,7 @@ function Folder({ label, name, children, open }: FolderProps) {
 				</svg>
 				<span className="ml-1">{label ?? name}</span>
 			</span>
-			{open ? <ul className="!my-0">{children}</ul> : null}
+			{open ? <ul className="my-0!">{children}</ul> : null}
 		</li>
 	);
 }

@@ -80,7 +80,7 @@ async function PostLayout(props: { params: Promise<{ slug: string }> }) {
 	const Mdx = post.body;
 
 	return (
-		<div className="flex flex-col w-full prose md:pr-8 lg:prose-lg dark:prose-invert">
+		<div className="flex flex-col w-full mx-auto prose md:pr-8 lg:prose-lg dark:prose-invert">
 			<header className="w-full pb-4">
 				<div className="text-center">
 					<h1 className="mb-4">
@@ -93,7 +93,7 @@ async function PostLayout(props: { params: Promise<{ slug: string }> }) {
 						>
 							{post.date}
 						</time>
-						<hr className="flex-grow border-1 !my-auto text-slate-900" />
+						<hr className="grow border my-auto! text-slate-900" />
 					</div>
 				</div>
 			</header>

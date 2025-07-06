@@ -36,7 +36,7 @@ export type NextImageType = React.ForwardRefExoticComponent<
 			quality?: number | `${number}` | undefined;
 			priority?: boolean | undefined;
 			loading?: "eager" | "lazy" | undefined;
-			placeholder?: "blur" | "empty" | `data:image/${string}` | undefined;
+			placeholder?: "blur-sm" | "empty" | `data:image/${string}` | undefined;
 			blurDataURL?: string | undefined;
 			unoptimized?: boolean | undefined;
 			onLoadingComplete?: ((img: HTMLImageElement) => void) | undefined;

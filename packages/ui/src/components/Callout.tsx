@@ -18,7 +18,7 @@ const calloutStyles = cva("my-4 p-4 rounded text-sm leading-6", {
 			goodToKnow:
 				"bg-transparent text-black dark:text-white border-black dark:border-white border [&>li>p]:inline",
 			danger: "bg-red-400 text-red-800",
-			warning: "bg-yellow-400 !text-yellow-900",
+			warning: "bg-yellow-400 text-yellow-900!",
 		},
 	},
 });
