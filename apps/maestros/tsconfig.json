@@ -7,7 +7,7 @@
 		"declarationMap": false,
 		"declaration": false,
 		"paths": {
-			"contentlayer/generated": ["./.contentlayer/generated"],
+			"content-collections": ["./.content-collections/generated"],
 			"#/*": ["./*"]
 		}
 	},
@@ -20,5 +20,5 @@
 		"next.config.cjs",
 		"postcss.config.cjs"
 	],
-	"exclude": ["node_modules", ".next", ".contentlayer"]
+	"exclude": ["node_modules", ".next", ".content-collections"]
 }

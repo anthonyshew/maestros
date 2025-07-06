@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
-const replaceNonAlphanumericsWithDash = (str?: string) => {
-	return str?.toLowerCase().replace(/[^a-z0-9]/gi, "-") ?? "";
+const replaceNonAlphanumericsWithDash = (str?: string | null) => {
+	if (!str || typeof str !== "string") return "";
+	return str.toLowerCase().replace(/[^a-z0-9]/gi, "-");
 };
 interface LinkHeadingProps {
 	component: React.ElementType;
@@ -22,24 +23,28 @@ export function LinkHeading({
 		if (nodeChildren.props) {
 			// @ts-expect-error Don't care at the moment!
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-			return children.props.children;
+			return nodeChildren.props.children;
 		}
 		return nodeChildren;
 	};
 
 	const handledChildren = getChildren(children);
+	const childrenString =
+		typeof handledChildren === "string"
+			? handledChildren
+			: typeof handledChildren === "object" && handledChildren !== null
+				? String(handledChildren)
+				: "";
 
 	return (
 		<Comp
 			className="!mt-0"
-			id={replaceNonAlphanumericsWithDash(handledChildren?.toString())}
+			id={replaceNonAlphanumericsWithDash(childrenString)}
 		>
 			<span className="block pt-8" />
 			<a
 				className="font-bold no-underline hover:underline"
-				href={`#${replaceNonAlphanumericsWithDash(
-					handledChildren?.toString(),
-				)}`}
+				href={`#${replaceNonAlphanumericsWithDash(childrenString)}`}
 				{...props}
 			>
 				{children}

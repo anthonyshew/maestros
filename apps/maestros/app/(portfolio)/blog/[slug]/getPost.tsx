@@ -1,9 +1,13 @@
-import { allBlogPosts } from "contentlayer/generated";
+import { blogs as allBlogs } from "#/.source";
 
 export const getPost = (slug?: string) => {
-	const post = allBlogPosts.find((blogPost) => {
-		return blogPost.slug === slug;
+	const post = allBlogs.find((blogPost) => {
+		return blogPost._file.path.replace(".mdx", "") === slug;
 	});
 
 	return post;
+};
+
+export const getSlug = (blogPost: (typeof allBlogs)[number]) => {
+	return blogPost._file.path.replace(".mdx", "");
 };

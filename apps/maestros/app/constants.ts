@@ -1,1 +1,1 @@
-export const tagline = "Creator. Educator. Full-stack comedian.";
+export const tagline = "Building Turborepo. Full-stack comedian.";

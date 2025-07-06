@@ -1,4 +1,6 @@
-const { withContentlayer } = require("next-contentlayer");
+const { createMDX } = require("fumadocs-mdx/next");
+
+const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
@@ -6,6 +8,15 @@ const moduleExports = {
 	// We do these in GitHub Actions checks so we don't do them here.
 	eslint: { ignoreDuringBuilds: true },
 	typescript: { ignoreBuildErrors: true },
+	async redirects() {
+		return [
+			{
+				source: "/monorepos/:path*",
+				destination: "https://turborepo.com",
+				permanent: true,
+			},
+		];
+	},
 };
 
-module.exports = withContentlayer(moduleExports);
+module.exports = withMDX(moduleExports);

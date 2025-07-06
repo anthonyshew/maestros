@@ -2,6 +2,8 @@ node_modules
 dist
 .next
 .contentlayer
+.content-collections
+.source
 .DS_Store
 
 .vercel
