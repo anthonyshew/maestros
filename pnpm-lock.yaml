@@ -19,14 +19,14 @@ importers:
         specifier: ^2.5.4
         version: 2.5.4
 
-  apps/maestros:
+  apps/portfolio:
     dependencies:
       '@mdx-js/mdx':
         specifier: ^3.1.0
         version: 3.1.0(acorn@8.10.0)
       '@mdx-js/react':
         specifier: ^3.1.0
-        version: 3.1.0(@types/react@18.2.21)(react@18.2.0)
+        version: 3.1.0(@types/react@18.2.22)(react@18.2.0)
       '@repo/analytics':
         specifier: workspace:*
         version: link:../../packages/analytics
@@ -50,10 +50,10 @@ importers:
         version: 8.5.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       fumadocs-core:
         specifier: ^15.6.1
-        version: 15.6.1(@types/react@18.2.21)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 15.6.1(@types/react@18.2.22)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       fumadocs-mdx:
         specifier: ^11.6.10
-        version: 11.6.10(acorn@8.10.0)(fumadocs-core@15.6.1(@types/react@18.2.21)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        version: 11.6.10(acorn@8.10.0)(fumadocs-core@15.6.1(@types/react@18.2.22)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       lucide-react:
         specifier: ^0.108.0
         version: 0.108.0(react@18.2.0)
@@ -74,7 +74,7 @@ importers:
         version: 0.4.1(react@18.2.0)
       reactflow:
         specifier: ^11.8.3
-        version: 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       rehype-mdx-code-props:
         specifier: ^1.0.0
         version: 1.0.0
@@ -86,7 +86,7 @@ importers:
         version: 1.13.2
       tailwindcss-animate:
         specifier: ^1.0.6
-        version: 1.0.6(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)))
+        version: 1.0.6(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3)))
       zod:
         specifier: ^3.25.74
         version: 3.25.74
@@ -96,25 +96,25 @@ importers:
         version: link:../../tooling/typescript-config
       '@tailwindcss/typography':
         specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)))
+        version: 0.5.9(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3)))
       '@types/node':
         specifier: ^20.3.3
-        version: 20.3.3
+        version: 20.6.3
       '@types/react':
         specifier: ^18.2.14
-        version: 18.2.21
+        version: 18.2.22
       autoprefixer:
         specifier: ^10.4.14
-        version: 10.4.14(postcss@8.4.24)
+        version: 10.4.14(postcss@8.4.31)
       lucide-icons-react:
         specifier: ^1.0.2
         version: 1.0.2(react@18.2.0)
       postcss:
         specifier: ^8.4.24
-        version: 8.4.24
+        version: 8.4.31
       tailwindcss:
         specifier: ^3.3.2
-        version: 3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))
+        version: 3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3))
       typescript:
         specifier: latest
         version: 5.8.3
@@ -1413,9 +1413,6 @@ packages:
   '@types/nlcst@1.0.1':
     resolution: {integrity: sha512-aVIyXt6pZiiMOtVByE4Y0gf+BLm1Cxc4ZLSK8VRHn1CgkO+kXbQwN/EBhQmhPdBMjFJCMBKtmNW2zWQuFywz8Q==}
 
-  '@types/node@20.3.3':
-    resolution: {integrity: sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==}
-
   '@types/node@20.6.3':
     resolution: {integrity: sha512-HksnYH4Ljr4VQgEy2lTStbCKv/P590tmPe5HqOnv9Gprffgv5WXAY+Y5Gqniu0GGqeTCUdBnzC3QSrzPkBkAMA==}
 
@@ -1601,12 +1598,6 @@ packages:
 
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
-
-  caniuse-lite@1.0.30001534:
-    resolution: {integrity: sha512-vlPVrhsCS7XaSh2VvWluIQEzVhefrUQcEsQWSS5A5V+dM07uv1qHeQzAOTGIMy9i3e9bH15+muvI/UHojVgS/Q==}
-
-  caniuse-lite@1.0.30001538:
-    resolution: {integrity: sha512-HWJnhnID+0YMtGlzcp3T9drmBJUVDchPJ08tpUGFLs9CYlwWPH2uLgpHn8fND5pCgXVtnGS3H4QR9XLMHVNkHw==}
 
   caniuse-lite@1.0.30001726:
     resolution: {integrity: sha512-VQAUIUzBiZ/UnlM28fSp2CRF3ivUn1BWEvxMcVTNwpw91Py1pGbPIyIKtd+tzct9C3ouceCVdGAXxZOpZAsgdw==}
@@ -2734,11 +2725,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@3.3.6:
-    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   negotiator@1.0.0:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
@@ -2900,9 +2886,6 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2966,10 +2949,6 @@ packages:
 
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  postcss@8.4.24:
-    resolution: {integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
@@ -3318,10 +3297,6 @@ packages:
   snake-case@2.1.0:
     resolution: {integrity: sha512-FMR5YoPFwOLuh4rRz92dywJjyKYZNLpMn1R5ujVpIYkbA9p01fq8RMg0FkO4M+Yobt4MjHeLTJVm5xFFBHSV2Q==}
 
-  source-map-js@1.0.2:
-    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
-    engines: {node: '>=0.10.0'}
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3511,9 +3486,6 @@ packages:
 
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-
-  tslib@2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -4213,10 +4185,10 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@18.2.21)(react@18.2.0)':
+  '@mdx-js/react@3.1.0(@types/react@18.2.22)(react@18.2.0)':
     dependencies:
       '@types/mdx': 2.0.7
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
       react: 18.2.0
 
   '@motionone/animation@10.15.1':
@@ -4224,7 +4196,7 @@ snapshots:
       '@motionone/easing': 10.15.1
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   '@motionone/dom@10.16.2':
     dependencies:
@@ -4233,7 +4205,7 @@ snapshots:
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
       hey-listen: 1.0.8
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   '@motionone/easing@10.15.1':
     dependencies:
@@ -4244,7 +4216,7 @@ snapshots:
     dependencies:
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   '@motionone/types@10.15.1': {}
 
@@ -4252,7 +4224,7 @@ snapshots:
     dependencies:
       '@motionone/types': 10.15.1
       hey-listen: 1.0.8
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   '@next/env@15.3.5': {}
 
@@ -4717,29 +4689,29 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.22.15
 
-  '@reactflow/background@11.2.8(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/background@11.2.8(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classcat: 5.0.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/controls@11.1.19(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/controls@11.1.19(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classcat: 5.0.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/core@11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/core@11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@types/d3': 7.4.0
       '@types/d3-drag': 3.0.3
@@ -4751,14 +4723,14 @@ snapshots:
       d3-zoom: 3.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/minimap@11.6.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/minimap@11.6.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/d3-selection': 3.0.6
       '@types/d3-zoom': 3.0.4
       classcat: 5.0.4
@@ -4766,31 +4738,31 @@ snapshots:
       d3-zoom: 3.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/node-resizer@2.1.5(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/node-resizer@2.1.5(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classcat: 5.0.4
       d3-drag: 3.0.0
       d3-selection: 3.0.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/node-toolbar@1.2.7(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@reactflow/node-toolbar@1.2.7(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       classcat: 5.0.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      zustand: 4.4.1(@types/react@18.2.21)(react@18.2.0)
+      zustand: 4.4.1(@types/react@18.2.22)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - immer
@@ -4857,13 +4829,13 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tailwindcss/typography@0.5.9(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)))':
+  '@tailwindcss/typography@0.5.9(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))
+      tailwindcss: 3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3))
 
   '@tsconfig/node10@1.0.9': {}
 
@@ -5044,7 +5016,7 @@ snapshots:
 
   '@types/mdast@4.0.4':
     dependencies:
-      '@types/unist': 2.0.8
+      '@types/unist': 3.0.3
 
   '@types/mdx@2.0.7': {}
 
@@ -5055,8 +5027,6 @@ snapshots:
   '@types/nlcst@1.0.1':
     dependencies:
       '@types/unist': 2.0.8
-
-  '@types/node@20.3.3': {}
 
   '@types/node@20.6.3': {}
 
@@ -5078,7 +5048,6 @@ snapshots:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-    optional: true
 
   '@types/scheduler@0.16.3': {}
 
@@ -5146,7 +5115,7 @@ snapshots:
 
   aria-hidden@1.2.3:
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
 
   array-back@2.0.0:
     dependencies:
@@ -5160,14 +5129,14 @@ snapshots:
 
   astring@1.8.6: {}
 
-  autoprefixer@10.4.14(postcss@8.4.24):
+  autoprefixer@10.4.14(postcss@8.4.31):
     dependencies:
       browserslist: 4.21.10
-      caniuse-lite: 1.0.30001534
+      caniuse-lite: 1.0.30001726
       fraction.js: 4.3.6
       normalize-range: 0.1.2
-      picocolors: 1.0.0
-      postcss: 8.4.24
+      picocolors: 1.1.1
+      postcss: 8.4.31
       postcss-value-parser: 4.2.0
 
   bail@2.0.2: {}
@@ -5205,7 +5174,7 @@ snapshots:
 
   browserslist@4.21.10:
     dependencies:
-      caniuse-lite: 1.0.30001538
+      caniuse-lite: 1.0.30001726
       electron-to-chromium: 1.4.523
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
@@ -5217,7 +5186,7 @@ snapshots:
 
   builtins@5.0.1:
     dependencies:
-      semver: 7.5.4
+      semver: 7.7.2
 
   bundle-require@4.0.1(esbuild@0.18.20):
     dependencies:
@@ -5238,10 +5207,6 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   camelize@1.0.1: {}
-
-  caniuse-lite@1.0.30001534: {}
-
-  caniuse-lite@1.0.30001538: {}
 
   caniuse-lite@1.0.30001726: {}
 
@@ -5721,7 +5686,7 @@ snapshots:
       hey-listen: 1.0.8
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.6.2
+      tslib: 2.8.1
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
 
@@ -5742,7 +5707,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fumadocs-core@15.6.1(@types/react@18.2.21)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  fumadocs-core@15.6.1(@types/react@18.2.22)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@formatjs/intl-localematcher': 0.6.1
       '@orama/orama': 3.1.10
@@ -5754,7 +5719,7 @@ snapshots:
       image-size: 2.0.2
       negotiator: 1.0.0
       npm-to-yarn: 3.0.1
-      react-remove-scroll: 2.7.1(@types/react@18.2.21)(react@18.2.0)
+      react-remove-scroll: 2.7.1(@types/react@18.2.22)(react@18.2.0)
       remark: 15.0.1
       remark-gfm: 4.0.1
       remark-rehype: 11.1.2
@@ -5762,21 +5727,21 @@ snapshots:
       shiki: 3.7.0
       unist-util-visit: 5.0.0
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
       next: 15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - supports-color
 
-  fumadocs-mdx@11.6.10(acorn@8.10.0)(fumadocs-core@15.6.1(@types/react@18.2.21)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)):
+  fumadocs-mdx@11.6.10(acorn@8.10.0)(fumadocs-core@15.6.1(@types/react@18.2.22)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)):
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.10.0)
       '@standard-schema/spec': 1.0.0
       chokidar: 4.0.3
       esbuild: 0.25.5
       estree-util-value-to-estree: 3.4.0
-      fumadocs-core: 15.6.1(@types/react@18.2.21)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      fumadocs-core: 15.6.1(@types/react@18.2.22)(next@15.3.5(@opentelemetry/api@1.6.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       js-yaml: 4.1.0
       lru-cache: 11.1.0
       picocolors: 1.1.1
@@ -6878,8 +6843,6 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  nanoid@3.3.6: {}
-
   negotiator@1.0.0: {}
 
   neo-async@2.6.2: {}
@@ -7079,8 +7042,6 @@ snapshots:
 
   path-type@4.0.0: {}
 
-  picocolors@1.0.0: {}
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -7095,25 +7056,17 @@ snapshots:
     dependencies:
       find-up: 6.3.0
 
-  postcss-import@15.1.0(postcss@8.4.24):
+  postcss-import@15.1.0(postcss@8.4.31):
     dependencies:
-      postcss: 8.4.24
+      postcss: 8.4.31
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.6
 
-  postcss-js@4.0.1(postcss@8.4.24):
+  postcss-js@4.0.1(postcss@8.4.31):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.24
-
-  postcss-load-config@4.0.1(postcss@8.4.24)(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)):
-    dependencies:
-      lilconfig: 2.1.0
-      yaml: 2.3.2
-    optionalDependencies:
-      postcss: 8.4.24
-      ts-node: 10.9.1(@types/node@20.3.3)(typescript@5.8.3)
+      postcss: 8.4.31
 
   postcss-load-config@4.0.1(postcss@8.4.31)(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.2.2)):
     dependencies:
@@ -7123,9 +7076,17 @@ snapshots:
       postcss: 8.4.31
       ts-node: 10.9.1(@types/node@20.6.3)(typescript@5.2.2)
 
-  postcss-nested@6.0.1(postcss@8.4.24):
+  postcss-load-config@4.0.1(postcss@8.4.31)(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3)):
     dependencies:
-      postcss: 8.4.24
+      lilconfig: 2.1.0
+      yaml: 2.3.2
+    optionalDependencies:
+      postcss: 8.4.31
+      ts-node: 10.9.1(@types/node@20.6.3)(typescript@5.8.3)
+
+  postcss-nested@6.0.1(postcss@8.4.31):
+    dependencies:
+      postcss: 8.4.31
       postcss-selector-parser: 6.0.13
 
   postcss-selector-parser@6.0.10:
@@ -7139,12 +7100,6 @@ snapshots:
       util-deprecate: 1.0.2
 
   postcss-value-parser@4.2.0: {}
-
-  postcss@8.4.24:
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
 
   postcss@8.4.31:
     dependencies:
@@ -7191,35 +7146,35 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.2.21
 
-  react-remove-scroll-bar@2.3.8(@types/react@18.2.21)(react@18.2.0):
+  react-remove-scroll-bar@2.3.8(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       react: 18.2.0
-      react-style-singleton: 2.2.3(@types/react@18.2.21)(react@18.2.0)
+      react-style-singleton: 2.2.3(@types/react@18.2.22)(react@18.2.0)
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
 
   react-remove-scroll@2.5.5(@types/react@18.2.21)(react@18.2.0):
     dependencies:
       react: 18.2.0
       react-remove-scroll-bar: 2.3.4(@types/react@18.2.21)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.21)(react@18.2.0)
-      tslib: 2.6.2
+      tslib: 2.8.1
       use-callback-ref: 1.3.0(@types/react@18.2.21)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.21)(react@18.2.0)
     optionalDependencies:
       '@types/react': 18.2.21
 
-  react-remove-scroll@2.7.1(@types/react@18.2.21)(react@18.2.0):
+  react-remove-scroll@2.7.1(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       react: 18.2.0
-      react-remove-scroll-bar: 2.3.8(@types/react@18.2.21)(react@18.2.0)
-      react-style-singleton: 2.2.3(@types/react@18.2.21)(react@18.2.0)
+      react-remove-scroll-bar: 2.3.8(@types/react@18.2.22)(react@18.2.0)
+      react-style-singleton: 2.2.3(@types/react@18.2.22)(react@18.2.0)
       tslib: 2.8.1
-      use-callback-ref: 1.3.3(@types/react@18.2.21)(react@18.2.0)
-      use-sidecar: 1.1.3(@types/react@18.2.21)(react@18.2.0)
+      use-callback-ref: 1.3.3(@types/react@18.2.22)(react@18.2.0)
+      use-sidecar: 1.1.3(@types/react@18.2.22)(react@18.2.0)
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
 
   react-style-singleton@2.2.1(@types/react@18.2.21)(react@18.2.0):
     dependencies:
@@ -7230,13 +7185,13 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.2.21
 
-  react-style-singleton@2.2.3(@types/react@18.2.21)(react@18.2.0):
+  react-style-singleton@2.2.3(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       get-nonce: 1.0.1
       react: 18.2.0
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
 
   react-wrap-balancer@0.4.1(react@18.2.0):
     dependencies:
@@ -7250,14 +7205,14 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  reactflow@11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reactflow@11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@reactflow/background': 11.2.8(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@reactflow/controls': 11.1.19(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@reactflow/core': 11.8.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@reactflow/minimap': 11.6.3(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@reactflow/node-resizer': 2.1.5(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@reactflow/node-toolbar': 1.2.7(@types/react@18.2.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/background': 11.2.8(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/controls': 11.1.19(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/core': 11.8.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/minimap': 11.6.3(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/node-resizer': 2.1.5(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@reactflow/node-toolbar': 1.2.7(@types/react@18.2.22)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -7589,8 +7544,7 @@ snapshots:
     dependencies:
       lru-cache: 6.0.0
 
-  semver@7.7.2:
-    optional: true
+  semver@7.7.2: {}
 
   sentence-case@2.1.1:
     dependencies:
@@ -7657,8 +7611,6 @@ snapshots:
   snake-case@2.1.0:
     dependencies:
       no-case: 2.3.2
-
-  source-map-js@1.0.2: {}
 
   source-map-js@1.2.1: {}
 
@@ -7796,11 +7748,11 @@ snapshots:
 
   tailwind-merge@1.13.2: {}
 
-  tailwindcss-animate@1.0.6(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))):
+  tailwindcss-animate@1.0.6(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3))):
     dependencies:
-      tailwindcss: 3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))
+      tailwindcss: 3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3))
 
-  tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)):
+  tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -7815,12 +7767,12 @@ snapshots:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
-      postcss: 8.4.24
-      postcss-import: 15.1.0(postcss@8.4.24)
-      postcss-js: 4.0.1(postcss@8.4.24)
-      postcss-load-config: 4.0.1(postcss@8.4.24)(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))
-      postcss-nested: 6.0.1(postcss@8.4.24)
+      picocolors: 1.1.1
+      postcss: 8.4.31
+      postcss-import: 15.1.0(postcss@8.4.31)
+      postcss-js: 4.0.1(postcss@8.4.31)
+      postcss-load-config: 4.0.1(postcss@8.4.31)(ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3))
+      postcss-nested: 6.0.1(postcss@8.4.31)
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
       resolve: 1.22.6
@@ -7872,25 +7824,6 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.3.3
-      acorn: 8.10.0
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.8.3
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    optional: true
-
   ts-node@10.9.1(@types/node@20.6.3)(typescript@5.2.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -7909,9 +7842,26 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  tslib@1.14.1: {}
+  ts-node@10.9.1(@types/node@20.6.3)(typescript@5.8.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 20.6.3
+      acorn: 8.10.0
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.8.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optional: true
 
-  tslib@2.6.2: {}
+  tslib@1.14.1: {}
 
   tslib@2.8.1: {}
 
@@ -8105,12 +8055,12 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.2.21
 
-  use-callback-ref@1.3.3(@types/react@18.2.21)(react@18.2.0):
+  use-callback-ref@1.3.3(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       react: 18.2.0
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
 
   use-isomorphic-layout-effect@1.1.2(@types/react@18.2.21)(react@18.2.0):
     dependencies:
@@ -8126,13 +8076,13 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.2.21
 
-  use-sidecar@1.1.3(@types/react@18.2.21)(react@18.2.0):
+  use-sidecar@1.1.3(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       detect-node-es: 1.1.0
       react: 18.2.0
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
 
   use-sync-external-store@1.2.0(react@18.2.0):
     dependencies:
@@ -8249,11 +8199,11 @@ snapshots:
 
   zod@3.25.74: {}
 
-  zustand@4.4.1(@types/react@18.2.21)(react@18.2.0):
+  zustand@4.4.1(@types/react@18.2.22)(react@18.2.0):
     dependencies:
       use-sync-external-store: 1.2.0(react@18.2.0)
     optionalDependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
       react: 18.2.0
 
   zwitch@2.0.4: {}
