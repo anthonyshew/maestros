@@ -23,7 +23,7 @@ import { ThemeController } from "#/components/ThemeController";
 import { links } from "#/app/(maestros)/navLinks";
 import { SideBarContent } from "#/app/(maestros)/monorepos/SidebarContent";
 import { buildNavigationGroups } from "#/app/(maestros)/contentHandlers";
-import { AuthSessionProvider } from "#/app/(maestros)/monorepos/SessionProvider";
+
 
 export const generateMetadata = (): Metadata => {
 	return buildMeta({
@@ -45,8 +45,7 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className="relative flex flex-row max-h-screen min-h-screen">
-				<AuthSessionProvider>
-					<ThemeWrapper>
+				<ThemeWrapper>
 						<Sheet>
 							<nav className="absolute flex flex-row items-center w-full gap-8 px-6 border-b h-14 border-yellow-400/80">
 								<Link
@@ -158,10 +157,8 @@ export default function RootLayout({
 								</SheetHeader>
 							</SheetContent>
 						</Sheet>
-						{children}
-					</ThemeWrapper>
-				</AuthSessionProvider>
-				<Analytics />
+					{children}
+				</ThemeWrapper>				<Analytics />
 			</body>
 		</html>
 	);
