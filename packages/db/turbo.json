@@ -1,10 +1,10 @@
 {
-  "extends": ["//"],
-  "globalEnv": ["NODE_ENV"],
-  "pipeline": {
-    "db:generate": {
-      "outputs": ["../../node_modules/.prisma/**"],
-      "outputMode": "new-only"
-    }
-  }
+	"extends": ["//"],
+	"globalEnv": ["NODE_ENV"],
+	"pipeline": {
+		"db:generate": {
+			"outputs": ["../../node_modules/.prisma/**"],
+			"outputMode": "new-only"
+		}
+	}
 }

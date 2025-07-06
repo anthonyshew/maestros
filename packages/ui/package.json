@@ -26,8 +26,8 @@
 		}
 	},
 	"scripts": {
-		"lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-		"lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+		"lint": "biome lint .",
+		"lint:fix": "biome lint . --apply",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
@@ -45,11 +45,9 @@
 		"tailwind-merge": "^1.12.0"
 	},
 	"devDependencies": {
-		"@repo/lint": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"@turbo/gen": "^1.9.8",
 		"@types/react": "^18.2.21",
-		"eslint": "^8.47.0",
 		"typescript": "^5.1.6"
 	}
 }

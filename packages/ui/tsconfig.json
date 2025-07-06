@@ -1,9 +1,9 @@
 {
-  "extends": "@repo/tsconfig/react-library.json",
-  "compilerOptions": {
-    "incremental": false,
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+	"extends": "@repo/tsconfig/react-library.json",
+	"compilerOptions": {
+		"incremental": false,
+		"outDir": "dist"
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
