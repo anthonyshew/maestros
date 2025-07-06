@@ -1,12 +1,14 @@
 /** This type is taken from the Next.js Link type so we can use it in our UI lib. */
 export type NextLinkType = React.ForwardRefExoticComponent<
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/sort-type-constituents
-	Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, any> &
+	// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
+		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, any> &
 		React.RefAttributes<HTMLAnchorElement> & {
 			children?: React.ReactNode;
 		} & {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			href: any;
+			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
+						href: any;
 			className?: string;
 			prefetch?: boolean | null;
 		}
@@ -22,13 +24,15 @@ export type NextImageType = React.ForwardRefExoticComponent<
 	> &
 		React.RefAttributes<HTMLImageElement | null> & {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			src: any;
+			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
+						src: any;
 			alt: string;
 			width?: number | `${number}` | undefined;
 			height?: number | `${number}` | undefined;
 			fill?: boolean | undefined;
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			loader?: any;
+			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
+						loader?: any;
 			quality?: number | `${number}` | undefined;
 			priority?: boolean | undefined;
 			loading?: "eager" | "lazy" | undefined;

@@ -12,7 +12,8 @@ interface SelectProps {
 	options: { value: string; label: string }[];
 	title: "Tasks" | "Workspaces";
 	// eslint-disable-next-line @typescript-eslint/ban-types
-	onChange: Function;
+	// biome-ignore lint/complexity/noBannedTypes: Ignored when migrating
+		onChange: Function;
 }
 
 export function Select({ options, title, onChange }: SelectProps) {

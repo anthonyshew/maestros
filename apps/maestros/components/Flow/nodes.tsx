@@ -1,11 +1,13 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/no-explicit-any -- Don't feel like dealing with the anys in Record */
 import type { Url } from "node:url";
+// biome-ignore lint/correctness/noUnusedImports: Ignored when migrating
 import React, { memo } from "react";
 import { Handle, Position } from "reactflow";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 
+// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
 function _GroupNode({ data }: { data: Record<string, any> }) {
 	return (
 		<div className="relative z-10 w-full h-full bg-gradient-155 border-2 border-yellow-200/80 dark:border-yellow-300/20 from-50% to-yellow-300/20 dark:to-[rgb(83,76,51)]/90 from-transparent rounded-3xl">
@@ -18,6 +20,7 @@ function _GroupNode({ data }: { data: Record<string, any> }) {
 	);
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
 function _ContentNode({ data }: { data: Record<string, any> }) {
 	const Component = data.href ? Link : "div";
 

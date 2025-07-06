@@ -3,6 +3,7 @@
 import { Button } from "@repo/ui";
 import { useRouter } from "next/navigation";
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Ignored when migrating
 export default function Error() {
 	const router = useRouter();
 

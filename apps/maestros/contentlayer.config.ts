@@ -3,6 +3,7 @@ import rehypeMdxCodeProps from "rehype-mdx-code-props";
 
 const BlogPost = defineDocumentType(() => ({
 	name: "BlogPost",
+	// biome-ignore lint/style/noUnusedTemplateLiteral: Ignored when migrating
 	filePathPattern: `blog/**/*.mdx`,
 	contentType: "mdx",
 	fields: {

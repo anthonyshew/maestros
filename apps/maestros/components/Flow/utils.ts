@@ -98,14 +98,16 @@ function getEdgePosition(
 		return Position.Left;
 	}
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	if (px >= nx + n.width! - 1) {
+	// biome-ignore lint/style/noNonNullAssertion: Ignored when migrating
+		if (px >= nx + n.width! - 1) {
 		return Position.Right;
 	}
 	if (py <= ny + 1) {
 		return Position.Top;
 	}
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	if (py >= n.y + n.height! - 1) {
+	// biome-ignore lint/style/noNonNullAssertion: Ignored when migrating
+		if (py >= n.y + n.height! - 1) {
 		return Position.Bottom;
 	}
 

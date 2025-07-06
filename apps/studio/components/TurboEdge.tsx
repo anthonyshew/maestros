@@ -1,3 +1,4 @@
+// biome-ignore lint/correctness/noUnusedImports: Ignored when migrating
 import React from "react";
 import type { EdgeProps } from "reactflow";
 import { getBezierPath } from "reactflow";

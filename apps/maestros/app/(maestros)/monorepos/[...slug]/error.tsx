@@ -1,5 +1,6 @@
 "use client"; // Error components must be Client Components
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Ignored when migrating
 export default function Error() {
 	return (
 		<div className="mt-24 ml-8 prose dark:prose-invert">

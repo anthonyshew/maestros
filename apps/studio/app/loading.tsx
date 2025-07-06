@@ -10,7 +10,8 @@ export default function Loading() {
 			<ReactFlow fitView style={{ minHeight: "100vh" }}>
 				<Controls />
 				<Background />
-				<svg>
+				{/** biome-ignore lint/a11y/noSvgWithoutTitle: Ignored when migrating */}
+<svg>
 					<defs>
 						<linearGradient id="edge-gradient">
 							<stop offset="0%" stopColor="#ae53ba" />

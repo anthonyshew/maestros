@@ -4,6 +4,7 @@ import { Flow } from "#/components/Flow";
 import { metadataBaseURI, buildMeta } from "#/app/metadata";
 
 export const generateMetadata = (): Metadata => {
+	// biome-ignore lint/style/noUnusedTemplateLiteral: Ignored when migrating
 	const title = `Mind Map`;
 	const description = "Your roadmap to monorepo mastery";
 

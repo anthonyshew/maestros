@@ -38,6 +38,7 @@ export function Turboflow({
 	const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
 	const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Ignored when migrating
 	useEffect(() => {
 		const nextNodes: Node<TurboNodeData>[] = initialNodes;
 
@@ -97,6 +98,7 @@ export function Turboflow({
 		[nodes, edges, setEdges, setNodes],
 	);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Ignored when migrating
 	useEffect(() => {
 		onLayout(direction);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -123,7 +125,8 @@ export function Turboflow({
 			{/* <MiniMap /> */}
 			<Controls />
 			<Background />
-			<svg>
+			{/** biome-ignore lint/a11y/noSvgWithoutTitle: Ignored when migrating */}
+<svg>
 				<defs>
 					<linearGradient id="edge-gradient">
 						<stop offset="0%" stopColor="#ae53ba" />

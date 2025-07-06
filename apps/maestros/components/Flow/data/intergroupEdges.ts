@@ -2,6 +2,7 @@ import { type rawCiNodes, ciParentNode } from "./ci";
 import { type rawCompilationNodes, compilationParentNode } from "./compilation";
 import { type rawConformanceNodes, conformanceParentNode } from "./conformance";
 import { type rawStructureNodes, structureParentNode } from "./structure";
+// biome-ignore lint/style/useImportType: Ignored when migrating
 import { type MinimumEdge } from "#/components/Flow/utils";
 
 type AllNodes =
@@ -23,6 +24,7 @@ export const handleIntergroupEdge = ({
 }) => {
 	if (sourceGroup === targetGroup) {
 		throw new Error(
+			// biome-ignore lint/style/noUnusedTemplateLiteral: Ignored when migrating
 			`handleIntegroupEdge: sourceGroup and targetGroup cannot match.`,
 		);
 	}

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "../../components/Button";
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Ignored when migrating
 export default function Error({
 	error,
 }: {

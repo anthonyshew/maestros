@@ -70,7 +70,8 @@ export async function GET(req: Request) {
 					alignItems: "center",
 				}}
 			>
-				<img
+				{/** biome-ignore lint/performance/noImgElement: Ignored when migrating */}
+<img
 					alt=""
 					height={250}
 					src="https://shew.dev/images/me.jpg"
