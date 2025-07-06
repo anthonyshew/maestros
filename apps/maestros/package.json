@@ -23,7 +23,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^8.5.5",
     "lucide-react": "^0.108.0",
-    "next": "^14.0.4",
+    "next": "^15.3.5",
     "next-auth": "^4.22.1",
     "next-contentlayer": "latest",
     "next-themes": "^0.2.1",

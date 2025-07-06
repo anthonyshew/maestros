@@ -10,6 +10,8 @@ import { getPost } from './getPost';
 import { mdxComponents } from '#/components/mdxComponents';
 import { metadataBaseURI } from '#/app/metadata';
 
+export const dynamic = 'force-dynamic';
+
 export const generateStaticParams = () =>
   allBlogPosts.map((post) => ({ slug: post.slug }));
 
