@@ -97,9 +97,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3)))
-      '@total-typescript/ts-reset':
-        specifier: ^0.5.1
-        version: 0.5.1
       '@types/node':
         specifier: ^20.3.3
         version: 20.3.3
@@ -1336,9 +1333,6 @@ packages:
     resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
-
-  '@total-typescript/ts-reset@0.5.1':
-    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
 
   '@tsconfig/node10@1.0.9':
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
@@ -5128,8 +5122,6 @@ snapshots:
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.3.2(ts-node@10.9.1(@types/node@20.3.3)(typescript@5.8.3))
-
-  '@total-typescript/ts-reset@0.5.1': {}
 
   '@tsconfig/node10@1.0.9': {}
 
