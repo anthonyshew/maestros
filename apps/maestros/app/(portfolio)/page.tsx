@@ -46,39 +46,19 @@ export default function Home() {
 			<div className="max-w-2xl mx-auto mt-8 prose dark:prose-invert">
 				<p>
 					Hey, I&apos;m Anthony. I played professional baseball for six years
-					and now I write software. I'm currently at Vercel as Turbo DX, where I
-					get to lead the{" "}
+					and now I write software. I'm currently at Vercel working on
+					Turborepo, where I get to lead the{" "}
 					<a
-						href="https://turbo.build"
+						href="https://turborepo.com"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						Turbo
+						Turborepo
 					</a>{" "}
 					community. If you'd like to learn more about me personally, I wrote a
 					little about how I got here in{" "}
 					<Link href="/blog/my-developer-story">this blog post</Link>.
 				</p>
-
-				<p>
-					I'm also creating <Link href="/monorepos">Monorepo Maestros</Link>, a
-					reference for all things monorepo. As monorepo tooling continues to
-					improve, I'm excited to help developers learn more about how to create
-					well-architected, beautiful, <strong>fast</strong> monorepos to
-					deliver the best work of their lives.
-				</p>
-
-				{/* <div className="flex flex-row items-center justify-center">
-          <Button asChild size="lg" variant="default">
-            <Link
-              className="flex flex-col py-10 text-xl font-bold text-center no-underline md:w-full md:py-8 md:flex-row"
-              href="/monorepos"
-            >
-              <span className="md:m-1.5">Welcome to</span>
-              <span>Monorepo Maestros</span>
-            </Link>
-          </Button>
-        </div> */}
 
 				<hr className="mt-8 mb-4" />
 				<div className="flex flex-col items-center justify-center sm:flex-row sm:gap-8">

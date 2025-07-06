@@ -1,18 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { compareDesc, format, parseISO } from "date-fns";
-import { allBlogs } from "content-collections";
-import { MDXContent } from "@content-collections/mdx/react";
+import { compareDesc } from "date-fns";
+import { blogs as allBlogs } from "#/.source";
 import Balancer from "react-wrap-balancer";
 import { notFound } from "next/navigation";
-import { getPost } from "./getPost";
+import { getPost, getSlug } from "./getPost";
 import { mdxComponents } from "#/components/mdxComponents";
 import { metadataBaseURI } from "#/app/metadata";
 
 export const dynamic = "force-dynamic";
 
 export const generateStaticParams = () =>
-	allBlogs.map((post) => ({ slug: post.slug }));
+	allBlogs.map((post) => ({ slug: getSlug(post) }));
 
 export function generateMetadata({
 	params,
@@ -24,7 +23,7 @@ export function generateMetadata({
 		return;
 	}
 
-	const { title, date: publishedTime, summary, slug } = post;
+	const { title, date: publishedTime, summary } = post;
 
 	const ogUrl = new URL("/api/og", metadataBaseURI);
 	ogUrl.searchParams.set("title", title);
@@ -38,7 +37,7 @@ export function generateMetadata({
 			description: summary,
 			type: "article",
 			publishedTime,
-			url: `https://shew.dev/blog/${slug}`,
+			url: `https://shew.dev/blog/${getSlug(post)}`,
 			images: [
 				{
 					url: ogUrl,
@@ -60,7 +59,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			.sort((a, b) => {
 				return compareDesc(new Date(a.date), new Date(b.date));
 			})
-			.findIndex((post) => post.slug === params.slug);
+			.findIndex((post) => getSlug(post) === params.slug);
 
 		if (foundIndex < 0) return notFound();
 
@@ -77,6 +76,8 @@ function PostLayout({ params }: { params: { slug: string } }) {
 
 	if (!post) return notFound();
 
+	const Mdx = post.body;
+
 	return (
 		<div className="flex flex-col w-full prose md:pr-8 lg:prose-lg dark:prose-invert">
 			<header className="w-full pb-4">
@@ -89,7 +90,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 							className="text-xs text-gray-600 dark:text-gray-400"
 							dateTime={post.date}
 						>
-							{format(parseISO(post.date), "LLLL d, yyyy")}
+							{post.date}
 						</time>
 						<hr className="flex-grow border-1 !my-auto text-slate-900" />
 					</div>
@@ -97,8 +98,8 @@ function PostLayout({ params }: { params: { slug: string } }) {
 			</header>
 
 			<article>
-				{/* biome-ignore lint: Ignored while migrating */}
-				<MDXContent code={post.content} components={mdxComponents as any} />
+				{/* @ts-expect-error */}
+				<Mdx components={mdxComponents} />
 			</article>
 
 			<footer className="pt-4 mt-4 border-t-2 border-t-slate-600">
@@ -108,7 +109,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 					{prevPost ? (
 						<Link
 							className="mx-auto font-medium md:text-lg"
-							href={`/blog/${prevPost.slug}`}
+							href={`/blog/${getSlug(prevPost)}`}
 						>
 							<span className="mr-4">👈</span>
 							{prevPost.title}
@@ -117,7 +118,7 @@ function PostLayout({ params }: { params: { slug: string } }) {
 					{nextPost ? (
 						<Link
 							className="mx-auto font-medium md:text-lg"
-							href={`/blog/${nextPost.slug}`}
+							href={`/blog/${getSlug(nextPost)}`}
 						>
 							{nextPost.title}
 							<span className="ml-4">👉</span>
