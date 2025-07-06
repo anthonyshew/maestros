@@ -11,7 +11,7 @@ export default function Loading() {
 				<Controls />
 				<Background />
 				{/** biome-ignore lint/a11y/noSvgWithoutTitle: Ignored when migrating */}
-<svg>
+				<svg>
 					<defs>
 						<linearGradient id="edge-gradient">
 							<stop offset="0%" stopColor="#ae53ba" />

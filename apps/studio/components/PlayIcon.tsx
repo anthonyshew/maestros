@@ -6,7 +6,7 @@ export function PlayIcon({
 }: SVGProps<SVGSVGElement> & { className: string }) {
 	return (
 		// biome-ignore lint/a11y/noSvgWithoutTitle: Ignored when migrating
-<svg
+		<svg
 			className={className}
 			fill="none"
 			stroke="currentColor"

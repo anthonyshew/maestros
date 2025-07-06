@@ -2,13 +2,13 @@
 export type NextLinkType = React.ForwardRefExoticComponent<
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/sort-type-constituents
 	// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
-		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, any> &
+	Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, any> &
 		React.RefAttributes<HTMLAnchorElement> & {
 			children?: React.ReactNode;
 		} & {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
-						href: any;
+			href: any;
 			className?: string;
 			prefetch?: boolean | null;
 		}
@@ -25,14 +25,14 @@ export type NextImageType = React.ForwardRefExoticComponent<
 		React.RefAttributes<HTMLImageElement | null> & {
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
-						src: any;
+			src: any;
 			alt: string;
 			width?: number | `${number}` | undefined;
 			height?: number | `${number}` | undefined;
 			fill?: boolean | undefined;
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			// biome-ignore lint/suspicious/noExplicitAny: Ignored when migrating
-						loader?: any;
+			loader?: any;
 			quality?: number | `${number}` | undefined;
 			priority?: boolean | undefined;
 			loading?: "eager" | "lazy" | undefined;

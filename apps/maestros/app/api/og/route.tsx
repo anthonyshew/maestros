@@ -71,7 +71,7 @@ export async function GET(req: Request) {
 				}}
 			>
 				{/** biome-ignore lint/performance/noImgElement: Ignored when migrating */}
-<img
+				<img
 					alt=""
 					height={250}
 					src="https://shew.dev/images/me.jpg"
