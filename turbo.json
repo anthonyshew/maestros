@@ -1,43 +1,43 @@
 {
-  "pipeline": {
-    "dev": {
-      "dependsOn": ["@repo/db#generate"],
-      "persistent": true,
-      "cache": false
-    },
-    "build": {
-      "dependsOn": ["^build", "^generate"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
-    },
-    "generate": {
-      "outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
-    },
-    "topo": {
-      "dependsOn": ["^generate", "^topo"]
-    },
-    "//#format": {},
-    "//#format:fix": {
-      "cache": false
-    },
-    "//#lint": {},
-    "lint": {
-      "dependsOn": ["^topo", "^generate", "generate"]
-    },
-    "//#lint:fix": {
-      "dependsOn": ["^topo"],
-      "cache": false
-    },
-    "lint:fix": {
-      "dependsOn": ["^topo", "^generate", "generate"],
-      "cache": false
-    },
-    "typecheck": {
-      "dependsOn": ["^topo", "^generate", "generate"],
-      "outputMode": "errors-only"
-    },
-    "spellcheck": {
-      "inputs": ["**/*.mdx"],
-      "cache": false
-    }
-  }
+	"pipeline": {
+		"dev": {
+			"dependsOn": ["@repo/db#generate"],
+			"persistent": true,
+			"cache": false
+		},
+		"build": {
+			"dependsOn": ["^build", "^generate"],
+			"outputs": [".next/**", "!.next/cache/**", "dist/**"]
+		},
+		"generate": {
+			"outputs": ["../../node_modules/.prisma/**", ".contentlayer/**"]
+		},
+		"topo": {
+			"dependsOn": ["^generate", "^topo"]
+		},
+		"//#format": {},
+		"//#format:fix": {
+			"cache": false
+		},
+		"//#lint": {},
+		"lint": {
+			"dependsOn": ["^topo", "^generate", "generate"]
+		},
+		"//#lint:fix": {
+			"dependsOn": ["^topo"],
+			"cache": false
+		},
+		"lint:fix": {
+			"dependsOn": ["^topo", "^generate", "generate"],
+			"cache": false
+		},
+		"typecheck": {
+			"dependsOn": ["^topo", "^generate", "generate"],
+			"outputMode": "errors-only"
+		},
+		"spellcheck": {
+			"inputs": ["**/*.mdx"],
+			"cache": false
+		}
+	}
 }

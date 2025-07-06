@@ -1,30 +1,30 @@
 {
-  "name": "sheworepo",
-  "version": "0.1.0",
-  "scripts": {
-    "build": "turbo run build",
-    "checks": "turbo run format lint typecheck spellcheck --continue",
-    "checks:fix": "turbo run format:fix lint:fix --continue --force",
-    "clean": "find . -name node_modules -o -name .next -o -name dist -o -name .contentlayer -type d -prune | xargs rm -rf",
-    "dev": "turbo run dev",
-    "format": "biome format .",
-    "format:fix": "biome format . --write",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint . --apply",
-    "typecheck": "turbo run typecheck --continue"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.0.6",
-    "turbo": "^1.11.2"
-  },
-  "packageManager": "pnpm@10.12.4",
-  "engines": {
-    "node": ">=18"
-  },
-  "pnpm": {
-    "overrides": {
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0"
-    }
-  }
+	"name": "sheworepo",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "turbo run build",
+		"checks": "turbo run format lint typecheck spellcheck --continue",
+		"checks:fix": "turbo run format:fix lint:fix --continue --force",
+		"clean": "find . -name node_modules -o -name .next -o -name dist -o -name .contentlayer -type d -prune | xargs rm -rf",
+		"dev": "turbo run dev",
+		"format": "biome format .",
+		"format:fix": "biome format . --write",
+		"lint": "biome lint .",
+		"lint:fix": "biome lint . --apply",
+		"typecheck": "turbo run typecheck --continue"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.6",
+		"turbo": "^1.11.2"
+	},
+	"packageManager": "pnpm@10.12.4",
+	"engines": {
+		"node": ">=18"
+	},
+	"pnpm": {
+		"overrides": {
+			"react": "^18.2.0",
+			"react-dom": "^18.2.0"
+		}
+	}
 }
