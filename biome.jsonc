@@ -11,7 +11,7 @@
 			"!**/build/**",
 			"!**/.turbo/**",
 			"!**/coverage/**",
-			"!apps/maestros/.content-collections/**"
+			"!**/.source/**"
 		]
 	},
 	"formatter": {
