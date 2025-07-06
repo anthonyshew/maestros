@@ -21,6 +21,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"nursery": {
+				"noFloatingPromises": "error"
+			},
 			"correctness": {
 				"noUnusedVariables": "error",
 				"useExhaustiveDependencies": "warn"
