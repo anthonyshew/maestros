@@ -8,7 +8,7 @@ export type NextLinkType = React.ForwardRefExoticComponent<
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       href: any;
       className?: string;
-      prefetch?: boolean;
+      prefetch?: boolean | null;
     }
 >;
 
