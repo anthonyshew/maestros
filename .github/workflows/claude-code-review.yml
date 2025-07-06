@@ -23,16 +23,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v40
-        with:
-          files: |
-            **/*.{js,jsx,ts,tsx,py,go,rs,java,cpp,c,h,hpp,cs,php,rb,swift,kt,scala,clj,hs,ml,fs,elm,dart,vue,svelte}
-          separator: ","
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+        working-directory: /tmp
 
       - name: Claude Code Review
-        if: steps.changed-files.outputs.any_changed == 'true'
         uses: actions/github-script@v7
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -48,13 +43,6 @@ jobs:
             const anthropic = new Anthropic({
               apiKey: process.env.ANTHROPIC_API_KEY,
             });
-
-            const changedFiles = '${{ steps.changed-files.outputs.all_changed_files }}'.split(',');
-            
-            if (changedFiles.length === 0) {
-              console.log('No relevant files changed');
-              return;
-            }
 
             // Get PR details
             const { data: pr } = await github.rest.pulls.get({
@@ -78,8 +66,6 @@ jobs:
 
             PR Title: ${pr.title}
             PR Description: ${pr.body || 'No description provided'}
-
-            Changed files: ${changedFiles.join(', ')}
 
             Diff:
             \`\`\`diff
@@ -119,8 +105,3 @@ jobs:
             } catch (error) {
               core.setFailed(`Failed to get Claude review: ${error.message}`);
             }
-
-      - name: Install Anthropic SDK
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: npm install @anthropic-ai/sdk
-        working-directory: /tmp
