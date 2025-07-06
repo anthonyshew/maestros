@@ -2,8 +2,8 @@
   --bg-color: rgb(17, 17, 17);
   --text-color: rgb(243, 244, 246);
   --node-border-radius: 10px;
-  --node-box-shadow: 10px 0 15px rgba(42, 138, 246, 0.3),
-    -10px 0 15px rgba(233, 42, 103, 0.3);
+  --node-box-shadow:
+    10px 0 15px rgba(42, 138, 246, 0.3), -10px 0 15px rgba(233, 42, 103, 0.3);
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -13,7 +13,7 @@
   display: flex;
   height: 70px;
   min-width: 150px;
-  font-family: 'Fira Mono', Monospace;
+  font-family: "Fira Mono", Monospace;
   font-weight: 500;
   letter-spacing: -0.2px;
   box-shadow: var(--node-box-shadow);
@@ -29,7 +29,7 @@
 }
 
 .gradient:before {
-  content: '';
+  content: "";
   position: absolute;
   padding-bottom: calc(100% * 1.41421356237);
   width: calc(100% * 1.41421356237);
@@ -47,7 +47,7 @@
 }
 
 .react-flow__node-turbo.selected .wrapper.gradient:before {
-  content: '';
+  content: "";
   background: conic-gradient(
     from -160deg at 50% 50%,
     #e92a67 0deg,

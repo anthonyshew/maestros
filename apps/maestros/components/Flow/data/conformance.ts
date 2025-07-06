@@ -54,11 +54,11 @@ export const rawConformanceNodes = [
 ] as const;
 
 export const conformanceNodes = rawConformanceNodes.map((node) =>
-  handleNode(conformanceNodeId, node),
+  handleNode(conformanceNodeId, node)
 );
 
 const rawConformanceEdges: MinimumEdge<
-  typeof rawConformanceNodes[number]['data']['label']
+  (typeof rawConformanceNodes)[number]['data']['label']
 >[] = [
   { source: 'Guardrails', target: 'TypeScript' },
   { source: 'Guardrails', target: 'Prettier' },
@@ -68,5 +68,5 @@ const rawConformanceEdges: MinimumEdge<
 ];
 
 export const conformanceEdges = rawConformanceEdges.map((edge) =>
-  handleEdge(conformanceNodeId, edge),
+  handleEdge(conformanceNodeId, edge)
 );

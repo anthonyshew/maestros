@@ -11,7 +11,7 @@ export const generateMetadata = (): Metadata => {
     title,
     description,
     ogImage: encodeURI(
-      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`,
+      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${description}`
     ),
   });
 };

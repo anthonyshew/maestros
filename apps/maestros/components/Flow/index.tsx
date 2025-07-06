@@ -46,7 +46,7 @@ const initialEdges = [
 
 export function Flow() {
   const [nodes, _setNodes, onNodesChange] = useNodesState(
-    initialNodes as Node[],
+    initialNodes as Node[]
   );
   const [edges, _setEdges, onEdgesChange] = useEdgesState(initialEdges);
 

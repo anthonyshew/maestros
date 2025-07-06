@@ -14,10 +14,10 @@ export function CustomEdge({
   markerEnd: string;
 }) {
   const sourceNode = useStore(
-    useCallback((store) => store.nodeInternals.get(source), [source]),
+    useCallback((store) => store.nodeInternals.get(source), [source])
   );
   const targetNode = useStore(
-    useCallback((store) => store.nodeInternals.get(target), [target]),
+    useCallback((store) => store.nodeInternals.get(target), [target])
   );
 
   if (!sourceNode || !targetNode) {
@@ -27,7 +27,7 @@ export function CustomEdge({
   const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(
     // @ts-expect-error Don't care, we shippin'.
     sourceNode,
-    targetNode,
+    targetNode
   );
 
   const [edgePath] = getBezierPath({

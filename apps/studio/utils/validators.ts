@@ -60,13 +60,13 @@ export const dry = z
           z.object({
             env: z.array(z.string()).nullable(),
             passThroughEnv: z.array(z.string()).nullable(),
-          }),
+          })
         ),
         inferred: z.array(
           z.object({
             env: z.array(z.string()).nullable(),
             passThroughEnv: z.array(z.string()).nullable(),
-          }),
+          })
         ),
         passthrough: z.array(z.string()).nullable(),
       }),

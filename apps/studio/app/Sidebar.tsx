@@ -30,7 +30,7 @@ export function Sidebar() {
     if (!task) return;
 
     setPastInputs((list) =>
-      [...new Set([...list, task])].reverse().slice(0, 10),
+      [...new Set([...list, task])].reverse().slice(0, 10)
     );
     router.push(`${task}`);
   };

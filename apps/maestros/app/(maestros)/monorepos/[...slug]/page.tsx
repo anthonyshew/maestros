@@ -11,7 +11,7 @@ import { buildMeta, metadataBaseURI } from '#/app/metadata';
 export function generateStaticParams() {
   return [
     allDocuments.filter(
-      (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson',
+      (doc) => doc.type === 'MaestrosLanding' || doc.type === 'MaestrosLesson'
     ),
   ];
 }
@@ -31,7 +31,7 @@ export const generateMetadata = ({
     title: `${title} - Monorepo Maestros`,
     description: `${content.ogDescription}`,
     ogImage: encodeURI(
-      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`,
+      `${metadataBaseURI}/monorepos/api/og?title=${title}&subtitle=${content.ogDescription}`
     ),
   });
 };
@@ -75,7 +75,7 @@ function Page({ params }: { params: { slug: string[] } }) {
               <Link
                 className="text-gray-600 truncate transition-all dark:text-gray-400 dark:hover:text-yellow-400 hover:text-yellow-700"
                 href={`#${replaceNonAlphanumericsWithDash(
-                  heading.replaceAll('#', '').replaceAll('`', '').trim(),
+                  heading.replaceAll('#', '').replaceAll('`', '').trim()
                 )}`}
                 key={heading}
               >

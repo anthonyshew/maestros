@@ -14,7 +14,7 @@ export const TurboNode = memo(
   ({ data, sourcePosition, targetPosition }: NodeProps<TurboNodeData>) => {
     if (!sourcePosition || !targetPosition) {
       throw new Error(
-        'Either a sourcePosition or targetPosition was not provided to a Reactflow node.',
+        'Either a sourcePosition or targetPosition was not provided to a Reactflow node.'
       );
     }
 
@@ -35,7 +35,7 @@ export const TurboNode = memo(
         </div>
       </div>
     );
-  },
+  }
 );
 
 TurboNode.displayName = 'TurboNode';

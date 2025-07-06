@@ -15,13 +15,13 @@ export const sideBarItems = allDocuments
       path: '/monorepos/'.concat(
         lesson._raw.flattenedPath
           .replaceAll('maestros/lessons/', '')
-          .replaceAll('index', ''),
+          .replaceAll('index', '')
       ),
     };
   });
 
 export const buildNavigationGroups = () => {
-  const buildMe: (typeof sideBarItems[number] & {
+  const buildMe: ((typeof sideBarItems)[number] & {
     children: typeof sideBarItems;
   })[] = [];
   const items = sideBarItems;

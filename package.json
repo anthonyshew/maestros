@@ -9,14 +9,12 @@
     "dev": "turbo run dev",
     "format": "biome format .",
     "format:fix": "biome format . --write",
-    "lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-    "lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
     "typecheck": "turbo run typecheck --continue"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.2.2",
-    "@vercel/style-guide": "^4.0.2",
-    "eslint": "^8.47.0",
+    "@biomejs/biome": "2.0.6",
     "turbo": "^1.11.2"
   },
   "packageManager": "pnpm@10.12.4",

@@ -7,7 +7,7 @@ export const generateMetadata = () => {
     title: 'Monorepo Maestros',
     description: 'Are you ready to conduct the monorepo orchestra?',
     ogImage: encodeURI(
-      `${metadataBaseURI}/monorepos/api/og?title=Monorepo Maestros`,
+      `${metadataBaseURI}/monorepos/api/og?title=Monorepo Maestros`
     ),
   });
 };

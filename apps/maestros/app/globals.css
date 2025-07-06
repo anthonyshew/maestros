@@ -81,11 +81,11 @@
   padding: 0 !important;
 }
 
-.prose :where(code):not(:where([class~='not-prose'] *))::after {
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
   content: none !important;
 }
 
-.prose :where(code):not(:where([class~='not-prose'] *))::before {
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
   content: none !important;
 }
 

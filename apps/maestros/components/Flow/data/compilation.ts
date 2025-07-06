@@ -85,11 +85,11 @@ export const rawCompilationNodes = [
 ] as const;
 
 export const compilationNodes = rawCompilationNodes.map((node) =>
-  handleNode(compilationNodeId, node),
+  handleNode(compilationNodeId, node)
 );
 
 const rawCompilationEdges: MinimumEdge<
-  typeof rawCompilationNodes[number]['data']['label']
+  (typeof rawCompilationNodes)[number]['data']['label']
 >[] = [
   { source: 'Bundlers', target: 'tsc' },
   { source: 'Bundlers', target: 'tsup' },
@@ -110,5 +110,5 @@ const rawCompilationEdges: MinimumEdge<
 ];
 
 export const compilationEdges = rawCompilationEdges.map((edge) =>
-  handleEdge(compilationNodeId, edge),
+  handleEdge(compilationNodeId, edge)
 );

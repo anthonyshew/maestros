@@ -1,33 +1,31 @@
 {
-	"name": "@repo/analytics",
-	"version": "0.1.0",
-	"private": true,
-	"exports": {
-		".": {
-			"default": "./src/index.tsx"
-		}
-	},
-	"typesVersions": {
-		"*": {
-			"*": [
-				"./src/index.tsx"
-			]
-		}
-	},
-	"scripts": {
-		"lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-		"lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@vercel/analytics": "^1.0.2",
-		"react": "^18.2.0"
-	},
-	"devDependencies": {
-		"@repo/lint": "workspace:*",
-		"@repo/tsconfig": "workspace:*",
-		"eslint": "^8.47.0",
-		"tsup": "^7.2.0",
-		"typescript": "^5.1.6"
-	}
+  "name": "@repo/analytics",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "default": "./src/index.tsx"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./src/index.tsx"
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.0.2",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  }
 }

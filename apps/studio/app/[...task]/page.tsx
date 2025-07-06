@@ -27,7 +27,7 @@ export default function Content({ params }: { params: { task: string } }) {
     const graph: Dry = dry.parse(rawGraph);
 
     const tasks = graph.tasks.filter(
-      (parsedGraph) => parsedGraph.command !== '<NONEXISTENT>',
+      (parsedGraph) => parsedGraph.command !== '<NONEXISTENT>'
     );
 
     return (

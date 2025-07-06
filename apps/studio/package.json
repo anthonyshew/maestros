@@ -16,9 +16,9 @@
   "scripts": {
     "build:studio": "next build",
     "dev:studio": "next dev",
-    "format:studio": "next lint",
-    "lint:fix:studio": "next lint --fix",
-    "lint:studio": "next lint",
+    "format:studio": "biome format .",
+    "lint:fix:studio": "biome lint . --apply",
+    "lint:studio": "biome lint .",
     "start:studio": "next start -p 3001",
     "typecheck:studio": "tsc --noEmit"
   },

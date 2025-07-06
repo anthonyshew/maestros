@@ -48,14 +48,14 @@ export function Callout({ children, type = 'info', className }: CalloutProps) {
         calloutStyles({ type }),
         type === 'warning' ? 'font-semibold' : '',
         'relative',
-        className,
+        className
       )}
     >
       {type !== 'goodToKnow' && type !== 'note' ? (
         <div
           className={twMerge(
             calloutStyles({ type }),
-            'absolute -top-8 -left-4 p-2 text-xs rounded-full',
+            'absolute -top-8 -left-4 p-2 text-xs rounded-full'
           )}
         >
           {iconSet(type)}

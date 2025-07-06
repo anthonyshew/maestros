@@ -12,7 +12,7 @@ export type MinimumEdge<T extends string> = Partial<Edge> & RequiredEdgeKeys<T>;
 
 export const handleEdge = (
   parentNodeId: string,
-  edge: MinimumEdge<string>,
+  edge: MinimumEdge<string>
 ) => ({
   ...edge,
   id: `${parentNodeId}-${edge.source}-${edge.target}`,
@@ -35,7 +35,7 @@ export interface MinimumNode extends Omit<Node, 'id' | 'type'> {
 
 export const handleNode = (
   parentNodeId: string,
-  node: Omit<MinimumNode, 'id'>,
+  node: Omit<MinimumNode, 'id'>
 ) => ({
   ...node,
   id: `${parentNodeId}-${node.data.label}`,
@@ -54,7 +54,7 @@ export const nodeTypes = {
 // of the line between the center of the intersectionNode and the target node
 function getNodeIntersection(
   intersectionNode: Required<Node> & { width: number; height: number },
-  targetNode: Required<Node>,
+  targetNode: Required<Node>
 ) {
   // https://math.stackexchange.com/questions/1724792/an-algorithm-for-finding-the-intersection-point-between-a-center-of-vision-and-a
   const {
@@ -86,7 +86,7 @@ function getNodeIntersection(
 // returns the position (top,right,bottom or right) passed node compared to the intersection point
 function getEdgePosition(
   node: Required<Node>,
-  intersectionPoint: { x: number; y: number },
+  intersectionPoint: { x: number; y: number }
 ) {
   const n = { ...node.positionAbsolute, ...node };
   const nx = Math.round(n.x);
@@ -115,7 +115,7 @@ function getEdgePosition(
 // returns the parameters (sx, sy, tx, ty, sourcePos, targetPos) you need to create an edge
 export function getEdgeParams(
   source: Required<Node> & { width: number; height: number },
-  target: Required<Node> & { width: number; height: number },
+  target: Required<Node> & { width: number; height: number }
 ) {
   const sourceIntersectionPoint = getNodeIntersection(source, target);
   const targetIntersectionPoint = getNodeIntersection(target, source);

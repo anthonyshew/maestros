@@ -47,7 +47,7 @@ export const topLevelTasks = (tasks: Turbotask[]) =>
 export const getLayoutedElements = (
   nodes: Node[],
   edges: Edge[],
-  direction: GraphDirection = 'LR',
+  direction: GraphDirection = 'LR'
 ) => {
   const handleDirection = (dir: GraphDirection): [Position, Position] => {
     if (dir === 'BT') {

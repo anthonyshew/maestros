@@ -38,7 +38,7 @@ export function LinkHeading({
       <a
         className="font-bold no-underline hover:underline"
         href={`#${replaceNonAlphanumericsWithDash(
-          handledChildren?.toString(),
+          handledChildren?.toString()
         )}`}
         {...props}
       >

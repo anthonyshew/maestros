@@ -5,10 +5,10 @@ import { type rawStructureNodes, structureParentNode } from './structure';
 import { type MinimumEdge } from '#/components/Flow/utils';
 
 type AllNodes =
-  | typeof rawCiNodes[number]['data']['label']
-  | typeof rawCompilationNodes[number]['data']['label']
-  | typeof rawConformanceNodes[number]['data']['label']
-  | typeof rawStructureNodes[number]['data']['label'];
+  | (typeof rawCiNodes)[number]['data']['label']
+  | (typeof rawCompilationNodes)[number]['data']['label']
+  | (typeof rawConformanceNodes)[number]['data']['label']
+  | (typeof rawStructureNodes)[number]['data']['label'];
 
 type Groups = 'ci' | 'compilation' | 'conformance' | 'structure';
 
@@ -23,7 +23,7 @@ export const handleIntergroupEdge = ({
 }) => {
   if (sourceGroup === targetGroup) {
     throw new Error(
-      `handleIntegroupEdge: sourceGroup and targetGroup cannot match.`,
+      `handleIntegroupEdge: sourceGroup and targetGroup cannot match.`
     );
   }
 
@@ -41,7 +41,7 @@ export const handleIntergroupEdge = ({
   return {
     ...edge,
     id: `${getParentNodeId(sourceGroup)}-${getParentNodeId(
-      targetGroup,
+      targetGroup
     )}-${targetGroup}-${edge.source}-${edge.target}`,
     source: `${getParentNodeId(sourceGroup)}-${edge.source}`,
     target: `${getParentNodeId(targetGroup)}-${edge.target}`,
@@ -90,5 +90,5 @@ export const intergroupEdges = rawStructureEdges.map((edge) =>
     edge,
     sourceGroup: edge.sourceGroup,
     targetGroup: edge.targetGroup,
-  }),
+  })
 );

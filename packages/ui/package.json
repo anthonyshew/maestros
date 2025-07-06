@@ -1,55 +1,53 @@
 {
-	"name": "@repo/ui",
-	"version": "0.1.0",
-	"private": true,
-	"imports": {
-		"#components/*": "./src/components/*"
-	},
-	"exports": {
-		".": {
-			"types": "./src/index.ts",
-			"default": "./src/index.ts"
-		},
-		"./server": {
-			"types": "./src/server.ts",
-			"default": "./src/server.ts"
-		}
-	},
-	"typesVersions": {
-		"*": {
-			"*": [
-				"./src/index.ts"
-			],
-			"./server": [
-				"./src/server.ts"
-			]
-		}
-	},
-	"scripts": {
-		"lint": "eslint . --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-		"lint:fix": "eslint . --fix --cache --cache-location 'node_modules/.cache/.eslintcache' --max-warnings 0",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"@radix-ui/react-accordion": "^1.1.2",
-		"@radix-ui/react-avatar": "^1.0.3",
-		"@radix-ui/react-dialog": "^1.0.4",
-		"@radix-ui/react-select": "^1.2.1",
-		"@radix-ui/react-slot": "^1.2.3",
-		"bright": "^0.8.4",
-		"class-variance-authority": "^0.7.0",
-		"lucide-icons-react": "^1.0.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-wrap-balancer": "^1.1.0",
-		"tailwind-merge": "^1.12.0"
-	},
-	"devDependencies": {
-		"@repo/lint": "workspace:*",
-		"@repo/tsconfig": "workspace:*",
-		"@turbo/gen": "^1.9.8",
-		"@types/react": "^18.2.21",
-		"eslint": "^8.47.0",
-		"typescript": "^5.1.6"
-	}
+  "name": "@repo/ui",
+  "version": "0.1.0",
+  "private": true,
+  "imports": {
+    "#components/*": "./src/components/*"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./server": {
+      "types": "./src/server.ts",
+      "default": "./src/server.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./src/index.ts"
+      ],
+      "./server": [
+        "./src/server.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-avatar": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.0.4",
+    "@radix-ui/react-select": "^1.2.1",
+    "@radix-ui/react-slot": "^1.2.3",
+    "bright": "^0.8.4",
+    "class-variance-authority": "^0.7.0",
+    "lucide-icons-react": "^1.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-wrap-balancer": "^1.1.0",
+    "tailwind-merge": "^1.12.0"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@turbo/gen": "^1.9.8",
+    "@types/react": "^18.2.21",
+    "typescript": "^5.1.6"
+  }
 }

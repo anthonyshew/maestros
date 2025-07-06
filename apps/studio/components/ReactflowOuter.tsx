@@ -38,14 +38,14 @@ export function ReactFlowOuter({
         source: '___ROOT___',
         target: task.id,
         className: 'full-opacity',
-      }),
+      })
     ),
     ...edgesBuilder(tasks),
   ];
 
   const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
     initialNodes,
-    initialEdges,
+    initialEdges
   );
 
   return (

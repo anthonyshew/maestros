@@ -46,7 +46,7 @@ export function Turboflow({
     const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
       nextNodes,
       nextEdges,
-      direction,
+      direction
     );
 
     setNodes(layoutedNodes);
@@ -59,7 +59,7 @@ export function Turboflow({
     const neighbors: Node[] = [];
     edgesToNeighbors.forEach((edge) => {
       const foundNode = nodes.find(
-        (node) => node.id === edge.source || node.id === edge.target,
+        (node) => node.id === edge.source || node.id === edge.target
       );
 
       if (!foundNode) return;
@@ -77,13 +77,13 @@ export function Turboflow({
 
   const resetDim = () => {
     setNodes((cur) =>
-      cur.map((node) => ({ ...node, className: 'full-opacity' })),
+      cur.map((node) => ({ ...node, className: 'full-opacity' }))
     );
   };
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges],
+    [setEdges]
   );
 
   const onLayout = useCallback(
@@ -94,7 +94,7 @@ export function Turboflow({
       setNodes([...layoutedNodes]);
       setEdges([...layoutedEdges]);
     },
-    [nodes, edges, setEdges, setNodes],
+    [nodes, edges, setEdges, setNodes]
   );
 
   useEffect(() => {

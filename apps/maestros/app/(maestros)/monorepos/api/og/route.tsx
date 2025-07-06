@@ -4,11 +4,11 @@ export const runtime = 'edge';
 
 export async function GET(req: Request) {
   const fontMedium = await fetch(
-    new URL('../../../../../public/fonts/Inter-Medium.ttf', import.meta.url),
+    new URL('../../../../../public/fonts/Inter-Medium.ttf', import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const fontBold = await fetch(
-    new URL('../../../../../public/fonts/Inter-Bold.ttf', import.meta.url),
+    new URL('../../../../../public/fonts/Inter-Bold.ttf', import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const searchParams = new URL(req.url).searchParams;
@@ -99,6 +99,6 @@ export async function GET(req: Request) {
           weight: 700,
         },
       ],
-    },
+    }
   );
 }

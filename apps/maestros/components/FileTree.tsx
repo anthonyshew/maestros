@@ -18,7 +18,7 @@ function Tree({ children }: { children: ReactNode }): ReactElement {
   return (
     <div
       className={twMerge(
-        'nextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300',
+        'nextra-filetree mt-6 select-none text-sm text-gray-800 dark:text-gray-300'
       )}
     >
       <div className="inline-block px-4 py-2 border rounded-lg dark:border-neutral-800">
@@ -59,7 +59,7 @@ function File({ label, name, active }: FileProps) {
     <li
       className={twMerge(
         'flex list-none',
-        active && 'text-primary-600 contrast-more:underline',
+        active && 'text-primary-600 contrast-more:underline'
       )}
     >
       <span className="inline-flex items-center cursor-default">
