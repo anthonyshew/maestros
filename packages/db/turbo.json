@@ -1,9 +1,0 @@
-{
-	"extends": ["//"],
-	"globalEnv": ["NODE_ENV"],
-	"tasks": {
-		"db:generate": {
-			"outputs": ["../../node_modules/.prisma/**"]
-		}
-	}
-}

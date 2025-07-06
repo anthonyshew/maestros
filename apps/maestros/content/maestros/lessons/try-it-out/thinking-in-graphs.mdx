@@ -37,7 +37,7 @@ This graph shows the steps that it takes to build Maestros:
 
 1. You or your CI run the `turbo build` pipeline.
 2. `turbo` finds the `maestros` app has a `build` task.
-3. `turbo` sees that the `build` task for the `maestros` workspace depends on the `generate` task in the `@repo/db` workspace. This dependency can be found in the root's `turbo.json`.
+3. `turbo` sees that the `build` task for the `maestros` workspace depends on the `generate` task. This dependency can be found in the root's `turbo.json`.
 
 This is a simple pipeline with few steps. In the left sidebar, you can change the task to `turbo run lint` or `turbo run typecheck` see graphs with slightly more complexity. You can also edit `turbo.json` or workspace dependencies to see what changes you can bring to your task graph.
 
